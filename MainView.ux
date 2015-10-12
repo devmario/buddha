@@ -1,5 +1,7 @@
 <App ux:Class="MainView" Theme="Basic" ClearColor="#ffffffff" ux:AutoCtor="false">
+
   <JavaScript File="MainView.js"/>
+
   <Panel>
 	<Style>
 	  <Text>
@@ -12,7 +14,7 @@
 	  </Page>
 	</Style>
 	<DirectNavigation Active="main"/>
-  
+	
 	<!-- main -->
 	<Page ux:Name="main">
 	  <!-- main menu button -->
@@ -145,45 +147,82 @@
 				<Text TextWrapping="Wrap" Value="바르고 아름답게 가꾸어보세요." Alignment="Center" FontSize="28" TextColor="#3D3D3D"/>
 		  	  </StackPanel>
 			</Page>
-			
+
+			<!-- 절하는 방법 -->
 			<Page ux:Name="helpPage2">
 			  <WhileActive>
 				<Callback Handler="{help2Active}"/>
 			  </WhileActive>
-			  <Grid Rows="8*,2*" Width="100%" Height="100%">
-				<Grid ColumnData="2*,8*,8*,2*">
-				  <Panel/>
-					<Image ux:Name="animIMG" File="{animSRC}" Width="100%" Height="100%" StretchMode="Uniform"/>
-				  <StackPanel Orientation="Vertical" Alignment="VerticalCenter">
-					<Text TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="{animText}"/>
-				  </StackPanel>
-				  <Panel/>
+			  <Grid ColumnData="1*,8*,1*,8*,1*">
+				<Panel/>
+
+				<Grid Rows="8*,2*" Width="100%" Height="100%">
+				  <Image ux:Name="animIMG" File="{animSRC}" Width="100%" Height="100%" StretchMode="Uniform"/>
+				  <Grid ColumnData="3*,3*,3*" Width="100%" Height="100%" Padding="8">
+					<Panel Background="#ffffff00" Alignment="Center" Opacity="{help2NaviAlpha0}">
+					  <WhilePressed>
+						<Scale Factor="1.1"/>
+					  </WhilePressed>
+					  <Image Padding="7" File="res/img/prevButton.png" />
+					  <Clicked>
+						<Callback Handler="{help2NaviPrev}"/>
+					  </Clicked>
+					</Panel>
+					<Panel Background="#ffffff00" Alignment="Center" Opacity="{help2NaviAlpha1}"> 
+					  <WhilePressed>
+						<Scale Factor="1.1"/>
+					  </WhilePressed>
+					  <Image Padding="7" File="res/img/playButton.png" />
+					  <Clicked>
+						<Callback Handler="{help2NaviPlay}"/>
+					  </Clicked>
+					</Panel>
+					<Panel Background="#ffffff00" Alignment="Center" Opacity="{help2NaviAlpha2}">
+					  <WhilePressed>
+						<Scale Factor="1.1"/>
+					  </WhilePressed>
+					  <Image Padding="7" File="res/img/nextButton.png" />
+					  <Clicked> 
+						<Callback Handler="{help2NaviNext}"/>
+					  </Clicked>
+					</Panel>
+				  </Grid>
 				</Grid>
-				<StackPanel/>
+
+				<Panel/>
+
+				<!-- 절하는 방법 내용 -->
+				<StackPanel Orientation="Vertical" Alignment="VerticalCenter">
+				  <Text TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="{animText}"/>
+				</StackPanel>
+
+				<Panel/>
 			  </Grid>
 			</Page>
 
+			<!-- 사용법 -->
 			<Page ux:Name="helpPage3">
 			  <Image File="res/img/helpContent1.png" Width="100%" Height="100%" StretchMode="Uniform"/>
 			</Page>
+			
 		  </Panel>
 		  <Image File="res/img/helpPageBg.png" Width="100%" Height="100%" StretchMode="Uniform"/>
 		</Panel>
-		
 	  </Grid>
 	</Page>
 
+	<!-- 설정 -->
 	<Page ux:Name="config" HitTestMode="LocalVisualAndChildren" Background="Green">
 	  <Clicked>
 		<NavigateTo Target="main"/>
 	  </Clicked>
 	</Page>
 
-	<Page ux:Name="score" HitTestMode="LocalVisualAndChildren" Background="Green">
+	<Page ux:Name="score" HitTestMode="LocalVisualAndChildren" Background="Green">  
 	  <Clicked>
 		<NavigateTo Target="main"/>
 	  </Clicked>
-	</Page>
+	</Page> 
 
 	
 	<Page ux:Name="start" HitTestMode="LocalVisualAndChildren" Background="Green">
@@ -193,7 +232,7 @@
 	</Page>
 	
   </Panel>  
-   
+  
   <!--
 
 <DockPanel>

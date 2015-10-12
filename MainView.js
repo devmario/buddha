@@ -1,6 +1,16 @@
 var Observable = require("FuseJS/Observable");
+
+/*
+
+Help Page
+
+*/
+
 var animSRC = Observable("res/img/anim/00.jpg");
 var animText = Observable("");
+var help2NaviAlpha0 = Observable(0.5);
+var help2NaviAlpha1 = Observable(1.0);
+var help2NaviAlpha2 = Observable(1.0);
 var animTextArr = [
 	"마음을 차분하게 가라앉히고 두 손을 가슴에 모으며 바르게 섭니다. 이것을 합장이라 합니다.",
 	"합장을 한 채 인사를 하듯 천천히 허리를 숙였다 세웁니다. 이것을 반배라하는데 절을시작할때와 끝날 때에는 항상 반배를 합니다.",
@@ -15,12 +25,19 @@ var animFrame = 0;
 var animTo = 0;
 var animSpeed = 1000/5;
 var animSequence = [0, 15, 27, 35, 40, 44, 51, 59];
+var animIndex = 0;
+
+var timeout = null;
 
 function animCommit() {
 	animSRC.value = "res/img/anim/" + ("0" + animFrame).slice(-2)+ ".jpg";
 }
 
 function animationStart() {
+	if(timeout != null) {
+		clearTimeout(timeout);
+		timeout = null;
+	}
 	if(animFrame < animTo) {
 		animFrame++;
 	} else {
@@ -28,39 +45,78 @@ function animationStart() {
 	}
 	animCommit();
 	if(animFrame != animTo) {
-		setTimeout(animationStart, animSpeed);
+		timeout = setTimeout(animationStart, animSpeed);
+	} else {
+		help2NaviAlpha1.value = 1.0;
 	}
 }
 
-function animGoToPlaySequence(index) {
-	if(index > animSequence)
-		return;
-	if(index > 0) {
-		animFrame = animSequence[index - 1];
-		animTo = animSequence[index];
-		animationStart();
+function animUpdate() {
+	help2NaviAlpha1.value = 0.5;
+	if(animIndex > 0) {
+		animFrame = animSequence[animIndex - 1];
+		animTo = animSequence[animIndex];
 	} else {
 		animFrame = 0;
 		animTo = 0;
-		animCommit();
 	}
+	animationStart();
+}
+
+function animGoToPlaySequence(index) {
+	if(index > animTextArr.length - 1)
+		return;
+	if(index < 0)
+		return;
+	if(animIndex != index) {
+		animIndex = index;
+	}
+
+	help2NaviAlpha0.value = 1.0;
+	help2NaviAlpha1.value = 1.0;
+	help2NaviAlpha2.value = 1.0;
+	if(index == 0)
+		help2NaviAlpha0.value = 0.5;
+	if(index == animTextArr.length - 1)
+		help2NaviAlpha2.value = 0.5;
+
+	animUpdate();
+
 	animText.value = animTextArr[index];
 }
 
-function animFull() {
-	animFrame = 0;
-	animTo = 59;
-	animationStart();
-	animText.value = animTextArr[1];
-}
 
 function help2Active(arg) {
-	animGoToPlaySequence(7);
+	animGoToPlaySequence(0);
 }
+
+function help2NaviPrev(arg) {
+	animGoToPlaySequence(animIndex - 1);
+}
+
+function help2NaviPlay(arg) {
+	animUpdate();
+}
+
+function help2NaviNext(arg) {
+	animGoToPlaySequence(animIndex + 1);
+}
+
+/*
+
+Module
+
+*/
 
 module.exports = {
 	animSRC: animSRC,
 	help2Active: help2Active,
-	animText: animText
+	animText: animText,
+	help2NaviPrev: help2NaviPrev,
+	help2NaviPlay: help2NaviPlay,
+	help2NaviNext: help2NaviNext,
+	help2NaviAlpha0: help2NaviAlpha0,
+	help2NaviAlpha1: help2NaviAlpha1,
+	help2NaviAlpha2: help2NaviAlpha2
 };
 
