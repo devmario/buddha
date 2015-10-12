@@ -13,6 +13,7 @@
 		</ExitingAnimation>
 	  </Page>
 	</Style>
+	
 	<DirectNavigation Active="main"/>
 	
 	<!-- main -->
@@ -62,7 +63,8 @@
 	  </Grid>
 	  <Image File="res/img/main.png" Width="100%" Height="100%" StretchMode="UniformToFill"/>
 	</Page>
-	
+
+	<!-- 도움말 -->
 	<Page ux:Name="help" Background="#C4CbD7">
 	  <WhileActive>
 		<Set Target="helpBtn1.Opacity" Value="1"/>
@@ -212,46 +214,69 @@
 	</Page>
 
 	<!-- 설정 -->
-	<Page ux:Name="config" HitTestMode="LocalVisualAndChildren" Background="Green">
-	  <Clicked>
-		<NavigateTo Target="main"/>
-	  </Clicked>
+	<Page ux:Name="config">
+	  <Grid Rows="15*,85*" Height="100%" Width="100%">
+		<StackPanel Orientation="Horizontal" Height="100%" Width="100%">
+		  <Panel Background="#ffffff00" Alignment="Center" Width="60" Height="60">
+			<WhilePressed>
+			  <Scale Factor="1.1"/>
+			</WhilePressed>
+			<Image Padding="7" File="res/img/backBtn.png" />
+			<Clicked>
+			  <NavigateTo Target="main"/>
+			</Clicked>
+		  </Panel>
+		  <Text Value="설정" Alignment="VerticalCenter" FontSize="24" TextColor="#fff">
+			<DropShadow/>
+		  </Text>
+		</StackPanel>
+		<Panel/>
+	  </Grid>
+	  <Image File="res/img/settingPageBg.png" Width="100%" Height="100%" StretchMode="UniformToFill"/>
 	</Page>
 
-	<Page ux:Name="score" HitTestMode="LocalVisualAndChildren" Background="Green">  
-	  <Clicked>
-		<NavigateTo Target="main"/>
-	  </Clicked>
+	<!-- 기록 -->
+	<Page ux:Name="score">
+	  <Grid Rows="15*,85*" Height="100%" Width="100%">
+		<StackPanel Orientation="Horizontal" Height="100%" Width="100%">
+		  <Panel Background="#ffffff00" Alignment="Center" Width="60" Height="60">
+			<WhilePressed>
+			  <Scale Factor="1.1"/>
+			</WhilePressed>
+			<Image Padding="7" File="res/img/backBtn.png" />
+			<Clicked>
+			  <NavigateTo Target="main"/>
+			</Clicked>
+		  </Panel>
+		  <Text Value="기록" Alignment="VerticalCenter" FontSize="24" TextColor="#fff">
+			<DropShadow/>
+		  </Text>
+		</StackPanel>
+		<Panel/>
+	  </Grid>
+	  <Image File="res/img/recordPageBg.png" Width="100%" Height="100%" StretchMode="UniformToFill"/>
 	</Page> 
 
-	
-	<Page ux:Name="start" HitTestMode="LocalVisualAndChildren" Background="Green">
-	  <Clicked>
-		<NavigateTo Target="main"/>
-	  </Clicked>  
+	<!-- 108하기 -->
+	<Page ux:Name="start">
+	  <Grid Rows="15*,85*" Height="100%" Width="100%">
+		<StackPanel Orientation="Horizontal" Height="100%" Width="100%">
+		  <Panel Background="#ffffff00" Alignment="Center" Width="60" Height="60">
+			<WhilePressed>
+			  <Scale Factor="1.1"/>
+			</WhilePressed>
+			<Image Padding="12" File="res/img/pauseButton.png" />
+			<Clicked>
+			  <NavigateTo Target="main"/>
+			</Clicked>
+		  </Panel>
+		</StackPanel>
+		<Panel/>
+	  </Grid>
+	  <!-- <Image File="res/img/recordPageBg.png" Width="100%" Height="100%" StretchMode="UniformToFill"/> -->
 	</Page>
 	
   </Panel>  
-  
-  <!--
-
-<DockPanel>
-<StatusBarBackground DockPanel.Dock="Top" />
-<Panel ux:Name="helpPages">
-
-
-<Panel ux:Name="main">
-
-</Panel>
-
-<Panel ux:Name="help" Background="Red"/>
-
-<Panel ux:Name="config" Background="Yellow"/>
-<Panel ux:Name="score" Background="Green"/>
-<Panel ux:Name="start" Background="Black"/>
-</Panel>
-</DockPanel>
-  -->
 </App>
 
 
