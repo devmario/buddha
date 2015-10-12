@@ -1,20 +1,218 @@
 <App ux:Class="MainView" Theme="Basic" ClearColor="#ffffffff" ux:AutoCtor="false">
   <JavaScript File="MainView.js"/>
-  <DockPanel>
-	<StatusBarBackground DockPanel.Dock="Top" />
-	<Panel Background="#ffffff00" Height="100%" Width="100%">
+  <Panel>
+	<Style>
+	  <Text>
+		<Font File="res/font/NanumPen.otf"/>
+	  </Text>
+	  <Page ux:Name="mySelf">
+		<ExitingAnimation>
+		  <Change mySelf.Opacity="0" Duration="0.5"/>
+		</ExitingAnimation>
+	  </Page>
+	</Style>
+	<DirectNavigation Active="main"/>
+  
+	<!-- main -->
+	<Page ux:Name="main">
+	  <!-- main menu button -->
 	  <Grid ColumnData="1*,1*,1*,1*" Height="45" Alignment="Bottom">
-		<Each Items="{menuItem}">
-		  <Panel Background="#ffffff00" Clicked="{mainMenuClick}">
-			<Text Value="{text}" Alignment="Center">
-			  <Font File="res/font/NanumPen.otf"/>
-			</Text>
-			<Image Padding="7" File="res/img/btn.png" />
-		  </Panel>
-		</Each>
+		<Panel Background="#ffffff00">
+		  <Text ux:Name="label" Value="도움말" Alignment="Center" FontSize="20" TextColor="#000"/>
+		  <WhilePressed>
+			<Scale Factor="1.1"/>
+		  </WhilePressed>
+		  <Image Padding="7" File="res/img/btn.png" />
+		  <Clicked>
+			<NavigateTo Target="help"/>
+		  </Clicked>
+		</Panel>
+		<Panel Background="#ffffff00">
+		  <Text ux:Name="label" Value="설정" Alignment="Center" FontSize="20" TextColor="#000"/>
+		  <WhilePressed>
+			<Scale Factor="1.1"/>
+		  </WhilePressed>
+		  <Image Padding="7" File="res/img/btn.png" />
+		  <Clicked>
+			<NavigateTo Target="config"/>
+		  </Clicked>
+		</Panel>
+		<Panel Background="#ffffff00">
+		  <Text ux:Name="label" Value="기록보기" Alignment="Center" FontSize="20" TextColor="#000"/>
+		  <WhilePressed>
+			<Scale Factor="1.1"/>
+		  </WhilePressed>
+		  <Image Padding="7" File="res/img/btn.png" />
+		  <Clicked>
+			<NavigateTo Target="score"/>
+		  </Clicked>
+		</Panel>
+		<Panel Background="#ffffff00">
+		  <Text ux:Name="label" Value="시작" Alignment="Center" FontSize="20" TextColor="#000"/>
+		  <WhilePressed>
+			<Scale Factor="1.1"/>
+		  </WhilePressed>
+		  <Image Padding="7" File="res/img/btn.png" />
+		  <Clicked>
+			<NavigateTo Target="start"/>
+		  </Clicked>
+		</Panel>
 	  </Grid>
 	  <Image File="res/img/main.png" Width="100%" Height="100%" StretchMode="UniformToFill"/>
-	</Panel>
-  </DockPanel>
+	</Page>
+	
+	<Page ux:Name="help" Background="#C4CbD7">
+	  <WhileActive>
+		<Set Target="helpBtn1.Opacity" Value="1"/>
+		<Set Target="helpBtn2.Opacity" Value="0.5"/>
+		<Set Target="helpBtn3.Opacity" Value="0.5"/>
+		<NavigateTo TargetNode="helpPages" Target="helpPage1"/>
+	  </WhileActive>
+	  <Grid Rows="15*,85*" Height="100%" Width="100%">
+		<!-- help menu -->
+		<Panel Height="100%" Width="100%">
+		  <StackPanel Orientation="Horizontal" Height="100%" Width="100%">
+			<Panel Background="#ffffff00" Alignment="Center" Width="60" Height="60">
+			  <WhilePressed>
+				<Scale Factor="1.1"/>
+			  </WhilePressed>
+			  <Image Padding="7" File="res/img/backBtn.png" />
+			  <Clicked>
+				<NavigateTo Target="main"/>
+			  </Clicked>
+			</Panel>
+			<Text Value="도움말" Alignment="VerticalCenter" FontSize="24" TextColor="#fff">
+			  <DropShadow/>
+			</Text>
+		  </StackPanel>
+		  <Grid ColumnData="2*,1*,1*,1*,2*" Height="100%">
+			<Panel Background="#ffffff00" />
+			<Panel Background="#ffffff00" Alignment="Center" Opacity="1" ux:Name="helpBtn1">
+			  <Text Value="마음거울" Alignment="Center" FontSize="20" TextColor="#000"/>
+			  <WhilePressed>
+				<Scale Factor="1.1"/>
+			  </WhilePressed>
+			  <Image Padding="7" File="res/img/btn.png" />
+			  <Clicked>
+				<Set Target="helpBtn1.Opacity" Value="1"/>
+				<Set Target="helpBtn2.Opacity" Value="0.5"/>
+				<Set Target="helpBtn3.Opacity" Value="0.5"/>
+			  	<NavigateTo TargetNode="helpPages" Target="helpPage1"/>
+			  </Clicked>
+			</Panel>
+			<Panel Background="#ffffff00" Alignment="Center" Opacity="0.5" ux:Name="helpBtn2">
+			  <Text Value="절하는 방법" Alignment="Center" FontSize="20" TextColor="#000"/>
+			  <WhilePressed>
+				<Scale Factor="1.1"/>
+			  </WhilePressed>
+			  <Image Padding="7" File="res/img/btn.png" />
+			  <Clicked>
+				<Set Target="helpBtn1.Opacity" Value="0.5"/>
+				<Set Target="helpBtn2.Opacity" Value="1"/>
+				<Set Target="helpBtn3.Opacity" Value="0.5"/>
+			  	<NavigateTo TargetNode="helpPages" Target="helpPage2"/>
+			  </Clicked>
+			</Panel>
+			<Panel Background="#ffffff00" Alignment="Center" Opacity="0.5" ux:Name="helpBtn3">
+			  <Text Value="사용법" Alignment="Center" FontSize="20" TextColor="#000"/>
+			  <WhilePressed>
+				<Scale Factor="1.1"/>
+			  </WhilePressed>
+			  <Image Padding="7" File="res/img/btn.png"/>
+			  <Clicked>
+				<Set Target="helpBtn1.Opacity" Value="0.5"/>
+				<Set Target="helpBtn2.Opacity" Value="0.5"/>
+				<Set Target="helpBtn3.Opacity" Value="1"/>
+			  	<NavigateTo TargetNode="helpPages" Target="helpPage3"/>
+			  </Clicked>
+			</Panel>
+			<Panel Background="#ffffff00"/>
+		  </Grid>
+		  <!-- <Image File="res/img/segmentBg.png" Width="100%" Height="100%" StretchMode="Uniform"/> -->
+		</Panel>
+
+		<!-- help page -->
+		<Panel>
+		  <Panel ux:Name="helpPages">
+			<DirectNavigation Active="helpPage1"/>
+			<!-- 마음거울 -->
+			<Page ux:Name="helpPage1">
+		  	  <StackPanel Orientation="Vertical" Alignment="VerticalCenter">
+				<Text TextWrapping="Wrap" Value="하루 하루가 모여 한 달이 되고 일년이 됩니다." Alignment="Center" FontSize="28" TextColor="#3D3D3D"/>
+				<Text TextWrapping="Wrap" Value="날마다 내 마음을 맑고 밝게 가꾸고," Alignment="Center" FontSize="28" TextColor="#3D3D3D"/>
+				<Text TextWrapping="Wrap" Value="온 마음을 모아 소원을 빌면 마침내 꿈은 이루어 질 것입니다." Alignment="Center" FontSize="28" TextColor="#3D3D3D"/>
+				<Text TextWrapping="Wrap" Value="108가지 마음 거울을 읽고 실천하면서 내 마음과 행동을" Alignment="Center" FontSize="28" TextColor="#3D3D3D"/>
+				<Text TextWrapping="Wrap" Value="바르고 아름답게 가꾸어보세요." Alignment="Center" FontSize="28" TextColor="#3D3D3D"/>
+		  	  </StackPanel>
+			</Page>
+			
+			<Page ux:Name="helpPage2">
+			  <WhileActive>
+				<Callback Handler="{help2Active}"/>
+			  </WhileActive>
+			  <Grid Rows="8*,2*" Width="100%" Height="100%">
+				<Grid ColumnData="2*,8*,8*,2*">
+				  <Panel/>
+					<Image ux:Name="animIMG" File="{animSRC}" Width="100%" Height="100%" StretchMode="Uniform"/>
+				  <StackPanel Orientation="Vertical" Alignment="VerticalCenter">
+					<Text TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="{animText}"/>
+				  </StackPanel>
+				  <Panel/>
+				</Grid>
+				<StackPanel/>
+			  </Grid>
+			</Page>
+
+			<Page ux:Name="helpPage3">
+			  <Image File="res/img/helpContent1.png" Width="100%" Height="100%" StretchMode="Uniform"/>
+			</Page>
+		  </Panel>
+		  <Image File="res/img/helpPageBg.png" Width="100%" Height="100%" StretchMode="Uniform"/>
+		</Panel>
+		
+	  </Grid>
+	</Page>
+
+	<Page ux:Name="config" HitTestMode="LocalVisualAndChildren" Background="Green">
+	  <Clicked>
+		<NavigateTo Target="main"/>
+	  </Clicked>
+	</Page>
+
+	<Page ux:Name="score" HitTestMode="LocalVisualAndChildren" Background="Green">
+	  <Clicked>
+		<NavigateTo Target="main"/>
+	  </Clicked>
+	</Page>
+
+	
+	<Page ux:Name="start" HitTestMode="LocalVisualAndChildren" Background="Green">
+	  <Clicked>
+		<NavigateTo Target="main"/>
+	  </Clicked>  
+	</Page>
+	
+  </Panel>  
+   
+  <!--
+
+<DockPanel>
+<StatusBarBackground DockPanel.Dock="Top" />
+<Panel ux:Name="helpPages">
+
+
+<Panel ux:Name="main">
+
+</Panel>
+
+<Panel ux:Name="help" Background="Red"/>
+
+<Panel ux:Name="config" Background="Yellow"/>
+<Panel ux:Name="score" Background="Green"/>
+<Panel ux:Name="start" Background="Black"/>
+</Panel>
+</DockPanel>
+  -->
 </App>
+
 
