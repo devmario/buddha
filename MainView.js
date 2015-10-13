@@ -6,7 +6,7 @@ Help Page
 
 */
 
-var animSRC = Observable("res/img/anim/00.jpg");
+var animSRC = Observable("res/img/kid00.png");
 var animText = Observable("");
 var help2NaviAlpha0 = Observable(0.5);
 var help2NaviAlpha1 = Observable(1.0);
@@ -30,7 +30,7 @@ var animIndex = 0;
 var timeout = null;
 
 function animCommit() {
-	animSRC.value = "res/img/anim/" + ("0" + animFrame).slice(-2)+ ".jpg";
+	animSRC.value = "res/img/kid" + ("0" + animFrame).slice(-2)+ ".png";
 }
 
 function animationStart() {

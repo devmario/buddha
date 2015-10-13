@@ -1,5 +1,5 @@
 <App ux:Class="MainView" Theme="Basic" ClearColor="#ffffffff" ux:AutoCtor="false">
-
+  
   <JavaScript File="MainView.js"/>
 
   <Panel>
@@ -31,7 +31,7 @@
 		  </Clicked>
 		</Panel>
 		<Panel Background="#ffffff00">
-		  <Text ux:Name="label" Value="설정" Alignment="Center" FontSize="20" TextColor="#000"/>
+		  <Text Value="설정" Alignment="Center" FontSize="20" TextColor="#000"/>
 		  <WhilePressed>
 			<Scale Factor="1.1"/>
 		  </WhilePressed>
@@ -148,7 +148,7 @@
 				<Text TextWrapping="Wrap" Value="108가지 마음 거울을 읽고 실천하면서 내 마음과 행동을" Alignment="Center" FontSize="28" TextColor="#3D3D3D"/>
 				<Text TextWrapping="Wrap" Value="바르고 아름답게 가꾸어보세요." Alignment="Center" FontSize="28" TextColor="#3D3D3D"/>
 		  	  </StackPanel>
-			</Page>
+			</Page> 
 
 			<!-- 절하는 방법 -->
 			<Page ux:Name="helpPage2">
@@ -158,7 +158,7 @@
 			  <Grid ColumnData="1*,8*,1*,8*,1*">
 				<Panel/>
 
-				<Grid Rows="8*,2*" Width="100%" Height="100%">
+				<Grid Rows="8*,2*" Width="100%" Height="100%"> 
 				  <Image ux:Name="animIMG" File="{animSRC}" Width="100%" Height="100%" StretchMode="Uniform"/>
 				  <Grid ColumnData="3*,3*,3*" Width="100%" Height="100%" Padding="8">
 					<Panel Background="#ffffff00" Alignment="Center" Opacity="{help2NaviAlpha0}">
@@ -230,7 +230,226 @@
 			<DropShadow/>
 		  </Text>
 		</StackPanel>
-		<Panel/>
+		
+		<!-- 설정 패널-->
+		<Panel>
+		  <Panel Width="60%" Height="90%">
+			<Rectangle ux:Binding="Appearance" Background="#FFFFFFBB">
+			  <Stroke Width="1">
+				<SolidColor Color="#AAAAAA"/>
+			  </Stroke>
+			</Rectangle>
+			<Grid Rows="1*,1*,1*,1*,1*,1*,1*">
+
+			  <!-- 절하기 속도 -->
+			  <StackPanel Orientation="Vertical">
+				<Grid ColumnData="4*,6*">
+				  <Text Value="절하기 속도" FontSize="24" Alignment="Center" Margin="0,10,0,3"/>
+				  <Panel Width="100%" Height="100%">
+					<Grid ColumnData="3*,1*,3*">
+					  <Panel Background="#ffffff00" Height="85%">
+						<WhilePressed>
+						  <Scale Factor="1.1"/>
+						</WhilePressed>
+				  		<Text Value="느리게" FontSize="24" Alignment="Center" TextColor="#3b3b3b"/>
+						<Image File="res/img/btn.png"  />
+					  </Panel>
+					  <Panel/>
+					  <Panel Background="#ffffff00" Height="85%">
+						<WhilePressed>
+						  <Scale Factor="1.1"/>
+						</WhilePressed>
+						<Text Value="빠르게" FontSize="24" Alignment="Center" TextColor="#3b3b3b"/>
+						<Image File="res/img/btn.png"  />
+					  </Panel>
+					</Grid>
+					<Panel Width="50%" Height="70%">
+					  <Rectangle ux:Binding="Appearance" Background="#FFFFFF">
+						<Stroke Width="1">
+						  <SolidColor Color="#000000"/>
+						</Stroke>
+					  </Rectangle>
+					  <Text Value="5" FontSize="20" Alignment="Center" TextColor="#000000" Margin="0,4,0,0"/>
+					</Panel>
+				  </Panel>
+				</Grid>
+				<Panel Width="100%" Height="1" Background="#CCCCCC"/>
+			  </StackPanel>
+
+			  <!-- 시작위치 -->
+			  <StackPanel Orientation="Vertical">
+				<Grid ColumnData="4*,6*">
+				  <Text Value="시작위치" FontSize="24" Alignment="Center" Margin="0,10,0,3"/>
+				  <Grid ColumnData="1*,1*">
+					<Panel Background="#ffffff00" Height="85%">
+					  <WhilePressed>
+						<Scale Factor="1.1"/>
+					  </WhilePressed>
+				  	  <Text Value="이어서" FontSize="24" Alignment="Center" TextColor="#3b3b3b"/>
+					  <Image File="res/img/btn.png"  />
+					</Panel>
+					<Panel Background="#ffffff00" Height="85%">
+					  <WhilePressed>
+						<Scale Factor="1.1"/>
+					  </WhilePressed>
+					  <Text Value="처음부터" FontSize="24" Alignment="Center" TextColor="#3b3b3b"/>
+					  <Image File="res/img/btn.png"  />
+					</Panel>
+				  </Grid>
+				</Grid>
+				<Panel Width="100%" Height="1" Background="#CCCCCC"/>
+			  </StackPanel>
+
+			  <!-- 목소리 -->
+			  <StackPanel Orientation="Vertical">
+				<Grid ColumnData="4*,6*">
+				  <Text Value="목소리" FontSize="24" Alignment="Center" Margin="0,10,0,3"/>
+				  <Grid ColumnData="1*,1*,1*">
+					<Panel Background="#ffffff00" Height="85%">
+					  <WhilePressed>
+						<Scale Factor="1.1"/>
+					  </WhilePressed>
+					  <Image File="res/img/voiceMan.png"  />
+					</Panel>
+					<Panel Background="#ffffff00" Height="85%">
+					  <WhilePressed>
+						<Scale Factor="1.1"/>
+					  </WhilePressed>
+					  <Image File="res/img/voiceGirl.png"  />
+					</Panel>
+					<Panel Background="#ffffff00" Height="85%">
+					  <WhilePressed>
+						<Scale Factor="1.1"/>
+					  </WhilePressed>
+					  <Image File="res/img/voiceDubbing.png"  />
+					</Panel>
+				  </Grid>
+				</Grid>
+				<Panel Width="100%" Height="1" Background="#CCCCCC" Alignment="Bottom"/>
+			  </StackPanel>
+
+			  <!-- 목소리 크기 -->
+			  <StackPanel Orientation="Vertical">
+				<Grid ColumnData="4*,6*">
+				  <Text Value="목소리 크기" FontSize="24" Alignment="Center" Margin="0,10,0,3"/>
+				  <Panel Width="100%" Height="100%">
+					<Grid ColumnData="3*,1*,3*">
+					  <Panel Background="#ffffff00" Height="85%">
+						<WhilePressed>
+						  <Scale Factor="1.1"/>
+						</WhilePressed>
+				  		<Text Value="작게" FontSize="24" Alignment="Center" TextColor="#3b3b3b"/>
+						<Image File="res/img/btn.png"  />
+					  </Panel>
+					  <Panel/>
+					  <Panel Background="#ffffff00" Height="85%">
+						<WhilePressed>
+						  <Scale Factor="1.1"/>
+						</WhilePressed>
+						<Text Value="크게" FontSize="24" Alignment="Center" TextColor="#3b3b3b"/>
+						<Image File="res/img/btn.png"  />
+					  </Panel>
+					</Grid>
+					<Panel Width="50%" Height="70%">
+					  <Rectangle ux:Binding="Appearance" Background="#FFFFFF">
+						<Stroke Width="1">
+						  <SolidColor Color="#000000"/>
+						</Stroke>
+					  </Rectangle>
+					  <Text Value="5" FontSize="20" Alignment="Center" TextColor="#000000" Margin="0,4,0,0"/>
+					</Panel>
+				  </Panel>
+				</Grid>
+				<Panel Width="100%" Height="1" Background="#CCCCCC"/>
+			  </StackPanel>
+
+			  <!-- 배경음 -->
+			  <StackPanel Orientation="Vertical">
+				<Grid ColumnData="4*,6*">
+				  <Text Value="배경음" FontSize="24" Alignment="Center" Margin="0,10,0,3"/>
+				  <Grid ColumnData="1*,1*,1*,1*">
+					<Panel Background="#ffffff00" Height="85%">
+					  <WhilePressed>
+						<Scale Factor="1.1"/>
+					  </WhilePressed>
+					  <Image File="res/img/birdButton.png"  />
+					</Panel>
+					<Panel Background="#ffffff00" Height="85%">
+					  <WhilePressed>
+						<Scale Factor="1.1"/>
+					  </WhilePressed>
+					  <Image File="res/img/bugButton.png"  />
+					</Panel>
+					<Panel Background="#ffffff00" Height="85%">
+					  <WhilePressed>
+						<Scale Factor="1.1"/>
+					  </WhilePressed>
+					  <Image File="res/img/waterButton.png"  />
+					</Panel>
+					<Panel Background="#ffffff00" Height="85%">
+					  <WhilePressed>
+						<Scale Factor="1.1"/>
+					  </WhilePressed>
+					  <Image File="res/img/musicButton.png"  />
+					</Panel>
+				  </Grid>
+				</Grid>
+				<Panel Width="100%" Height="1" Background="#CCCCCC"/>
+			  </StackPanel>
+
+			  <!-- 배경음 크기 -->
+			  <StackPanel Orientation="Vertical">
+				<Grid ColumnData="4*,6*">
+				  <Text Value="배경음 크기" FontSize="24" Alignment="Center" Margin="0,10,0,3"/>
+				  <Panel Width="100%" Height="100%">
+					<Grid ColumnData="3*,1*,3*">
+					  <Panel Background="#ffffff00" Height="85%">
+						<WhilePressed>
+						  <Scale Factor="1.1"/>
+						</WhilePressed>
+				  		<Text Value="작게" FontSize="24" Alignment="Center" TextColor="#3b3b3b"/>
+						<Image File="res/img/btn.png"  />
+					  </Panel>
+					  <Panel/>
+					  <Panel Background="#ffffff00" Height="85%">
+						<WhilePressed>
+						  <Scale Factor="1.1"/>
+						</WhilePressed>
+						<Text Value="크게" FontSize="24" Alignment="Center" TextColor="#3b3b3b"/>
+						<Image File="res/img/btn.png"  />
+					  </Panel>
+					</Grid>
+					<Panel Width="50%" Height="70%">
+					  <Rectangle ux:Binding="Appearance" Background="#FFFFFF">
+						<Stroke Width="1">
+						  <SolidColor Color="#000000"/>
+						</Stroke>
+					  </Rectangle>
+					  <Text Value="5" FontSize="20" Alignment="Center" TextColor="#000000" Margin="0,4,0,0"/>
+					</Panel>
+				  </Panel>
+				</Grid>
+				<Panel Width="100%" Height="1" Background="#CCCCCC"/>
+			  </StackPanel>
+
+			  <!-- 절한기록 지우기 -->
+			  <StackPanel Orientation="Vertical">
+				<Grid ColumnData="4*,6*">
+				  <Text Value="절한 기록 지우기" FontSize="24" Alignment="Center" Margin="0,10,0,3"/>
+				  <Panel Background="#ffffff00" Height="85%">
+					<WhilePressed>
+					  <Scale Factor="1.1"/>
+					</WhilePressed>
+				  	<Text Value="지우기" FontSize="24" Alignment="Center" TextColor="#3b3b3b"/>
+					<Image File="res/img/buttonBg3.png"  />
+				  </Panel>
+				</Grid>
+			  </StackPanel>
+			  
+			</Grid>
+		  </Panel>
+		</Panel>
+		
 	  </Grid>
 	  <Image File="res/img/settingPageBg.png" Width="100%" Height="100%" StretchMode="UniformToFill"/>
 	</Page>
@@ -277,6 +496,5 @@
 	</Page>
 	
   </Panel>  
+
 </App>
-
-
