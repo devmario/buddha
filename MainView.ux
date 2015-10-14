@@ -1,7 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <App ux:Class="MainView" Theme="Basic" ClearColor="#ffffffff" ux:AutoCtor="false">
-  
-  <JavaScript File="MainView.js"/>
+  <iOS.StatusBarConfig IsVisible="false" />
+  <JavaScript File="MainView.js" />
 
+  <FileImageSource ux:Key="kid0" File="res/img/kid00.png"/>
+  <FileImageSource ux:Key="kid1" File="res/img/kid01.png"/>
+  <FileImageSource ux:Key="kid2" File="res/img/kid02.png"/>
+  <FileImageSource ux:Key="kid3" File="res/img/kid03.png"/>
+  <FileImageSource ux:Key="kid4" File="res/img/kid04.png"/>
+  <FileImageSource ux:Key="kid5" File="res/img/kid05.png"/>
+  <FileImageSource ux:Key="kid6" File="res/img/kid06.png"/>
+  <FileImageSource ux:Key="kid7" File="res/img/kid07.png"/>
+  <FileImageSource ux:Key="kid8" File="res/img/kid08.png"/>
+  <FileImageSource ux:Key="kid9" File="res/img/kid09.png"/>
+  <FileImageSource ux:Key="kid10" File="res/img/kid10.png"/>
+  <FileImageSource ux:Key="kid11" File="res/img/kid11.png"/>
+  <FileImageSource ux:Key="kid12" File="res/img/kid12.png"/>
+  <FileImageSource ux:Key="kid13" File="res/img/kid13.png"/>
+  <FileImageSource ux:Key="kid14" File="res/img/kid14.png"/>
+  <FileImageSource ux:Key="kid15" File="res/img/kid15.png"/> 
+  <FileImageSource ux:Key="kid16" File="res/img/kid16.png"/>
+  <FileImageSource ux:Key="kid17" File="res/img/kid17.png"/>
+  <FileImageSource ux:Key="kid18" File="res/img/kid18.png"/>
+  <FileImageSource ux:Key="kid19" File="res/img/kid19.png"/>
+  <FileImageSource ux:Key="kid20" File="res/img/kid20.png"/>
+  <FileImageSource ux:Key="kid21" File="res/img/kid21.png"/>
+  <FileImageSource ux:Key="kid22" File="res/img/kid22.png"/>
+  <FileImageSource ux:Key="kid23" File="res/img/kid23.png"/>
+  <FileImageSource ux:Key="kid24" File="res/img/kid24.png"/>
+  <FileImageSource ux:Key="kid25" File="res/img/kid25.png"/>
+  <FileImageSource ux:Key="kid26" File="res/img/kid26.png"/>
+  <FileImageSource ux:Key="kid27" File="res/img/kid27.png"/>
+  <FileImageSource ux:Key="kid28" File="res/img/kid28.png"/>
+  <FileImageSource ux:Key="kid29" File="res/img/kid29.png"/>
+  <FileImageSource ux:Key="kid30" File="res/img/kid30.png"/>
+  <FileImageSource ux:Key="kid31" File="res/img/kid31.png"/>
+  <FileImageSource ux:Key="kid32" File="res/img/kid32.png"/>
+  <FileImageSource ux:Key="kid33" File="res/img/kid33.png"/>
+  <FileImageSource ux:Key="kid34" File="res/img/kid34.png"/>
+  <FileImageSource ux:Key="kid35" File="res/img/kid35.png"/>
+  <FileImageSource ux:Key="kid36" File="res/img/kid36.png"/>
+  <FileImageSource ux:Key="kid37" File="res/img/kid37.png"/>
+  <FileImageSource ux:Key="kid38" File="res/img/kid38.png"/>
+  <FileImageSource ux:Key="kid39" File="res/img/kid39.png"/>
+  <FileImageSource ux:Key="kid40" File="res/img/kid40.png"/> 
+  <FileImageSource ux:Key="kid41" File="res/img/kid41.png"/>
+  <FileImageSource ux:Key="kid42" File="res/img/kid42.png"/>
+  <FileImageSource ux:Key="kid43" File="res/img/kid43.png"/>
+  <FileImageSource ux:Key="kid44" File="res/img/kid44.png"/>
+  <FileImageSource ux:Key="kid45" File="res/img/kid45.png"/>
+  <FileImageSource ux:Key="kid46" File="res/img/kid46.png"/>
+  <FileImageSource ux:Key="kid47" File="res/img/kid47.png"/>
+  <FileImageSource ux:Key="kid48" File="res/img/kid48.png"/>
+  <FileImageSource ux:Key="kid49" File="res/img/kid49.png"/>
+  <FileImageSource ux:Key="kid50" File="res/img/kid50.png"/>
+  <FileImageSource ux:Key="kid51" File="res/img/kid51.png"/>
+  <FileImageSource ux:Key="kid52" File="res/img/kid52.png"/>
+  <FileImageSource ux:Key="kid53" File="res/img/kid53.png"/>
+  <FileImageSource ux:Key="kid54" File="res/img/kid54.png"/>
+  <FileImageSource ux:Key="kid55" File="res/img/kid55.png"/>
+  <FileImageSource ux:Key="kid56" File="res/img/kid56.png"/>
+  <FileImageSource ux:Key="kid57" File="res/img/kid57.png"/>
+  <FileImageSource ux:Key="kid58" File="res/img/kid58.png"/>
+  <FileImageSource ux:Key="kid59" File="res/img/kid59.png"/>
+  
   <Panel>
 	<Style>
 	  <Text>
@@ -57,7 +119,7 @@
 		  </WhilePressed>
 		  <Image Padding="7" File="res/img/btn.png" />
 		  <Clicked>
-			<NavigateTo Target="start"/>
+			<NavigateTo Target="start"/>  
 		  </Clicked>
 		</Panel>
 	  </Grid>
@@ -150,16 +212,21 @@
 		  	  </StackPanel>
 			</Page> 
 
-			<!-- 절하는 방법 -->
+			<!-- 절하는 방법 --> 
 			<Page ux:Name="helpPage2">
-			  <WhileActive>
+			  <WhileActive> 
 				<Callback Handler="{help2Active}"/>
 			  </WhileActive>
-			  <Grid ColumnData="1*,8*,1*,8*,1*">
-				<Panel/>
 
-				<Grid Rows="8*,2*" Width="100%" Height="100%"> 
-				  <Image ux:Name="animIMG" File="{animSRC}" Width="100%" Height="100%" StretchMode="Uniform"/>
+			  <Grid ColumnData="1*,8*,1*,8*,1*">
+				<Panel/> 
+
+				<Grid Rows="8*,2*" Width="100%" Height="100%">
+				  <Image ux:Name="animIMG" Source="{DataToResource frame.key}" Width="100%" Height="100%" StretchMode="Uniform">
+				  	<WhileTrue Value="{frameCheck}">
+						<DataToResourceBinding Target="animIMG.Source" Key="frame.key"/>
+				  	</WhileTrue>
+				  </Image>
 				  <Grid ColumnData="3*,3*,3*" Width="100%" Height="100%" Padding="8">
 					<Panel Background="#ffffff00" Alignment="Center" Opacity="{help2NaviAlpha0}">
 					  <WhilePressed>
@@ -167,7 +234,7 @@
 					  </WhilePressed>
 					  <Image Padding="7" File="res/img/prevButton.png" />
 					  <Clicked>
-						<Callback Handler="{help2NaviPrev}"/>
+						<Callback Handler="{help2NaviPrev}"/> 
 					  </Clicked>
 					</Panel>
 					<Panel Background="#ffffff00" Alignment="Center" Opacity="{help2NaviAlpha1}"> 
@@ -194,9 +261,43 @@
 				<Panel/>
 
 				<!-- 절하는 방법 내용 -->
-				<StackPanel Orientation="Vertical" Alignment="VerticalCenter">
-				  <Text TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="{animText}"/>
-				</StackPanel>
+				<Panel Alignment="VerticalCenter">
+				  <Text ux:Name="animDesc0" TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="마음을 차분하게 가라앉히고 두 손을 가슴에 모으며 바르게 섭니다. 이것을 합장이라 합니다." Visibility="Hidden" />
+				  <WhileTrue Value="{animText0}">
+					<Change animDesc0.Visibility="Visible"/>
+				  </WhileTrue>
+				  <Text ux:Name="animDesc1" TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="합장을 한 채 인사를 하듯 천천히 허리를 숙였다 세웁니다. 이것을 반배라하는데 절을시작할때와 끝날 때에는 항상 반배를 합니다." Visibility="Hidden" />
+				  <WhileTrue Value="{animText1}">
+					<Change animDesc1.Visibility="Visible"/>
+				  </WhileTrue>
+				  <Text ux:Name="animDesc2" TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="두손을 가슴에 모은 채 허리를 살짝 굽히면서 무릎을 꿇으며 앉습니다. 자세가 흐트러지면 넘어질 수 있으니 천천히 중심을 잡으며 앉습니다." Visibility="Hidden" />
+				  <WhileTrue Value="{animText2}">
+					<Change animDesc2.Visibility="Visible"/>
+				  </WhileTrue>
+				  <Text ux:Name="animDesc3" TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="엉덩이와 발 뒤꿈치가 맞닿을 때쯤 상체를 앞으로 숙이면서 오른손을 바닥에 내려놓습니다. 발은 자연스럽게 오른발이 왼발 위로 올라가게 합니다. 오른손과 나란히 왼손을 내려놓으며 이마가 바닥에 닿을 정도로 숙입니다. 이처럼 이마, 양쪽 팔꿈치와 무릎이 모두 바닥에 닿은 것을 오체투지라 합니다." Visibility="Hidden" />
+				  <WhileTrue Value="{animText3}">
+					<Change animDesc3.Visibility="Visible"/>
+				  </WhileTrue>
+				  <Text ux:Name="animDesc4" TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="양쪽 팔꿈치를 바닥에 댄 채 두 손바닥이 하늘을 향하도록 뒤집으면서 양쪽 귀옆으로 살짝 들어올립니다. 이것은 나 자신을 낮추고 세상 모든 존재를 지극한 마음으로 정성을 다해 존중하겠다는 다짐입니다." Visibility="Hidden" />
+				  <WhileTrue Value="{animText4}">  
+					<Change animDesc4.Visibility="Visible"/>
+				  </WhileTrue>
+				  <Text ux:Name="animDesc5" TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="다시 두 손을 바닥을 향해 뒤집어 머리 옆으로 가지런히 내려놓으며 오체투지 자세를 취합니다." Visibility="Hidden" />
+				  <WhileTrue Value="{animText5}">
+					<Change animDesc5.Visibility="Visible"/>
+				  </WhileTrue>
+				  <Text ux:Name="animDesc6" TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="고개와 허리를 곧은 자세로 들면서 왼손과 오른손을 차례로 가슴 쪽으로 모읍니다. 이렇게 하면 합장하며 앉은 자세가 됩니다." Visibility="Hidden" />
+				  <WhileTrue Value="{animText6}">
+					<Change animDesc6.Visibility="Visible"/>
+				  </WhileTrue> 
+				  <Text ux:Name="animDesc7" TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="포게 놓았던 양 발을 가지런히 풀면서 엉덩이를 살짝 들어올리며 일어납니다. 절을 시작할 때의 자세처럼 양쪽발은 가지런히 모으고 두 손은 가슴쪽으로 모아 바르게 섭니다. 이 자세에서 무릎을 굽히며 다시 절하는 동작을 반복합니다. 108번째 절을 마쳤을 때엔 반 배를 하며 절 수행을 마무리합니다." Visibility="Hidden" />
+				  <WhileTrue Value="{animText7}">
+					<Change animDesc7.Visibility="Visible"/>
+				  </WhileTrue>
+
+
+	
+				</Panel>
 
 				<Panel/>
 			  </Grid>
