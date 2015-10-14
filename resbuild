@@ -1,8 +1,0 @@
-#!/usr/bin/python
-
-import glob
-kid_list = glob.glob("res/img/kid*")
-index = 0;
-for i in kid_list:
-    print "<FileImageSource ux:Global=\"kid" + str(index) + "\" File=\"" + i + "\"/>"
-    index = index + 1
