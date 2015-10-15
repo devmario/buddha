@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <App ux:Class="MainView" Theme="Basic" ClearColor="#ffffffff" ux:AutoCtor="false">
+  <MyLogModule ux:Global="MyLogModule" />
   <iOS.StatusBarConfig IsVisible="false" />
   <JavaScript File="MainView.js" />
 

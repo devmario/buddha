@@ -1,6 +1,9 @@
 {
 	"RootNamespace":"",
 	"Packages": [
+		"Experimental.Audio",
+		"Fuse.Scripting",
+		"Fuse.Reactive",
         "Fuse.Animations",
         "Fuse.BasicTheme",
         "Fuse.Controls",

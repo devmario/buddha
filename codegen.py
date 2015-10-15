@@ -5,11 +5,18 @@ import glob
 # 절하기 resource 추가
 
 kid_list = glob.glob("res/img/kid*")
-index = 0;
+index = 0
 for i in kid_list:
     print "<FileImageSource ux:Key=\"kid" + str(index) + "\" File=\"" + i + "\"/>"
     index = index + 1
+    
+print "\n"
 
+#사운드 추가
+snd_list = glob.glob("res/snd/*")
+for i in snd_list:
+    print "bundleDict.Add(\""+i+"\", import global::Uno.BundleFile(\""+i+"\"));"
+    
 print "\n"
     
 # 절하기 설명

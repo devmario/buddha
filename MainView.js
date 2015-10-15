@@ -1,4 +1,10 @@
+
+
+
 var Observable = require("FuseJS/Observable");
+
+
+
 
 /*
 
@@ -29,6 +35,8 @@ var timeout = null;
 
 var frameCheck = Observable(false);
 var frame = Observable({key:"kid0"});
+
+var Audio = require('MyLogModule');
 
 function animCommit() {
 	frameCheck.value = false;
@@ -81,6 +89,7 @@ function animGoToPlaySequence(index) {
 		return;
 	if(animIndex != index) {
 		animIndex = index;
+		Audio.play("res/snd/how"+ (index + 1) + ".mp3", "voice", "false", "1.0");
 	}
 
 	help2NaviAlpha0.value = 1.0;
