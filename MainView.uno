@@ -8,7 +8,7 @@ using Uno.Collections;
 
 public partial class MainView  {
  	public static Dictionary<string, Uno.BundleFile> bundleDict = new Dictionary<string, Uno.BundleFile>();
-	public static Dictionary<string, Player> playerDict = new Dictionary<string, Player>();
+	public static Dictionary<string, MyPllayer> playerDict = new Dictionary<string, MyPllayer>();
 
 	public static Dictionary<string, Sound> soundDict = new Dictionary<string, Sound>();
 	public static Dictionary<string, Channel> channelDict = new Dictionary<string, Channel>();
@@ -16,7 +16,7 @@ public partial class MainView  {
 	public static Dictionary<string, float> volumeDict = new Dictionary<string, float>();
 	
 	void AddPlayer(string key) {
-		MainView.playerDict.Add(key, new Player());
+		MainView.playerDict.Add(key, new MyPllayer());
 		MainView.volumeDict.Add(key, 1.0f);
 	}
 	
