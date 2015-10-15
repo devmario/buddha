@@ -63,7 +63,7 @@ public partial class MainView  {
 	
     public MainView() {
 		InitializeUX();
-
+		
 		AddPlayer("bg");
 		AddPlayer("voice");
 		AddPlayer("effect");
@@ -407,6 +407,7 @@ public partial class MainView  {
 		bundleDict.Add("res/snd/bell.mp3", import global::Uno.BundleFile("res/snd/bell.mp3"));
 		bundleDict.Add("res/snd/bell0.mp3", import global::Uno.BundleFile("res/snd/bell0.mp3"));
 		bundleDict.Add("res/snd/click.mp3", import global::Uno.BundleFile("res/snd/click.mp3"));
+		
 	}
 }
 

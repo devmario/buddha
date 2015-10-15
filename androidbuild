@@ -1,0 +1,6 @@
+#!/bin/bash
+fuse build -t Android
+cd .build/Android-Debug
+ant debug
+ant installd
+cd ../..

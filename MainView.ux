@@ -64,7 +64,7 @@
   <FileImageSource ux:Key="kid57" File="res/img/kid57.png"/>
   <FileImageSource ux:Key="kid58" File="res/img/kid58.png"/>
   <FileImageSource ux:Key="kid59" File="res/img/kid59.png"/>
-  
+
   <Panel>
 	<Style>
 	  <Text>
@@ -82,7 +82,7 @@
 	<!-- main -->
 	<Page ux:Name="main">
 	  <!-- main menu button -->
-	  <Grid ColumnData="1*,1*,1*,1*" Height="45" Alignment="Bottom">
+	  <Grid ColumnData="1*,1*,1*,1*" Height="45" Width="100%" Alignment="VerticalCenter">
 		<Panel Background="#ffffff00">
 		  <Text ux:Name="label" Value="도움말" Alignment="Center" FontSize="20" TextColor="#000"/>
 		  <WhilePressed>

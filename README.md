@@ -1,8 +1,12 @@
 ## TODO
 - DONE.image resource
 - DONE.sound
-- TODO.Android Test or find Reason
+- DONE.Android Test or find Reason
+- DONE.Android Sound
+- TODO.Sound volume 0 background
+- TODO.Orientation, StatusBar, etc System UI
 - TODO.Storage Test
+- TODO.Storage Android
 - TODO.config
 - TODO.record
 - TODO.start
