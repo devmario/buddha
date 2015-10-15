@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <App ux:Class="MainView" Theme="Basic" ClearColor="#ffffffff" ux:AutoCtor="false">
-  <MyLogModule ux:Global="MyLogModule" />
+  <AudioModule ux:Global="AudioModule" />
   <iOS.StatusBarConfig IsVisible="false" />
   <JavaScript File="MainView.js" />
 
@@ -90,6 +90,7 @@
 		  </WhilePressed>
 		  <Image Padding="7" File="res/img/btn.png" />
 		  <Clicked>
+			<Callback Handler="{clickBT}"/>
 			<NavigateTo Target="help"/>
 		  </Clicked>
 		</Panel>
@@ -100,6 +101,7 @@
 		  </WhilePressed>
 		  <Image Padding="7" File="res/img/btn.png" />
 		  <Clicked>
+			<Callback Handler="{clickBT}"/>
 			<NavigateTo Target="config"/>
 		  </Clicked>
 		</Panel>
@@ -110,6 +112,7 @@
 		  </WhilePressed>
 		  <Image Padding="7" File="res/img/btn.png" />
 		  <Clicked>
+			<Callback Handler="{clickBT}"/>
 			<NavigateTo Target="score"/>
 		  </Clicked>
 		</Panel>
@@ -120,6 +123,7 @@
 		  </WhilePressed>
 		  <Image Padding="7" File="res/img/btn.png" />
 		  <Clicked>
+			<Callback Handler="{clickBT}"/>
 			<NavigateTo Target="start"/>  
 		  </Clicked>
 		</Panel>
@@ -135,6 +139,9 @@
 		<Set Target="helpBtn3.Opacity" Value="0.5"/>
 		<NavigateTo TargetNode="helpPages" Target="helpPage1"/>
 	  </WhileActive>
+	  <WhileInactive>
+		<Callback Handler="{help2InActive}"/>
+	  </WhileInactive>
 	  <Grid Rows="15*,85*" Height="100%" Width="100%">
 		<!-- help menu -->
 		<Panel Height="100%" Width="100%">
@@ -145,6 +152,7 @@
 			  </WhilePressed>
 			  <Image Padding="7" File="res/img/backBtn.png" />
 			  <Clicked>
+				<Callback Handler="{clickBT}"/>
 				<NavigateTo Target="main"/>
 			  </Clicked>
 			</Panel>
@@ -161,6 +169,7 @@
 			  </WhilePressed>
 			  <Image Padding="7" File="res/img/btn.png" />
 			  <Clicked>
+				<Callback Handler="{clickBT}"/>
 				<Set Target="helpBtn1.Opacity" Value="1"/>
 				<Set Target="helpBtn2.Opacity" Value="0.5"/>
 				<Set Target="helpBtn3.Opacity" Value="0.5"/>
@@ -174,6 +183,7 @@
 			  </WhilePressed>
 			  <Image Padding="7" File="res/img/btn.png" />
 			  <Clicked>
+				<Callback Handler="{clickBT}"/>
 				<Set Target="helpBtn1.Opacity" Value="0.5"/>
 				<Set Target="helpBtn2.Opacity" Value="1"/>
 				<Set Target="helpBtn3.Opacity" Value="0.5"/>
@@ -187,6 +197,7 @@
 			  </WhilePressed>
 			  <Image Padding="7" File="res/img/btn.png"/>
 			  <Clicked>
+				<Callback Handler="{clickBT}"/>
 				<Set Target="helpBtn1.Opacity" Value="0.5"/>
 				<Set Target="helpBtn2.Opacity" Value="0.5"/>
 				<Set Target="helpBtn3.Opacity" Value="1"/>
@@ -218,6 +229,9 @@
 			  <WhileActive> 
 				<Callback Handler="{help2Active}"/>
 			  </WhileActive>
+			  <WhileInactive>
+				<Callback Handler="{help2InActive}"/>
+			  </WhileInactive>
 
 			  <Grid ColumnData="1*,8*,1*,8*,1*">
 				<Panel/> 
@@ -235,6 +249,7 @@
 					  </WhilePressed>
 					  <Image Padding="7" File="res/img/prevButton.png" />
 					  <Clicked>
+						<Callback Handler="{clickBT}"/>
 						<Callback Handler="{help2NaviPrev}"/> 
 					  </Clicked>
 					</Panel>
@@ -244,6 +259,7 @@
 					  </WhilePressed>
 					  <Image Padding="7" File="res/img/playButton.png" />
 					  <Clicked>
+						<Callback Handler="{clickBT}"/>
 						<Callback Handler="{help2NaviPlay}"/>
 					  </Clicked>
 					</Panel>
@@ -252,7 +268,8 @@
 						<Scale Factor="1.1"/>
 					  </WhilePressed>
 					  <Image Padding="7" File="res/img/nextButton.png" />
-					  <Clicked> 
+					  <Clicked>
+						<Callback Handler="{clickBT}"/>
 						<Callback Handler="{help2NaviNext}"/>
 					  </Clicked>
 					</Panel>
@@ -262,6 +279,7 @@
 				<Panel/>
 
 				<!-- 절하는 방법 내용 -->
+				
 				<Panel Alignment="VerticalCenter">
 				  <Text ux:Name="animDesc0" TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="마음을 차분하게 가라앉히고 두 손을 가슴에 모으며 바르게 섭니다. 이것을 합장이라 합니다." Visibility="Hidden" />
 				  <WhileTrue Value="{animText0}">

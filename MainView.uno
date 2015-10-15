@@ -12,11 +12,13 @@ public partial class MainView  {
 
 	public static Dictionary<string, Sound> soundDict = new Dictionary<string, Sound>();
 	public static Dictionary<string, Channel> channelDict = new Dictionary<string, Channel>();
+
+	public static Dictionary<string, float> volumeDict = new Dictionary<string, float>();
 	
 	void AddPlayer(string key) {
 		MainView.playerDict.Add(key, new Player());
+		MainView.volumeDict.Add(key, 1.0f);
 	}
-
 	
 	public static void disposePlayer(string key) {
 	    Channel channel;
@@ -25,8 +27,26 @@ public partial class MainView  {
 			channel.Dispose();
 		}
 	}
+
+	public static Channel getChannel(string key) {
+	    Channel channel;
+		if(MainView.channelDict.TryGetValue(key, out channel)) {
+			return channel;
+		}
+		return null;
+	}
+
+	public static void changeVolumne(string key, float volume) {
+		MainView.volumeDict[key] = volume;
+		var channel = MainView.getChannel(key);
+		if(channel != null) {
+			channel.Volume = MainView.volumeDict[key];
+		}
+	}
 	
-	public static Channel play(string bundleKey, string playerKey, bool loop) {
+	public static void play(string bundleKey, string playerKey, bool loop) {
+		disposePlayer(playerKey);
+		
 		var player = MainView.playerDict[playerKey];
 		Sound snd;
 		if(!MainView.soundDict.TryGetValue(playerKey + "_" + bundleKey, out snd)) {
@@ -36,11 +56,9 @@ public partial class MainView  {
 			MainView.soundDict.Add(playerKey + "_" +  bundleKey, snd);
 		}
 
-		disposePlayer(playerKey);
-
 		var channel = player.PlaySound(snd, loop);
+		channel.Volume = MainView.volumeDict[playerKey];
 		MainView.channelDict.Add(playerKey, channel);
-		return channel;
 	}
 	
     public MainView() {
@@ -386,21 +404,35 @@ public partial class MainView  {
 		bundleDict.Add("res/snd/how7.mp3", import global::Uno.BundleFile("res/snd/how7.mp3"));
 		bundleDict.Add("res/snd/how8.mp3", import global::Uno.BundleFile("res/snd/how8.mp3"));
 		bundleDict.Add("res/snd/waterBgm.mp3", import global::Uno.BundleFile("res/snd/waterBgm.mp3"));
+		bundleDict.Add("res/snd/bell.mp3", import global::Uno.BundleFile("res/snd/bell.mp3"));
+		bundleDict.Add("res/snd/bell0.mp3", import global::Uno.BundleFile("res/snd/bell0.mp3"));
+		bundleDict.Add("res/snd/click.mp3", import global::Uno.BundleFile("res/snd/click.mp3"));
 	}
 }
 
 
-public class MyLogModule : NativeModule
+public class AudioModule : NativeModule
 {
-	public MyLogModule()
+	public AudioModule()
 	{
 		AddMember(new NativeFunction("play", (NativeCallback)play));
+		AddMember(new NativeFunction("disposePlayer", (NativeCallback)disposePlayer));
+		AddMember(new NativeFunction("changeVolume", (NativeCallback)changeVolumne));
+	}
+
+	static object changeVolumne(Context c, object[] args) {
+		MainView.changeVolumne(args[0].ToString(), float.Parse(args[1].ToString()));
+		return null;
+	}
+
+	static object disposePlayer(Context c, object[] args) {
+		MainView.disposePlayer(args[0].ToString());
+		return null;
 	}
 
 	static object play(Context c, object[] args)
 	{
-		var channel = MainView.play(args[0].ToString(), args[1].ToString(), args[2].ToString() == "true");
-		channel.Volume = float.Parse(args[3].ToString());
+		MainView.play(args[0].ToString(), args[1].ToString(), args[2].ToString() == "true");
 		return null;
 	}
 }

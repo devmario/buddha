@@ -12,7 +12,6 @@ Help Page
 
 */
 
-var animSRC = Observable("res/img/kid00.png");
 var animText0 = Observable(false);
 var animText1 = Observable(false);
 var animText2 = Observable(false);
@@ -36,7 +35,7 @@ var timeout = null;
 var frameCheck = Observable(false);
 var frame = Observable({key:"kid0"});
 
-var Audio = require('MyLogModule');
+var Audio = require('AudioModule');
 
 function animCommit() {
 	frameCheck.value = false;
@@ -80,6 +79,7 @@ function animUpdate() {
 		animTo = 0;
 	}
 	animationStart();
+	Audio.play("res/snd/how"+ (animIndex + 1) + ".mp3", "voice", "false");
 }
 
 function animGoToPlaySequence(index) {
@@ -89,7 +89,6 @@ function animGoToPlaySequence(index) {
 		return;
 	if(animIndex != index) {
 		animIndex = index;
-		Audio.play("res/snd/how"+ (index + 1) + ".mp3", "voice", "false", "1.0");
 	}
 
 	help2NaviAlpha0.value = 1.0;
@@ -118,6 +117,10 @@ function help2Active(arg) {
 	animGoToPlaySequence(0);
 }
 
+function help2InActive(arg) {
+	Audio.disposePlayer("voice");
+}
+
 function help2NaviPrev(arg) {
 	animGoToPlaySequence(animIndex - 1);
 }
@@ -130,6 +133,11 @@ function help2NaviNext(arg) {
 	animGoToPlaySequence(animIndex + 1);
 }
 
+function clickBT(arg) {
+	Audio.play("res/snd/click.mp3", "effect", "false");
+}
+
+
 /*
 
 Module
@@ -137,8 +145,8 @@ Module
 */
 
 module.exports = {
-	animSRC: animSRC,
 	help2Active: help2Active,
+	help2InActive: help2InActive,
 
 	animText0: animText0,
 	animText1: animText1,
@@ -152,10 +160,20 @@ module.exports = {
 	help2NaviPrev: help2NaviPrev,
 	help2NaviPlay: help2NaviPlay,
 	help2NaviNext: help2NaviNext,
+	
 	help2NaviAlpha0: help2NaviAlpha0,
 	help2NaviAlpha1: help2NaviAlpha1,
 	help2NaviAlpha2: help2NaviAlpha2,
+
+	clickBT: clickBT,
+	
 	frameCheck: frameCheck,
 	frame: frame
 };
 
+
+function init() {
+	Audio.play("res/snd/birdBgm.mp3", "bg", "true");
+}
+
+init();
