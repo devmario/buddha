@@ -8,15 +8,34 @@ using Uno.Collections;
 
 public partial class MainView  {
  	public static Dictionary<string, Uno.BundleFile> bundleDict = new Dictionary<string, Uno.BundleFile>();
-	public static Dictionary<string, MyPllayer> playerDict = new Dictionary<string, MyPllayer>();
+	public static Dictionary<string, Player> playerDict = new Dictionary<string, Player>();
 
 	public static Dictionary<string, Sound> soundDict = new Dictionary<string, Sound>();
 	public static Dictionary<string, Channel> channelDict = new Dictionary<string, Channel>();
 
 	public static Dictionary<string, float> volumeDict = new Dictionary<string, float>();
+
+	public static Dictionary<string, bool> isPlayDict = new Dictionary<string, bool>();
+	
+	void AllChannelStatus(bool isPause) {
+		foreach(KeyValuePair<string, Channel> kv in MainView.channelDict) {
+			if(isPause) {
+				MainView.isPlayDict[kv.Key] = kv.Value.IsPlaying;
+				if(kv.Value.IsPlaying) {
+					kv.Value.Pause();
+				}
+				kv.Value.Volume = 0.0f;
+			} else {
+				if(MainView.isPlayDict[kv.Key]) {
+					kv.Value.Play();
+				}
+				kv.Value.Volume = volumeDict[kv.Key];
+			}
+		}
+	}
 	
 	void AddPlayer(string key) {
-		MainView.playerDict.Add(key, new MyPllayer());
+		MainView.playerDict.Add(key, new Player());
 		MainView.volumeDict.Add(key, 1.0f);
 	}
 	
@@ -408,6 +427,18 @@ public partial class MainView  {
 		bundleDict.Add("res/snd/bell0.mp3", import global::Uno.BundleFile("res/snd/bell0.mp3"));
 		bundleDict.Add("res/snd/click.mp3", import global::Uno.BundleFile("res/snd/click.mp3"));
 		
+		Uno.Platform2.Application.EnteringBackground += OnEnteringBackground;
+		Uno.Platform2.Application.EnteringForeground += OnEnteringForeground;
+	}
+
+	void OnEnteringBackground(Uno.Platform2.ApplicationState appState) {
+		debug_log("state is " + appState.ToString());
+		AllChannelStatus(true);
+	}
+
+	void OnEnteringForeground(Uno.Platform2.ApplicationState appState) {
+		debug_log("state is " + appState.ToString());
+		AllChannelStatus(false);
 	}
 }
 

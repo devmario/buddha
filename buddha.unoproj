@@ -1,4 +1,9 @@
 {
+	"Mobile": {
+		"KeepAlive": false,
+		"RunsInBackground": false,
+		"Orientations": "Landscape"
+	},
 	"RootNamespace":"",
 	"Packages": [
 		"Experimental.Audio",
