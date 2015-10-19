@@ -149,6 +149,7 @@ function saveData() {
  	var wasWritten = storage.writeSync("data.json", JSON.stringify(data));
 	if(wasWritten) {
 		console.log("saved data.json");
+		console.log(JSON.stringify(data, null, 2));
 	} else {
 		console.log("not saved data.json");
 	}
@@ -173,6 +174,156 @@ function loadData() {
 }
 
 loadData();
+
+var alphaVoiceMan = Observable(1.0);
+var alphaVoiceGirl = Observable(1.0);
+var alphaVoiceDubbing = Observable(1.0);
+
+var alphaStartContinue = Observable(1.0);
+var alphaStartFirst = Observable(1.0);
+
+var alphaBgBird = Observable(1.0);
+var alphaBgBug = Observable(1.0);
+var alphaBgWater = Observable(1.0);
+var alphaBgMusic = Observable(1.0);
+
+var textSpeed = Observable("");
+var textVoice = Observable("");
+var textBg = Observable("");
+
+function configUpdate() {
+	saveData();
+	var voiceIndex = data["voice"]["index"];
+	var bgIndex = data["bg"]["index"];
+	var voiceArr = [alphaVoiceMan, alphaVoiceGirl, alphaVoiceDubbing];
+	var bgArr = [alphaBgBird, alphaBgBug, alphaBgWater, alphaBgMusic];
+	for(var i in voiceArr) {
+		voiceArr[i].value = 0.5;
+	}
+	for(var i in bgArr) {
+		bgArr[i].value = 0.5;
+	}
+	voiceArr[voiceIndex].value = 1.0;
+	bgArr[bgIndex].value = 1.0;
+	textVoice.value = data["voice"]["volume"].toString();
+	textBg.value = data["bg"]["volume"].toString();
+	textSpeed.value = data["speed"].toString();
+	alphaStartContinue.value = data["continue"] ? 1.0 : 0.5;
+	alphaStartFirst.value = data["continue"] ? 0.5 : 1.0;
+}
+
+function activateConfig(arg) {
+	console.log("activateConfig");
+	configUpdate();
+}
+
+function speedDown(arg) {
+	console.log("speed Down");
+	if(data["speed"] > 0) {
+		data["speed"] = data["speed"] - 1;
+	}
+	configUpdate();
+}
+
+function speedUp(arg) {
+	console.log("speed up");
+	if(data["speed"] < 5) {
+		data["speed"] = data["speed"] + 1;
+	}
+	configUpdate();
+}
+
+function startFirst(arg) {
+	console.log("start first");
+	data["continue"] = false;
+	configUpdate();
+}
+
+function startContinue(arg) {
+	console.log("start continue");
+	data["continue"] = true;
+	configUpdate();
+}
+
+function voiceMan(arg) {
+	console.log("voice man");
+	data["voice"]["index"] = 0;
+	configUpdate();
+}
+
+function voiceGirl(arg) {
+	console.log("voice girl");
+	data["voice"]["index"] = 1;
+	configUpdate();
+}
+
+function voiceDubbing(arg) {
+	console.log("voice dubbing");
+	data["voice"]["index"] = 2;
+	configUpdate();
+}
+
+function voiceUp(arg) {
+	console.log("voice up");
+	if(data["voice"]["volume"] < 5) {
+		data["voice"]["volume"] = data["voice"]["volume"] + 1;
+	}
+	configUpdate();
+}
+
+function voiceDown(arg) {
+	console.log("voice down");
+	if(data["voice"]["volume"] > 0) {
+		data["voice"]["volume"] = data["voice"]["volume"] - 1;
+	}
+	configUpdate();
+}
+
+function bgBird(arg) {
+	console.log("bg bird");
+	data["bg"]["index"] = 0;
+	configUpdate();
+}
+
+function bgBug(arg) {
+	console.log("bg bug");
+	data["bg"]["index"] = 1;
+	configUpdate();
+}
+
+function bgWater(arg) {
+	console.log("bg water");
+	data["bg"]["index"] = 2;
+	configUpdate();
+}
+
+function bgMusic(arg) {
+	console.log("bg music");
+	data["bg"]["index"] = 3;
+	configUpdate();
+}
+
+function bgUp(arg) {
+	console.log("bg up");
+	if(data["bg"]["volume"] < 5) {
+		data["bg"]["volume"] = data["bg"]["volume"] + 1;
+	}
+	configUpdate();
+}
+
+function bgDown(arg) {
+	console.log("bg down");
+	if(data["bg"]["volume"] > 0) {
+		data["bg"]["volume"] = data["bg"]["volume"] - 1;
+	}
+	configUpdate();
+}
+
+function deleteSavedList(arg) {
+	console.log("delete saved list");
+	data["save"] = [];
+	configUpdate();
+}
 
 /*
 //test code
@@ -210,8 +361,53 @@ module.exports = {
 	clickBT: clickBT,
 	
 	frameCheck: frameCheck,
-	frame: frame
+	frame: frame,
+
+	alphaBgBug: alphaBgBug,
+	alphaBgBird: alphaBgBird,
+	alphaBgWater: alphaBgWater,
+	alphaBgMusic: alphaBgMusic,
+
+	alphaVoiceMan: alphaVoiceMan,
+	alphaVoiceDubbing: alphaVoiceDubbing,
+	alphaVoiceGirl: alphaVoiceGirl,
+
+	alphaStartContinue: alphaStartContinue,
+	alphaStartFirst: alphaStartFirst,
+
+	textSpeed: textSpeed,
+	textBg: textBg,
+	textVoice: textVoice,
+	
+	activateConfig: activateConfig,
+	
+	speedUp: speedUp,
+	speedDown: speedDown,
+	
+	startFirst: startFirst,
+	startContinue: startContinue,
+	
+	voiceMan: voiceMan,
+	voiceGirl: voiceGirl,
+	voiceDubbing: voiceDubbing,
+	
+	voiceUp: voiceUp,
+	voiceDown: voiceDown,
+
+	bgBug: bgBug,
+	bgWater: bgWater,
+	bgBird: bgBird,
+	bgMusic: bgMusic,
+
+	bgUp: bgUp,
+	bgDown: bgDown,
+
+	deleteSavedList: deleteSavedList
 };
+
+/*
+ * Audio Init(background music start)
+ */
 
 
 function init() {

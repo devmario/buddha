@@ -18,9 +18,15 @@
 ## TODO page
 ### config
 - [x] all button sound
-- [ ] all button callback make
-- [ ] all button data setup
+- [x] all button callback make
+- [x] all button data setup
+- [ ] MAX MIN button disable
+- [ ] number text error fix
 - [ ] audio volume change
+### record
+- [ ] table view cell with data
+### start
+### code Gen Tool
 
 ## command
 - fuse build -t iOS
