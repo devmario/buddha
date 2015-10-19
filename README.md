@@ -7,10 +7,9 @@
 - DONE.Orientation
 - DONE.hide navigation bar, status bar code test(Android)
 - DONE.auto insert android code python
-- TODO.Other System Action Test
-- TODO.Storage Test Code
-- TODO.Storage Test iOS
-- TODO.Storage Test Android
+- DONE.Storage Test Code
+- DONE.Storage Test iOS
+- DONE.Storage Test Android
 - TODO.config
 - TODO.record
 - TODO.start

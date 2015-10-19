@@ -131,6 +131,54 @@ function clickBT(arg) {
 	Audio.play("res/snd/click.mp3", "effect", "false");
 }
 
+/*
+ * storage
+ */
+
+var storage = require('FuseJS/Storage');
+
+var data = {
+	"speed":5,
+	"continue":false,
+	"voice":{"index":0,"volume":5},
+	"bg":{"index":0,"volume":5},
+	"save":[]
+};
+
+function saveData() {
+ 	var wasWritten = storage.writeSync("data.json", JSON.stringify(data));
+	if(wasWritten) {
+		console.log("saved data.json");
+	} else {
+		console.log("not saved data.json");
+	}
+}
+
+function loadData() {
+	var content = storage.readSync("data.json");
+	if(content == "") {
+		content = JSON.stringify(data);
+		console.log("not found data.json");
+		var wasWritten = storage.writeSync("data.json", content);
+		if(!wasWritten) {
+			console.log("not wasWritten data.json");
+		} else {
+			console.log("writeSync data.json");
+		}
+	} else {
+		console.log("load data.json: " + content);
+	}
+	data = JSON.parse(content);
+	console.log("parse json data.json");
+}
+
+loadData();
+
+/*
+//test code
+data.speed = 4;
+saveData();
+*/
 
 /*
 
