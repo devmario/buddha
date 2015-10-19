@@ -344,6 +344,7 @@
 			</WhilePressed>
 			<Image Padding="7" File="res/img/backBtn.png" />
 			<Clicked>
+			  <Callback Handler="{clickBT}"/>
 			  <NavigateTo Target="main"/>
 			</Clicked>
 		  </Panel>
@@ -372,6 +373,9 @@
 						<WhilePressed>
 						  <Scale Factor="1.1"/>
 						</WhilePressed>
+						<Clicked>
+						  <Callback Handler="{clickBT}"/>
+						</Clicked>
 				  		<Text Value="느리게" FontSize="24" Alignment="Center" TextColor="#3b3b3b"/>
 						<Image File="res/img/btn.png"  />
 					  </Panel>
@@ -380,6 +384,9 @@
 						<WhilePressed>
 						  <Scale Factor="1.1"/>
 						</WhilePressed>
+						<Clicked>
+						  <Callback Handler="{clickBT}"/>
+						</Clicked>
 						<Text Value="빠르게" FontSize="24" Alignment="Center" TextColor="#3b3b3b"/>
 						<Image File="res/img/btn.png"  />
 					  </Panel>
@@ -406,6 +413,9 @@
 					  <WhilePressed>
 						<Scale Factor="1.1"/>
 					  </WhilePressed>
+					  <Clicked>
+						<Callback Handler="{clickBT}"/>
+					  </Clicked>
 				  	  <Text Value="이어서" FontSize="24" Alignment="Center" TextColor="#3b3b3b"/>
 					  <Image File="res/img/btn.png"  />
 					</Panel>
@@ -413,6 +423,9 @@
 					  <WhilePressed>
 						<Scale Factor="1.1"/>
 					  </WhilePressed>
+					  <Clicked>
+						<Callback Handler="{clickBT}"/>
+					  </Clicked>
 					  <Text Value="처음부터" FontSize="24" Alignment="Center" TextColor="#3b3b3b"/>
 					  <Image File="res/img/btn.png"  />
 					</Panel>
@@ -430,18 +443,27 @@
 					  <WhilePressed>
 						<Scale Factor="1.1"/>
 					  </WhilePressed>
+					  <Clicked>
+						<Callback Handler="{clickBT}"/>
+					  </Clicked>
 					  <Image File="res/img/voiceMan.png"  />
 					</Panel>
 					<Panel Background="#ffffff00" Height="85%">
 					  <WhilePressed>
 						<Scale Factor="1.1"/>
 					  </WhilePressed>
+					  <Clicked>
+						<Callback Handler="{clickBT}"/>
+					  </Clicked>
 					  <Image File="res/img/voiceGirl.png"  />
 					</Panel>
 					<Panel Background="#ffffff00" Height="85%">
 					  <WhilePressed>
 						<Scale Factor="1.1"/>
 					  </WhilePressed>
+					  <Clicked>
+						<Callback Handler="{clickBT}"/>
+					  </Clicked>
 					  <Image File="res/img/voiceDubbing.png"  />
 					</Panel>
 				  </Grid>
@@ -459,6 +481,9 @@
 						<WhilePressed>
 						  <Scale Factor="1.1"/>
 						</WhilePressed>
+						<Clicked>
+						  <Callback Handler="{clickBT}"/>
+						</Clicked>
 				  		<Text Value="작게" FontSize="24" Alignment="Center" TextColor="#3b3b3b"/>
 						<Image File="res/img/btn.png"  />
 					  </Panel>
@@ -467,6 +492,9 @@
 						<WhilePressed>
 						  <Scale Factor="1.1"/>
 						</WhilePressed>
+						<Clicked>
+						  <Callback Handler="{clickBT}"/>
+						</Clicked>
 						<Text Value="크게" FontSize="24" Alignment="Center" TextColor="#3b3b3b"/>
 						<Image File="res/img/btn.png"  />
 					  </Panel>
@@ -493,24 +521,36 @@
 					  <WhilePressed>
 						<Scale Factor="1.1"/>
 					  </WhilePressed>
+					  <Clicked>
+						<Callback Handler="{clickBT}"/>
+					  </Clicked>
 					  <Image File="res/img/birdButton.png"  />
 					</Panel>
 					<Panel Background="#ffffff00" Height="85%">
 					  <WhilePressed>
 						<Scale Factor="1.1"/>
 					  </WhilePressed>
+					  <Clicked>
+						<Callback Handler="{clickBT}"/>
+					  </Clicked>
 					  <Image File="res/img/bugButton.png"  />
 					</Panel>
 					<Panel Background="#ffffff00" Height="85%">
 					  <WhilePressed>
 						<Scale Factor="1.1"/>
 					  </WhilePressed>
+					  <Clicked>
+						<Callback Handler="{clickBT}"/>
+					  </Clicked>
 					  <Image File="res/img/waterButton.png"  />
 					</Panel>
 					<Panel Background="#ffffff00" Height="85%">
 					  <WhilePressed>
 						<Scale Factor="1.1"/>
 					  </WhilePressed>
+					  <Clicked>
+						<Callback Handler="{clickBT}"/>
+					  </Clicked>
 					  <Image File="res/img/musicButton.png"  />
 					</Panel>
 				  </Grid>
@@ -528,6 +568,9 @@
 						<WhilePressed>
 						  <Scale Factor="1.1"/>
 						</WhilePressed>
+						<Clicked>
+						  <Callback Handler="{clickBT}"/>
+						</Clicked>
 				  		<Text Value="작게" FontSize="24" Alignment="Center" TextColor="#3b3b3b"/>
 						<Image File="res/img/btn.png"  />
 					  </Panel>
@@ -536,6 +579,9 @@
 						<WhilePressed>
 						  <Scale Factor="1.1"/>
 						</WhilePressed>
+						<Clicked>
+						  <Callback Handler="{clickBT}"/>
+						</Clicked>
 						<Text Value="크게" FontSize="24" Alignment="Center" TextColor="#3b3b3b"/>
 						<Image File="res/img/btn.png"  />
 					  </Panel>
@@ -561,6 +607,9 @@
 					<WhilePressed>
 					  <Scale Factor="1.1"/>
 					</WhilePressed>
+					<Clicked>
+					  <Callback Handler="{clickBT}"/>
+					</Clicked>
 				  	<Text Value="지우기" FontSize="24" Alignment="Center" TextColor="#3b3b3b"/>
 					<Image File="res/img/buttonBg3.png"  />
 				  </Panel>

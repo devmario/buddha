@@ -15,6 +15,13 @@
 - TODO.start
 - TODO.code Gen Tool
 
+## TODO page
+### config
+- DONE.all button sound
+- TODO.all button callback make
+- TODO.all button data setup
+- TODO.audio volume change
+
 ## command
 - fuse build -t iOS
 - open .build/iOS-Debug/buddha.xcodeproj/
