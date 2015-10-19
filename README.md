@@ -31,12 +31,18 @@
 - [ ] table view cell with data
 
 ### start
+- [ ] image layer
+- [ ] click next image layer with opacity
+- [ ] layer opacity animation
+- [ ] text animation with data(javascript utf-8)
+- [ ] pause popup
 
 ### code Gen Tool
 
 ## ISSUE
 - [ ] 설정에서 음향관련 버튼 막 클릭하다보면 다음의 로그를 출력하고 설정 수정이 되지않음.(frameworks/wilhelm/src/android/AudioPlayer_to_android.cpp:410: pthread_mutex_lock_timeout_np returned 11)
 - [ ] native audio access
+- [ ] loading 시간 긴것(image file GPU에 모두 올라가는지 테스트 하고 올라가면 Native Uno에서 해결)
 
 ## command
 - fuse build -t iOS

@@ -16,6 +16,17 @@ snd_list = glob.glob("res/snd/*")
 for i in snd_list:
     print "bundleDict.Add(\""+i+"\", import global::Uno.BundleFile(\""+i+"\"));"
 print "\n"
+
+# 108 image source
+print "\n"
+h_list = glob.glob("res/img/h/*")
+index = 0
+for i in h_list:
+    print "<FileImageSource ux:Key=\"h" + str(index) + "\" File=\"" + i + "\"/>"
+    index = index + 1    
+print "\n"
+
+
     
 # 절하기 설명
 print "\n"

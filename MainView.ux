@@ -65,6 +65,117 @@
   <FileImageSource ux:Key="kid58" File="res/img/kid58.png"/>
   <FileImageSource ux:Key="kid59" File="res/img/kid59.png"/>
 
+
+  <FileImageSource ux:Key="h0" File="res/img/h/001.jpg"/>
+  <FileImageSource ux:Key="h1" File="res/img/h/002.jpg"/>
+  <FileImageSource ux:Key="h2" File="res/img/h/003.jpg"/>
+  <FileImageSource ux:Key="h3" File="res/img/h/004.jpg"/>
+  <FileImageSource ux:Key="h4" File="res/img/h/005.jpg"/>
+  <FileImageSource ux:Key="h5" File="res/img/h/006.jpg"/>
+  <FileImageSource ux:Key="h6" File="res/img/h/007.jpg"/>
+  <FileImageSource ux:Key="h7" File="res/img/h/008.jpg"/>
+  <FileImageSource ux:Key="h8" File="res/img/h/009.jpg"/>
+  <FileImageSource ux:Key="h9" File="res/img/h/010.jpg"/>
+  <FileImageSource ux:Key="h10" File="res/img/h/011.jpg"/>
+  <FileImageSource ux:Key="h11" File="res/img/h/012.jpg"/>
+  <FileImageSource ux:Key="h12" File="res/img/h/013.jpg"/>
+  <FileImageSource ux:Key="h13" File="res/img/h/014.jpg"/>
+  <FileImageSource ux:Key="h14" File="res/img/h/015.jpg"/>
+  <FileImageSource ux:Key="h15" File="res/img/h/016.jpg"/>
+  <FileImageSource ux:Key="h16" File="res/img/h/017.jpg"/>
+  <FileImageSource ux:Key="h17" File="res/img/h/018.jpg"/>
+  <FileImageSource ux:Key="h18" File="res/img/h/019.jpg"/>
+  <FileImageSource ux:Key="h19" File="res/img/h/020.jpg"/>
+  <FileImageSource ux:Key="h20" File="res/img/h/021.jpg"/>
+  <FileImageSource ux:Key="h21" File="res/img/h/022.jpg"/>
+  <FileImageSource ux:Key="h22" File="res/img/h/023.jpg"/>
+  <FileImageSource ux:Key="h23" File="res/img/h/024.jpg"/>
+  <FileImageSource ux:Key="h24" File="res/img/h/025.jpg"/>
+  <FileImageSource ux:Key="h25" File="res/img/h/026.jpg"/>
+  <FileImageSource ux:Key="h26" File="res/img/h/027.jpg"/>
+  <FileImageSource ux:Key="h27" File="res/img/h/028.jpg"/>
+  <FileImageSource ux:Key="h28" File="res/img/h/029.jpg"/>
+  <FileImageSource ux:Key="h29" File="res/img/h/030.jpg"/>
+  <FileImageSource ux:Key="h30" File="res/img/h/031.jpg"/>
+  <FileImageSource ux:Key="h31" File="res/img/h/032.jpg"/>
+  <FileImageSource ux:Key="h32" File="res/img/h/033.jpg"/>
+  <FileImageSource ux:Key="h33" File="res/img/h/034.jpg"/>
+  <FileImageSource ux:Key="h34" File="res/img/h/035.jpg"/>
+  <FileImageSource ux:Key="h35" File="res/img/h/036.jpg"/>
+  <FileImageSource ux:Key="h36" File="res/img/h/037.jpg"/>
+  <FileImageSource ux:Key="h37" File="res/img/h/038.jpg"/>
+  <FileImageSource ux:Key="h38" File="res/img/h/039.jpg"/>
+  <FileImageSource ux:Key="h39" File="res/img/h/040.jpg"/>
+  <FileImageSource ux:Key="h40" File="res/img/h/041.jpg"/>
+  <FileImageSource ux:Key="h41" File="res/img/h/042.jpg"/>
+  <FileImageSource ux:Key="h42" File="res/img/h/043.jpg"/>
+  <FileImageSource ux:Key="h43" File="res/img/h/044.jpg"/>
+  <FileImageSource ux:Key="h44" File="res/img/h/045.jpg"/>
+  <FileImageSource ux:Key="h45" File="res/img/h/046.jpg"/>
+  <FileImageSource ux:Key="h46" File="res/img/h/047.jpg"/>
+  <FileImageSource ux:Key="h47" File="res/img/h/048.jpg"/>
+  <FileImageSource ux:Key="h48" File="res/img/h/049.jpg"/>
+  <FileImageSource ux:Key="h49" File="res/img/h/050.jpg"/>
+  <FileImageSource ux:Key="h50" File="res/img/h/051.jpg"/>
+  <FileImageSource ux:Key="h51" File="res/img/h/052.jpg"/>
+  <FileImageSource ux:Key="h52" File="res/img/h/053.jpg"/>
+  <FileImageSource ux:Key="h53" File="res/img/h/054.jpg"/>
+  <FileImageSource ux:Key="h54" File="res/img/h/055.jpg"/>
+  <FileImageSource ux:Key="h55" File="res/img/h/056.jpg"/>
+  <FileImageSource ux:Key="h56" File="res/img/h/057.jpg"/>
+  <FileImageSource ux:Key="h57" File="res/img/h/058.jpg"/>
+  <FileImageSource ux:Key="h58" File="res/img/h/059.jpg"/>
+  <FileImageSource ux:Key="h59" File="res/img/h/060.jpg"/>
+  <FileImageSource ux:Key="h60" File="res/img/h/061.jpg"/>
+  <FileImageSource ux:Key="h61" File="res/img/h/062.jpg"/>
+  <FileImageSource ux:Key="h62" File="res/img/h/063.jpg"/>
+  <FileImageSource ux:Key="h63" File="res/img/h/064.jpg"/>
+  <FileImageSource ux:Key="h64" File="res/img/h/065.jpg"/>
+  <FileImageSource ux:Key="h65" File="res/img/h/066.jpg"/>
+  <FileImageSource ux:Key="h66" File="res/img/h/067.jpg"/>
+  <FileImageSource ux:Key="h67" File="res/img/h/068.jpg"/>
+  <FileImageSource ux:Key="h68" File="res/img/h/069.jpg"/>
+  <FileImageSource ux:Key="h69" File="res/img/h/070.jpg"/>
+  <FileImageSource ux:Key="h70" File="res/img/h/071.jpg"/>
+  <FileImageSource ux:Key="h71" File="res/img/h/072.jpg"/>
+  <FileImageSource ux:Key="h72" File="res/img/h/073.jpg"/>
+  <FileImageSource ux:Key="h73" File="res/img/h/074.jpg"/>
+  <FileImageSource ux:Key="h74" File="res/img/h/075.jpg"/>
+  <FileImageSource ux:Key="h75" File="res/img/h/076.jpg"/>
+  <FileImageSource ux:Key="h76" File="res/img/h/077.jpg"/>
+  <FileImageSource ux:Key="h77" File="res/img/h/078.jpg"/>
+  <FileImageSource ux:Key="h78" File="res/img/h/079.jpg"/>
+  <FileImageSource ux:Key="h79" File="res/img/h/080.jpg"/>
+  <FileImageSource ux:Key="h80" File="res/img/h/081.jpg"/>
+  <FileImageSource ux:Key="h81" File="res/img/h/082.jpg"/>
+  <FileImageSource ux:Key="h82" File="res/img/h/083.jpg"/>
+  <FileImageSource ux:Key="h83" File="res/img/h/084.jpg"/>
+  <FileImageSource ux:Key="h84" File="res/img/h/085.jpg"/>
+  <FileImageSource ux:Key="h85" File="res/img/h/086.jpg"/>
+  <FileImageSource ux:Key="h86" File="res/img/h/087.jpg"/>
+  <FileImageSource ux:Key="h87" File="res/img/h/088.jpg"/>
+  <FileImageSource ux:Key="h88" File="res/img/h/089.jpg"/>
+  <FileImageSource ux:Key="h89" File="res/img/h/090.jpg"/>
+  <FileImageSource ux:Key="h90" File="res/img/h/091.jpg"/>
+  <FileImageSource ux:Key="h91" File="res/img/h/092.jpg"/>
+  <FileImageSource ux:Key="h92" File="res/img/h/093.jpg"/>
+  <FileImageSource ux:Key="h93" File="res/img/h/094.jpg"/>
+  <FileImageSource ux:Key="h94" File="res/img/h/095.jpg"/>
+  <FileImageSource ux:Key="h95" File="res/img/h/096.jpg"/>
+  <FileImageSource ux:Key="h96" File="res/img/h/097.jpg"/>
+  <FileImageSource ux:Key="h97" File="res/img/h/098.jpg"/>
+  <FileImageSource ux:Key="h98" File="res/img/h/099.jpg"/>
+  <FileImageSource ux:Key="h99" File="res/img/h/100.jpg"/>
+  <FileImageSource ux:Key="h100" File="res/img/h/101.jpg"/>
+  <FileImageSource ux:Key="h101" File="res/img/h/102.jpg"/>
+  <FileImageSource ux:Key="h102" File="res/img/h/103.jpg"/>
+  <FileImageSource ux:Key="h103" File="res/img/h/104.jpg"/>
+  <FileImageSource ux:Key="h104" File="res/img/h/105.jpg"/>
+  <FileImageSource ux:Key="h105" File="res/img/h/106.jpg"/>
+  <FileImageSource ux:Key="h106" File="res/img/h/107.jpg"/>
+  <FileImageSource ux:Key="h107" File="res/img/h/108.jpg"/>
+
+  
   <Panel>
 	<Style>
 	  <Text>
@@ -240,7 +351,7 @@
 				<Grid Rows="8*,2*" Width="100%" Height="100%">
 				  <Image ux:Name="animIMG" Source="{DataToResource frame.key}" Width="100%" Height="100%" StretchMode="Uniform">
 				  	<WhileTrue Value="{frameCheck}">
-						<DataToResourceBinding Target="animIMG.Source" Key="frame.key"/>
+					  <DataToResourceBinding Target="animIMG.Source" Key="frame.key"/>
 				  	</WhileTrue>
 				  </Image>
 				  <Grid ColumnData="3*,3*,3*" Width="100%" Height="100%" Padding="8">
@@ -316,7 +427,7 @@
 				  </WhileTrue>
 
 
-	
+				  
 				</Panel>
 
 				<Panel/>
@@ -667,6 +778,12 @@
 
 	<!-- 108하기 -->
 	<Page ux:Name="start">
+	  <WhileActive>
+		<Callback Handler="{playActivate}"/>
+	  </WhileActive>
+	  <WhileTrue Value="{playCheck}">
+		
+	  </WhileTrue>
 	  <Grid Rows="15*,85*" Height="100%" Width="100%">
 		<StackPanel Orientation="Horizontal" Height="100%" Width="100%">
 		  <Panel Background="#ffffff00" Alignment="Center" Width="60" Height="60">
@@ -676,11 +793,22 @@
 			<Image Padding="12" File="res/img/pauseButton.png" />
 			<Clicked>
 			  <NavigateTo Target="main"/>
+			  <Callback Handler="{clickBT}"/>
 			</Clicked>
 		  </Panel>
 		</StackPanel>
 		<Panel/>
 	  </Grid>
+	  <Panel Width="100%" Height="100%">
+		<Panel Width="100%" Height="100%">
+		  <Text Value="{play.foreground.label}"/>
+		  <Image Source="{DataToResource play.foreground.key}" Width="100%" Height="100%" StretchMode="Uniform"/>
+		</Panel>
+	  	<Panel Width="100%" Height="100%">
+		  <Text Value="{play.background.label}"/>
+		  <Image Source="{DataToResource play.background.key}" Width="100%" Height="100%" StretchMode="Uniform"/>
+		</Panel>
+	  </Panel>
 	  <!-- <Image File="res/img/recordPageBg.png" Width="100%" Height="100%" StretchMode="UniformToFill"/> -->
 	</Page>
 	
