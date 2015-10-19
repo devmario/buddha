@@ -16,6 +16,7 @@
 - [ ] code Gen Tool
 
 ## TODO page
+
 ### config
 - [x] all button sound
 - [x] all button callback make
@@ -24,9 +25,11 @@
 - [x] MAX MIN button disable => Opacity is not cool
 - [x] audio volume change
 - [x] android test(설정에서 음향관령 버튼 막 클릭시 이슈 발생)
+
 ### record
 - [ ] table view cell with data
 ### start
+
 ### code Gen Tool
 
 ## ISSUE
