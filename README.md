@@ -10,10 +10,11 @@
 - [x] Storage Test Code
 - [x] Storage Test iOS
 - [x] Storage Test Android
-- [ ] config
+- [x] config
 - [ ] record
 - [ ] start
 - [ ] code Gen Tool
+- [ ] issue 해결
 
 ## TODO page
 
