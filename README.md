@@ -1,26 +1,26 @@
 ## TODO
-- DONE.image resource
-- DONE.sound
-- DONE.Android Test or find Reason
-- DONE.Android Sound
-- DONE.Sound volume 0 background
-- DONE.Orientation
-- DONE.hide navigation bar, status bar code test(Android)
-- DONE.auto insert android code python
-- DONE.Storage Test Code
-- DONE.Storage Test iOS
-- DONE.Storage Test Android
-- TODO.config
-- TODO.record
-- TODO.start
-- TODO.code Gen Tool
+- [x].image resource
+- [x].sound
+- [x].Android Test or find Reason
+- [x].Android Sound
+- [x].Sound volume 0 background
+- [x].Orientation
+- [x].hide navigation bar, status bar code test(Android)
+- [x].auto insert android code python
+- [x].Storage Test Code
+- [x].Storage Test iOS
+- [x].Storage Test Android
+- [ ].config
+- [ ].record
+- [ ].start
+- [ ].code Gen Tool
 
 ## TODO page
 ### config
-- DONE.all button sound
-- TODO.all button callback make
-- TODO.all button data setup
-- TODO.audio volume change
+- [x].all button sound
+- [ ].all button callback make
+- [ ].all button data setup
+- [ ].audio volume change
 
 ## command
 - fuse build -t iOS
