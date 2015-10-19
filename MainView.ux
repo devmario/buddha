@@ -396,14 +396,14 @@
 						<Image File="res/img/btn.png"  />
 					  </Panel>
 					</Grid>
-					<Panel Width="50%" Height="70%">
+					<StackPanel Width="50%" Height="70%">
 					  <Rectangle ux:Binding="Appearance" Background="#FFFFFF">
 						<Stroke Width="1">
 						  <SolidColor Color="#000000"/>
 						</Stroke>
 					  </Rectangle>
 					  <Text Value="{textSpeed}" FontSize="20" Alignment="Center" TextColor="#000000" Margin="0,4,0,0"/>
-					</Panel>
+					</StackPanel>
 				  </Panel>
 				</Grid>
 				<Panel Width="100%" Height="1" Background="#CCCCCC"/>
@@ -511,14 +511,14 @@
 						<Image File="res/img/btn.png"  />
 					  </Panel>
 					</Grid>
-					<Panel Width="50%" Height="70%">
+					<StackPanel Width="50%" Height="70%">
 					  <Rectangle ux:Binding="Appearance" Background="#FFFFFF">
 						<Stroke Width="1">
 						  <SolidColor Color="#000000"/>
 						</Stroke>
 					  </Rectangle>
 					  <Text Value="{textVoice}" FontSize="20" Alignment="Center" TextColor="#000000" Margin="0,4,0,0"/>
-					</Panel>
+					</StackPanel>
 				  </Panel>
 				</Grid>
 				<Panel Width="100%" Height="1" Background="#CCCCCC"/>
@@ -604,14 +604,14 @@
 						<Image File="res/img/btn.png"  />
 					  </Panel>
 					</Grid>
-					<Panel Width="50%" Height="70%">
+					<StackPanel Width="50%" Height="70%">
 					  <Rectangle ux:Binding="Appearance" Background="#FFFFFF">
 						<Stroke Width="1">
 						  <SolidColor Color="#000000"/>
 						</Stroke>
 					  </Rectangle>
 					  <Text Value="{textBg}" FontSize="20" Alignment="Center" TextColor="#000000" Margin="0,4,0,0"/>
-					</Panel>
+					</StackPanel>
 				  </Panel>
 				</Grid>
 				<Panel Width="100%" Height="1" Background="#CCCCCC"/>

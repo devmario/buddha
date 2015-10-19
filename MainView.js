@@ -187,9 +187,9 @@ var alphaBgBug = Observable(1.0);
 var alphaBgWater = Observable(1.0);
 var alphaBgMusic = Observable(1.0);
 
-var textSpeed = Observable("");
-var textVoice = Observable("");
-var textBg = Observable("");
+var textSpeed = Observable("0");
+var textVoice = Observable("0");
+var textBg = Observable("0");
 
 function configUpdate() {
 	saveData();
@@ -210,6 +210,8 @@ function configUpdate() {
 	textSpeed.value = data["speed"].toString();
 	alphaStartContinue.value = data["continue"] ? 1.0 : 0.5;
 	alphaStartFirst.value = data["continue"] ? 0.5 : 1.0;
+
+	audioUpdate();
 }
 
 function activateConfig(arg) {
@@ -409,9 +411,22 @@ module.exports = {
  * Audio Init(background music start)
  */
 
+var currentBgm = "";
+var bgResArr = ["res/snd/birdBgm.mp3", "res/snd/bugBgm.mp3", "res/snd/waterBgm.mp3", null];
 
-function init() {
-	Audio.play("res/snd/birdBgm.mp3", "bg", "true");
+function audioUpdate() {
+	var res = bgResArr[data["bg"]["index"]];
+	if(res == null) {
+		currentBgm = "";
+		Audio.disposePlayer("bg");
+	} else {
+		if(currentBgm != res) {
+			currentBgm = res;
+			Audio.play(res, "bg", "true");
+		}
+	}
+	Audio.changeVolume("bg", data["bg"]["volume"] / 5.0);
+	Audio.changeVolume("voice", data["voice"]["volume"] / 5.0);
 }
 
-init();
+audioUpdate();
