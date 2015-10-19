@@ -82,7 +82,7 @@
 	<!-- main -->
 	<Page ux:Name="main">
 	  <!-- main menu button -->
-	  <Grid ColumnData="1*,1*,1*,1*" Height="45" Width="100%" Alignment="VerticalCenter">
+	  <Grid ColumnData="1*,1*,1*,1*" Height="45" Width="100%" Alignment="Bottom">
 		<!-- Alignment Bottom -->
 		<Panel Background="#ffffff00">
 		  <Text ux:Name="label" Value="도움말" Alignment="Center" FontSize="20" TextColor="#000"/>

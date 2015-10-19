@@ -5,19 +5,15 @@
 - DONE.Android Sound
 - DONE.Sound volume 0 background
 - DONE.Orientation
-
-- TODO.StatusBar
-- TODO.etc System UI(Android Button UI)
+- DONE.hide navigation bar, status bar code test(Android)
+- DONE.auto insert android code python
 - TODO.Other System Action Test
-
 - TODO.Storage Test Code
 - TODO.Storage Test iOS
 - TODO.Storage Test Android
-
 - TODO.config
 - TODO.record
 - TODO.start
-
 - TODO.code Gen Tool
 
 ## command
