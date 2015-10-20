@@ -781,9 +781,9 @@
 	  <WhileActive>
 		<Callback Handler="{playActivate}"/>
 	  </WhileActive>
-	  <WhileTrue Value="{playCheck}">
-		
-	  </WhileTrue>
+	  <WhileInactive>
+		<Callback Handler="{playInActivate}"/>
+	  </WhileInactive>
 	  <Grid Rows="15*,85*" Height="100%" Width="100%">
 		<StackPanel Orientation="Horizontal" Height="100%" Width="100%">
 		  <Panel Background="#ffffff00" Alignment="Center" Width="60" Height="60">
@@ -800,13 +800,33 @@
 		<Panel/>
 	  </Grid>
 	  <Panel Width="100%" Height="100%">
-		<Panel Width="100%" Height="100%">
-		  <Text Value="{play.foreground.label}"/>
-		  <Image Source="{DataToResource play.foreground.key}" Width="100%" Height="100%" StretchMode="Uniform"/>
-		</Panel>
-	  	<Panel Width="100%" Height="100%">
-		  <Text Value="{play.background.label}"/>
-		  <Image Source="{DataToResource play.background.key}" Width="100%" Height="100%" StretchMode="Uniform"/>
+		<WhileTrue Value="{playCheckForeground}">
+		  <DataToResourceBinding Target="playForegroundImage.Source" Key="play.foreground.key"/>
+		  <NavigateTo TargetNode="playPages" Target="playPageForeground"/>
+		  <DataBinding Target="playForegroundText.Value" Key="play.foreground.label"/>
+		  <DataBinding Target="playForegroundTitle.Value" Key="play.foreground.title"/>
+		</WhileTrue>
+		<WhileTrue Value="{playCheckBackground}">
+		  <DataToResourceBinding Target="playBackgroundImage.Source" Key="play.background.key"/>
+		  <NavigateTo TargetNode="playPages" Target="playPageBackground"/>
+		  <DataBinding Target="playBackgroundText.Value" Key="play.background.label"/>
+		  <DataBinding Target="playBackgroundTitle.Value" Key="play.background.title"/>
+		</WhileTrue>
+		<Panel ux:Name="playPages">
+		  <Clicked>
+			<Callback Handler="{playClick}"/>
+		  </Clicked>
+		  <DirectNavigation Active="playPageForeground"/>
+		  <Page ux:Name="playPageForeground">
+			<Text ux:Name="playForegroundTitle" Value="{play.foreground.title}"/>
+			<Text ux:Name="playForegroundText" Value="{play.foreground.label}"/>
+			<Image ux:Name="playForegroundImage" Source="{DataToResource play.foreground.key}" Width="100%" Height="100%" StretchMode="Uniform"/>
+		  </Page>
+		  <Page ux:Name="playPageBackground">
+			<Text ux:Name="playBackgroundTitle" Value="{play.background.title}"/>
+			<Text ux:Name="playBackgroundText" Value="{play.background.label}"/>
+			<Image ux:Name="playBackgroundImage" Source="{DataToResource play.background.key}" Width="100%" Height="100%" StretchMode="Uniform"/>
+		  </Page>
 		</Panel>
 	  </Panel>
 	  <!-- <Image File="res/img/recordPageBg.png" Width="100%" Height="100%" StretchMode="UniformToFill"/> -->

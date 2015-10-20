@@ -206,7 +206,7 @@ function configUpdate() {
 	voiceArr[voiceIndex].value = 1.0;
 	bgArr[bgIndex].value = 1.0;
 	textVoice.value = data["voice"]["volume"].toString();
-	textBg.value = data["bg"]["volume"].toString() + "한";
+	textBg.value = data["bg"]["volume"].toString();
 	textSpeed.value = data["speed"].toString();
 	alphaStartContinue.value = data["continue"] ? 1.0 : 0.5;
 	alphaStartFirst.value = data["continue"] ? 0.5 : 1.0;
@@ -337,25 +337,25 @@ function getTitleLabel(count) {
 	var stringForReturn = "";
 
 	if (1<=count && count<10) {
-		stringForReturn = @"- 나는 소중한 사람이에요 -";
+		stringForReturn = "- 나는 소중한 사람이에요 -";
 	} else if (10<=count && count<24) {
-		stringForReturn = @"- 나는 향기로운 사람이에요 -";
+		stringForReturn = "- 나는 향기로운 사람이에요 -";
 	} else if (24<=count && count<36) {
-		stringForReturn = @"- 마음에 지혜를 담겠어요 -";
+		stringForReturn = "- 마음에 지혜를 담겠어요 -";
 	} else if (36<=count && count<46) {
-		stringForReturn = @"- 나는 행복한 사람이에요 -";
+		stringForReturn = "- 나는 행복한 사람이에요 -";
 	} else if (46<=count && count<54) {
-		stringForReturn = @"- 내 삶의 주인은 바로 나예요 -";
+		stringForReturn = "- 내 삶의 주인은 바로 나예요 -";
 	} else if (54<=count && count<64) {
-		stringForReturn = @"- 가족은 든든한 울타리에요 -";
+		stringForReturn = "- 가족은 든든한 울타리에요 -";
 	} else if (64<=count && count<77) {
-		stringForReturn = @"- 친구는 내 인생의 보물이에요 -";
+		stringForReturn = "- 친구는 내 인생의 보물이에요 -";
 	} else if (77<=count && count<88) {
-		stringForReturn = @"- 학교는 또 다른 집이에요 -";
+		stringForReturn = "- 학교는 또 다른 집이에요 -";
 	} else if (88<=count && count<103) {
-		stringForReturn = @"- 우리는 어울려 살아요 -";
+		stringForReturn = "- 우리는 어울려 살아요 -";
 	} else if (103<=count && count<108) {
-		stringForReturn = @"- 나는 존중받을 권리가 있어요 -";
+		stringForReturn = "- 나는 존중받을 권리가 있어요 -";
 	}
 
 	return stringForReturn;
@@ -718,15 +718,72 @@ function getPlayLabel(count) {
 	return stringForReturn;
 }
 
-var play = Observable({background:{key:"h0", label:getPlayLabel(0)}, foreground:{key:"h1", label:getPlayLabel(1)}});
-var playCheck = Observable(false);
+var playIsForeground = true;
+var playIndex = 0;
+var play = Observable({
+	background:{
+		key:"h1",
+		title:getTitleLabel(2),
+		label:getPlayLabel(2),
+		index:1
+	},
+	foreground:{
+		key:"h0",
+		title:getTitleLabel(1),
+		label:getPlayLabel(1),
+		index:0
+	}
+});
+var playCheckForeground = Observable(false);
+var playCheckBackground = Observable(false);
 
 function updatePlay(arg) {
 	console.log("update play");
 }
 
+function startPlayScene() {
+	Audio.play("res/snd/bell0.mp3", "effect", "false");
+	var prefix = "a";
+	if(data["voice"]["index"] == 0) {
+		prefix = "b";
+	} else if(data["voice"]["index"] == 1) {
+		prefix = "g";
+	}
+	Audio.play("res/snd/" + prefix + ("00" + (playIndex + 1)).slice(-3) + ".mp3", "voice", "false");
+}
+
 function playActivate(arg) {
+	playIsForeground = false;
+	playIndex = 0;
 	console.log("play activate");
+	startPlayScene();
+}
+
+function playInActivate(arg) {
+	console.log("play inactivate");
+}
+
+function playClick(arg) {
+	console.log("play click");
+
+	playCheckForeground.value = playCheckBackground.value = false;
+
+	playIsForeground = !playIsForeground;
+	
+	var obj = playIsForeground ? play.value.foreground : play.value.background;
+	playIndex++;
+	
+	obj.index = playIndex;
+	obj.key = "h" + obj.index.toString();
+	obj.label = getPlayLabel(obj.index + 1);
+
+	if(playIsForeground) {
+		playCheckForeground.value = true;
+	} else {
+		playCheckBackground.value = true;
+	}
+
+	startPlayScene();
 }
 
 /*
@@ -804,8 +861,11 @@ module.exports = {
 
 	play: play,
 	updatePlay: updatePlay,
-	playCheck: playCheck,
-	playActivate: playActivate
+	playCheckForeground: playCheckForeground,
+	playCheckBackground: playCheckBackground,
+	playActivate: playActivate,
+	playInActivate: playInActivate,
+	playClick: playClick
 };
 
 /*

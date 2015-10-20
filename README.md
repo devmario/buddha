@@ -31,10 +31,15 @@
 - [ ] table view cell with data
 
 ### start
-- [ ] image layer
-- [ ] click next image layer with opacity
+- [x] image layer
+- [x] click next image layer with opacity
+- [x] text Data binding
+- [ ] Design
 - [ ] layer opacity animation
-- [ ] text animation with data(javascript utf-8)
+- [ ] text animation(scale, opacity)
+- [ ] animation delay, duration
+- [ ] audio delay, dispose
+- [ ] 108 check
 - [ ] pause popup
 
 ### code Gen Tool
