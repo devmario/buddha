@@ -818,13 +818,23 @@
 		  </Clicked>
 		  <DirectNavigation Active="playPageForeground"/>
 		  <Page ux:Name="playPageForeground">
-			<Text ux:Name="playForegroundTitle" Value="{play.foreground.title}"/>
-			<Text ux:Name="playForegroundText" Value="{play.foreground.label}"/>
+		  	<Grid Rows="3*, 3*, 3*" Width="100%" Height="100%">
+			  <Text ux:Name="playForegroundTitle" Value="{play.foreground.title}" Margin="30" TextAlignment="Center" TextColor="#ffffff" FontSize="34">
+				<DropShadow/>
+			  </Text>
+			  <Panel/>
+			  <Text ux:Name="playForegroundText" Value="{play.foreground.label}" TextAlignment="Center" FontSize="40" TextColor="#333" TextWrapping="Wrap" Margin="30" />
+			</Grid>
 			<Image ux:Name="playForegroundImage" Source="{DataToResource play.foreground.key}" Width="100%" Height="100%" StretchMode="Uniform"/>
 		  </Page>
 		  <Page ux:Name="playPageBackground">
-			<Text ux:Name="playBackgroundTitle" Value="{play.background.title}"/>
-			<Text ux:Name="playBackgroundText" Value="{play.background.label}"/>
+		  	<Grid Rows="3*, 3*, 3*" Width="100%" Height="100%">
+			  <Text ux:Name="playBackgroundTitle" Value="{play.background.title}" TextAlignment="Center" TextColor="#ffffff" FontSize="34" Margin="30">
+				<DropShadow/>
+			  </Text>
+			  <Panel/>
+			  <Text ux:Name="playBackgroundText" Value="{play.background.label}" TextAlignment="Center" FontSize="40" TextColor="#333" TextWrapping="Wrap" Margin="30" />
+			</Grid>
 			<Image ux:Name="playBackgroundImage" Source="{DataToResource play.background.key}" Width="100%" Height="100%" StretchMode="Uniform"/>
 		  </Page>
 		</Panel>
