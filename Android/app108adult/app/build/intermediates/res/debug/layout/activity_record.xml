@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" android:background="@drawable/hist_bg" android:padding="15dp" >
+    
+    <exight.customviews.EffectButton style="@style/wrap_content" android:background="@drawable/hist_x" android:id="@+id/hist_btnX" />
+    <LinearLayout style="@style/match_parent" android:gravity="center">
+    <ListView android:layout_width="400dp" android:layout_height="280dp" android:background="@drawable/hist_item_bg" 
+        android:id="@+id/hist_lvItems"
+        android:scrollbarStyle="outsideInset"
+        android:scrollbarDefaultDelayBeforeFade="50000"
+        android:scrollbarThumbVertical="@drawable/hist_scroll_thumb"
+        android:scrollbarTrackVertical="@drawable/hist_scroll_track"
+        android:cacheColorHint="#00000000"
+        android:dividerHeight="0px"
+        android:listSelector="#00000000"
+       ></ListView>    
+    </LinearLayout>
+    
+
+</LinearLayout> <!-- From: file:/Users/jangwonhee/Documents/app108adult/app/src/main/res/layout/activity_record.xml -->

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical" >
+    
+    <LinearLayout style="@style/wrap_content" android:orientation="horizontal" android:layout_marginTop="12dp" >
+        <TextView android:layout_width="300dp" android:layout_height="wrap_content" android:id="@+id/cellFoldingCount_tvDate" android:text="2012-02-11"
+            android:textSize="23sp" android:textColor="#aa000000" android:textStyle="bold"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/cellFoldingCount_tvCount" android:text="3"
+            android:textSize="23sp" android:textColor="#aa000000" />
+    </LinearLayout>
+    
+    <ImageView style="@style/wrap_content" android:background="@drawable/hist_item_line" android:layout_marginTop="12dp" android:layout_marginLeft="14dp"/>
+
+</LinearLayout>

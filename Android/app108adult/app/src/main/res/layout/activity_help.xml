@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@drawable/help_common_bg">
+
+    <RelativeLayout style="@style/match_width" android:gravity="center" android:id="@+id/help_llTop">
+
+	    <LinearLayout style="@style/wrap_content" android:gravity="center"  android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true" android:layout_marginLeft="10dp">
+	        
+	    	<exight.customviews.EffectButton style="@style/wrap_content" android:background="@drawable/help_btn_close" android:id="@+id/help_btnClose"/>
+	    	<ImageView style="@style/wrap_content" android:background="@drawable/help_common_lable_help" android:layout_toRightOf="@+id/help_btnClose"	/>
+	    
+	    </LinearLayout>
+		   
+	   	<LinearLayout style="@style/wrap_content" android:background="@drawable/help_buttonset_bg" android:gravity="center" android:layout_alignParentRight="true"
+	   	    android:layout_marginRight="10dp"
+	   	    android:layout_centerVertical="true">
+	   	    <exight.customviews.EffectButton style="@style/help_common_btn" android:text="마음 거울" android:id="@+id/help_btnMirror"/>
+	   	    <exight.customviews.EffectButton style="@style/help_common_btn" android:text="절하는 방법" android:id="@+id/help_btnHowto" android:layout_marginLeft="20dp" android:layout_marginRight="20dp"/>
+	   	    <exight.customviews.EffectButton style="@style/help_common_btn" android:text="사용법" android:id="@+id/help_btnUsage"/>
+	   	</LinearLayout>
+	   	        
+    </RelativeLayout>
+
+    
+    <RelativeLayout style="@style/match_parent" android:id="@+id/help_rlContent" android:layout_below="@+id/help_llTop"
+        >
+    </RelativeLayout>
+    
+</RelativeLayout>

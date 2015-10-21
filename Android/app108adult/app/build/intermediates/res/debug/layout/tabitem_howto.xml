@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        style="@style/wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            style="@style/wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp" >
+
+            <ImageView
+                android:id="@+id/tabItemHowtoFold_ivContent"
+                style="@style/wrap_content"
+                android:background="@drawable/yong00" />
+
+            <FrameLayout
+                style="@style/wrap_content"
+                android:layout_height="207dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/help_howto_textbg"
+                android:gravity="center"
+                 >
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <LinearLayout style="@style/match_parent" android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/tabItemHowtoFold_tvContent"
+                            style="@style/match_parent"
+                            android:layout_gravity="center"
+                            android:gravity="left"
+                            android:maxWidth="230dp"
+                            android:text="마음을 차분하게 가라앉히고sdfsdf"
+                            android:textColor="#000000"
+                            android:textSize="16sp"
+                             />
+                    </LinearLayout>
+                </ScrollView>
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/help_howto_button_bg"
+            android:gravity="center" >
+
+            <exight.customviews.EffectButton
+                android:id="@+id/tabItemHowtoFold_btnLeft"
+                style="@style/wrap_content"
+                android:background="@drawable/help_howto_btn_left" />
+
+            <exight.customviews.EffectButton
+                android:id="@+id/tabItemHowtoFold_btnMid"
+                style="@style/wrap_content"
+                android:layout_marginLeft="42dp"
+                android:layout_marginRight="42dp"
+                android:background="@drawable/help_howto_btn_start" />
+
+            <exight.customviews.EffectButton
+                android:id="@+id/tabItemHowtoFold_btnRight"
+                style="@style/wrap_content"
+                android:background="@drawable/help_howto_btn_right" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout><!-- From: file:/Users/jangwonhee/Documents/app108adult/app/src/main/res/layout/tabitem_howto.xml -->

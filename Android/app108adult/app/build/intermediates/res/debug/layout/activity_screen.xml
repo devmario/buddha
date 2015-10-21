@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/screen_ivBgBefore"
+        style="@style/match_parent"
+        android:background="@drawable/inner_bg_001" />
+
+    <ImageView
+        android:id="@+id/screen_ivBg"
+        style="@style/match_parent"
+        android:background="@drawable/inner_bg_001" />
+
+    <RelativeLayout
+        android:id="@+id/screen_llContent"
+        style="@style/match_width"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="0dp"
+        android:visibility="visible" >
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:id="@+id/screen_tvContentTitle"
+            style="@style/match_width" android:gravity="right"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="4"
+            android:text="dddd"
+            android:textColor="#ffffff"
+            android:textSize="40sp"
+           />
+
+        <RelativeLayout style="@style/match_width" android:layout_marginTop="0dp">
+
+
+            <LinearLayout
+                android:id="@+id/screen_llForTvContentContent"
+                style="@style/match_width" android:layout_height="match_parent"
+                android:gravity="center" >
+
+                <TextView
+                    android:layout_marginTop="50dp"
+                    android:id="@+id/screen_tvContentContent"
+                    style="@style/match_parent"
+                    android:gravity="center"
+                    android:shadowColor="#ffffff"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="4"
+                    android:text="dd"
+                    android:textColor="#000000"
+                    android:textSize="45sp"
+                     />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <exight.customviews.EffectButton
+        android:id="@+id/screen_btnPause"
+        style="@style/wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/screen_pause" />
+
+</RelativeLayout><!-- From: file:/Users/jangwonhee/Documents/app108adult/app/src/main/res/layout/activity_screen.xml -->

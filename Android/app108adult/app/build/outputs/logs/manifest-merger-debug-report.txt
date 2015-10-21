@@ -1,0 +1,107 @@
+-- Merging decision tree log ---
+manifest
+ADDED from AndroidManifest.xml:1:1
+	xmlns:android
+		ADDED from AndroidManifest.xml:1:11
+	package
+		ADDED from AndroidManifest.xml:2:5
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	android:versionName
+		ADDED from AndroidManifest.xml:4:5
+	android:versionCode
+		ADDED from AndroidManifest.xml:3:5
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+uses-sdk
+ADDED from AndroidManifest.xml:6:5
+	android:targetSdkVersion
+		ADDED from AndroidManifest.xml:8:9
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	android:minSdkVersion
+		ADDED from AndroidManifest.xml:7:9
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+application
+ADDED from AndroidManifest.xml:10:5
+	android:label
+		ADDED from AndroidManifest.xml:12:9
+	android:icon
+		ADDED from AndroidManifest.xml:11:9
+	android:theme
+		ADDED from AndroidManifest.xml:13:9
+activity#com.threedpaper.app108adult.ActivityMain
+ADDED from AndroidManifest.xml:15:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:15:48
+	android:theme
+		ADDED from AndroidManifest.xml:15:86
+	android:name
+		ADDED from AndroidManifest.xml:15:19
+activity#com.threedpaper.app108adult.ActivitySetting
+ADDED from AndroidManifest.xml:17:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:17:51
+	android:theme
+		ADDED from AndroidManifest.xml:17:89
+	android:name
+		ADDED from AndroidManifest.xml:17:19
+activity#com.threedpaper.app108adult.ActivityHelp
+ADDED from AndroidManifest.xml:19:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:19:48
+	android:theme
+		ADDED from AndroidManifest.xml:19:86
+	android:name
+		ADDED from AndroidManifest.xml:19:19
+activity#com.threedpaper.app108adult.ActivityRecord
+ADDED from AndroidManifest.xml:21:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:21:50
+	android:theme
+		ADDED from AndroidManifest.xml:21:88
+	android:name
+		ADDED from AndroidManifest.xml:21:19
+activity#com.threedpaper.app108adult.ActivityScreen
+ADDED from AndroidManifest.xml:23:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:23:50
+	android:theme
+		ADDED from AndroidManifest.xml:23:88
+	android:name
+		ADDED from AndroidManifest.xml:23:19
+activity#com.threedpaper.app108adult.ActivityIntro
+ADDED from AndroidManifest.xml:26:9
+	android:name
+		ADDED from AndroidManifest.xml:26:19
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:27:13
+action#android.intent.action.MAIN
+ADDED from AndroidManifest.xml:28:17
+	android:name
+		ADDED from AndroidManifest.xml:28:25
+category#android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:29:17
+	android:name
+		ADDED from AndroidManifest.xml:29:27
+activity#com.threedpaper.app108adult.ActivityScreenPause
+ADDED from AndroidManifest.xml:32:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:32:54
+	android:theme
+		ADDED from AndroidManifest.xml:32:92
+	android:name
+		ADDED from AndroidManifest.xml:32:19
+activity#com.threedpaper.app108adult.ActivityPause
+ADDED from AndroidManifest.xml:33:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:33:48
+	android:theme
+		ADDED from AndroidManifest.xml:33:86
+	android:name
+		ADDED from AndroidManifest.xml:33:19
+activity#com.threedpaper.app108adult.ActivitySearchMusinInSdcard
+ADDED from AndroidManifest.xml:34:9
+	android:name
+		ADDED from AndroidManifest.xml:34:19
