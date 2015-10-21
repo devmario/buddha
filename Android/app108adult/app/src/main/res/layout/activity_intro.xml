@@ -5,6 +5,6 @@
     android:orientation="vertical" >
     
 
-    <TextView style="@style/wrap_content" android:text="우히히" android:layout_gravity="center"/>
+    <TextView style="@style/wrap_content" android:text="우히히" android:layout_gravity="center" android:textSize="20pt" android:gravity="center"/>
     
 </LinearLayout>

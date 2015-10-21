@@ -10,82 +10,82 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 
 
-//ÅÇ¾×Æ¼ºñÆ¼Ã³·³ ±¸¼º½ÃÅ°±âÀ§ÇÔ.
+//íƒ­ì•¡í‹°ë¹„í‹°ì²˜ëŸ¼ êµ¬ì„±ì‹œí‚¤ê¸°ìœ„í•¨.
 public class ExightTabLayerChanger implements OnClickListener{
-	
+
 	private ViewGroup containerView;
 	private Activity activity;
 	private TabChangeListener tabChangeListener;
 	private HashMap<Integer, ExightTabItem> hashTabItems = new HashMap<Integer, ExightTabItem>();
-	
-	/**ºä ±×·ì ¾ÆÀÌµğ¸¦ ³Ñ°Ü¶ó*/
+
+	/**ë·° ê·¸ë£¹ ì•„ì´ë””ë¥¼ ë„˜ê²¨ë¼*/
 	public ExightTabLayerChanger(Activity activity, int containerId, TabChangeListener tabChangeListener) {
 		containerView = (ViewGroup)activity.findViewById(containerId);
 		this.activity = activity;
-		
+
 		this.tabChangeListener = tabChangeListener;
 	}
-	
-	/**ºä ±×·ì¸¸ µÈ´ç*/
+
+	/**ë·° ê·¸ë£¹ë§Œ ëœë‹¹*/
 	public ExightTabLayerChanger(Activity activity, ViewGroup containerView, TabChangeListener tabChangeListener) {
 		this.containerView = containerView;
 		this.activity = activity;
-		
+
 		this.tabChangeListener = tabChangeListener;
 	}
-	
+
 	public void newTabItem(int no, ExightTabItem tabItem){
 		hashTabItems.put(no, tabItem);
 		tabItem.getContentView().setVisibility(View.GONE);
 		containerView.addView(tabItem.getContentView());
 	}
-	
+
 	private Map<Integer, View> hashButtonSet = new HashMap<Integer, View>();
 	public void newTabItem(int no, ExightTabItem tabItem, int buttonId){
 		hashTabItems.put(no, tabItem);
 		tabItem.getContentView().setVisibility(View.GONE);
 		containerView.addView(tabItem.getContentView());
-		
+
 		View btn = activity.findViewById(buttonId);
 		btn.setOnClickListener(this);
 		btn.setTag(no);
-		
+
 		hashButtonSet.put(no, btn);
 	}
-	
+
 	private int currentNo = 0;
 	public void setCurrentTab(int no){
-		//step1. ¸ğµÎ´Ù invisible·Î ¹Ù²Ş.
+		//step1. ëª¨ë‘ë‹¤ invisibleë¡œ ë°”ê¿ˆ.
 		currentNo = no;
 		Iterator itr = hashTabItems.keySet().iterator();
 		while(itr.hasNext()){
 			Integer key = (Integer)itr.next();
 			ExightTabItem tabItem = (ExightTabItem)hashTabItems.get(key);
-			
+
 			if(no == key){
 				tabItem.getContentView().setVisibility(View.VISIBLE);
-				//createµÈ ³»¿ªÀÌÀÖÀ¸¸é resume
+				//createëœ ë‚´ì—­ì´ìˆìœ¼ë©´ resume
 				if(tabItem.isCreated()){
 					tabItem.onResume();
-					
+
 					tabChangeListener.onTabResume(key, hashButtonSet.get(key));
 				}else{
 					tabItem.setCreated(true);
-					//create½ÃÅ´.
+					//createì‹œí‚´.
 					tabItem.onCreate();
 					tabItem.onResume();
 					tabChangeListener.onTabResume(key, hashButtonSet.get(key));
 				}
-				
+
 			}else{
 				tabItem.onPause();
 				tabItem.getContentView().setVisibility(View.GONE);
-				
+
 				tabChangeListener.onTabPause(key, hashButtonSet.get(key));
 			}
 		}
 	}
-	
+
 	public void onPause(){
 		Iterator itr = hashTabItems.keySet().iterator();
 		while(itr.hasNext()){
@@ -94,18 +94,18 @@ public class ExightTabLayerChanger implements OnClickListener{
 			tabItem.onPause();
 		}
 	}
-	
+
 	public void onResume(){
 		hashTabItems.get(currentNo).onResume();
 	}
-	
+
 	@Override
 	public void onClick(View v) {
 		Integer no = (Integer)v.getTag();
 		this.setCurrentTab(no);
 	}
-	
-	
+
+
 	public interface TabChangeListener{
 		public void onTabResume(int pos, View v);
 		public void onTabPause(int pos, View v);

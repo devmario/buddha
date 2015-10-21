@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/jangwonhee/Documents/app108adult/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/Users/jangwonhee/Documents/Buddha_2/Android/app108adult/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="padding_large">16dp</dimen>
     <dimen name="padding_medium">8dp</dimen>
     <dimen name="padding_small">8dp</dimen>
-    <!-- From: file:/Users/jangwonhee/Documents/app108adult/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/jangwonhee/Documents/Buddha_2/Android/app108adult/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="app_name">마음거울108</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    <!-- From: file:/Users/jangwonhee/Documents/app108adult/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/Users/jangwonhee/Documents/Buddha_2/Android/app108adult/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="Theme.NoTopShadow" parent="android:style/Theme">
         <item name="android:windowNoTitle">true</item>

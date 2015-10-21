@@ -67,7 +67,7 @@ import android.widget.Toast;
 
 
 public class Utility {
-	
+
 	public static int getPrevMonth(int prevCount){
 		int month = Calendar.getInstance().get(Calendar.MONTH) + 1;
 		int r = month - prevCount;
@@ -76,19 +76,19 @@ public class Utility {
 		}
 		return r;
 	}
-	
-	/**�ڵ��� ��ȣ ��������*/
+
+	/**핸드폰 번호 가져오긔*/
 	public static String getPhoneNumber(Context context){
 		TelephonyManager mTelephonyMgr = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 		String imsi = mTelephonyMgr.getSubscriberId();
 		String imei = mTelephonyMgr.getDeviceId();
 		String phoneNumber = mTelephonyMgr.getLine1Number();
-		
+
 		phoneNumber = phoneNumber.replace("+82", "0");
-		
+
 		return phoneNumber;
 	}
-	
+
 	public static final void writeMessageToSdcard(Activity activity, File parentPath, String message){
 		message = "facebook error : " + message + " / " + Utility.getCurrentDateTime() + "\n";
 		File f = new File(parentPath, "error_report.txt");
@@ -101,18 +101,18 @@ public class Utility {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
+
 	}
 
 	public static String getMoneyString(int value){
 		return getMoneyString(value + "");
 	}
-	/**4�ڸ������� ��ǥ�� ���Ե� ���ڿ� ����*/
+	/**4자리수마다 쉼표가 포함된 문자열 리턴*/
 	public static String getMoneyStringWithWon(String str){
-		return getMoneyString(str) + "��";
+		return getMoneyString(str) + "원";
 	}
 	public static String getMoneyStringWithWon(int value){
-		return getMoneyString(value) + "��";
+		return getMoneyString(value) + "원";
 	}
 	public static String getMoneyString(String str){
 
@@ -136,78 +136,78 @@ public class Utility {
 				}
 			}
 			String s = new String(strParsed);
-			
+
 			return s;
 		}catch (Exception e) {
 			return "-";
 		}
 	}
 	public static ProgressDialog showModalDialog(Context context, String message){
-		ProgressDialog pd =  ProgressDialog.show(context, "", message);		
+		ProgressDialog pd =  ProgressDialog.show(context, "", message);
 		pd.setCancelable(true);
 		return pd;
 	}
-	
+
 	static Typeface typeFaceNanum;
 	static Typeface typeFaceNanumBold;
 
-	public static Typeface getNanumBoldTypeface(Context context){	
+	public static Typeface getNanumBoldTypeface(Context context){
 		if( typeFaceNanumBold == null ){
 			typeFaceNanumBold = Typeface.createFromAsset(context.getAssets(), "fonts/NanumGothicBold.ttf");
 		}
 		return typeFaceNanumBold;
 	}
-	public static Typeface getNanumTypeface(Context context){	
+	public static Typeface getNanumTypeface(Context context){
 		if( typeFaceNanum == null){
 			typeFaceNanum = Typeface.createFromAsset(context.getAssets(), "fonts/NanumGothic.ttf");
 		}
 		return typeFaceNanum;
 	}
-	
+
 	public static String getNetworkConnectionType(Context context){
-        
-        ConnectivityManager cManager;   
-        NetworkInfo mobile;   
-        NetworkInfo wifi;   
-          
-        cManager=(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);   
-        mobile = cManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);   
-        wifi = cManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);   
-          
-        if(mobile.isConnected()){  
-        	return "3g";
-        }else if(wifi.isConnected()){
-        	return "wifi";
-        }else{
-        	return null;
-        }
-        
+
+		ConnectivityManager cManager;
+		NetworkInfo mobile;
+		NetworkInfo wifi;
+
+		cManager=(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		mobile = cManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+		wifi = cManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+
+		if(mobile.isConnected()){
+			return "3g";
+		}else if(wifi.isConnected()){
+			return "wifi";
+		}else{
+			return null;
+		}
+
 	}
-	
+
 	public static void openMarketDownloadPage(Context context){
-		Uri uri = Uri.parse("market://details?id=" + getPackageName(context));  
-		Intent intent = new Intent(Intent.ACTION_VIEW, uri);  
+		Uri uri = Uri.parse("market://details?id=" + getPackageName(context));
+		Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 		context.startActivity(intent);
 	}
-	
-	//	�̹��� ����
-	
-	public static Bitmap getRoundedCornerBitmap(Bitmap bitmap) { 
-		Bitmap output = Bitmap.createBitmap(bitmap.getWidth(), 
-				bitmap.getHeight(), Config.ARGB_4444); 
-		Canvas canvas = new Canvas(output); 
-		final int color = 0xff424242; 
-		final Paint paint = new Paint(); 
-		final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight()); 
-		final RectF rectF = new RectF(rect); 
-		final float roundPx = 14; 
-		paint.setAntiAlias(true); 
-		canvas.drawARGB(0, 0, 0, 0); 
-		paint.setColor(color); 
-		canvas.drawRoundRect(rectF, roundPx, roundPx, paint); 
-		paint.setXfermode(new PorterDuffXfermode(android.graphics.PorterDuff.Mode.SRC_IN)); 
-		canvas.drawBitmap(bitmap, rect, rect, paint); 
-		return output; 
+
+	//	占싱뱄옙占쏙옙 占쏙옙占쏙옙
+
+	public static Bitmap getRoundedCornerBitmap(Bitmap bitmap) {
+		Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
+				bitmap.getHeight(), Config.ARGB_4444);
+		Canvas canvas = new Canvas(output);
+		final int color = 0xff424242;
+		final Paint paint = new Paint();
+		final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+		final RectF rectF = new RectF(rect);
+		final float roundPx = 14;
+		paint.setAntiAlias(true);
+		canvas.drawARGB(0, 0, 0, 0);
+		paint.setColor(color);
+		canvas.drawRoundRect(rectF, roundPx, roundPx, paint);
+		paint.setXfermode(new PorterDuffXfermode(android.graphics.PorterDuff.Mode.SRC_IN));
+		canvas.drawBitmap(bitmap, rect, rect, paint);
+		return output;
 	}
 
 
@@ -231,7 +231,7 @@ public class Utility {
 		return (ImageView)v.findViewById(id);
 	}
 
-	/**ĳ���Ǵ� ���?��������*/
+	/**캐占쏙옙占실댐옙 占쏙옙占?占쏙옙占쏙옙占쏙옙占쏙옙*/
 	public static File getCacheDir(Context context, String tempDirPath){
 		File cacheDir;
 		if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED))
@@ -244,7 +244,7 @@ public class Utility {
 		return cacheDir;
 	}
 
-	/** �ٹ��� ��Ƽ��Ƽ ȣ��*/
+	/** 占쌕뱄옙占쏙옙 占쏙옙티占쏙옙티 호占쏙옙*/
 	public static void callImageAlbumIntent(Activity activity, int id){
 		Intent intent = new Intent(
 				MediaStore.ACTION_IMAGE_CAPTURE);
@@ -254,7 +254,7 @@ public class Utility {
 		activity.startActivityForResult(intent, id);
 	}
 
-	/** ����ƮŰ���� �¿���*/
+	/** 占쏙옙占쏙옙트키占쏙옙占쏙옙 占승울옙占쏙옙*/
 	public static void setSoftKeyboardVisiblity(Context context, EditText etTarget, boolean on){
 		if(on == true){
 			InputMethodManager imm = (InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -268,12 +268,12 @@ public class Utility {
 
 	}
 
-	/** ���� �����?1dp�� ���ȼ����� ��ȯ*/
+	/** 占쏙옙占쏙옙 占쏙옙占쏙옙占?1dp占쏙옙 占쏙옙占싫쇽옙占쏙옙占쏙옙 占쏙옙환*/
 	public static float getSystemPixelByDp(Context context){
-		return context.getResources().getDisplayMetrics().density; //1dp�� �� ��pixel�ΰ�.
+		return context.getResources().getDisplayMetrics().density; //1dp占쏙옙 占쏙옙 占쏙옙pixel占싸곤옙.
 	}
 
-	/**�Է¹��� ��ġ�� dp�� ��ȯ*/
+	/**占쌉력뱄옙占쏙옙 占쏙옙치占쏙옙 dp占쏙옙 占쏙옙환*/
 	public static int getPixelByDp(Context context, int dp){
 		return (int)getSystemPixelByDp(context) * dp;
 	}
@@ -284,41 +284,41 @@ public class Utility {
 
 	public static String getRealPathFromURI(Activity act, Uri contentUri){
 		String [] proj={MediaColumns.DATA};
-		Cursor cursor = act.managedQuery( contentUri, proj, null, null, null); 
+		Cursor cursor = act.managedQuery( contentUri, proj, null, null, null);
 		int column_index = cursor.getColumnIndexOrThrow(MediaColumns.DATA);
 		cursor.moveToFirst();
 		return cursor.getString(column_index);
 	}
 
-	//�ܸ��� ������ ��������
+	//占쌤몌옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙
 	public static String getDeviceID(Context context) {
 		TelephonyManager tManager = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
 		return tManager.getDeviceId();
 	}
 
-	//���� �ð� �������� 0000-00-00 00:00:00
+	//占쏙옙占쏙옙 占시곤옙 占쏙옙占쏙옙占쏙옙占쏙옙 0000-00-00 00:00:00
 	public static String getCurrentDateTime(){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 		return dateFormat.format(Calendar.getInstance().getTime());
 
 	}
-	
+
 	public static String getCurrentDate(){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 		return dateFormat.format(Calendar.getInstance().getTime());
 
 	}
-	
+
 	public static void setTextViewBold(TextView tv){
 		tv.setPaintFlags(tv.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
 	}
 
-	/**format�� yyyy-MM-dd HH:mm:ss �������?�ѱ���*/
+	/**format占쏙옙 yyyy-MM-dd HH:mm:ss 占쏙옙占쏙옙占쏙옙占?占싼깍옙占쏙옙*/
 	public static String getDateFromSecond(int sec, String format){
 
-		SimpleDateFormat dateFormat = new SimpleDateFormat(format);		
+		SimpleDateFormat dateFormat = new SimpleDateFormat(format);
 		String s = dateFormat.format(new Date(1000 * sec));
 
 		return s;
@@ -330,111 +330,111 @@ public class Utility {
 
 		unregIntent.putExtra("app", PendingIntent.getBroadcast(context, 0, new Intent(), 0));
 
-		context.startService(unregIntent);	
+		context.startService(unregIntent);
 	}
 
 
 
 	//decodes image and scales it to reduce memory consumption 
-	public static Bitmap decodeImageAndReduceSize(File f, int targetSize){    
-		try {       
+	public static Bitmap decodeImageAndReduceSize(File f, int targetSize){
+		try {
 			// Decode image size     
-			BitmapFactory.Options o = new BitmapFactory.Options();   
-			o.inJustDecodeBounds = true; 
+			BitmapFactory.Options o = new BitmapFactory.Options();
+			o.inJustDecodeBounds = true;
 			BitmapFactory.decodeStream(new FileInputStream(f),null,o);
 
 			//The new size we want to scale to 
-			final int REQUIRED_SIZE=targetSize;          
+			final int REQUIRED_SIZE=targetSize;
 
 			//Find the correct scale value. It should be the power of 2. 
-			int width_tmp=o.outWidth, height_tmp=o.outHeight;   
-			int scale=1;       
-			while(true){       
-				if(width_tmp / 2 < REQUIRED_SIZE )   
-					break;          
+			int width_tmp=o.outWidth, height_tmp=o.outHeight;
+			int scale=1;
+			while(true){
+				if(width_tmp / 2 < REQUIRED_SIZE )
+					break;
 
-				width_tmp/=2;      
-				height_tmp/=2;        
-				scale*=2;       
+				width_tmp/=2;
+				height_tmp/=2;
+				scale*=2;
 			}          //Decode with inSampleSize    
 
-			BitmapFactory.Options o2 = new BitmapFactory.Options();    
-			o2.inSampleSize=scale;       
+			BitmapFactory.Options o2 = new BitmapFactory.Options();
+			o2.inSampleSize=scale;
 
 			return BitmapFactory.decodeStream(new FileInputStream(f), null, o2);
 
 		} catch (FileNotFoundException e) {
 
-		}   
+		}
 		return null;
 	}
 
-	public static Bitmap decodeImageAndReduceSizeOri(File f, int targetSize){    
-		try {       
+	public static Bitmap decodeImageAndReduceSizeOri(File f, int targetSize){
+		try {
 			// Decode image size     
-			BitmapFactory.Options o = new BitmapFactory.Options();   
-			o.inJustDecodeBounds = true; 
+			BitmapFactory.Options o = new BitmapFactory.Options();
+			o.inJustDecodeBounds = true;
 			BitmapFactory.decodeStream(new FileInputStream(f),null,o);
 
 			//The new size we want to scale to 
-			final int REQUIRED_SIZE=targetSize;          
+			final int REQUIRED_SIZE=targetSize;
 
 			//Find the correct scale value. It should be the power of 2. 
-			int width_tmp=o.outWidth, height_tmp=o.outHeight;   
-			int scale=1;       
-			while(true){       
-				if(width_tmp / 2 < REQUIRED_SIZE || height_tmp / 2 < REQUIRED_SIZE)   
-					break;          
+			int width_tmp=o.outWidth, height_tmp=o.outHeight;
+			int scale=1;
+			while(true){
+				if(width_tmp / 2 < REQUIRED_SIZE || height_tmp / 2 < REQUIRED_SIZE)
+					break;
 
-				width_tmp/=2;      
-				height_tmp/=2;        
-				scale*=2;       
+				width_tmp/=2;
+				height_tmp/=2;
+				scale*=2;
 			}          //Decode with inSampleSize    
 
-			BitmapFactory.Options o2 = new BitmapFactory.Options();    
-			o2.inSampleSize=scale;       
+			BitmapFactory.Options o2 = new BitmapFactory.Options();
+			o2.inSampleSize=scale;
 
 			return BitmapFactory.decodeStream(new FileInputStream(f), null, o2);
 
 		} catch (FileNotFoundException e) {
 
-		}   
+		}
 		return null;
 	}
 
-	public static Bitmap decodeImageAndReduceSize(InputStream inputStreamSrc){    
-		try {      
+	public static Bitmap decodeImageAndReduceSize(InputStream inputStreamSrc){
+		try {
 
 			// Decode image size     
-			BitmapFactory.Options o = new BitmapFactory.Options();   
-			o.inJustDecodeBounds = true; 
+			BitmapFactory.Options o = new BitmapFactory.Options();
+			o.inJustDecodeBounds = true;
 			BitmapFactory.decodeStream(inputStreamSrc,null,o);
 
 			//The new size we want to scale to 
-			final int REQUIRED_SIZE=70;          
+			final int REQUIRED_SIZE=70;
 
 			//Find the correct scale value. It should be the power of 2. 
-			int width_tmp=o.outWidth, height_tmp=o.outHeight;   
-			int scale=1;       
-			while(true){       
-				if(width_tmp/2<REQUIRED_SIZE || height_tmp/2<REQUIRED_SIZE)   
-					break;          
+			int width_tmp=o.outWidth, height_tmp=o.outHeight;
+			int scale=1;
+			while(true){
+				if(width_tmp/2<REQUIRED_SIZE || height_tmp/2<REQUIRED_SIZE)
+					break;
 
-				width_tmp/=2;      
-				height_tmp/=2;        
-				scale*=2;       
+				width_tmp/=2;
+				height_tmp/=2;
+				scale*=2;
 			}          //Decode with inSampleSize    
 
-			BitmapFactory.Options o2 = new BitmapFactory.Options();    
-			o2.inSampleSize=scale;       
+			BitmapFactory.Options o2 = new BitmapFactory.Options();
+			o2.inSampleSize=scale;
 
 			return BitmapFactory.decodeStream(inputStreamSrc, null, o2);
 
 		} catch (Exception e) {
 
-		}   
+		}
 		return null;
-	} 
+	}
 
 
 
@@ -456,7 +456,7 @@ public class Utility {
 			URLConnection conn = url.openConnection();
 			conn.connect();
 			BufferedInputStream  bis = new BufferedInputStream(conn.getInputStream());
-			Bitmap bm = BitmapFactory.decodeStream(bis); 
+			Bitmap bm = BitmapFactory.decodeStream(bis);
 			bis.close();
 			return bm;
 
@@ -491,7 +491,7 @@ public class Utility {
 
 		Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:"+email));
 
-		i.putExtra(Intent.EXTRA_SUBJECT, subject); 
+		i.putExtra(Intent.EXTRA_SUBJECT, subject);
 		i.putExtra(Intent.EXTRA_TEXT,
 				text  );
 
@@ -516,10 +516,10 @@ public class Utility {
 		Calendar calendar = Calendar.getInstance();
 		return new java.sql.Timestamp(calendar.getTime().getTime());
 	}
-	
+
 	public interface DialogChoiceYes {
 		public boolean choiceYes();
-	
+
 	}
 
 	public static void makeYesDialog(Context context, String title, String yesString, final DialogChoiceYes dialogChoiceYes) {
@@ -528,22 +528,22 @@ public class Utility {
 		if(title.equals("")){
 
 		}else{
-			builder.setMessage(title);	
+			builder.setMessage(title);
 		}
 
 		builder.setCancelable(false)
-		.setPositiveButton(yesString,
-				new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int id) {
-				if(dialogChoiceYes.choiceYes() == true){
-					dialog.dismiss();
-				}
-			}
-		})
+				.setPositiveButton(yesString,
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								if(dialogChoiceYes.choiceYes() == true){
+									dialog.dismiss();
+								}
+							}
+						})
 		;
 		AlertDialog alert = builder.create();
 		alert.show();
-	}	
+	}
 
 
 	public interface DialogChoiceYesNo {
@@ -558,30 +558,30 @@ public class Utility {
 		if(title.equals("")){
 
 		}else{
-			builder.setMessage(title);	
+			builder.setMessage(title);
 		}
 
 
 		builder.setCancelable(false)
-		.setPositiveButton(yesString,
-				new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int id) {
-				if(dialogChoiceYesNo.choiceYes() == true){
-					dialog.dismiss();
-				}
-			}
-		})
-		.setNegativeButton(noString,
-				new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int id) {
-				if(dialogChoiceYesNo.choiceNo() == true){
-					dialog.dismiss();
-				}
-			}
-		});
+				.setPositiveButton(yesString,
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								if(dialogChoiceYesNo.choiceYes() == true){
+									dialog.dismiss();
+								}
+							}
+						})
+				.setNegativeButton(noString,
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								if(dialogChoiceYesNo.choiceNo() == true){
+									dialog.dismiss();
+								}
+							}
+						});
 		AlertDialog alert = builder.create();
 		alert.show();
-	}	
+	}
 
 	public static void copyStream(InputStream is, OutputStream os)
 	{
@@ -611,28 +611,28 @@ public class Utility {
 		}catch(Exception e){
 			dest = null;
 		}
-		return dest; 
+		return dest;
 	}
 
-	/** �ʸ� 00:00���·� ��ȯ */
+	/** 占십몌옙 00:00占쏙옙占승뤄옙 占쏙옙환 */
 	public static String getMinuteStringFromSecond(int mSec){
 		int min = mSec / 60;
 		int sec = mSec % 60;
-		
+
 		String rMin = min + "";
 		String rSec = sec + "";
-		
+
 		if(min < 10){
 			rMin = "0" + rMin;
 		}
-		
+
 		if(sec < 10){
 			rSec = "0" + rSec;
 		}
 		return rMin + ":" + rSec;
 	}
-	
-	//���� ���ε�
+
+	//占쏙옙占쏙옙 占쏙옙占싸듸옙
 	//HttpFileUpload("http://shituation.net/rightnow/upload_user_image.php", "", filePath, "thisfile");
 	public static String httpFileUpload(String urlString, String params, String fileName, String nameToBeChanged) {
 		FileInputStream mFileInputStream = null;
@@ -640,18 +640,18 @@ public class Utility {
 
 		String lineEnd = "\r\n";
 		String twoHyphens = "--";
-		String boundary = "*****";	
+		String boundary = "*****";
 
 
 		String name = nameToBeChanged;
 		String returnString = null;
 		try {
 
-			mFileInputStream = new FileInputStream(fileName);			
+			mFileInputStream = new FileInputStream(fileName);
 			connectUrl = new URL(urlString);
 
 			// open connection 
-			HttpURLConnection conn = (HttpURLConnection)connectUrl.openConnection();			
+			HttpURLConnection conn = (HttpURLConnection)connectUrl.openConnection();
 			conn.setDoInput(true);
 			conn.setDoOutput(true);
 			conn.setUseCaches(false);
@@ -685,7 +685,7 @@ public class Utility {
 				bytesAvailable = mFileInputStream.available();
 				bufferSize = Math.min(bytesAvailable, maxBufferSize);
 				bytesRead = mFileInputStream.read(buffer, 0, bufferSize);
-			}	
+			}
 
 			dos.writeBytes(lineEnd);
 			dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
@@ -702,7 +702,7 @@ public class Utility {
 				b.append( (char)ch );
 			}
 			returnString = b.toString();
-			dos.close();			
+			dos.close();
 
 		} catch (Exception e) {
 			returnString = "false";
@@ -731,23 +731,23 @@ public class Utility {
 	}
 
 
-	//��Ʈ���� ����Ʈ�ڵ��?��ȯ
-	public static byte[] bitmapToByteArray( Bitmap $bitmap ) {  
-		ByteArrayOutputStream stream = new ByteArrayOutputStream() ;  
-		$bitmap.compress( CompressFormat.JPEG, 100, stream) ;  
-		byte[] byteArray = stream.toByteArray() ;  
-		return byteArray ;  
-	}  
-
-	//����Ʈ�ڵ带 ��Ʈ������ ��ȯ
-	public static Bitmap byteArrayToBitmap( byte[] $byteArray ) {  
-		Bitmap bitmap = BitmapFactory.decodeByteArray( $byteArray, 0, $byteArray.length ) ;  
-		return bitmap ;  
+	//占쏙옙트占쏙옙占쏙옙 占쏙옙占쏙옙트占쌘듸옙占?占쏙옙환
+	public static byte[] bitmapToByteArray( Bitmap $bitmap ) {
+		ByteArrayOutputStream stream = new ByteArrayOutputStream() ;
+		$bitmap.compress( CompressFormat.JPEG, 100, stream) ;
+		byte[] byteArray = stream.toByteArray() ;
+		return byteArray ;
 	}
 
-	//Ư�� �並 ĸ��
+	//占쏙옙占쏙옙트占쌘드를 占쏙옙트占쏙옙占쏙옙占쏙옙 占쏙옙환
+	public static Bitmap byteArrayToBitmap( byte[] $byteArray ) {
+		Bitmap bitmap = BitmapFactory.decodeByteArray( $byteArray, 0, $byteArray.length ) ;
+		return bitmap ;
+	}
+
+	//특占쏙옙 占썰를 캡占쏙옙
 	public static Bitmap getSnapshotFromView(View v){
-		v.setDrawingCacheEnabled(true);  // �̰� ������ �ȵ�.  
+		v.setDrawingCacheEnabled(true);  // 占싱곤옙 占쏙옙占쏙옙占쏙옙 占싫듸옙.  
 
 
 		v.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),  MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
@@ -771,7 +771,7 @@ public class Utility {
 			e.printStackTrace();
 		}
 		return timeMs;
-	} 
+	}
 
 	public static void startActivity(Context context, Class<?> cls){
 		Intent i = new Intent(context, cls);
@@ -786,7 +786,7 @@ public class Utility {
 
 	}
 
-	//���� �ð� �������� 0000-00-00 00:00:00
+	//占쏙옙占쏙옙 占시곤옙 占쏙옙占쏙옙占쏙옙占쏙옙 0000-00-00 00:00:00
 	public static String getTimeStringByLongTime(String time, String dateFormat){
 		try{
 			SimpleDateFormat dateFor = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -795,7 +795,7 @@ public class Utility {
 			timeMs = dateFor.parse(time).getTime();
 
 			dateFor = new SimpleDateFormat(dateFormat);
-			return dateFor.format(timeMs);	
+			return dateFor.format(timeMs);
 		}catch(Exception e){
 			return "null";
 		}
@@ -827,16 +827,16 @@ public class Utility {
 
 		PackageManager pm = context.getPackageManager();
 		try {
-			PackageInfo packageInfo = pm.getPackageInfo(context.getPackageName(), 0);			
+			PackageInfo packageInfo = pm.getPackageInfo(context.getPackageName(), 0);
 			return Integer.toString(packageInfo.versionCode);
 
 		} catch (NameNotFoundException e) {
-			return "����Ȯ�ο���";
+			return "占쏙옙占쏙옙확占싸울옙占쏙옙";
 		}
 
 	}
-	
-	/**��Ű�� �̸��� �����´�*/
+
+	/**占쏙옙키占쏙옙 占싱몌옙占쏙옙 占쏙옙占쏙옙占승댐옙*/
 	public static String getPackageName(Context context) {
 		return context.getPackageName();
 
@@ -850,7 +850,7 @@ public class Utility {
 			return (packageInfo.versionName);
 
 		} catch (NameNotFoundException e) {
-			return "����Ȯ�ο���";
+			return "占쏙옙占쏙옙확占싸울옙占쏙옙";
 		}
 
 	}
@@ -897,7 +897,7 @@ public class Utility {
 
 			MessageDigest md5 = MessageDigest.getInstance("MD5");
 			md5.update(str.getBytes());
-			byte[] md5encrypt = md5.digest(); 
+			byte[] md5encrypt = md5.digest();
 
 			for(int i = 0 ; i < md5encrypt.length ; i++){
 
@@ -923,27 +923,27 @@ public class Utility {
 			c.setTimeInMillis(time);
 			String conversionDay = "";
 
-			switch (c.get(Calendar.DAY_OF_WEEK)) {  
-			case 1 :
-				conversionDay = "��" ;
-				break ;
-			case 2 :
-				conversionDay = "��" ;
-				break ;
-			case 3 :
-				conversionDay = "ȭ" ;
-				break ;
-			case 4 :
-				conversionDay = "��" ;
-				break ;
-			case 5 :
-				conversionDay = "��" ;   
-				break ;
-			case 6 :
-				conversionDay = "��" ;
-				break ;
-			case 7 :
-				conversionDay = "��" ;  
+			switch (c.get(Calendar.DAY_OF_WEEK)) {
+				case 1 :
+					conversionDay = "占쏙옙" ;
+					break ;
+				case 2 :
+					conversionDay = "占쏙옙" ;
+					break ;
+				case 3 :
+					conversionDay = "화" ;
+					break ;
+				case 4 :
+					conversionDay = "占쏙옙" ;
+					break ;
+				case 5 :
+					conversionDay = "占쏙옙" ;
+					break ;
+				case 6 :
+					conversionDay = "占쏙옙" ;
+					break ;
+				case 7 :
+					conversionDay = "占쏙옙" ;
 			}
 			return conversionDay;
 
@@ -953,7 +953,7 @@ public class Utility {
 		return "";
 	}
 
-	/** yyyy-MM-dd HH:mm:ss �����?���� �޾Ƽ� yyyy-MM-dd �ʷ� ������*/
+	/** yyyy-MM-dd HH:mm:ss 占쏙옙占쏙옙占?占쏙옙占쏙옙 占쌨아쇽옙 yyyy-MM-dd 占십뤄옙 占쏙옙占쏙옙占쏙옙*/
 	public static String getTimeDifferece(String date1, String date2){
 		String dateTime = date1;
 		String dateTime2 = date2;
@@ -1002,7 +1002,7 @@ public class Utility {
 		}
 
 
-		//return min + "�� " + sec + "��";
+		//return min + "占쏙옙 " + sec + "占쏙옙";
 
 
 	}

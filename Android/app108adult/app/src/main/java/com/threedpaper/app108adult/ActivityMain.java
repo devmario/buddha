@@ -23,53 +23,53 @@ public class ActivityMain extends ActivityForBgm implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-		//ÄÁÅÙÃ÷ ÃÊ±âÈ­
+		//ì»¨í…ì¸  ì´ˆê¸°í™”
 		Variables.INIT_LIST_MODEL_FRAMES();
-		
-		
+
+
 		init();
 		initViews();
-		
-		
-		
-		
+
+
+
+
 	}
 
 	public void init(){
-		
+
 		Variables.BGM_MANAGER = new BgmManager(this);
 		int bgType = ExPreferManager.getItemInteger(this, "bgType");
 		int bgId = 0;
 		switch(bgType){
-		case Variables.BG_TYPE_BIRD:
-			bgId = R.raw.birdbgm;
-			break;
-		case Variables.BG_TYPE_BUG:
-			bgId = R.raw.bugbgm;
-			break;
-		case Variables.BG_TYPE_STREAM:
-			bgId = R.raw.waterbgm;
-			break; 
-		case Variables.BG_TYPE_MUSIC:
-			bgId = 0;
-			String soundPath = ExPreferManager.getItem(this, "soundPath");
-			try{
-				Variables.BGM_MANAGER.playFromSdcard(soundPath);
-				
-			}catch(Exception e){
-				Utility.makeToast(this, soundPath + "\n" + "ÆÄÀÏÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. ´Ù¸¥ À½¾ÇÀ» ¼±ÅÃÇØÁÖ¼¼¿ä");
-				startActivityForResult(new Intent(this, ActivitySearchMusinInSdcard.class), 1000);
-				;
-			}
-			
-			return;
+			case Variables.BG_TYPE_BIRD:
+				bgId = R.raw.birdbgm;
+				break;
+			case Variables.BG_TYPE_BUG:
+				bgId = R.raw.bugbgm;
+				break;
+			case Variables.BG_TYPE_STREAM:
+				bgId = R.raw.waterbgm;
+				break;
+			case Variables.BG_TYPE_MUSIC:
+				bgId = 0;
+				String soundPath = ExPreferManager.getItem(this, "soundPath");
+				try{
+					Variables.BGM_MANAGER.playFromSdcard(soundPath);
+
+				}catch(Exception e){
+					Utility.makeToast(this, soundPath + "\n" + "íŒŒì¼ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ë‹¤ë¥¸ ìŒì•…ì„ ì„ íƒí•´ì£¼ì„¸ìš”");
+					startActivityForResult(new Intent(this, ActivitySearchMusinInSdcard.class), 1000);
+					;
+				}
+
+				return;
 		}
-		
+
 		if(bgId > 0){
 			Variables.BGM_MANAGER.play(bgId);
 		}
-		
-		
+
+
 	}
 
 	@Override
@@ -103,7 +103,7 @@ public class ActivityMain extends ActivityForBgm implements OnClickListener{
 		findViewById(R.id.main_btnRecord).setOnClickListener(this);
 		findViewById(R.id.main_btnSetting).setOnClickListener(this);
 		findViewById(R.id.main_btnStart).setOnClickListener(this);
-		
+
 
 	}
 
@@ -111,37 +111,37 @@ public class ActivityMain extends ActivityForBgm implements OnClickListener{
 	public void onClick(View v) {
 		switch(v.getId()){
 
-		case R.id.main_btnHelp:
-			startActivity(new Intent(this, ActivityHelp.class));
-			break;
-		case R.id.main_btnRecord:
-			startActivity(new Intent(this, ActivityRecord.class));
-			break;
-		case R.id.main_btnSetting:
-			startActivity(new Intent(this, ActivitySetting.class));
+			case R.id.main_btnHelp:
+				startActivity(new Intent(this, ActivityHelp.class));
+				break;
+			case R.id.main_btnRecord:
+				startActivity(new Intent(this, ActivityRecord.class));
+				break;
+			case R.id.main_btnSetting:
+				startActivity(new Intent(this, ActivitySetting.class));
 
-			break;
-		case R.id.main_btnStart: 
-			startActivity(new Intent(this, ActivityScreen.class));
-			break;
+				break;
+			case R.id.main_btnStart:
+				startActivity(new Intent(this, ActivityScreen.class));
+				break;
 		}
 	}
-	
+
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if(requestCode == 1000){
 			if(resultCode == RESULT_OK){
-				//¼º°ø
+				//ì„±ê³µ
 				String path = data.getStringExtra("soundPath");
 				try{
 					Variables.BGM_MANAGER.playFromSdcard(path);
 					ExPreferManager.setItem(this, "soundPath", path);
 				}catch(Exception e){
-					Utility.makeToast(this, path + "\n" + "ÆÄÀÏÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
+					Utility.makeToast(this, path + "\n" + "íŒŒì¼ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤");
 					startActivityForResult(new Intent(this, ActivitySearchMusinInSdcard.class), 1000);
 					;
 				}
 			}else{
-				//Ãë¼Ò
+				//ì·¨ì†Œ
 			}
 		}
 	};

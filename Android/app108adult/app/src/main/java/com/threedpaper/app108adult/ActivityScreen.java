@@ -31,7 +31,7 @@ public class ActivityScreen extends ActivityForBgm {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_screen);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-		
+
 		soundPool = new ExightSoundPool(this);
 		//        Variables.INIT_FRAMES_SOUND(soundPool);
 
@@ -43,9 +43,9 @@ public class ActivityScreen extends ActivityForBgm {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		
+
 		frameControllerFor108.pause();
-		
+
 	}
 
 	@Override
@@ -53,10 +53,10 @@ public class ActivityScreen extends ActivityForBgm {
 		super.onResume();
 		if(frameControllerFor108.isStopping == true){
 			frameControllerFor108.resume();
-			
+
 		}
 	}
-	
+
 	private FrameControllerFor108 frameControllerFor108;
 	private JingSoundPlayer jingSoundPlayer;
 
@@ -66,14 +66,14 @@ public class ActivityScreen extends ActivityForBgm {
 		scenePos = getIntent().getIntExtra("pausedScenePos", 0);
 
 		if(scenePos > 0){
-			//pause´­·¯¼­ µÈ°ÇÁö È®ÀÎ
+			//pauseëˆŒëŸ¬ì„œ ëœê±´ì§€ í™•ì¸
 			;
 		}else{
 			try{
 				if(ExPreferManager.getItemInteger(this, "startType") == Variables.START_TYPE_CONTINUE){
 					scenePos = ExPreferManager.getItemInteger(this, "continuedScenePos");
 				}
-				
+
 //				scenePos = Integer.parseInt(ExPreferManager.getItem(this, "continuedScenePos"));
 			}catch (Exception e) {
 				;
@@ -85,7 +85,7 @@ public class ActivityScreen extends ActivityForBgm {
 			public void onFinish() {
 				finish();
 				ExPreferManager.setItemInteger(ActivityScreen.this, "continuedScenePos", 0);
-				Toast.makeText(ActivityScreen.this, "108¹è°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù", 1000).show();
+				Toast.makeText(ActivityScreen.this, "108ë°°ê°€ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤", 1000).show();
 			}
 		};
 		initViews();
@@ -108,11 +108,11 @@ public class ActivityScreen extends ActivityForBgm {
 //		Typeface typeface2 = Typeface.createFromAsset(getAssets(), "fonts/nanumpen.otf");
 		tvContentContent.setTypeface(typeface);
 		tvContentTitle.setTypeface(typeface);
-		
+
 		tvContentTitle.setText("");
 		tvContentContent.setText("");
-		
-		
+
+
 		btnPause.setTag(true);
 		btnPause.setOnClickListener(new OnClickListener() {
 
@@ -134,7 +134,7 @@ public class ActivityScreen extends ActivityForBgm {
 		});
 	}
 
-	//ÄÁÆ®·Ñ·¯
+	//ì»¨íŠ¸ë¡¤ëŸ¬
 	abstract class FrameControllerFor108{
 		int delay = 0;
 		int currentScenePos = 0;
@@ -142,7 +142,7 @@ public class ActivityScreen extends ActivityForBgm {
 		ScaleAnimation animForText;
 
 		Handler a, b, c;
-		
+
 		public FrameControllerFor108(int currentScenePos) {
 			delay = ExPreferManager.getItemInteger(ActivityScreen.this, "foldingSpeed") * 1000;
 			this.currentScenePos = currentScenePos;
@@ -172,12 +172,12 @@ public class ActivityScreen extends ActivityForBgm {
 
 		private boolean nextScene(){
 			if(Variables.LIST_MODEL_FRAMES.size() > currentScenePos + 1){
-				currentScenePos++;	
-				
+				currentScenePos++;
+
 				ExPreferManager.setItemInteger(ActivityScreen.this, "continuedScenePos", currentScenePos);
-				//±â·ÏÈ½¼ö Áõ°¡
+				//ê¸°ë¡íšŸìˆ˜ ì¦ê°€
 				FoldingHistoryManager.increaseTodayFoldingCount(ActivityScreen.this);
-				
+
 				return true;
 			}else{
 				return false;
@@ -195,7 +195,7 @@ public class ActivityScreen extends ActivityForBgm {
 			playTitleFrame();
 
 
-			//Å¸ÀÌÆ² Àç»ı ÁßÁö 3ÃÊµÚ
+			//íƒ€ì´í‹€ ì¬ìƒ ì¤‘ì§€ 3ì´ˆë’¤
 			a = new Handler(){
 				public void dispatchMessage(Message msg) {
 					if(isStopping == true){
@@ -206,7 +206,7 @@ public class ActivityScreen extends ActivityForBgm {
 					playContentFrame();
 
 
-					//º»¹®Àç»ı 10ÃÊµÚ
+					//ë³¸ë¬¸ì¬ìƒ 10ì´ˆë’¤
 					b = new Handler(){
 						public void dispatchMessage(Message msg) {
 
@@ -218,9 +218,9 @@ public class ActivityScreen extends ActivityForBgm {
 
 							if(hasNext){
 
-								//º»¹® Àç»ı ³¡³µÀ½À» ¾Ë¸²
+								//ë³¸ë¬¸ ì¬ìƒ ëë‚¬ìŒì„ ì•Œë¦¼
 								stopContentFrame();
-								playAll();	
+								playAll();
 
 							}else{
 								onFinish();
@@ -228,7 +228,7 @@ public class ActivityScreen extends ActivityForBgm {
 
 
 						};
-						//´ÙÀ½°Å·Î ³Ñ¾î°¡´Â ½Ã°£
+						//ë‹¤ìŒê±°ë¡œ ë„˜ì–´ê°€ëŠ” ì‹œê°„
 					};
 					b.sendEmptyMessageDelayed(0, 10000 + delay);
 
@@ -244,19 +244,19 @@ public class ActivityScreen extends ActivityForBgm {
 			isStopping = true;
 //			soundPool.play(Variables.LIST_MODEL_FRAMES.get(currentScenePos).getProperSoundId(ActivityScreen.this));
 			soundPool.pause(Variables.LIST_MODEL_FRAMES.get(currentScenePos).getProperSoundId(ActivityScreen.this));
-			
+
 			if(a != null){
 				a.removeMessages(0);
 			}
-			
+
 			if(b != null){
 				b.removeMessages(0);
 			}
-			
+
 			if(c != null){
 				c.removeMessages(0);
 			}
-			
+
 		}
 
 		public void resume(){
@@ -268,8 +268,8 @@ public class ActivityScreen extends ActivityForBgm {
 		private void playTitleFrame(){
 
 			jingSoundPlayer.play();
-			
-			//»ç¿îµå Àç»ı. n¹øÂ° ÀıÀÔ´Ï´Ù
+
+			//ì‚¬ìš´ë“œ ì¬ìƒ. në²ˆì§¸ ì ˆì…ë‹ˆë‹¤
 			soundPool.addSound(Variables.LIST_MODEL_FRAMES.get(currentScenePos).getProperSoundId(ActivityScreen.this));
 			c = new Handler(){
 				public void dispatchMessage(Message msg) {
@@ -295,7 +295,7 @@ public class ActivityScreen extends ActivityForBgm {
 				ivBg.setVisibility(View.VISIBLE);
 				ivBg.startAnimation(animForFadeIn);
 			}
- 
+
 		}
 
 		private void stopTitleFrame(){
@@ -303,7 +303,7 @@ public class ActivityScreen extends ActivityForBgm {
 		}
 
 		private void playContentFrame(){
-			//»ç¿îµå Àç»ı. ³ª´Â ~~ ÀÔ´Ï´Ù.
+			//ì‚¬ìš´ë“œ ì¬ìƒ. ë‚˜ëŠ” ~~ ì…ë‹ˆë‹¤.
 			vGroupContent.setVisibility(View.VISIBLE);
 			vGroupContent.startAnimation(animForFadeIn);
 
@@ -312,10 +312,10 @@ public class ActivityScreen extends ActivityForBgm {
 			String content = Variables.LIST_MODEL_FRAMES.get(currentScenePos).content;
 
 			tvContentContent.setText(content);
-			
-//			tvContentContent.setText("³» ÀÚ½ÅÀ» ¿Ã¹Ù¸£°Ô °¡²Ù°í ÁöÄÑ¼­ \n³» ÀÚ½ÅÀ» ¿Ã¹Ù¸£°Ô °¡²Ù°í ÁöÄÑ¼­ \n»îÀ» Çàº¹ÇÏ°Ô ¸¸µé¾î °¡°Ú½À´Ï´Ù.\n³» ÀÚ½ÅÀ» ¿Ã¹Ù¸£°Ô °¡²Ù°í ÁöÄÑ¼­ \n»îÀ» Çàº¹ÇÏ°Ô ¸¸µé¾î °¡°Ú½À´Ï´Ù.\n");
-			
-			tvContentTitle.setText("-" + title + "-"); 
+
+//			tvContentContent.setText("ë‚´ ìì‹ ì„ ì˜¬ë°”ë¥´ê²Œ ê°€ê¾¸ê³  ì§€ì¼œì„œ \në‚´ ìì‹ ì„ ì˜¬ë°”ë¥´ê²Œ ê°€ê¾¸ê³  ì§€ì¼œì„œ \nì‚¶ì„ í–‰ë³µí•˜ê²Œ ë§Œë“¤ì–´ ê°€ê² ìŠµë‹ˆë‹¤.\në‚´ ìì‹ ì„ ì˜¬ë°”ë¥´ê²Œ ê°€ê¾¸ê³  ì§€ì¼œì„œ \nì‚¶ì„ í–‰ë³µí•˜ê²Œ ë§Œë“¤ì–´ ê°€ê² ìŠµë‹ˆë‹¤.\n");
+
+			tvContentTitle.setText("-" + title + "-");
 
 			llForTvContentContent.startAnimation(animForText);
 		}
@@ -324,13 +324,13 @@ public class ActivityScreen extends ActivityForBgm {
 
 			//    		vGroupContent.setVisibility(View.INVISIBLE);
 			vGroupContent.startAnimation(animForFadeOut);
-			
-			
-			
+
+
+
 		}
 		public abstract void onFinish();
-		
-		
+
+
 
 	}
 
@@ -354,7 +354,7 @@ public class ActivityScreen extends ActivityForBgm {
 			mp.setLooping(false);
 			mp.setVolume(1.0f, 1.0f);
 		}
-		
+
 		public void release() {
 			if(mp != null){
 				mp.release();
@@ -368,7 +368,7 @@ public class ActivityScreen extends ActivityForBgm {
 				}catch(Exception e){
 					;
 				}
-				
+
 			}
 		}
 	}

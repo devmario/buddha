@@ -36,15 +36,15 @@ public class TabItemHowto extends ExightTabItem implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){
-		case R.id.tabItemHowtoFold_btnLeft:
-			foldingPlayer.prevSequencePublic();
-			break;
-		case R.id.tabItemHowtoFold_btnMid:
-			foldingPlayer.playAllSequece();
-			break;
-		case R.id.tabItemHowtoFold_btnRight:
-			foldingPlayer.nextSequencePublic();
-			break;
+			case R.id.tabItemHowtoFold_btnLeft:
+				foldingPlayer.prevSequencePublic();
+				break;
+			case R.id.tabItemHowtoFold_btnMid:
+				foldingPlayer.playAllSequece();
+				break;
+			case R.id.tabItemHowtoFold_btnRight:
+				foldingPlayer.nextSequencePublic();
+				break;
 		}
 	}
 
@@ -72,49 +72,49 @@ public class TabItemHowto extends ExightTabItem implements OnClickListener{
 
 		private final FoldingSequence[] foldingSequencesForTeen = new FoldingSequence[]{
 				new FoldingSequence(
-						"¸¶À½À» Â÷ºĞÇÏ°Ô °¡¶ó¾ÉÈ÷°í µÎ ¼ÕÀ» °¡½¿¿¡ ¸ğÀ¸¸ç ¹Ù¸£°Ô ¼·´Ï´Ù. ÀÌ°ÍÀ» ÇÕÀåÀÌ¶ó ÇÕ´Ï´Ù.", 
-						R.raw.folding1, 
+						"ë§ˆìŒì„ ì°¨ë¶„í•˜ê²Œ ê°€ë¼ì•‰íˆê³  ë‘ ì†ì„ ê°€ìŠ´ì— ëª¨ìœ¼ë©° ë°”ë¥´ê²Œ ì„­ë‹ˆë‹¤. ì´ê²ƒì„ í•©ì¥ì´ë¼ í•©ë‹ˆë‹¤.",
+						R.raw.folding1,
 						R.drawable.yong00)
 				,
 
 				new FoldingSequence(
-						"ÇÕÀåÀ» ÇÑ Ã¤ ÀÎ»ç¸¦ ÇÏµí ÃµÃµÈ÷ Çã¸®¸¦ ¼÷¿´´Ù ¼¼¿ó´Ï´Ù. ÀÌ°ÍÀ» ¹İ¹è¶ó ÇÏ´Âµ¥ ÀıÀ» ½ÃÀÛÇÒ ¶§¿Í ³¡³¯ ¶§¿¡´Â Ç×»ó ¹İ¹è¸¦ ÇÕ´Ï´Ù.", 
-						R.raw.folding2, 
+						"í•©ì¥ì„ í•œ ì±„ ì¸ì‚¬ë¥¼ í•˜ë“¯ ì²œì²œíˆ í—ˆë¦¬ë¥¼ ìˆ™ì˜€ë‹¤ ì„¸ì›ë‹ˆë‹¤. ì´ê²ƒì„ ë°˜ë°°ë¼ í•˜ëŠ”ë° ì ˆì„ ì‹œì‘í•  ë•Œì™€ ëë‚  ë•Œì—ëŠ” í•­ìƒ ë°˜ë°°ë¥¼ í•©ë‹ˆë‹¤.",
+						R.raw.folding2,
 						R.drawable.yong01,R.drawable.yong02,R.drawable.yong03,R.drawable.yong04,R.drawable.yong05,R.drawable.yong06,R.drawable.yong07,R.drawable.yong08,R.drawable.yong09,R.drawable.yong10,R.drawable.yong11,R.drawable.yong12,R.drawable.yong13,R.drawable.yong14,R.drawable.yong15,R.drawable.yong16,R.drawable.yong17,R.drawable.yong18,R.drawable.yong19)
 				,
 
 				new FoldingSequence(
-						"µÎ¼ÕÀ» °¡½¿¿¡ ¸ğÀº Ã¤ Çã¸®¸¦ »ìÂ¦ ±ÁÈ÷¸é¼­ ¹«¸­À» ²İÀ¸¸ç ¾É½À´Ï´Ù. ÀÚ¼¼°¡ ÈåÆ®·¯Áö¸é ³Ñ¾îÁú ¼ö ÀÖÀ¸´Ï ÃµÃµÈ÷ Áß½ÉÀ» ÀâÀ¸¸ç ¾É½À´Ï´Ù.", 
-						R.raw.folding3, 
+						"ë‘ì†ì„ ê°€ìŠ´ì— ëª¨ì€ ì±„ í—ˆë¦¬ë¥¼ ì‚´ì§ êµ½íˆë©´ì„œ ë¬´ë¦ì„ ê¿‡ìœ¼ë©° ì•‰ìŠµë‹ˆë‹¤. ìì„¸ê°€ ííŠ¸ëŸ¬ì§€ë©´ ë„˜ì–´ì§ˆ ìˆ˜ ìˆìœ¼ë‹ˆ ì²œì²œíˆ ì¤‘ì‹¬ì„ ì¡ìœ¼ë©° ì•‰ìŠµë‹ˆë‹¤.",
+						R.raw.folding3,
 						R.drawable.yong20,R.drawable.yong21,R.drawable.yong22,R.drawable.yong23,R.drawable.yong24,R.drawable.yong25,R.drawable.yong26,R.drawable.yong27,R.drawable.yong28,R.drawable.yong29)
 				,
 
 				new FoldingSequence(
-						"¾ûµ¢ÀÌ¿Í ¹ß µÚ²ŞÄ¡°¡ ¸Â´êÀ» ¶§Âë »óÃ¼¸¦ ¾ÕÀ¸·Î ¼÷ÀÌ¸é¼­ ¿À¸¥¼ÕÀ» ¹Ù´Ú¿¡ ³»·Á³õ½À´Ï´Ù. ¹ßÀº ÀÚ¿¬½º·´°Ô ¿À¸¥¹ßÀÌ ¿Ş¹ß À§·Î ¿Ã¶ó°¡°Ô ÇÕ´Ï´Ù. ¿À¸¥¼Õ°ú ³ª¶õÈ÷ ¿Ş¼ÕÀ» ³»·Á³õÀ¸¸ç ÀÌ¸¶°¡ ¹Ù´Ú¿¡ ´êÀ» Á¤µµ·Î ¼÷ÀÔ´Ï´Ù. ÀÌÃ³·³ ÀÌ¸¶, ¾çÂÊ ÆÈ²ŞÄ¡¿Í ¹«¸­ÀÌ ¸ğµÎ ¹Ù´Ú¿¡ ´êÀº °ÍÀ» ¿ÀÃ¼ÅõÁö¶ó ÇÕ´Ï´Ù.", 
-						R.raw.folding4, 
+						"ì—‰ë©ì´ì™€ ë°œ ë’¤ê¿ˆì¹˜ê°€ ë§ë‹¿ì„ ë•Œì¯¤ ìƒì²´ë¥¼ ì•ìœ¼ë¡œ ìˆ™ì´ë©´ì„œ ì˜¤ë¥¸ì†ì„ ë°”ë‹¥ì— ë‚´ë ¤ë†“ìŠµë‹ˆë‹¤. ë°œì€ ìì—°ìŠ¤ëŸ½ê²Œ ì˜¤ë¥¸ë°œì´ ì™¼ë°œ ìœ„ë¡œ ì˜¬ë¼ê°€ê²Œ í•©ë‹ˆë‹¤. ì˜¤ë¥¸ì†ê³¼ ë‚˜ë€íˆ ì™¼ì†ì„ ë‚´ë ¤ë†“ìœ¼ë©° ì´ë§ˆê°€ ë°”ë‹¥ì— ë‹¿ì„ ì •ë„ë¡œ ìˆ™ì…ë‹ˆë‹¤. ì´ì²˜ëŸ¼ ì´ë§ˆ, ì–‘ìª½ íŒ”ê¿ˆì¹˜ì™€ ë¬´ë¦ì´ ëª¨ë‘ ë°”ë‹¥ì— ë‹¿ì€ ê²ƒì„ ì˜¤ì²´íˆ¬ì§€ë¼ í•©ë‹ˆë‹¤.",
+						R.raw.folding4,
 						R.drawable.yong30,R.drawable.yong31,R.drawable.yong32,R.drawable.yong33,R.drawable.yong34,R.drawable.yong35,R.drawable.yong36,R.drawable.yong37)
 				,
 
 				new FoldingSequence(
-						"¾çÂÊ ÆÈ²ŞÄ¡¸¦ ¹Ù´Ú¿¡ ´í Ã¤ µÎ ¼Õ¹Ù´ÚÀÌ ÇÏ´ÃÀ» ÇâÇÏµµ·Ï µÚÁıÀ¸¸é¼­ ¾çÂÊ ±Í¿·À¸·Î »ìÂ¦ µé¾î¿Ã¸³´Ï´Ù. ÀÌ°ÍÀº ³ª ÀÚ»êÀ» ³·Ãß°í ¼¼»ó ¸ğµç Á¸Àç¸¦ Áö±ØÇÑ ¸¶À½À¸·Î Á¤¼ºÀ» ´ÙÇØ Á¸ÁßÇÏ°Ú´Ù´Â ´ÙÁüÀÔ´Ï´Ù.", 
-						R.raw.folding5, 
+						"ì–‘ìª½ íŒ”ê¿ˆì¹˜ë¥¼ ë°”ë‹¥ì— ëŒ„ ì±„ ë‘ ì†ë°”ë‹¥ì´ í•˜ëŠ˜ì„ í–¥í•˜ë„ë¡ ë’¤ì§‘ìœ¼ë©´ì„œ ì–‘ìª½ ê·€ì˜†ìœ¼ë¡œ ì‚´ì§ ë“¤ì–´ì˜¬ë¦½ë‹ˆë‹¤. ì´ê²ƒì€ ë‚˜ ìì‚°ì„ ë‚®ì¶”ê³  ì„¸ìƒ ëª¨ë“  ì¡´ì¬ë¥¼ ì§€ê·¹í•œ ë§ˆìŒìœ¼ë¡œ ì •ì„±ì„ ë‹¤í•´ ì¡´ì¤‘í•˜ê² ë‹¤ëŠ” ë‹¤ì§ì…ë‹ˆë‹¤.",
+						R.raw.folding5,
 						R.drawable.yong38,R.drawable.yong39,R.drawable.yong40,R.drawable.yong41)
 				,
 
 				new FoldingSequence(
-						"´Ù½Ã µÎ ¼ÕÀ» ¹Ù´ÚÀ» ÇâÇØ µÚÁı¾î ¸Ó¸® ¿·À¸·Î °¡Áö·±È÷ ³»·Á³õÀ¸¸ç ¿ÀÃ¼ÅõÁö ÀÚ¼¼¸¦ ÃëÇÕ´Ï´Ù.", 
-						R.raw.folding6, 
+						"ë‹¤ì‹œ ë‘ ì†ì„ ë°”ë‹¥ì„ í–¥í•´ ë’¤ì§‘ì–´ ë¨¸ë¦¬ ì˜†ìœ¼ë¡œ ê°€ì§€ëŸ°íˆ ë‚´ë ¤ë†“ìœ¼ë©° ì˜¤ì²´íˆ¬ì§€ ìì„¸ë¥¼ ì·¨í•©ë‹ˆë‹¤.",
+						R.raw.folding6,
 						R.drawable.yong42,R.drawable.yong43,R.drawable.yong44,R.drawable.yong45,R.drawable.yong46)
 				,
 
 				new FoldingSequence(
-						"°í°³¿Í Çã¸®¸¦ °ğÀº ÀÚ¼¼·Î µé¸é¼­ ¿Ş¼Õ°ú ¿À¸¥¼ÕÀ» Â÷·Ê·Î °¡½¿ ÂÊÀ¸·Î ¸ğÀ¾´Ï´Ù. ÀÌ·¸°Ô ÇÏ¸é ÇÕÀåÇÏ¸ç ¾ÉÀº ÀÚ¼¼°¡ µË´Ï´Ù.", 
-						R.raw.folding7, 
+						"ê³ ê°œì™€ í—ˆë¦¬ë¥¼ ê³§ì€ ìì„¸ë¡œ ë“¤ë©´ì„œ ì™¼ì†ê³¼ ì˜¤ë¥¸ì†ì„ ì°¨ë¡€ë¡œ ê°€ìŠ´ ìª½ìœ¼ë¡œ ëª¨ìë‹ˆë‹¤. ì´ë ‡ê²Œ í•˜ë©´ í•©ì¥í•˜ë©° ì•‰ì€ ìì„¸ê°€ ë©ë‹ˆë‹¤.",
+						R.raw.folding7,
 						R.drawable.yong47,R.drawable.yong48,R.drawable.yong49,R.drawable.yong50,R.drawable.yong51,R.drawable.yong52,R.drawable.yong53,R.drawable.yong54,R.drawable.yong55)
 				,
 				new FoldingSequence(
-						"Æ÷°³ ³õ¾Ò´ø ¾ç¹ßÀ» °¡Áö·±È÷ Ç®¸é¼­ ¾ûµ¢ÀÌ¸¦ »ìÂ¦ µé¾î ¿Ã¸®¸ç ÀÏ¾î³³´Ï´Ù. ÀıÀ» ½ÃÀÛÇÒ ¶§ÀÇ ÀÚ¼¼Ã³·³ ¾çÂÊ ¹ßÀº °¡Áö·±È÷ ¸ğÀ¸°í µÎ ¼ÕÀº °¡½¿ ÂÊÀ¸·Î ¸ğ¾Æ ¹Ù¸£°Ô ¼·´Ï´Ù. ÀÌ ÀÚ¼¼¿¡¼­ ¹«¸­À» ±ÁÈ÷¸ç ´Ù½Ã ÀıÇÏ´Â µ¿ÀÛÀ» ¹İº¹ÇÕ´Ï´Ù.108¹øÂ° ÀıÀ» ¸¶ÃÆÀ» ¶§¿£ ¹İ ¹è¸¦ ÇÏ¸ç Àı ¼öÇàÀ» ¸¶¹«¸®ÇÕ´Ï´Ù.", 
-						R.raw.folding8, 
+						"í¬ê°œ ë†“ì•˜ë˜ ì–‘ë°œì„ ê°€ì§€ëŸ°íˆ í’€ë©´ì„œ ì—‰ë©ì´ë¥¼ ì‚´ì§ ë“¤ì–´ ì˜¬ë¦¬ë©° ì¼ì–´ë‚©ë‹ˆë‹¤. ì ˆì„ ì‹œì‘í•  ë•Œì˜ ìì„¸ì²˜ëŸ¼ ì–‘ìª½ ë°œì€ ê°€ì§€ëŸ°íˆ ëª¨ìœ¼ê³  ë‘ ì†ì€ ê°€ìŠ´ ìª½ìœ¼ë¡œ ëª¨ì•„ ë°”ë¥´ê²Œ ì„­ë‹ˆë‹¤. ì´ ìì„¸ì—ì„œ ë¬´ë¦ì„ êµ½íˆë©° ë‹¤ì‹œ ì ˆí•˜ëŠ” ë™ì‘ì„ ë°˜ë³µí•©ë‹ˆë‹¤.108ë²ˆì§¸ ì ˆì„ ë§ˆì³¤ì„ ë•Œì—” ë°˜ ë°°ë¥¼ í•˜ë©° ì ˆ ìˆ˜í–‰ì„ ë§ˆë¬´ë¦¬í•©ë‹ˆë‹¤.",
+						R.raw.folding8,
 						R.drawable.yong56,R.drawable.yong57,R.drawable.yong58,R.drawable.yong59, R.drawable.yong60,R.drawable.yong61,R.drawable.yong62,R.drawable.yong63,R.drawable.yong64,R.drawable.yong65,R.drawable.yong66,R.drawable.yong67)
 		};
 
@@ -155,10 +155,10 @@ public class TabItemHowto extends ExightTabItem implements OnClickListener{
 			playSequence();
 		}
 
-		//³»ºÎ¿ë
+		//ë‚´ë¶€ìš©
 		private void playSequence(){
 			FoldingSequence f = foldingSequencesForTeen[currentSequence];
-			//»ç¿îµå Àç»ı
+			//ì‚¬ìš´ë“œ ì¬ìƒ
 			if(mp != null){
 				mp.release();
 			}
@@ -169,8 +169,8 @@ public class TabItemHowto extends ExightTabItem implements OnClickListener{
 				mp.setLooping(false);
 				mp.start();
 
-				//ÅØ½ºÆ® º¯°æ
-					
+				//í…ìŠ¤íŠ¸ ë³€ê²½
+
 				tvContent.setVisibility(View.VISIBLE);
 			}else{
 				tvContent.setVisibility(View.INVISIBLE);
@@ -178,10 +178,10 @@ public class TabItemHowto extends ExightTabItem implements OnClickListener{
 			}
 			tvContent.setText(f.content);
 
-			//ÀÌ¹ÌÁö Ã¹ÇÁ·¹ÀÓÀ¸·Î ¤¡¤¡
+			//ì´ë¯¸ì§€ ì²«í”„ë ˆì„ìœ¼ë¡œ ã„±ã„±
 			ivTarget.setImageResource(f.imgFrameIds[0]);
 
-			playImageFrame(f.imgFrameIds); 
+			playImageFrame(f.imgFrameIds);
 		}
 
 		private boolean nextSequence(){
@@ -190,20 +190,20 @@ public class TabItemHowto extends ExightTabItem implements OnClickListener{
 			}else{
 				return false;
 			}
-			
+
 			playSequence();
 
 			return true;
 		}
 
-		//´ÙÀ½ ÇÁ·¹ÀÓµé Àç»ı
+		//ë‹¤ìŒ í”„ë ˆì„ë“¤ ì¬ìƒ
 		public boolean nextSequencePublic(){
 			isAllSequenceMode = false;
 			return nextSequence();
 
 		}
 
-		//Àü ÇÁ·¹ÀÓµé Àç»ı
+		//ì „ í”„ë ˆì„ë“¤ ì¬ìƒ
 		public boolean prevSequence(){
 			if(currentSequence > 0){
 				currentSequence --;
@@ -214,7 +214,7 @@ public class TabItemHowto extends ExightTabItem implements OnClickListener{
 			return true;
 		}
 
-		//ÀÌÀü ÇÁ·¹ÀÓµé Àç»ı
+		//ì´ì „ í”„ë ˆì„ë“¤ ì¬ìƒ
 		public boolean prevSequencePublic(){
 			isAllSequenceMode = false;
 			return prevSequence();
@@ -238,30 +238,30 @@ public class TabItemHowto extends ExightTabItem implements OnClickListener{
 		private Handler handlerForFrame = new Handler(){
 			public void dispatchMessage(android.os.Message msg) {
 				switch(msg.what){
-				//play
-				case 2:
-					Map<String, Object> params = (Map<String, Object>)msg.obj;
-					int[] imgFrames = (int[])params.get("data");
-					int pos = (Integer)params.get("pos");
+					//play
+					case 2:
+						Map<String, Object> params = (Map<String, Object>)msg.obj;
+						int[] imgFrames = (int[])params.get("data");
+						int pos = (Integer)params.get("pos");
 
-					ivTarget.setImageResource(imgFrames[pos]);
-					pos++;
-					if(imgFrames.length > pos){
+						ivTarget.setImageResource(imgFrames[pos]);
+						pos++;
+						if(imgFrames.length > pos){
 
-						Message m = new Message();
-						m.what = 2;
-						m.obj = params;
-						params.put("pos", pos);
+							Message m = new Message();
+							m.what = 2;
+							m.obj = params;
+							params.put("pos", pos);
 
-						this.sendMessageDelayed(m, 100);
-					}else{
-						//ÀüÃ¼ ¸ğµåÀ×°¡?
-						if(isAllSequenceMode){
-							nextSequence();
+							this.sendMessageDelayed(m, 100);
+						}else{
+							//ì „ì²´ ëª¨ë“œì‰ê°€?
+							if(isAllSequenceMode){
+								nextSequence();
+							}
+							;
 						}
-						;
-					}
-					break;
+						break;
 				}
 			};
 		};

@@ -2,6 +2,8 @@ package com.threedpaper.app108adult.tabitem;
 
 import android.app.Activity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.threedpaper.app108adult.R;
@@ -41,9 +43,8 @@ public class TabItemUsage extends ExightTabItem{
 	public void onCreate() {
 		final int pageIds[] = new int[]{R.drawable.help_howtouse, R.drawable.help_howtouse2, R.drawable.help_howtouse3};
 		for(int resId : pageIds){
-
-			View v = getActivity().getLayoutInflater().inflate(R.layout.cell_helpusage, null);
-			ImageView iv = (ImageView)v.findViewById(R.id.cellHelpUsage_iv);
+			View v = getActivity().getLayoutInflater().inflate(R.layout.percent_iv, null);
+			ImageView iv = (ImageView)v.findViewById(R.id.innerIV);
 			iv.setBackgroundResource(resId);
 			
 			horizontalPager.addView(v);

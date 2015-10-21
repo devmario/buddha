@@ -26,15 +26,15 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-public class ExightServerConnector extends Handler implements Runnable{	
+public class ExightServerConnector extends Handler implements Runnable{
 
 	public final static int LOAD_POST = 1;
 	public final static int LOAD_GET = 2;
 
 
-	private List<String> listParams = new ArrayList<String>();	//Ãß°¡ ÆÄ¶ó¹ÌÅÍ Á¤º¸ ¸®½ºÆ®
+	private List<String> listParams = new ArrayList<String>();	//ì¶”ê°€ íŒŒë¼ë¯¸í„° ì •ë³´ ë¦¬ìŠ¤íŠ¸
 	private String url;
-	private ServerConnectorListener connectorListener;	
+	private ServerConnectorListener connectorListener;
 
 
 	public ExightServerConnector(String url, ServerConnectorListener connectorListener) {
@@ -60,11 +60,11 @@ public class ExightServerConnector extends Handler implements Runnable{
 		this.loadType = loadType;
 	}
 
-	//ÆäÀÌÁö ¿ÀÇÂ
+	//í˜ì´ì§€ ì˜¤í”ˆ
 	public void loadPage(){
 
 		if(isRunOnThread == false){
-			openUrlConnection();	
+			openUrlConnection();
 		}else{
 			new Thread(this).start();
 		}
@@ -72,7 +72,7 @@ public class ExightServerConnector extends Handler implements Runnable{
 	}
 
 
-	/**ÆäÀÌÁö ·Îµå. get, post¼³Á¤, ¾²·¹µå¿¡¼­ ½ÇÇàµÇ´ÂÁö ¼³Á¤*/
+	/**í˜ì´ì§€ ë¡œë“œ. get, postì„¤ì •, ì“°ë ˆë“œì—ì„œ ì‹¤í–‰ë˜ëŠ”ì§€ ì„¤ì •*/
 	public void loadPage(int loadType, boolean runOnThread){
 		this.loadType = loadType;
 		this.isRunOnThread = runOnThread;
@@ -86,8 +86,8 @@ public class ExightServerConnector extends Handler implements Runnable{
 			return;
 		for(String s : params){
 			if(s == null) s = "";
-			listParams.add(s);	
-		}		
+			listParams.add(s);
+		}
 	}
 
 	@Override
@@ -100,7 +100,7 @@ public class ExightServerConnector extends Handler implements Runnable{
 		Message m = new Message();
 		try {
 			if(loadType == LOAD_GET){
-				result = urlOpen();	
+				result = urlOpen();
 			}else{
 				result = urlOpenByPost();
 			}
@@ -110,7 +110,7 @@ public class ExightServerConnector extends Handler implements Runnable{
 		}catch (Exception e) {
 			result = e.getMessage();
 			m.what = PARSE_FAILED;
-		}			
+		}
 
 		m.obj = result;
 		sendMessage(m);
@@ -122,28 +122,28 @@ public class ExightServerConnector extends Handler implements Runnable{
 	@Override
 	public void dispatchMessage(Message msg) {
 		switch(msg.what){
-		case PARSE_FAILED:
-			connectorListener.onLoadFinish(false, (String)msg.obj);
-			break;
-		case PARSE_SUCCESS:
-			connectorListener.onLoadFinish(true, (String)msg.obj);
-			break;
+			case PARSE_FAILED:
+				connectorListener.onLoadFinish(false, (String)msg.obj);
+				break;
+			case PARSE_SUCCESS:
+				connectorListener.onLoadFinish(true, (String)msg.obj);
+				break;
 		}
 	}
 
-	/**Æ÷½ºÆ® ¹æ½ÄÀ¸·Î url ¿ÀÇÂ*/
+	/**í¬ìŠ¤íŠ¸ ë°©ì‹ìœ¼ë¡œ url ì˜¤í”ˆ*/
 	private String urlOpenByPost() throws Exception{
 		Log.d("exightUrl", url);
-		HttpClient client = new DefaultHttpClient();   
+		HttpClient client = new DefaultHttpClient();
 
-		HttpPost post = new HttpPost(url); 
+		HttpPost post = new HttpPost(url);
 
 
 		List<NameValuePair> params = getAllUserParams();
-		UrlEncodedFormEntity ent = new UrlEncodedFormEntity(params,HTTP.UTF_8); 
-		post.setEntity(ent); 
-		HttpResponse responsePOST = client.execute(post);   
-		HttpEntity resEntity = responsePOST.getEntity(); 
+		UrlEncodedFormEntity ent = new UrlEncodedFormEntity(params,HTTP.UTF_8);
+		post.setEntity(ent);
+		HttpResponse responsePOST = client.execute(post);
+		HttpEntity resEntity = responsePOST.getEntity();
 
 		if(resEntity == null)
 			return "";
@@ -160,10 +160,10 @@ public class ExightServerConnector extends Handler implements Runnable{
 
 	}
 
-	/**GET¹æ½ÄÀ¸·Î url¿ÀÇÂ*/
+	/**GETë°©ì‹ìœ¼ë¡œ urlì˜¤í”ˆ*/
 	private String urlOpen() throws Exception{
 		String url = this.url;
-		
+
 		//param setting
 		url = getUrlWithParam(url);
 		Log.d("exightUrl", url);
@@ -185,24 +185,24 @@ public class ExightServerConnector extends Handler implements Runnable{
 	}
 
 
-	/** ÆÄ¶ó¸ŞÅÍ Ãß°¡. ÆÄ¶ó¸ŞÅÍ ÀÌ¸§°ú °ªÀ» ½ÖÀ¸·Î ÀÔ·Â. ¼­¹ö¿¡¼­´Â post·Î ¹Ş´Â´Ù.*/
+	/** íŒŒë¼ë©”í„° ì¶”ê°€. íŒŒë¼ë©”í„° ì´ë¦„ê³¼ ê°’ì„ ìŒìœ¼ë¡œ ì…ë ¥. ì„œë²„ì—ì„œëŠ” postë¡œ ë°›ëŠ”ë‹¤.*/
 	public void addParams(String paramName, String paramValue){
 		listParams.add(paramName);
-		listParams.add(paramValue);		
+		listParams.add(paramValue);
 	}
 
-	/**Æ÷½ºÆ®¿ë ÀÎÀÚ ¼ÂÆÃ*/
+	/**í¬ìŠ¤íŠ¸ìš© ì¸ì ì…‹íŒ…*/
 	private List<NameValuePair> getAllUserParams(){
 
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 
 		for(int i = 0; i < listParams.size(); i+=2){
-			String key = listParams.get(i);			
+			String key = listParams.get(i);
 			String value = listParams.get(i+1);
 			if(value == null) value = "";
 
 
-			params.add(new BasicNameValuePair(key, value) );			
+			params.add(new BasicNameValuePair(key, value) );
 
 
 		}
@@ -210,11 +210,11 @@ public class ExightServerConnector extends Handler implements Runnable{
 		return params;
 	}
 
-	/** ÀÔ·Â¹ŞÀº ÆÄ¶ó¸ŞÅÍ ±âÁØÀ¸·Î GET¹æ½Ä url¸¸µç´Ù */
+	/** ì…ë ¥ë°›ì€ íŒŒë¼ë©”í„° ê¸°ì¤€ìœ¼ë¡œ GETë°©ì‹ urlë§Œë“ ë‹¤ */
 	private String getUrlWithParam(String url){
 		String sUrl = url;
 		for(int i = 0; i < listParams.size(); i+=2){
-			String key = listParams.get(i);			
+			String key = listParams.get(i);
 			String value = listParams.get(i+1);
 			if(value == null) value = "";
 
@@ -230,7 +230,7 @@ public class ExightServerConnector extends Handler implements Runnable{
 		return sUrl;
 
 	}
-	/**GET¿ë ÀÎÀÚ ¼ÂÆÃ*/
+	/**GETìš© ì¸ì ì…‹íŒ…*/
 
 	public interface ServerConnectorListener{
 		public void onLoadFinish(boolean isSuccess, String result);

@@ -16,26 +16,26 @@ public class ExightDialogBuilder extends Builder {
 	private ArrayAdapter<String> adapter;
 
 
-	public static void makeCommonDialog(final Context context, String title, 
-			final ExightDialogItemClickListener exightDialogItemClickListener, String...strings){
-		
+	public static void makeCommonDialog(final Context context, String title,
+										final ExightDialogItemClickListener exightDialogItemClickListener, String...strings){
+
 		final ArrayList<String> arr = new ArrayList<String>();
-		
+
 		for(String s : strings){
 			arr.add(s);
 		}
-		
+
 		new ExightDialogBuilder(context, title, arr, new DialogInterface.OnClickListener() {
-			
+
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				exightDialogItemClickListener.onItemClick(arr.get(which), which);	
+				exightDialogItemClickListener.onItemClick(arr.get(which), which);
 			}
-			
+
 		}).show();
-		
+
 	}
-	
+
 	public ExightDialogBuilder(Context context, String title, ArrayList<String> items, OnClickListener dialoglistener) {
 		super(context);
 		if (title != null) setTitle(title);
@@ -50,7 +50,7 @@ public class ExightDialogBuilder extends Builder {
 	}
 
 	public void setItems(ArrayList<String> items, OnClickListener listener) {
-		//∞¥√º ¿Á»∞øÎ¡°∞À π◊ textview ∞°¡Æø¿¥¬ ∫“∆Ì«‘
+		//Í∞ùÏ≤¥ Ïû¨ÌôúÏö©Ï†êÍ≤Ä Î∞è textview Í∞ÄÏ†∏Ïò§Îäî Î∂àÌé∏Ìï®
 		adapter = new ArrayAdapter<String>(context, R.layout.dialog_textview, items);
 		setAdapter(adapter, listener);
 	}

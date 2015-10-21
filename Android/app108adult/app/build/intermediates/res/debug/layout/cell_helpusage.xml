@@ -8,4 +8,4 @@
         <ImageView style="@style/wrap_content" android:id="@+id/cellHelpUsage_iv" android:layout_centerInParent="true"/>
     </RelativeLayout>
 
-</LinearLayout><!-- From: file:/Users/jangwonhee/Documents/app108adult/app/src/main/res/layout/cell_helpusage.xml -->
+</LinearLayout><!-- From: file:/Users/jangwonhee/Documents/Buddha_2/Android/app108adult/app/src/main/res/layout/cell_helpusage.xml -->

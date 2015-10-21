@@ -14,4 +14,4 @@
     
     <ImageView style="@style/wrap_content" android:background="@drawable/hist_item_line" android:layout_marginTop="12dp" android:layout_marginLeft="14dp"/>
 
-</LinearLayout><!-- From: file:/Users/jangwonhee/Documents/app108adult/app/src/main/res/layout/cell_folding_history.xml -->
+</LinearLayout><!-- From: file:/Users/jangwonhee/Documents/Buddha_2/Android/app108adult/app/src/main/res/layout/cell_folding_history.xml -->

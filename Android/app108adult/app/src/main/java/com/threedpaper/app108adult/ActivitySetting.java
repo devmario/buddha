@@ -21,16 +21,16 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 		anim1.setDuration(0);
 		anim1.setRepeatCount(0);
 		anim1.setFillAfter(true);
-		
+
 		anim2 = new AlphaAnimation(0.5f, 1.0f);
 		anim2.setDuration(0);
 		anim2.setRepeatCount(0);
 		anim2.setFillAfter(true);
-		
+
 		initViews();
 		setViews();
 	}
-	
+
 	protected void onResume() {
 		super.onResume();
 		Variables.BGM_MANAGER.resume();
@@ -40,19 +40,19 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 		super.onPause();
 	};
 	AlphaAnimation anim1, anim2;
-	
-	EffectButton btnBgmWater, btnBgmBug, btnBgmMusic, btnBgmBird; 
+
+	EffectButton btnBgmWater, btnBgmBug, btnBgmMusic, btnBgmBird;
 	EffectButton btnVoiceWoman, btnVoiceWoman2, btnVoiceMan;
-	EffectButton btnFoldingSpeedUp, btnFoldingSpeedDown; 
+	EffectButton btnFoldingSpeedUp, btnFoldingSpeedDown;
 	EffectButton btnModeContinue, btnModeFirstPage;
 	EffectButton btnVoiceVolumnUp, btnVoiceVolumnDown;
 	EffectButton btnBgVolumnUp, btnBgVolumnDown;
-	
+
 
 	TextView tvFoldingSpeed, tvVoiceVolumn, tvBgVolumn;
 
 	private void initViews(){
-		//¹è°æÀ½ Å¸ÀÔ
+		//ë°°ê²½ìŒ íƒ€ì…
 		btnBgmBird = (EffectButton)findViewById(R.id.setting_btnBgmBird);
 		btnBgmBug = (EffectButton)findViewById(R.id.setting_btnBgmBug);
 		btnBgmMusic = (EffectButton)findViewById(R.id.setting_btnBgmMusic);
@@ -61,46 +61,46 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 		btnBgmBug.setOnClickListener(onClickListenerForBgType);
 		btnBgmMusic.setOnClickListener(onClickListenerForBgType);
 		btnBgmWater.setOnClickListener(onClickListenerForBgType);
-		
-		//¸ñ¼Ò¸®Å¸ÀÔ
+
+		//ëª©ì†Œë¦¬íƒ€ì…
 		btnVoiceMan = (EffectButton)findViewById(R.id.setting_btnVoiceMan);
 		btnVoiceWoman = (EffectButton)findViewById(R.id.setting_btnVoiceWoman);
 		btnVoiceWoman2 = (EffectButton)findViewById(R.id.setting_btnVoiceWoman2);
 		btnVoiceMan.setOnClickListener(onClickListenerForVoiceType);
 		btnVoiceWoman.setOnClickListener(onClickListenerForVoiceType);
 		btnVoiceWoman2.setOnClickListener(onClickListenerForVoiceType);
-		
+
 		btnModeContinue = (EffectButton)findViewById(R.id.setting_btnIsModeOfContinue);
 		btnModeFirstPage = (EffectButton)findViewById(R.id.setting_btnIsModeOfFirstPage);
 		btnModeContinue.setOnClickListener(onClickListenerForStartType);
 		btnModeFirstPage.setOnClickListener(onClickListenerForStartType);
 
-		//ºê±İº¼·ı
+		//ë¸Œê¸ˆë³¼ë¥¨
 		btnBgVolumnUp = (EffectButton)findViewById(R.id.setting_btnBgmVolumeDown);
 		btnBgVolumnDown = (EffectButton)findViewById(R.id.setting_btnBgmVolumeUp);
 		btnBgVolumnUp.setOnClickListener(onClickListenerForBgVolumn);
 		btnBgVolumnDown.setOnClickListener(onClickListenerForBgVolumn);
 
-		//Àı¼Óµµ
+		//ì ˆì†ë„
 		btnFoldingSpeedDown = (EffectButton)findViewById(R.id.setting_btnFrameSpaceSpeedDown);
 		btnFoldingSpeedUp = (EffectButton)findViewById(R.id.setting_btnFrameSpaceSpeedUp);
 		btnFoldingSpeedDown.setOnClickListener(onClickListenerForFoldingSpeed);
 		btnFoldingSpeedUp.setOnClickListener(onClickListenerForFoldingSpeed);
 
-		//¸ñ¼Ò¸® º¼·ı
+		//ëª©ì†Œë¦¬ ë³¼ë¥¨
 		btnVoiceVolumnUp = (EffectButton)findViewById(R.id.setting_btnVoiceVolumeDown);
 		btnVoiceVolumnDown = (EffectButton)findViewById(R.id.setting_btnVoiceVolumeUp);
 		btnVoiceVolumnUp.setOnClickListener(onClickListenerForVoiceVolumn);
 		btnVoiceVolumnDown.setOnClickListener(onClickListenerForVoiceVolumn);
-		
+
 		findViewById(R.id.setting_btnClose).setOnClickListener(this);
 		findViewById(R.id.setting_btnRemoveHistory).setOnClickListener(this);
 
 		tvFoldingSpeed = (TextView)findViewById(R.id.setting_tvFrameSpaceSpeed);
 		tvBgVolumn= (TextView)findViewById(R.id.setting_tvBgmVolumne);
 		tvVoiceVolumn = (TextView)findViewById(R.id.setting_tvVoiceVolume);
-		
-		//¸®½º³Ê¼³Á¤
+
+		//ë¦¬ìŠ¤ë„ˆì„¤ì •
 	}
 
 	private void setViews(){
@@ -111,12 +111,12 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 		int bgType = ExPreferManager.getItemInteger(this, "bgType");
 		int bgVolumn = ExPreferManager.getItemInteger(this, "bgVolumn");
 
-		//º¼·ı,Àı¼Óµµ
+		//ë³¼ë¥¨,ì ˆì†ë„
 		tvBgVolumn.setText(bgVolumn +"");
 		tvVoiceVolumn.setText(voiceVolumn + "");
 		tvFoldingSpeed.setText(foldingSpeed + "");
 
-		//ÀÌ¾î¼­Àç»ıÇÏ±â?
+		//ì´ì–´ì„œì¬ìƒí•˜ê¸°?
 		if(startType == Variables.START_TYPE_CONTINUE){
 			btnModeContinue.startAnimation(anim2);
 			btnModeFirstPage.startAnimation(anim1);
@@ -126,71 +126,71 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 		}
 
 
-		//¸ñ¼Ò¸® Å¸ÀÔ
+		//ëª©ì†Œë¦¬ íƒ€ì…
 		btnVoiceMan.startAnimation(anim1);
 		btnVoiceWoman.startAnimation(anim1);
 		btnVoiceWoman2.startAnimation(anim1);
 		switch(voiceType){
-		case Variables.VOICE_TYPE_MAN:
-			btnVoiceMan.startAnimation(anim2);
-			break;
-		case Variables.VOICE_TYPE_WOMAN:
-			btnVoiceWoman.startAnimation(anim2);
-			break;
-		case Variables.VOICE_TYPE_WOMAN2:
-			btnVoiceWoman2.startAnimation(anim2);
-			break;
+			case Variables.VOICE_TYPE_MAN:
+				btnVoiceMan.startAnimation(anim2);
+				break;
+			case Variables.VOICE_TYPE_WOMAN:
+				btnVoiceWoman.startAnimation(anim2);
+				break;
+			case Variables.VOICE_TYPE_WOMAN2:
+				btnVoiceWoman2.startAnimation(anim2);
+				break;
 		}
 
-		//¹è°æ¤¤
+		//ë°°ê²½ã„´
 		btnBgmBird.startAnimation(anim1);
 		btnBgmBug.startAnimation(anim1);
 		btnBgmMusic.startAnimation(anim1);
 		btnBgmWater.startAnimation(anim1);
 		switch(bgType){
-		case Variables.BG_TYPE_BIRD:
-			btnBgmBird.startAnimation(anim2);
-			break;
-		case Variables.BG_TYPE_BUG:
-			btnBgmBug.startAnimation(anim2);
-			break;
-		case Variables.BG_TYPE_MUSIC:
-			btnBgmMusic.startAnimation(anim2);
-			break;
-		case Variables.BG_TYPE_STREAM:
-			btnBgmWater.startAnimation(anim2);
-			break;
+			case Variables.BG_TYPE_BIRD:
+				btnBgmBird.startAnimation(anim2);
+				break;
+			case Variables.BG_TYPE_BUG:
+				btnBgmBug.startAnimation(anim2);
+				break;
+			case Variables.BG_TYPE_MUSIC:
+				btnBgmMusic.startAnimation(anim2);
+				break;
+			case Variables.BG_TYPE_STREAM:
+				btnBgmWater.startAnimation(anim2);
+				break;
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){
-		case R.id.setting_btnClose:
-			finish();
-			break;
-			
-		case R.id.setting_btnRemoveHistory:
-			Utility.makeYesNoDialog(ActivitySetting.this, "ÀıÇÑ ±â·ÏÀ» Áö¿ì½Ã°Ú½À´Ï±î?", "È®ÀÎ", "Ãë¼Ò", new Utility.DialogChoiceYesNo() {
-				
-				@Override
-				public boolean choiceYes() {
-					FoldingHistoryManager.removeAllHistory(ActivitySetting.this);
-					Utility.makeToast(ActivitySetting.this, "±â·ÏÀ» ¸ğµÎ Áö¿ü½À´Ï´Ù.");
-					return false;
-				}
-				
-				@Override
-				public boolean choiceNo() {
-					return false;
-				}
-			});
-			break;
+			case R.id.setting_btnClose:
+				finish();
+				break;
+
+			case R.id.setting_btnRemoveHistory:
+				Utility.makeYesNoDialog(ActivitySetting.this, "ì ˆí•œ ê¸°ë¡ì„ ì§€ìš°ì‹œê² ìŠµë‹ˆê¹Œ?", "í™•ì¸", "ì·¨ì†Œ", new Utility.DialogChoiceYesNo() {
+
+					@Override
+					public boolean choiceYes() {
+						FoldingHistoryManager.removeAllHistory(ActivitySetting.this);
+						Utility.makeToast(ActivitySetting.this, "ê¸°ë¡ì„ ëª¨ë‘ ì§€ì› ìŠµë‹ˆë‹¤.");
+						return false;
+					}
+
+					@Override
+					public boolean choiceNo() {
+						return false;
+					}
+				});
+				break;
 		}
 	}
 
 
-	//ÀıÇÏ±â¼Óµµ ¹öÆ°
+	//ì ˆí•˜ê¸°ì†ë„ ë²„íŠ¼
 	OnClickListener onClickListenerForFoldingSpeed = new OnClickListener() {
 
 		@Override
@@ -202,17 +202,17 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 			}else{
 				foldingSpeed ++;
 			}
-			
+
 			if(foldingSpeed <= 0 || foldingSpeed > 5){
 				foldingSpeed = before;
 			}
-			
+
 			tvFoldingSpeed.setText(foldingSpeed + "");
 			ExPreferManager.setItemInteger(ActivitySetting.this, "foldingSpeed", foldingSpeed);
 		}
 	};
 
-	//½ÃÀÛÀ§Ä¡ ¹öÆ°
+	//ì‹œì‘ìœ„ì¹˜ ë²„íŠ¼
 	OnClickListener onClickListenerForStartType = new OnClickListener() {
 
 		@Override
@@ -222,12 +222,12 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 			}else{
 				ExPreferManager.setItemInteger(ActivitySetting.this, "startType", Variables.START_TYPE_FIRST);
 			}
-			
+
 			setViews();
 		}
 	};
 
-	//¸ñ¼Ò¸®¹öÆ°
+	//ëª©ì†Œë¦¬ë²„íŠ¼
 	OnClickListener onClickListenerForVoiceType = new OnClickListener() {
 
 		@Override
@@ -239,12 +239,12 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 			}else{
 				ExPreferManager.setItemInteger(ActivitySetting.this, "voiceType", Variables.VOICE_TYPE_WOMAN2);
 			}
-			
+
 			setViews();
 		}
 	};
 
-	//¹è°æÀ½ ¼Ó¼º ¹öÆ°
+	//ë°°ê²½ìŒ ì†ì„± ë²„íŠ¼
 	OnClickListener onClickListenerForBgType = new OnClickListener() {
 
 		@Override
@@ -265,7 +265,7 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 				startActivityForResult(new Intent(ActivitySetting.this, ActivitySearchMusinInSdcard.class), 1000);
 				//music
 			}
-			
+
 			setViews();
 			if(resId != 0){
 				Variables.BGM_MANAGER.play(resId);
@@ -273,7 +273,7 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 		}
 	};
 
-	//¸ñ¼Ò¸® º¼·ı
+	//ëª©ì†Œë¦¬ ë³¼ë¥¨
 	OnClickListener onClickListenerForVoiceVolumn = new OnClickListener() {
 
 		@Override
@@ -285,17 +285,17 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 			}else{
 				voiceVolumn --;
 			}
-			
+
 			if(voiceVolumn < 0 || voiceVolumn > 10){
 				voiceVolumn = before;
 			}
-			
+
 			ExPreferManager.setItemInteger(ActivitySetting.this, "voiceVolumn", voiceVolumn);
 			setViews();
 		}
 	};
-	
-	//¹è°æÀ½ ¼Ó¼º ¹öÆ°
+
+	//ë°°ê²½ìŒ ì†ì„± ë²„íŠ¼
 	OnClickListener onClickListenerForBgVolumn = new OnClickListener() {
 
 		@Override
@@ -307,33 +307,33 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 			}else{
 				bgVolumn --;
 			}
-			
+
 			if(bgVolumn < 0 || bgVolumn > 10){
 				bgVolumn = before;
 			}
-			
+
 			ExPreferManager.setItemInteger(ActivitySetting.this, "bgVolumn", bgVolumn);
 			setViews();
-			
+
 			Variables.BGM_MANAGER.setVolumn(bgVolumn);
 		}
 	};
-	
+
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if(requestCode == 1000){
 			if(resultCode == RESULT_OK){
-				//¼º°ø
+				//ì„±ê³µ
 				String path = data.getStringExtra("soundPath");
 				try{
 					Variables.BGM_MANAGER.playFromSdcard(path);
 					ExPreferManager.setItem(ActivitySetting.this, "soundPath", path);
 				}catch(Exception e){
-					Utility.makeToast(ActivitySetting.this, path + "\n" + "ÆÄÀÏÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
+					Utility.makeToast(ActivitySetting.this, path + "\n" + "íŒŒì¼ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤");
 					startActivityForResult(new Intent(ActivitySetting.this, ActivitySearchMusinInSdcard.class), 1000);
 					;
 				}
 			}else{
-				//Ãë¼Ò
+				//ì·¨ì†Œ
 			}
 		}
 	};
