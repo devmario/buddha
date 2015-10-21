@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#android build
+fuse build -t Android
+
+#make patch file
+#diff -uNr .build/Android-Debug/src/com/buddha/buddha.java buddha.java > android.patch
+
+#patch activity code
+patch .build/Android-Debug/src/com/buddha/buddha.java android.patch
+
+#ant install device
+cd .build/Android-Debug
+ant debug
+ant installd
+cd ../..
+
+

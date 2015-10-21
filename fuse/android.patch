@@ -1,0 +1,12 @@
+--- .build/Android-Debug/src/com/buddha/buddha.java	2015-10-19 18:15:42.000000000 +0900
++++ buddha.java	2015-10-19 18:11:12.000000000 +0900
+@@ -136,7 +136,8 @@
+     {
+         // Set action bar default state
+     	_appState.SystemUI.StatusBarOnCreate(this);
+-
++		_appState.SystemUI.EnterFullscreen();
++		
+     	// Set current view
+     	_appState.Layout.AttachToActivity(this);
+ 

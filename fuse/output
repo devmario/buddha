@@ -1,0 +1,471 @@
+
+
+<FileImageSource ux:Key="kid0" File="res/img/kid00.png"/>
+<FileImageSource ux:Key="kid1" File="res/img/kid01.png"/>
+<FileImageSource ux:Key="kid2" File="res/img/kid02.png"/>
+<FileImageSource ux:Key="kid3" File="res/img/kid03.png"/>
+<FileImageSource ux:Key="kid4" File="res/img/kid04.png"/>
+<FileImageSource ux:Key="kid5" File="res/img/kid05.png"/>
+<FileImageSource ux:Key="kid6" File="res/img/kid06.png"/>
+<FileImageSource ux:Key="kid7" File="res/img/kid07.png"/>
+<FileImageSource ux:Key="kid8" File="res/img/kid08.png"/>
+<FileImageSource ux:Key="kid9" File="res/img/kid09.png"/>
+<FileImageSource ux:Key="kid10" File="res/img/kid10.png"/>
+<FileImageSource ux:Key="kid11" File="res/img/kid11.png"/>
+<FileImageSource ux:Key="kid12" File="res/img/kid12.png"/>
+<FileImageSource ux:Key="kid13" File="res/img/kid13.png"/>
+<FileImageSource ux:Key="kid14" File="res/img/kid14.png"/>
+<FileImageSource ux:Key="kid15" File="res/img/kid15.png"/>
+<FileImageSource ux:Key="kid16" File="res/img/kid16.png"/>
+<FileImageSource ux:Key="kid17" File="res/img/kid17.png"/>
+<FileImageSource ux:Key="kid18" File="res/img/kid18.png"/>
+<FileImageSource ux:Key="kid19" File="res/img/kid19.png"/>
+<FileImageSource ux:Key="kid20" File="res/img/kid20.png"/>
+<FileImageSource ux:Key="kid21" File="res/img/kid21.png"/>
+<FileImageSource ux:Key="kid22" File="res/img/kid22.png"/>
+<FileImageSource ux:Key="kid23" File="res/img/kid23.png"/>
+<FileImageSource ux:Key="kid24" File="res/img/kid24.png"/>
+<FileImageSource ux:Key="kid25" File="res/img/kid25.png"/>
+<FileImageSource ux:Key="kid26" File="res/img/kid26.png"/>
+<FileImageSource ux:Key="kid27" File="res/img/kid27.png"/>
+<FileImageSource ux:Key="kid28" File="res/img/kid28.png"/>
+<FileImageSource ux:Key="kid29" File="res/img/kid29.png"/>
+<FileImageSource ux:Key="kid30" File="res/img/kid30.png"/>
+<FileImageSource ux:Key="kid31" File="res/img/kid31.png"/>
+<FileImageSource ux:Key="kid32" File="res/img/kid32.png"/>
+<FileImageSource ux:Key="kid33" File="res/img/kid33.png"/>
+<FileImageSource ux:Key="kid34" File="res/img/kid34.png"/>
+<FileImageSource ux:Key="kid35" File="res/img/kid35.png"/>
+<FileImageSource ux:Key="kid36" File="res/img/kid36.png"/>
+<FileImageSource ux:Key="kid37" File="res/img/kid37.png"/>
+<FileImageSource ux:Key="kid38" File="res/img/kid38.png"/>
+<FileImageSource ux:Key="kid39" File="res/img/kid39.png"/>
+<FileImageSource ux:Key="kid40" File="res/img/kid40.png"/>
+<FileImageSource ux:Key="kid41" File="res/img/kid41.png"/>
+<FileImageSource ux:Key="kid42" File="res/img/kid42.png"/>
+<FileImageSource ux:Key="kid43" File="res/img/kid43.png"/>
+<FileImageSource ux:Key="kid44" File="res/img/kid44.png"/>
+<FileImageSource ux:Key="kid45" File="res/img/kid45.png"/>
+<FileImageSource ux:Key="kid46" File="res/img/kid46.png"/>
+<FileImageSource ux:Key="kid47" File="res/img/kid47.png"/>
+<FileImageSource ux:Key="kid48" File="res/img/kid48.png"/>
+<FileImageSource ux:Key="kid49" File="res/img/kid49.png"/>
+<FileImageSource ux:Key="kid50" File="res/img/kid50.png"/>
+<FileImageSource ux:Key="kid51" File="res/img/kid51.png"/>
+<FileImageSource ux:Key="kid52" File="res/img/kid52.png"/>
+<FileImageSource ux:Key="kid53" File="res/img/kid53.png"/>
+<FileImageSource ux:Key="kid54" File="res/img/kid54.png"/>
+<FileImageSource ux:Key="kid55" File="res/img/kid55.png"/>
+<FileImageSource ux:Key="kid56" File="res/img/kid56.png"/>
+<FileImageSource ux:Key="kid57" File="res/img/kid57.png"/>
+<FileImageSource ux:Key="kid58" File="res/img/kid58.png"/>
+<FileImageSource ux:Key="kid59" File="res/img/kid59.png"/>
+
+
+bundleDict.Add("res/snd/a001.mp3", import global::Uno.BundleFile("res/snd/a001.mp3"));
+bundleDict.Add("res/snd/a002.mp3", import global::Uno.BundleFile("res/snd/a002.mp3"));
+bundleDict.Add("res/snd/a003.mp3", import global::Uno.BundleFile("res/snd/a003.mp3"));
+bundleDict.Add("res/snd/a004.mp3", import global::Uno.BundleFile("res/snd/a004.mp3"));
+bundleDict.Add("res/snd/a005.mp3", import global::Uno.BundleFile("res/snd/a005.mp3"));
+bundleDict.Add("res/snd/a006.mp3", import global::Uno.BundleFile("res/snd/a006.mp3"));
+bundleDict.Add("res/snd/a007.mp3", import global::Uno.BundleFile("res/snd/a007.mp3"));
+bundleDict.Add("res/snd/a008.mp3", import global::Uno.BundleFile("res/snd/a008.mp3"));
+bundleDict.Add("res/snd/a009.mp3", import global::Uno.BundleFile("res/snd/a009.mp3"));
+bundleDict.Add("res/snd/a010.mp3", import global::Uno.BundleFile("res/snd/a010.mp3"));
+bundleDict.Add("res/snd/a011.mp3", import global::Uno.BundleFile("res/snd/a011.mp3"));
+bundleDict.Add("res/snd/a012.mp3", import global::Uno.BundleFile("res/snd/a012.mp3"));
+bundleDict.Add("res/snd/a013.mp3", import global::Uno.BundleFile("res/snd/a013.mp3"));
+bundleDict.Add("res/snd/a014.mp3", import global::Uno.BundleFile("res/snd/a014.mp3"));
+bundleDict.Add("res/snd/a015.mp3", import global::Uno.BundleFile("res/snd/a015.mp3"));
+bundleDict.Add("res/snd/a016.mp3", import global::Uno.BundleFile("res/snd/a016.mp3"));
+bundleDict.Add("res/snd/a017.mp3", import global::Uno.BundleFile("res/snd/a017.mp3"));
+bundleDict.Add("res/snd/a018.mp3", import global::Uno.BundleFile("res/snd/a018.mp3"));
+bundleDict.Add("res/snd/a019.mp3", import global::Uno.BundleFile("res/snd/a019.mp3"));
+bundleDict.Add("res/snd/a020.mp3", import global::Uno.BundleFile("res/snd/a020.mp3"));
+bundleDict.Add("res/snd/a021.mp3", import global::Uno.BundleFile("res/snd/a021.mp3"));
+bundleDict.Add("res/snd/a022.mp3", import global::Uno.BundleFile("res/snd/a022.mp3"));
+bundleDict.Add("res/snd/a023.mp3", import global::Uno.BundleFile("res/snd/a023.mp3"));
+bundleDict.Add("res/snd/a024.mp3", import global::Uno.BundleFile("res/snd/a024.mp3"));
+bundleDict.Add("res/snd/a025.mp3", import global::Uno.BundleFile("res/snd/a025.mp3"));
+bundleDict.Add("res/snd/a026.mp3", import global::Uno.BundleFile("res/snd/a026.mp3"));
+bundleDict.Add("res/snd/a027.mp3", import global::Uno.BundleFile("res/snd/a027.mp3"));
+bundleDict.Add("res/snd/a028.mp3", import global::Uno.BundleFile("res/snd/a028.mp3"));
+bundleDict.Add("res/snd/a029.mp3", import global::Uno.BundleFile("res/snd/a029.mp3"));
+bundleDict.Add("res/snd/a030.mp3", import global::Uno.BundleFile("res/snd/a030.mp3"));
+bundleDict.Add("res/snd/a031.mp3", import global::Uno.BundleFile("res/snd/a031.mp3"));
+bundleDict.Add("res/snd/a032.mp3", import global::Uno.BundleFile("res/snd/a032.mp3"));
+bundleDict.Add("res/snd/a033.mp3", import global::Uno.BundleFile("res/snd/a033.mp3"));
+bundleDict.Add("res/snd/a034.mp3", import global::Uno.BundleFile("res/snd/a034.mp3"));
+bundleDict.Add("res/snd/a035.mp3", import global::Uno.BundleFile("res/snd/a035.mp3"));
+bundleDict.Add("res/snd/a036.mp3", import global::Uno.BundleFile("res/snd/a036.mp3"));
+bundleDict.Add("res/snd/a037.mp3", import global::Uno.BundleFile("res/snd/a037.mp3"));
+bundleDict.Add("res/snd/a038.mp3", import global::Uno.BundleFile("res/snd/a038.mp3"));
+bundleDict.Add("res/snd/a039.mp3", import global::Uno.BundleFile("res/snd/a039.mp3"));
+bundleDict.Add("res/snd/a040.mp3", import global::Uno.BundleFile("res/snd/a040.mp3"));
+bundleDict.Add("res/snd/a041.mp3", import global::Uno.BundleFile("res/snd/a041.mp3"));
+bundleDict.Add("res/snd/a042.mp3", import global::Uno.BundleFile("res/snd/a042.mp3"));
+bundleDict.Add("res/snd/a043.mp3", import global::Uno.BundleFile("res/snd/a043.mp3"));
+bundleDict.Add("res/snd/a044.mp3", import global::Uno.BundleFile("res/snd/a044.mp3"));
+bundleDict.Add("res/snd/a045.mp3", import global::Uno.BundleFile("res/snd/a045.mp3"));
+bundleDict.Add("res/snd/a046.mp3", import global::Uno.BundleFile("res/snd/a046.mp3"));
+bundleDict.Add("res/snd/a047.mp3", import global::Uno.BundleFile("res/snd/a047.mp3"));
+bundleDict.Add("res/snd/a048.mp3", import global::Uno.BundleFile("res/snd/a048.mp3"));
+bundleDict.Add("res/snd/a049.mp3", import global::Uno.BundleFile("res/snd/a049.mp3"));
+bundleDict.Add("res/snd/a050.mp3", import global::Uno.BundleFile("res/snd/a050.mp3"));
+bundleDict.Add("res/snd/a051.mp3", import global::Uno.BundleFile("res/snd/a051.mp3"));
+bundleDict.Add("res/snd/a052.mp3", import global::Uno.BundleFile("res/snd/a052.mp3"));
+bundleDict.Add("res/snd/a053.mp3", import global::Uno.BundleFile("res/snd/a053.mp3"));
+bundleDict.Add("res/snd/a054.mp3", import global::Uno.BundleFile("res/snd/a054.mp3"));
+bundleDict.Add("res/snd/a055.mp3", import global::Uno.BundleFile("res/snd/a055.mp3"));
+bundleDict.Add("res/snd/a056.mp3", import global::Uno.BundleFile("res/snd/a056.mp3"));
+bundleDict.Add("res/snd/a057.mp3", import global::Uno.BundleFile("res/snd/a057.mp3"));
+bundleDict.Add("res/snd/a058.mp3", import global::Uno.BundleFile("res/snd/a058.mp3"));
+bundleDict.Add("res/snd/a059.mp3", import global::Uno.BundleFile("res/snd/a059.mp3"));
+bundleDict.Add("res/snd/a060.mp3", import global::Uno.BundleFile("res/snd/a060.mp3"));
+bundleDict.Add("res/snd/a061.mp3", import global::Uno.BundleFile("res/snd/a061.mp3"));
+bundleDict.Add("res/snd/a062.mp3", import global::Uno.BundleFile("res/snd/a062.mp3"));
+bundleDict.Add("res/snd/a063.mp3", import global::Uno.BundleFile("res/snd/a063.mp3"));
+bundleDict.Add("res/snd/a064.mp3", import global::Uno.BundleFile("res/snd/a064.mp3"));
+bundleDict.Add("res/snd/a065.mp3", import global::Uno.BundleFile("res/snd/a065.mp3"));
+bundleDict.Add("res/snd/a066.mp3", import global::Uno.BundleFile("res/snd/a066.mp3"));
+bundleDict.Add("res/snd/a067.mp3", import global::Uno.BundleFile("res/snd/a067.mp3"));
+bundleDict.Add("res/snd/a068.mp3", import global::Uno.BundleFile("res/snd/a068.mp3"));
+bundleDict.Add("res/snd/a069.mp3", import global::Uno.BundleFile("res/snd/a069.mp3"));
+bundleDict.Add("res/snd/a070.mp3", import global::Uno.BundleFile("res/snd/a070.mp3"));
+bundleDict.Add("res/snd/a071.mp3", import global::Uno.BundleFile("res/snd/a071.mp3"));
+bundleDict.Add("res/snd/a072.mp3", import global::Uno.BundleFile("res/snd/a072.mp3"));
+bundleDict.Add("res/snd/a073.mp3", import global::Uno.BundleFile("res/snd/a073.mp3"));
+bundleDict.Add("res/snd/a074.mp3", import global::Uno.BundleFile("res/snd/a074.mp3"));
+bundleDict.Add("res/snd/a075.mp3", import global::Uno.BundleFile("res/snd/a075.mp3"));
+bundleDict.Add("res/snd/a076.mp3", import global::Uno.BundleFile("res/snd/a076.mp3"));
+bundleDict.Add("res/snd/a077.mp3", import global::Uno.BundleFile("res/snd/a077.mp3"));
+bundleDict.Add("res/snd/a078.mp3", import global::Uno.BundleFile("res/snd/a078.mp3"));
+bundleDict.Add("res/snd/a079.mp3", import global::Uno.BundleFile("res/snd/a079.mp3"));
+bundleDict.Add("res/snd/a080.mp3", import global::Uno.BundleFile("res/snd/a080.mp3"));
+bundleDict.Add("res/snd/a081.mp3", import global::Uno.BundleFile("res/snd/a081.mp3"));
+bundleDict.Add("res/snd/a082.mp3", import global::Uno.BundleFile("res/snd/a082.mp3"));
+bundleDict.Add("res/snd/a083.mp3", import global::Uno.BundleFile("res/snd/a083.mp3"));
+bundleDict.Add("res/snd/a084.mp3", import global::Uno.BundleFile("res/snd/a084.mp3"));
+bundleDict.Add("res/snd/a085.mp3", import global::Uno.BundleFile("res/snd/a085.mp3"));
+bundleDict.Add("res/snd/a086.mp3", import global::Uno.BundleFile("res/snd/a086.mp3"));
+bundleDict.Add("res/snd/a087.mp3", import global::Uno.BundleFile("res/snd/a087.mp3"));
+bundleDict.Add("res/snd/a088.mp3", import global::Uno.BundleFile("res/snd/a088.mp3"));
+bundleDict.Add("res/snd/a089.mp3", import global::Uno.BundleFile("res/snd/a089.mp3"));
+bundleDict.Add("res/snd/a090.mp3", import global::Uno.BundleFile("res/snd/a090.mp3"));
+bundleDict.Add("res/snd/a091.mp3", import global::Uno.BundleFile("res/snd/a091.mp3"));
+bundleDict.Add("res/snd/a092.mp3", import global::Uno.BundleFile("res/snd/a092.mp3"));
+bundleDict.Add("res/snd/a093.mp3", import global::Uno.BundleFile("res/snd/a093.mp3"));
+bundleDict.Add("res/snd/a094.mp3", import global::Uno.BundleFile("res/snd/a094.mp3"));
+bundleDict.Add("res/snd/a095.mp3", import global::Uno.BundleFile("res/snd/a095.mp3"));
+bundleDict.Add("res/snd/a096.mp3", import global::Uno.BundleFile("res/snd/a096.mp3"));
+bundleDict.Add("res/snd/a097.mp3", import global::Uno.BundleFile("res/snd/a097.mp3"));
+bundleDict.Add("res/snd/a098.mp3", import global::Uno.BundleFile("res/snd/a098.mp3"));
+bundleDict.Add("res/snd/a099.mp3", import global::Uno.BundleFile("res/snd/a099.mp3"));
+bundleDict.Add("res/snd/a100.mp3", import global::Uno.BundleFile("res/snd/a100.mp3"));
+bundleDict.Add("res/snd/a101.mp3", import global::Uno.BundleFile("res/snd/a101.mp3"));
+bundleDict.Add("res/snd/a102.mp3", import global::Uno.BundleFile("res/snd/a102.mp3"));
+bundleDict.Add("res/snd/a103.mp3", import global::Uno.BundleFile("res/snd/a103.mp3"));
+bundleDict.Add("res/snd/a104.mp3", import global::Uno.BundleFile("res/snd/a104.mp3"));
+bundleDict.Add("res/snd/a105.mp3", import global::Uno.BundleFile("res/snd/a105.mp3"));
+bundleDict.Add("res/snd/a106.mp3", import global::Uno.BundleFile("res/snd/a106.mp3"));
+bundleDict.Add("res/snd/a107.mp3", import global::Uno.BundleFile("res/snd/a107.mp3"));
+bundleDict.Add("res/snd/a108.mp3", import global::Uno.BundleFile("res/snd/a108.mp3"));
+bundleDict.Add("res/snd/appInfo.mp3", import global::Uno.BundleFile("res/snd/appInfo.mp3"));
+bundleDict.Add("res/snd/b001.mp3", import global::Uno.BundleFile("res/snd/b001.mp3"));
+bundleDict.Add("res/snd/b002.mp3", import global::Uno.BundleFile("res/snd/b002.mp3"));
+bundleDict.Add("res/snd/b003.mp3", import global::Uno.BundleFile("res/snd/b003.mp3"));
+bundleDict.Add("res/snd/b004.mp3", import global::Uno.BundleFile("res/snd/b004.mp3"));
+bundleDict.Add("res/snd/b005.mp3", import global::Uno.BundleFile("res/snd/b005.mp3"));
+bundleDict.Add("res/snd/b006.mp3", import global::Uno.BundleFile("res/snd/b006.mp3"));
+bundleDict.Add("res/snd/b007.mp3", import global::Uno.BundleFile("res/snd/b007.mp3"));
+bundleDict.Add("res/snd/b008.mp3", import global::Uno.BundleFile("res/snd/b008.mp3"));
+bundleDict.Add("res/snd/b009.mp3", import global::Uno.BundleFile("res/snd/b009.mp3"));
+bundleDict.Add("res/snd/b010.mp3", import global::Uno.BundleFile("res/snd/b010.mp3"));
+bundleDict.Add("res/snd/b011.mp3", import global::Uno.BundleFile("res/snd/b011.mp3"));
+bundleDict.Add("res/snd/b012.mp3", import global::Uno.BundleFile("res/snd/b012.mp3"));
+bundleDict.Add("res/snd/b013.mp3", import global::Uno.BundleFile("res/snd/b013.mp3"));
+bundleDict.Add("res/snd/b014.mp3", import global::Uno.BundleFile("res/snd/b014.mp3"));
+bundleDict.Add("res/snd/b015.mp3", import global::Uno.BundleFile("res/snd/b015.mp3"));
+bundleDict.Add("res/snd/b016.mp3", import global::Uno.BundleFile("res/snd/b016.mp3"));
+bundleDict.Add("res/snd/b017.mp3", import global::Uno.BundleFile("res/snd/b017.mp3"));
+bundleDict.Add("res/snd/b018.mp3", import global::Uno.BundleFile("res/snd/b018.mp3"));
+bundleDict.Add("res/snd/b019.mp3", import global::Uno.BundleFile("res/snd/b019.mp3"));
+bundleDict.Add("res/snd/b020.mp3", import global::Uno.BundleFile("res/snd/b020.mp3"));
+bundleDict.Add("res/snd/b021.mp3", import global::Uno.BundleFile("res/snd/b021.mp3"));
+bundleDict.Add("res/snd/b022.mp3", import global::Uno.BundleFile("res/snd/b022.mp3"));
+bundleDict.Add("res/snd/b023.mp3", import global::Uno.BundleFile("res/snd/b023.mp3"));
+bundleDict.Add("res/snd/b024.mp3", import global::Uno.BundleFile("res/snd/b024.mp3"));
+bundleDict.Add("res/snd/b025.mp3", import global::Uno.BundleFile("res/snd/b025.mp3"));
+bundleDict.Add("res/snd/b026.mp3", import global::Uno.BundleFile("res/snd/b026.mp3"));
+bundleDict.Add("res/snd/b027.mp3", import global::Uno.BundleFile("res/snd/b027.mp3"));
+bundleDict.Add("res/snd/b028.mp3", import global::Uno.BundleFile("res/snd/b028.mp3"));
+bundleDict.Add("res/snd/b029.mp3", import global::Uno.BundleFile("res/snd/b029.mp3"));
+bundleDict.Add("res/snd/b030.mp3", import global::Uno.BundleFile("res/snd/b030.mp3"));
+bundleDict.Add("res/snd/b031.mp3", import global::Uno.BundleFile("res/snd/b031.mp3"));
+bundleDict.Add("res/snd/b032.mp3", import global::Uno.BundleFile("res/snd/b032.mp3"));
+bundleDict.Add("res/snd/b033.mp3", import global::Uno.BundleFile("res/snd/b033.mp3"));
+bundleDict.Add("res/snd/b034.mp3", import global::Uno.BundleFile("res/snd/b034.mp3"));
+bundleDict.Add("res/snd/b035.mp3", import global::Uno.BundleFile("res/snd/b035.mp3"));
+bundleDict.Add("res/snd/b036.mp3", import global::Uno.BundleFile("res/snd/b036.mp3"));
+bundleDict.Add("res/snd/b037.mp3", import global::Uno.BundleFile("res/snd/b037.mp3"));
+bundleDict.Add("res/snd/b038.mp3", import global::Uno.BundleFile("res/snd/b038.mp3"));
+bundleDict.Add("res/snd/b039.mp3", import global::Uno.BundleFile("res/snd/b039.mp3"));
+bundleDict.Add("res/snd/b040.mp3", import global::Uno.BundleFile("res/snd/b040.mp3"));
+bundleDict.Add("res/snd/b041.mp3", import global::Uno.BundleFile("res/snd/b041.mp3"));
+bundleDict.Add("res/snd/b042.mp3", import global::Uno.BundleFile("res/snd/b042.mp3"));
+bundleDict.Add("res/snd/b043.mp3", import global::Uno.BundleFile("res/snd/b043.mp3"));
+bundleDict.Add("res/snd/b044.mp3", import global::Uno.BundleFile("res/snd/b044.mp3"));
+bundleDict.Add("res/snd/b045.mp3", import global::Uno.BundleFile("res/snd/b045.mp3"));
+bundleDict.Add("res/snd/b046.mp3", import global::Uno.BundleFile("res/snd/b046.mp3"));
+bundleDict.Add("res/snd/b047.mp3", import global::Uno.BundleFile("res/snd/b047.mp3"));
+bundleDict.Add("res/snd/b048.mp3", import global::Uno.BundleFile("res/snd/b048.mp3"));
+bundleDict.Add("res/snd/b049.mp3", import global::Uno.BundleFile("res/snd/b049.mp3"));
+bundleDict.Add("res/snd/b050.mp3", import global::Uno.BundleFile("res/snd/b050.mp3"));
+bundleDict.Add("res/snd/b051.mp3", import global::Uno.BundleFile("res/snd/b051.mp3"));
+bundleDict.Add("res/snd/b052.mp3", import global::Uno.BundleFile("res/snd/b052.mp3"));
+bundleDict.Add("res/snd/b053.mp3", import global::Uno.BundleFile("res/snd/b053.mp3"));
+bundleDict.Add("res/snd/b054.mp3", import global::Uno.BundleFile("res/snd/b054.mp3"));
+bundleDict.Add("res/snd/b055.mp3", import global::Uno.BundleFile("res/snd/b055.mp3"));
+bundleDict.Add("res/snd/b056.mp3", import global::Uno.BundleFile("res/snd/b056.mp3"));
+bundleDict.Add("res/snd/b057.mp3", import global::Uno.BundleFile("res/snd/b057.mp3"));
+bundleDict.Add("res/snd/b058.mp3", import global::Uno.BundleFile("res/snd/b058.mp3"));
+bundleDict.Add("res/snd/b059.mp3", import global::Uno.BundleFile("res/snd/b059.mp3"));
+bundleDict.Add("res/snd/b060.mp3", import global::Uno.BundleFile("res/snd/b060.mp3"));
+bundleDict.Add("res/snd/b061.mp3", import global::Uno.BundleFile("res/snd/b061.mp3"));
+bundleDict.Add("res/snd/b062.mp3", import global::Uno.BundleFile("res/snd/b062.mp3"));
+bundleDict.Add("res/snd/b063.mp3", import global::Uno.BundleFile("res/snd/b063.mp3"));
+bundleDict.Add("res/snd/b064.mp3", import global::Uno.BundleFile("res/snd/b064.mp3"));
+bundleDict.Add("res/snd/b065.mp3", import global::Uno.BundleFile("res/snd/b065.mp3"));
+bundleDict.Add("res/snd/b066.mp3", import global::Uno.BundleFile("res/snd/b066.mp3"));
+bundleDict.Add("res/snd/b067.mp3", import global::Uno.BundleFile("res/snd/b067.mp3"));
+bundleDict.Add("res/snd/b068.mp3", import global::Uno.BundleFile("res/snd/b068.mp3"));
+bundleDict.Add("res/snd/b069.mp3", import global::Uno.BundleFile("res/snd/b069.mp3"));
+bundleDict.Add("res/snd/b070.mp3", import global::Uno.BundleFile("res/snd/b070.mp3"));
+bundleDict.Add("res/snd/b071.mp3", import global::Uno.BundleFile("res/snd/b071.mp3"));
+bundleDict.Add("res/snd/b072.mp3", import global::Uno.BundleFile("res/snd/b072.mp3"));
+bundleDict.Add("res/snd/b073.mp3", import global::Uno.BundleFile("res/snd/b073.mp3"));
+bundleDict.Add("res/snd/b074.mp3", import global::Uno.BundleFile("res/snd/b074.mp3"));
+bundleDict.Add("res/snd/b075.mp3", import global::Uno.BundleFile("res/snd/b075.mp3"));
+bundleDict.Add("res/snd/b076.mp3", import global::Uno.BundleFile("res/snd/b076.mp3"));
+bundleDict.Add("res/snd/b077.mp3", import global::Uno.BundleFile("res/snd/b077.mp3"));
+bundleDict.Add("res/snd/b078.mp3", import global::Uno.BundleFile("res/snd/b078.mp3"));
+bundleDict.Add("res/snd/b079.mp3", import global::Uno.BundleFile("res/snd/b079.mp3"));
+bundleDict.Add("res/snd/b080.mp3", import global::Uno.BundleFile("res/snd/b080.mp3"));
+bundleDict.Add("res/snd/b081.mp3", import global::Uno.BundleFile("res/snd/b081.mp3"));
+bundleDict.Add("res/snd/b082.mp3", import global::Uno.BundleFile("res/snd/b082.mp3"));
+bundleDict.Add("res/snd/b083.mp3", import global::Uno.BundleFile("res/snd/b083.mp3"));
+bundleDict.Add("res/snd/b084.mp3", import global::Uno.BundleFile("res/snd/b084.mp3"));
+bundleDict.Add("res/snd/b085.mp3", import global::Uno.BundleFile("res/snd/b085.mp3"));
+bundleDict.Add("res/snd/b086.mp3", import global::Uno.BundleFile("res/snd/b086.mp3"));
+bundleDict.Add("res/snd/b087.mp3", import global::Uno.BundleFile("res/snd/b087.mp3"));
+bundleDict.Add("res/snd/b088.mp3", import global::Uno.BundleFile("res/snd/b088.mp3"));
+bundleDict.Add("res/snd/b089.mp3", import global::Uno.BundleFile("res/snd/b089.mp3"));
+bundleDict.Add("res/snd/b090.mp3", import global::Uno.BundleFile("res/snd/b090.mp3"));
+bundleDict.Add("res/snd/b091.mp3", import global::Uno.BundleFile("res/snd/b091.mp3"));
+bundleDict.Add("res/snd/b092.mp3", import global::Uno.BundleFile("res/snd/b092.mp3"));
+bundleDict.Add("res/snd/b093.mp3", import global::Uno.BundleFile("res/snd/b093.mp3"));
+bundleDict.Add("res/snd/b094.mp3", import global::Uno.BundleFile("res/snd/b094.mp3"));
+bundleDict.Add("res/snd/b095.mp3", import global::Uno.BundleFile("res/snd/b095.mp3"));
+bundleDict.Add("res/snd/b096.mp3", import global::Uno.BundleFile("res/snd/b096.mp3"));
+bundleDict.Add("res/snd/b097.mp3", import global::Uno.BundleFile("res/snd/b097.mp3"));
+bundleDict.Add("res/snd/b098.mp3", import global::Uno.BundleFile("res/snd/b098.mp3"));
+bundleDict.Add("res/snd/b099.mp3", import global::Uno.BundleFile("res/snd/b099.mp3"));
+bundleDict.Add("res/snd/b100.mp3", import global::Uno.BundleFile("res/snd/b100.mp3"));
+bundleDict.Add("res/snd/b101.mp3", import global::Uno.BundleFile("res/snd/b101.mp3"));
+bundleDict.Add("res/snd/b102.mp3", import global::Uno.BundleFile("res/snd/b102.mp3"));
+bundleDict.Add("res/snd/b103.mp3", import global::Uno.BundleFile("res/snd/b103.mp3"));
+bundleDict.Add("res/snd/b104.mp3", import global::Uno.BundleFile("res/snd/b104.mp3"));
+bundleDict.Add("res/snd/b105.mp3", import global::Uno.BundleFile("res/snd/b105.mp3"));
+bundleDict.Add("res/snd/b106.mp3", import global::Uno.BundleFile("res/snd/b106.mp3"));
+bundleDict.Add("res/snd/b107.mp3", import global::Uno.BundleFile("res/snd/b107.mp3"));
+bundleDict.Add("res/snd/b108.mp3", import global::Uno.BundleFile("res/snd/b108.mp3"));
+bundleDict.Add("res/snd/bell.mp3", import global::Uno.BundleFile("res/snd/bell.mp3"));
+bundleDict.Add("res/snd/bell0.mp3", import global::Uno.BundleFile("res/snd/bell0.mp3"));
+bundleDict.Add("res/snd/birdBgm.mp3", import global::Uno.BundleFile("res/snd/birdBgm.mp3"));
+bundleDict.Add("res/snd/bugBgm.mp3", import global::Uno.BundleFile("res/snd/bugBgm.mp3"));
+bundleDict.Add("res/snd/click.mp3", import global::Uno.BundleFile("res/snd/click.mp3"));
+bundleDict.Add("res/snd/g001.mp3", import global::Uno.BundleFile("res/snd/g001.mp3"));
+bundleDict.Add("res/snd/g002.mp3", import global::Uno.BundleFile("res/snd/g002.mp3"));
+bundleDict.Add("res/snd/g003.mp3", import global::Uno.BundleFile("res/snd/g003.mp3"));
+bundleDict.Add("res/snd/g004.mp3", import global::Uno.BundleFile("res/snd/g004.mp3"));
+bundleDict.Add("res/snd/g005.mp3", import global::Uno.BundleFile("res/snd/g005.mp3"));
+bundleDict.Add("res/snd/g006.mp3", import global::Uno.BundleFile("res/snd/g006.mp3"));
+bundleDict.Add("res/snd/g007.mp3", import global::Uno.BundleFile("res/snd/g007.mp3"));
+bundleDict.Add("res/snd/g008.mp3", import global::Uno.BundleFile("res/snd/g008.mp3"));
+bundleDict.Add("res/snd/g009.mp3", import global::Uno.BundleFile("res/snd/g009.mp3"));
+bundleDict.Add("res/snd/g010.mp3", import global::Uno.BundleFile("res/snd/g010.mp3"));
+bundleDict.Add("res/snd/g011.mp3", import global::Uno.BundleFile("res/snd/g011.mp3"));
+bundleDict.Add("res/snd/g012.mp3", import global::Uno.BundleFile("res/snd/g012.mp3"));
+bundleDict.Add("res/snd/g013.mp3", import global::Uno.BundleFile("res/snd/g013.mp3"));
+bundleDict.Add("res/snd/g014.mp3", import global::Uno.BundleFile("res/snd/g014.mp3"));
+bundleDict.Add("res/snd/g015.mp3", import global::Uno.BundleFile("res/snd/g015.mp3"));
+bundleDict.Add("res/snd/g016.mp3", import global::Uno.BundleFile("res/snd/g016.mp3"));
+bundleDict.Add("res/snd/g017.mp3", import global::Uno.BundleFile("res/snd/g017.mp3"));
+bundleDict.Add("res/snd/g018.mp3", import global::Uno.BundleFile("res/snd/g018.mp3"));
+bundleDict.Add("res/snd/g019.mp3", import global::Uno.BundleFile("res/snd/g019.mp3"));
+bundleDict.Add("res/snd/g020.mp3", import global::Uno.BundleFile("res/snd/g020.mp3"));
+bundleDict.Add("res/snd/g021.mp3", import global::Uno.BundleFile("res/snd/g021.mp3"));
+bundleDict.Add("res/snd/g022.mp3", import global::Uno.BundleFile("res/snd/g022.mp3"));
+bundleDict.Add("res/snd/g023.mp3", import global::Uno.BundleFile("res/snd/g023.mp3"));
+bundleDict.Add("res/snd/g024.mp3", import global::Uno.BundleFile("res/snd/g024.mp3"));
+bundleDict.Add("res/snd/g025.mp3", import global::Uno.BundleFile("res/snd/g025.mp3"));
+bundleDict.Add("res/snd/g026.mp3", import global::Uno.BundleFile("res/snd/g026.mp3"));
+bundleDict.Add("res/snd/g027.mp3", import global::Uno.BundleFile("res/snd/g027.mp3"));
+bundleDict.Add("res/snd/g028.mp3", import global::Uno.BundleFile("res/snd/g028.mp3"));
+bundleDict.Add("res/snd/g029.mp3", import global::Uno.BundleFile("res/snd/g029.mp3"));
+bundleDict.Add("res/snd/g030.mp3", import global::Uno.BundleFile("res/snd/g030.mp3"));
+bundleDict.Add("res/snd/g031.mp3", import global::Uno.BundleFile("res/snd/g031.mp3"));
+bundleDict.Add("res/snd/g032.mp3", import global::Uno.BundleFile("res/snd/g032.mp3"));
+bundleDict.Add("res/snd/g033.mp3", import global::Uno.BundleFile("res/snd/g033.mp3"));
+bundleDict.Add("res/snd/g034.mp3", import global::Uno.BundleFile("res/snd/g034.mp3"));
+bundleDict.Add("res/snd/g035.mp3", import global::Uno.BundleFile("res/snd/g035.mp3"));
+bundleDict.Add("res/snd/g036.mp3", import global::Uno.BundleFile("res/snd/g036.mp3"));
+bundleDict.Add("res/snd/g037.mp3", import global::Uno.BundleFile("res/snd/g037.mp3"));
+bundleDict.Add("res/snd/g038.mp3", import global::Uno.BundleFile("res/snd/g038.mp3"));
+bundleDict.Add("res/snd/g039.mp3", import global::Uno.BundleFile("res/snd/g039.mp3"));
+bundleDict.Add("res/snd/g040.mp3", import global::Uno.BundleFile("res/snd/g040.mp3"));
+bundleDict.Add("res/snd/g041.mp3", import global::Uno.BundleFile("res/snd/g041.mp3"));
+bundleDict.Add("res/snd/g042.mp3", import global::Uno.BundleFile("res/snd/g042.mp3"));
+bundleDict.Add("res/snd/g043.mp3", import global::Uno.BundleFile("res/snd/g043.mp3"));
+bundleDict.Add("res/snd/g044.mp3", import global::Uno.BundleFile("res/snd/g044.mp3"));
+bundleDict.Add("res/snd/g045.mp3", import global::Uno.BundleFile("res/snd/g045.mp3"));
+bundleDict.Add("res/snd/g046.mp3", import global::Uno.BundleFile("res/snd/g046.mp3"));
+bundleDict.Add("res/snd/g047.mp3", import global::Uno.BundleFile("res/snd/g047.mp3"));
+bundleDict.Add("res/snd/g048.mp3", import global::Uno.BundleFile("res/snd/g048.mp3"));
+bundleDict.Add("res/snd/g049.mp3", import global::Uno.BundleFile("res/snd/g049.mp3"));
+bundleDict.Add("res/snd/g050.mp3", import global::Uno.BundleFile("res/snd/g050.mp3"));
+bundleDict.Add("res/snd/g051.mp3", import global::Uno.BundleFile("res/snd/g051.mp3"));
+bundleDict.Add("res/snd/g052.mp3", import global::Uno.BundleFile("res/snd/g052.mp3"));
+bundleDict.Add("res/snd/g053.mp3", import global::Uno.BundleFile("res/snd/g053.mp3"));
+bundleDict.Add("res/snd/g054.mp3", import global::Uno.BundleFile("res/snd/g054.mp3"));
+bundleDict.Add("res/snd/g055.mp3", import global::Uno.BundleFile("res/snd/g055.mp3"));
+bundleDict.Add("res/snd/g056.mp3", import global::Uno.BundleFile("res/snd/g056.mp3"));
+bundleDict.Add("res/snd/g057.mp3", import global::Uno.BundleFile("res/snd/g057.mp3"));
+bundleDict.Add("res/snd/g058.mp3", import global::Uno.BundleFile("res/snd/g058.mp3"));
+bundleDict.Add("res/snd/g059.mp3", import global::Uno.BundleFile("res/snd/g059.mp3"));
+bundleDict.Add("res/snd/g060.mp3", import global::Uno.BundleFile("res/snd/g060.mp3"));
+bundleDict.Add("res/snd/g061.mp3", import global::Uno.BundleFile("res/snd/g061.mp3"));
+bundleDict.Add("res/snd/g062.mp3", import global::Uno.BundleFile("res/snd/g062.mp3"));
+bundleDict.Add("res/snd/g063.mp3", import global::Uno.BundleFile("res/snd/g063.mp3"));
+bundleDict.Add("res/snd/g064.mp3", import global::Uno.BundleFile("res/snd/g064.mp3"));
+bundleDict.Add("res/snd/g065.mp3", import global::Uno.BundleFile("res/snd/g065.mp3"));
+bundleDict.Add("res/snd/g066.mp3", import global::Uno.BundleFile("res/snd/g066.mp3"));
+bundleDict.Add("res/snd/g067.mp3", import global::Uno.BundleFile("res/snd/g067.mp3"));
+bundleDict.Add("res/snd/g068.mp3", import global::Uno.BundleFile("res/snd/g068.mp3"));
+bundleDict.Add("res/snd/g069.mp3", import global::Uno.BundleFile("res/snd/g069.mp3"));
+bundleDict.Add("res/snd/g070.mp3", import global::Uno.BundleFile("res/snd/g070.mp3"));
+bundleDict.Add("res/snd/g071.mp3", import global::Uno.BundleFile("res/snd/g071.mp3"));
+bundleDict.Add("res/snd/g072.mp3", import global::Uno.BundleFile("res/snd/g072.mp3"));
+bundleDict.Add("res/snd/g073.mp3", import global::Uno.BundleFile("res/snd/g073.mp3"));
+bundleDict.Add("res/snd/g074.mp3", import global::Uno.BundleFile("res/snd/g074.mp3"));
+bundleDict.Add("res/snd/g075.mp3", import global::Uno.BundleFile("res/snd/g075.mp3"));
+bundleDict.Add("res/snd/g076.mp3", import global::Uno.BundleFile("res/snd/g076.mp3"));
+bundleDict.Add("res/snd/g077.mp3", import global::Uno.BundleFile("res/snd/g077.mp3"));
+bundleDict.Add("res/snd/g078.mp3", import global::Uno.BundleFile("res/snd/g078.mp3"));
+bundleDict.Add("res/snd/g079.mp3", import global::Uno.BundleFile("res/snd/g079.mp3"));
+bundleDict.Add("res/snd/g080.mp3", import global::Uno.BundleFile("res/snd/g080.mp3"));
+bundleDict.Add("res/snd/g081.mp3", import global::Uno.BundleFile("res/snd/g081.mp3"));
+bundleDict.Add("res/snd/g082.mp3", import global::Uno.BundleFile("res/snd/g082.mp3"));
+bundleDict.Add("res/snd/g083.mp3", import global::Uno.BundleFile("res/snd/g083.mp3"));
+bundleDict.Add("res/snd/g084.mp3", import global::Uno.BundleFile("res/snd/g084.mp3"));
+bundleDict.Add("res/snd/g085.mp3", import global::Uno.BundleFile("res/snd/g085.mp3"));
+bundleDict.Add("res/snd/g086.mp3", import global::Uno.BundleFile("res/snd/g086.mp3"));
+bundleDict.Add("res/snd/g087.mp3", import global::Uno.BundleFile("res/snd/g087.mp3"));
+bundleDict.Add("res/snd/g088.mp3", import global::Uno.BundleFile("res/snd/g088.mp3"));
+bundleDict.Add("res/snd/g089.mp3", import global::Uno.BundleFile("res/snd/g089.mp3"));
+bundleDict.Add("res/snd/g090.mp3", import global::Uno.BundleFile("res/snd/g090.mp3"));
+bundleDict.Add("res/snd/g091.mp3", import global::Uno.BundleFile("res/snd/g091.mp3"));
+bundleDict.Add("res/snd/g092.mp3", import global::Uno.BundleFile("res/snd/g092.mp3"));
+bundleDict.Add("res/snd/g093.mp3", import global::Uno.BundleFile("res/snd/g093.mp3"));
+bundleDict.Add("res/snd/g094.mp3", import global::Uno.BundleFile("res/snd/g094.mp3"));
+bundleDict.Add("res/snd/g095.mp3", import global::Uno.BundleFile("res/snd/g095.mp3"));
+bundleDict.Add("res/snd/g096.mp3", import global::Uno.BundleFile("res/snd/g096.mp3"));
+bundleDict.Add("res/snd/g097.mp3", import global::Uno.BundleFile("res/snd/g097.mp3"));
+bundleDict.Add("res/snd/g098.mp3", import global::Uno.BundleFile("res/snd/g098.mp3"));
+bundleDict.Add("res/snd/g099.mp3", import global::Uno.BundleFile("res/snd/g099.mp3"));
+bundleDict.Add("res/snd/g100.mp3", import global::Uno.BundleFile("res/snd/g100.mp3"));
+bundleDict.Add("res/snd/g101.mp3", import global::Uno.BundleFile("res/snd/g101.mp3"));
+bundleDict.Add("res/snd/g102.mp3", import global::Uno.BundleFile("res/snd/g102.mp3"));
+bundleDict.Add("res/snd/g103.mp3", import global::Uno.BundleFile("res/snd/g103.mp3"));
+bundleDict.Add("res/snd/g104.mp3", import global::Uno.BundleFile("res/snd/g104.mp3"));
+bundleDict.Add("res/snd/g105.mp3", import global::Uno.BundleFile("res/snd/g105.mp3"));
+bundleDict.Add("res/snd/g106.mp3", import global::Uno.BundleFile("res/snd/g106.mp3"));
+bundleDict.Add("res/snd/g107.mp3", import global::Uno.BundleFile("res/snd/g107.mp3"));
+bundleDict.Add("res/snd/g108.mp3", import global::Uno.BundleFile("res/snd/g108.mp3"));
+bundleDict.Add("res/snd/how1.mp3", import global::Uno.BundleFile("res/snd/how1.mp3"));
+bundleDict.Add("res/snd/how2.mp3", import global::Uno.BundleFile("res/snd/how2.mp3"));
+bundleDict.Add("res/snd/how3.mp3", import global::Uno.BundleFile("res/snd/how3.mp3"));
+bundleDict.Add("res/snd/how4.mp3", import global::Uno.BundleFile("res/snd/how4.mp3"));
+bundleDict.Add("res/snd/how5.mp3", import global::Uno.BundleFile("res/snd/how5.mp3"));
+bundleDict.Add("res/snd/how6.mp3", import global::Uno.BundleFile("res/snd/how6.mp3"));
+bundleDict.Add("res/snd/how7.mp3", import global::Uno.BundleFile("res/snd/how7.mp3"));
+bundleDict.Add("res/snd/how8.mp3", import global::Uno.BundleFile("res/snd/how8.mp3"));
+bundleDict.Add("res/snd/waterBgm.mp3", import global::Uno.BundleFile("res/snd/waterBgm.mp3"));
+
+
+
+
+
+
+
+<Text ux:Name="animDesc0" TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="마음을 차분하게 가라앉히고 두 손을 가슴에 모으며 바르게 섭니다. 이것을 합장이라 합니다." Visibility="Hidden" />
+<WhileTrue Value="{animText0}">
+	<Change animDesc0.Visibility="Visible"/>
+</WhileTrue>
+<Text ux:Name="animDesc1" TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="합장을 한 채 인사를 하듯 천천히 허리를 숙였다 세웁니다. 이것을 반배라하는데 절을시작할때와 끝날 때에는 항상 반배를 합니다." Visibility="Hidden" />
+<WhileTrue Value="{animText1}">
+	<Change animDesc1.Visibility="Visible"/>
+</WhileTrue>
+<Text ux:Name="animDesc2" TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="두손을 가슴에 모은 채 허리를 살짝 굽히면서 무릎을 꿇으며 앉습니다. 자세가 흐트러지면 넘어질 수 있으니 천천히 중심을 잡으며 앉습니다." Visibility="Hidden" />
+<WhileTrue Value="{animText2}">
+	<Change animDesc2.Visibility="Visible"/>
+</WhileTrue>
+<Text ux:Name="animDesc3" TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="엉덩이와 발 뒤꿈치가 맞닿을 때쯤 상체를 앞으로 숙이면서 오른손을 바닥에 내려놓습니다. 발은 자연스럽게 오른발이 왼발 위로 올라가게 합니다. 오른손과 나란히 왼손을 내려놓으며 이마가 바닥에 닿을 정도로 숙입니다. 이처럼 이마, 양쪽 팔꿈치와 무릎이 모두 바닥에 닿은 것을 오체투지라 합니다." Visibility="Hidden" />
+<WhileTrue Value="{animText3}">
+	<Change animDesc3.Visibility="Visible"/>
+</WhileTrue>
+<Text ux:Name="animDesc4" TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="양쪽 팔꿈치를 바닥에 댄 채 두 손바닥이 하늘을 향하도록 뒤집으면서 양쪽 귀옆으로 살짝 들어올립니다. 이것은 나 자신을 낮추고 세상 모든 존재를 지극한 마음으로 정성을 다해 존중하겠다는 다짐입니다." Visibility="Hidden" />
+<WhileTrue Value="{animText4}">
+	<Change animDesc4.Visibility="Visible"/>
+</WhileTrue>
+<Text ux:Name="animDesc5" TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="다시 두 손을 바닥을 향해 뒤집어 머리 옆으로 가지런히 내려놓으며 오체투지 자세를 취합니다." Visibility="Hidden" />
+<WhileTrue Value="{animText5}">
+	<Change animDesc5.Visibility="Visible"/>
+</WhileTrue>
+<Text ux:Name="animDesc6" TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="고개와 허리를 곧은 자세로 들면서 왼손과 오른손을 차례로 가슴 쪽으로 모읍니다. 이렇게 하면 합장하며 앉은 자세가 됩니다." Visibility="Hidden" />
+<WhileTrue Value="{animText6}">
+	<Change animDesc6.Visibility="Visible"/>
+</WhileTrue>
+<Text ux:Name="animDesc7" TextWrapping="Wrap" Alignment="Center" FontSize="26" TextColor="#3d3d3d" Value="포게 놓았던 양 발을 가지런히 풀면서 엉덩이를 살짝 들어올리며 일어납니다. 절을 시작할 때의 자세처럼 양쪽발은 가지런히 모으고 두 손은 가슴쪽으로 모아 바르게 섭니다. 이 자세에서 무릎을 굽히며 다시 절하는 동작을 반복합니다. 108번째 절을 마쳤을 때엔 반 배를 하며 절 수행을 마무리합니다." Visibility="Hidden" />
+<WhileTrue Value="{animText7}">
+	<Change animDesc7.Visibility="Visible"/>
+</WhileTrue>
+
+var animText0 = Observable(false);
+var animText1 = Observable(false);
+var animText2 = Observable(false);
+var animText3 = Observable(false);
+var animText4 = Observable(false);
+var animText5 = Observable(false);
+var animText6 = Observable(false);
+var animText7 = Observable(false);
+
+animText0.value = index == 0;
+animText1.value = index == 1;
+animText2.value = index == 2;
+animText3.value = index == 3;
+animText4.value = index == 4;
+animText5.value = index == 5;
+animText6.value = index == 6;
+animText7.value = index == 7;
+
+animText0: animText0,
+animText1: animText1,
+animText2: animText2,
+animText3: animText3,
+animText4: animText4,
+animText5: animText5,
+animText6: animText6,
+animText7: animText7,
+
+
