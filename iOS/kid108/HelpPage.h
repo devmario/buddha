@@ -26,18 +26,26 @@
 // 하위 뷰들
 //
 @property (nonatomic, retain) IBOutlet UIView           *viewAppInfo;
+@property (nonatomic, retain) IBOutlet UIView           *menu;
 @property (nonatomic, retain) IBOutlet UIScrollView     *scrollViewUsage;
+@property (nonatomic, retain) IBOutlet UIImageView     *help1;
+@property (nonatomic, retain) IBOutlet UIImageView     *help2;
+@property (nonatomic, retain) IBOutlet UIImageView     *help3;
 @property (nonatomic, retain) IBOutlet UIPageControl    *pageControlUsage;
 //
 @property (nonatomic, retain) IBOutlet UIView       *viewHowToPlay;
 @property (nonatomic, retain) IBOutlet UIImageView  *imageViewPlay;
-@property (nonatomic, retain) IBOutlet UITextView   *textViewPlayInfo;
+@property (nonatomic, retain) IBOutlet UILabel   *textViewPlayInfo;
 @property (nonatomic, retain) IBOutlet UIButton     *buttonPrevImage;
 @property (nonatomic, retain) IBOutlet UIButton     *buttonPlay;
 @property (nonatomic, retain) IBOutlet UIButton     *buttonNextImage;
 //
-@property (nonatomic, retain) IBOutlet UITextView   *textViewHowToPlay;
-@property (nonatomic, retain) IBOutlet UITextView   *textViewAppInfo;
+@property (nonatomic, retain) IBOutlet UILabel   *textViewHowToPlay;
+@property (nonatomic, retain) IBOutlet UILabel   *textViewAppInfo;
+@property (nonatomic, retain) IBOutlet UIImageView  *bg;
+@property (nonatomic, retain) IBOutlet UIButton  *howbt1;
+@property (nonatomic, retain) IBOutlet UIButton  *howbt2;
+@property (nonatomic, retain) IBOutlet UIButton  *howbt3;
 
 - (IBAction)clickPrev:(id)sender;
 - (IBAction)clickPlay:(id)sender;

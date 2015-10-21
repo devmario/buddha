@@ -14,8 +14,8 @@
 
 @implementation HelpPage
 
-@synthesize viewAppInfo, viewHowToPlay, viewUsage, buttonAppInfo, buttonHowToPlay, buttonUsage, scrollViewUsage, pageControlUsage;
-@synthesize textViewAppInfo, textViewHowToPlay;
+@synthesize viewAppInfo, viewHowToPlay, viewUsage, buttonAppInfo, buttonHowToPlay, buttonUsage, scrollViewUsage, pageControlUsage,bg,menu,howbt1,howbt2,howbt3,imageViewPlay;
+@synthesize textViewAppInfo, textViewHowToPlay,help1,help2,help3;
 
 - (void)dealloc
 {
@@ -40,6 +40,39 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.view.frame = [[UIScreen mainScreen] bounds];
+        bg.frame = [[UIScreen mainScreen] bounds];
+        
+        help1.frame = [[UIScreen mainScreen] bounds];
+        help2.frame = [[UIScreen mainScreen] bounds];
+        help3.frame = [[UIScreen mainScreen] bounds];
+        
+        viewHowToPlay.frame = CGRectMake(0, menu.frame.size.height, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height - menu.frame.size.height);
+        
+        imageViewPlay.frame = CGRectMake(0, 0, viewHowToPlay.frame.size.height - 60, viewHowToPlay.frame.size.height - 60);
+        imageViewPlay.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.5 - imageViewPlay.frame.size.width * 0.5 - 10, viewHowToPlay.frame.size.height - imageViewPlay.frame.size.height * 0.5 - 45);
+        imageViewPlay.contentMode = UIViewContentModeScaleAspectFit;
+        textViewHowToPlay.frame = imageViewPlay.frame;
+        textViewHowToPlay.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.5 + textViewHowToPlay.frame.size.width * 0.5 + 10, viewHowToPlay.frame.size.height - textViewHowToPlay.frame.size.height * 0.5 - 45);
+        
+        howbt1.center = CGPointMake(imageViewPlay.frame.origin.x + howbt1.frame.size.width * 0.5, viewHowToPlay.frame.size.height - howbt1.frame.size.height * 0.5 - 8);
+        howbt3.center = CGPointMake(imageViewPlay.frame.origin.x + imageViewPlay.frame.size.width - howbt3.frame.size.width * 0.5, viewHowToPlay.frame.size.height - howbt3.frame.size.height * 0.5 - 8);
+        howbt2.center = CGPointMake(howbt1.center.x + (howbt3.center.x - howbt1.center.x) * 0.5,howbt3.center.y);
+        
+        help1.frame = CGRectMake(0, 0, help1.frame.size.width, help1.frame.size.height);
+        help2.frame = CGRectMake(help1.frame.size.width, 0, help1.frame.size.width, help1.frame.size.height);
+        help3.frame = CGRectMake(help1.frame.size.width + help2.frame.size.width, 0, help1.frame.size.width, help1.frame.size.height);
+        help1.contentMode = help2.contentMode = help3.contentMode = UIViewContentModeScaleAspectFit;
+        scrollViewUsage.frame = [[UIScreen mainScreen] bounds];
+        scrollViewUsage.contentSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width * 3, [[UIScreen mainScreen] bounds].size.height);
+        
+        bg.contentMode = UIViewContentModeScaleAspectFill;
+        pageControlUsage.pageIndicatorTintColor = [UIColor whiteColor];
+        pageControlUsage.currentPageIndicatorTintColor = [UIColor blackColor];
+        pageControlUsage.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.5, pageControlUsage.center.y);
+        textViewAppInfo.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.5, [[UIScreen mainScreen] bounds].size.height * 0.5 + menu.frame.size.height * 0.5);
+        menu.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width - menu.frame.size.width, 0, menu.frame.size.width, menu.frame.size.height);
+        [menu setBackgroundColor:[UIColor clearColor]];
     }
     return self;
 }
@@ -58,9 +91,12 @@
     }];
 }
 
+
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view from its nib.
     
     [self clickAppInfo:nil];

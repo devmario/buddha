@@ -14,7 +14,7 @@
 
 @implementation RecordPage
 
-@synthesize scrollBar, scrollBarBg;
+@synthesize scrollBar, scrollBarBg, bg, bt1, bt2;
 
 - (void)dealloc
 {
@@ -29,6 +29,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.view.frame = [[UIScreen mainScreen] bounds];
+        bg.frame = [[UIScreen mainScreen] bounds];
+        bg.contentMode = UIViewContentModeScaleAspectFill;
         // Custom initialization
     }
     return self;
@@ -61,7 +64,7 @@
 {
     [self customNavigationBarWithTitle:@"기록" backButtonSelector:@selector(backClick:)];
     
-    table = [[TableViewDelegate alloc]initWithFrame:CGRectMake(70, 60, 340, 200)
+    table = [[TableViewDelegate alloc]initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width * 0.2, [[UIScreen mainScreen] bounds].size.height * 0.2, [[UIScreen mainScreen] bounds].size.width * 0.6, [[UIScreen mainScreen] bounds].size.height * 0.6)
                                      addTableViewTo:self.view
                                    protocolDelegate:self
                                     classNameOfCell:nil
@@ -71,6 +74,12 @@
                              cell.detailTextLabel.text = [NSString stringWithFormat:@"%@배",
                                                           [dataForRow objectForKey:KEY_RECORD_DATA_COUNT] ];
                          }];
+    
+    bt1.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.8 + bt1.frame.size.width * 0.5 + 5, [[UIScreen mainScreen] bounds].size.height * 0.2);
+    bt2.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.8 + bt2.frame.size.width * 0.5 + 5, [[UIScreen mainScreen] bounds].size.height * 0.8);
+    scrollBarBg.frame = CGRectMake(bt1.center.x - bt1.frame.size.width * 0.5, bt1.center.y, bt1.frame.size.width, bt2.center.y - bt1.center.y);
+    scrollBar.frame = scrollBarBg.frame;
+    
     [table allocateCellBlock:^id(id allocatedObjectFromClassName) {
         UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:table.classNameOfCell];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
@@ -85,6 +94,7 @@
     [table.tableView.layer setBorderColor:[UIColor colorWithWhite:0 alpha:0.5].CGColor];
     [table.tableView.layer setBorderWidth:1.0];
     table.tableView.alpha = 0.5;
+    
 }
 
 - (void)loadRecordData

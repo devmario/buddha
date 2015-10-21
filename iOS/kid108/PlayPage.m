@@ -52,7 +52,7 @@
         bgView.frame = [[UIScreen mainScreen] bounds];
         viewClosePopUp.frame = [[UIScreen mainScreen] bounds];
         viewClosePopupImage.frame = [[UIScreen mainScreen] bounds];
-        bgViewForAnimation.contentMode = bgView.contentMode = UIViewContentModeScaleAspectFill;
+        bgViewForAnimation.contentMode = bgView.contentMode = UIViewContentModeScaleAspectFit;
         viewClosePopupImage.contentMode = UIViewContentModeScaleAspectFill;
         labelSubtitle.center = CGPointMake(bgView.frame.size.width * 0.5, bgView.frame.size.height * 0.87);
         labelTitle.center = CGPointMake(bgView.frame.size.width * 0.5, bgView.frame.size.height * 0.13);

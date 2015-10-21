@@ -7,6 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecordPage">
             <connections>
+                <outlet property="bg" destination="4" id="QnO-pF-yoI"/>
+                <outlet property="bt1" destination="6" id="idJ-qa-RNJ"/>
+                <outlet property="bt2" destination="7" id="Pnb-c4-Cyt"/>
                 <outlet property="scrollBar" destination="8" id="10"/>
                 <outlet property="scrollBarBg" destination="5" id="9"/>
                 <outlet property="view" destination="1" id="3"/>

@@ -16,6 +16,9 @@
 }
 
 @property (nonatomic, retain) IBOutlet UIImageView *scrollBar;
+@property (nonatomic, retain) IBOutlet UIButton *bt1;
+@property (nonatomic, retain) IBOutlet UIButton *bt2;
 @property (nonatomic, retain) IBOutlet UIImageView *scrollBarBg;
+@property (nonatomic, retain) IBOutlet UIImageView *bg;
 
 @end
