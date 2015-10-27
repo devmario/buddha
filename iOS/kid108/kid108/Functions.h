@@ -98,6 +98,8 @@ typedef void (^MediaPickerBlock)(MPMediaItemCollection *mediaItemCollection);
 // play by AudioServices
 + (void)playAudioServicesWithUrl:(NSURL *)url;
 
++ (AVPlayer *)avPlayerWithRetainObject:(id)retainObject;
+
 // play by AVPlayer
 + (AVPlayer *)avPlayerWithRetainObject:(id)retainObject
                                playURL:(NSURL *)url

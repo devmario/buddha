@@ -363,6 +363,15 @@ static char avPlayerKey;
     AudioServicesDisposeSystemSoundID(soundID);
 }
 
++ (AVPlayer *)avPlayerWithRetainObject:(id)retainObject {
+    if (retainObject==nil) {
+        retainObject = [[UIApplication sharedApplication]delegate];
+    }
+    
+    AVPlayer *avPlayer = objc_getAssociatedObject(retainObject, &avPlayerKey);
+    return avPlayer;
+}
+
 + (AVPlayer *)avPlayerWithRetainObject:(id)retainObject
                          playURL:(NSURL *)url
                          repeats:(BOOL)repeats

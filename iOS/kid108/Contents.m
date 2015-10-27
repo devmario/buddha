@@ -540,5 +540,9 @@
     }
 }
 
++ (void)setVolumeBGMvolume:(float)volume {
+    [[Functions audioPlayerWithRetainObject:KEY_BGM_TYPE] setVolume:volume];
+    [[Functions avPlayerWithRetainObject:nil] setVolume:volume];
+}
 
 @end

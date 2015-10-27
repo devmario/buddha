@@ -1951,7 +1951,7 @@
 				ORGANIZATIONNAME = 3dpaper;
 				TargetAttributes = {
 					668121AB1637026F001531C4 = {
-						DevelopmentTeam = 5DXR74P6C5;
+						DevelopmentTeam = CPQG7C89A3;
 					};
 				};
 			};
@@ -2621,7 +2621,7 @@
 		668121CB16370270001531C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Choon Won Lee (CEP59HFSB8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -2633,7 +2633,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chiefrise.myletter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "84eccba4-22b6-4199-a65b-370c2ca00b70";
+				PROVISIONING_PROFILE = "34ffd107-f519-4f60-bb6f-0b9d671ea0d8";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s armv6";
 				WRAPPER_EXTENSION = app;
@@ -2654,7 +2654,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chiefrise.myletter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "84eccba4-22b6-4199-a65b-370c2ca00b70";
+				PROVISIONING_PROFILE = "34ffd107-f519-4f60-bb6f-0b9d671ea0d8";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s armv6";
 				WRAPPER_EXTENSION = app;

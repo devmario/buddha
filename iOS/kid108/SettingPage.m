@@ -325,7 +325,9 @@
         [(UIButton *)sender setTransform:CGAffineTransformMakeScale(1, 1)];
  
         
-        [self setSelectedWithBGMButton:sender];
+        if(sender!=self.buttonMusicBGM) {
+            [self setSelectedWithBGMButton:sender];
+        }
         if (sender==self.buttonBirdBGM)
         {
             SET(VALUE_BGM_TYPE_BIRD, KEY_BGM_TYPE);
@@ -340,9 +342,15 @@
         }
         else if (sender==self.buttonMusicBGM)
         {
-            SET(VALUE_BGM_TYPE_MUSIC, KEY_BGM_TYPE);
             
             [Functions presentMediaPickerControllerTo:self title:@"" allowsPickingMultipleItems:NO delegate:^(MPMediaItemCollection *mediaItemCollection) {
+                
+                [self.buttonBirdBGM setSelected:NO];
+                [self.buttonBugBGM setSelected:NO];
+                [self.buttonWaterBGM setSelected:NO];
+                [self.buttonMusicBGM setSelected:YES];
+                
+                SET(VALUE_BGM_TYPE_MUSIC, KEY_BGM_TYPE);
                 MPMediaItem *item = [mediaItemCollection.items lastObject];
                 NSURL *url = [item valueForProperty:MPMediaItemPropertyAssetURL];
                 NSString *urlString = [NSString stringWithFormat:@"%@",url];
@@ -353,7 +361,9 @@
             return;
         }
         
-        [Contents playBGMWithType:GET(KEY_BGM_TYPE)];
+        if(sender!=self.buttonMusicBGM) {
+            [Contents playBGMWithType:GET(KEY_BGM_TYPE)];
+        }
     }];
 }
 
@@ -382,7 +392,8 @@
             BGMVolume = 0;
         }
         
-        [[Functions audioPlayerWithRetainObject:KEY_BGM_TYPE] setVolume:1*(BGMVolume/VALUE_BGM_VOLUME_MAX)];
+        [Contents setVolumeBGMvolume:1*(BGMVolume/VALUE_BGM_VOLUME_MAX)];
+        
         self.labelBGMVolume.text = STRING_INT(BGMVolume);
         SET(self.labelBGMVolume.text, KEY_BGM_VOLUME);
     }];

@@ -3,9 +3,12 @@
 - [x] Android Full Screen
 - [x] Android 음악 선택시 강제종료 현상 해결
 - [x] Android Full Screen Resume
-- [ ] iOS 엡 백그라운드시 음량 계속 들리는 문제 해결
-- [ ] iOS Music background
+- [x] iOS 엡 백그라운드시 음량 계속 들리는 문제 해결
+- [x] iOS Music 선택시 volume적용 안되는 문제
+- [x] iOS Music background
 ### FEATURE
+- [ ] Android 설정메뉴 이어하기 삭제
+- [ ] iOS 설정메뉴 이어하기 삭제
 - [ ] Android 절하기
 - [ ] iOS 절하기
 - [ ] Android 기록보기 UI

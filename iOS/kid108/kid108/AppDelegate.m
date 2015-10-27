@@ -35,6 +35,7 @@
     [navigationController release];
     [SettingPage setInitialValue];
     [Contents playBGMWithType:GET(KEY_BGM_TYPE)];
+    [Contents setVolumeBGMvolume:1*(([GET(KEY_BGM_VOLUME) floatValue])/VALUE_BGM_VOLUME_MAX)];
     
     return YES;
 }

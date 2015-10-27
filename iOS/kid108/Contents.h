@@ -58,6 +58,7 @@
 + (NSString *)titleWithCount:(int)count;
 + (NSString *)subtitleWithCount:(int)count;
 
+
 + (NSString *)sequenceText:(int)number;
 + (NSURL *)sequenceVoiceUrl:(int)number;
 
@@ -68,5 +69,6 @@
 
 + (void)playVoiceWithNumber:(int)number;
 + (void)playBGMWithType:(NSString *)type;
++ (void)setVolumeBGMvolume:(float)volume;
 
 @end
