@@ -6,12 +6,19 @@
 - [ ] iOS 엡 백그라운드시 음량 계속 들리는 문제 해결
 - [ ] iOS Music background
 ### FEATURE
+- [ ] Android 절하기
+- [ ] iOS 절하기
 - [ ] Android 기록보기 UI
 - [ ] iOS 기록보기 UI
 - [ ] Android 이어하기 UI 적용
 - [ ] iOS 이어하기 UI 적용
-- [ ] resource 풀 스크린 이미지 적용
-- [ ] project generate (리소스 갈아 끼우는 script)
+- [ ] Android resource 풀 스크린 이미지 적용
+- [ ] iOS resource 풀 스크린 이미지 적용
+- [ ] Android project generate (리소스 갈아 끼우는 script)
+- [ ] iOS project generate (리소스 갈아 끼우는 script)
+## 절하기
+- button disable enable
+- index 처리 제대로
 ## RECORD
 - Android UI 오른쪽 및줄 라인
 - 최신 절하기 기록이 최상단
