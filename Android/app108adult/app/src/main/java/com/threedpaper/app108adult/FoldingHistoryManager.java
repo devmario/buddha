@@ -13,8 +13,8 @@ import exight.lib.ExPreferManager;
 
 public class FoldingHistoryManager {
 
-	private final static String KEY_FOLDING_COUNT = "foldingcount";
-	private final static String KEY_FOLDING_DATELIST = "foldingdatelist";
+	private final static String KEY_FOLDING_COUNT = "folding_count";
+	private final static String KEY_FOLDING_DATELIST = "folding_date_list";
 
 	//기록남기기 횟수
 	public static void increaseTodayFoldingCount(Activity activity, int record_id){

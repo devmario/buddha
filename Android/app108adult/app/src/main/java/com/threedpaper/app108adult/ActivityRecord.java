@@ -55,6 +55,9 @@ public class ActivityRecord extends ActivityForBgm {
 	private void loadHistory(){
 		List<ModelFoldingHistory> list = FoldingHistoryManager.loadHistory(this);
 		Collections.reverse(list);
+		if(list.size() == 0) {
+			list.add(new ModelFoldingHistory(null, 0, 0));
+		}
 		adapterHist.setListItems(list);
 		adapterHist.notifyDataSetChanged();
 	}
@@ -79,22 +82,35 @@ public class ActivityRecord extends ActivityForBgm {
 
 			ModelFoldingHistory m = (ModelFoldingHistory)getListItems().get(position);
 			EffectButton bt = ((EffectButton)v.findViewById(R.id.record_bt_cell));
-			bt.setAlpha(m.count + 1 == 108 ? 0.5f : 1.0f);
-			bt.setText(m.count + 1 == 108 ? "완료" : "이어하기");
+			if(m.date == null) {
+				bt.setText("시작하기");
+				Utility.findTextViewById(v, R.id.cellFoldingCount_tvCount).setText("");
+                Utility.findTextViewById(v, R.id.cellFoldingCount_tvDate).setText("기록이 없습니다.");
+			} else {
+				bt.setAlpha(m.count + 1 == 108 ? 0.5f : 1.0f);
+				bt.setText(m.count + 1 == 108 ? "완료" : "이어하기");
+				Utility.findTextViewById(v, R.id.cellFoldingCount_tvCount).setText((m.count + 1) + "배");
+				Utility.findTextViewById(v, R.id.cellFoldingCount_tvDate).setText(m.date);
+			}
 			final ModelFoldingHistory fm = m;
 			bt.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View view) {
-					if(fm.count >= 107)
-						return;
-					Intent i = new Intent(getContext(), ActivityScreen.class);
-					i.putExtra("record_id", fm.record_id);
-					i.putExtra("pos", fm.count);
+                    Intent i;
+                    if(fm.date != null) {
+                        if (fm.count >= 107)
+                            return;
+                        i = new Intent(getContext(), ActivityScreen.class);
+                        i.putExtra("record_id", fm.record_id);
+                        i.putExtra("pos", fm.count);
+                    } else {
+                        i = new Intent(getContext(), ActivityScreen.class);
+                        i.putExtra("record_id", -1);
+                        i.putExtra("pos", 0);
+                    }
 					startActivity(i);
 				}
 			});
-			Utility.findTextViewById(v, R.id.cellFoldingCount_tvCount).setText((m.count + 1) + "배");
-			Utility.findTextViewById(v, R.id.cellFoldingCount_tvDate).setText(m.date);
 
 			return v;
 		}
