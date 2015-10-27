@@ -35,12 +35,12 @@
 //
 @property (nonatomic, retain) IBOutlet UIView       *viewHowToPlay;
 @property (nonatomic, retain) IBOutlet UIImageView  *imageViewPlay;
-@property (nonatomic, retain) IBOutlet UILabel   *textViewPlayInfo;
+@property (nonatomic, retain) IBOutlet UITextView   *textViewPlayInfo;
 @property (nonatomic, retain) IBOutlet UIButton     *buttonPrevImage;
 @property (nonatomic, retain) IBOutlet UIButton     *buttonPlay;
 @property (nonatomic, retain) IBOutlet UIButton     *buttonNextImage;
 //
-@property (nonatomic, retain) IBOutlet UILabel   *textViewHowToPlay;
+@property (nonatomic, retain) IBOutlet UITextView   *textViewHowToPlay;
 @property (nonatomic, retain) IBOutlet UILabel   *textViewAppInfo;
 @property (nonatomic, retain) IBOutlet UIImageView  *bg;
 @property (nonatomic, retain) IBOutlet UIButton  *howbt1;

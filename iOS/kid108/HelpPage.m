@@ -186,6 +186,32 @@
 // how to play view
 //
 // sequence 0, 19, 29, 37, 41, 46, 55, 67
+
+#define MAX_HOW_TO_SEQUENCE 7
+
+- (void)setupDisable {
+    if([self.textViewPlayInfo.text isEqualToString:@""]) {
+        self.buttonPrevImage.alpha = 1.0;
+        self.buttonNextImage.alpha = 1.0;
+        self.buttonPlay.alpha = 0.5;
+    } else {
+        self.buttonPrevImage.alpha = 1.0;
+        self.buttonNextImage.alpha = 1.0;
+        self.buttonPlay.alpha = 1.0;
+        if(currentSequence == 0)
+            self.buttonPrevImage.alpha = 0.5;
+        if(currentSequence == MAX_HOW_TO_SEQUENCE)
+            self.buttonNextImage.alpha = 0.5;
+    }
+}
+
+- (void)updatePlayInfoText {
+    self.textViewPlayInfo.text = [Contents sequenceText:currentSequence];
+    
+    [textViewHowToPlay flashScrollIndicators];
+    [self.textViewPlayInfo flashScrollIndicators];
+}
+
 - (void)preparePlay
 {
     currentSequence = 0;
@@ -203,19 +229,36 @@
         [imageArray addObject: [UIImage imageNamed:imageFileName] ];
     }
      */
-    self.imageViewPlay.image = [UIImage imageNamed:@"kid00.jpg"];
-    self.textViewPlayInfo.text = [Contents sequenceText:currentSequence];
+    [self imagePlay];
+    [self updatePlayInfoText];
     [Functions audioPlayerWithRetainObject:self
                                    playURL:[Contents sequenceVoiceUrl:currentSequence]
                                     volume:1
                              numberOfLoops:0];
+    [self setupDisable];
+}
+
+- (void)imagePlay {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(completeAnimationImage) object:nil];
+    [self.imageViewPlay stopAnimating];
+    if(currentSequence == 0) {
+        [self playImageFrom:[arraySequence objectAtIndex:currentSequence]
+                         to:[arraySequence objectAtIndex:currentSequence]];
+    } else {
+        [self playImageFrom:[arraySequence objectAtIndex:currentSequence-1]
+                         to:[arraySequence objectAtIndex:currentSequence]];
+    }
+}
+
+- (void)imageAllPlay {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(completeAnimationImage) object:nil];
+    [self.imageViewPlay stopAnimating];
+    [self playImageFrom:[arraySequence objectAtIndex:0]
+                     to:[arraySequence lastObject]];
 }
 
 - (IBAction)clickPrev:(id)sender
 {
-    if ([self.imageViewPlay isAnimating]==YES)
-        return;
-
     
     [Functions audioPlayerWithRetainObject:self playURL:URL_SOUND_CLICK volume:0.3 numberOfLoops:0];
 
@@ -223,25 +266,24 @@
         [(UIButton *)sender setTransform:CGAffineTransformScale([(UIButton *)sender transform], 1.1, 1.1)];
     } completion:^(BOOL finished) {
         [(UIButton *)sender setTransform:CGAffineTransformMakeScale(1, 1)];
-
-        if (currentSequence<=0)
-            return;
         
-        [self playImageFrom:[arraySequence objectAtIndex:currentSequence]
-                         to:[arraySequence objectAtIndex:currentSequence-1]];
         currentSequence--;
-        self.textViewPlayInfo.text = [Contents sequenceText:currentSequence];
+        if(currentSequence < 0) {
+            currentSequence = 0;
+        }
+        
+        [self imagePlay];
+        
+        [self updatePlayInfoText];
         [Functions audioPlayerWithRetainObject:self
                                        playURL:[Contents sequenceVoiceUrl:currentSequence]
                                         volume:1
                                  numberOfLoops:0];
+        [self setupDisable];
     }];
 }
 - (IBAction)clickPlay:(id)sender
 {
-    if ([self.imageViewPlay isAnimating]==YES)
-        return;
-
     
     [Functions audioPlayerWithRetainObject:self playURL:URL_SOUND_CLICK volume:0.3 numberOfLoops:0];
 
@@ -251,17 +293,13 @@
         [(UIButton *)sender setTransform:CGAffineTransformMakeScale(1, 1)];
 
         currentSequence = 0;
-        [self playImageFrom:[arraySequence objectAtIndex:0]
-                         to:[arraySequence lastObject]];
-        self.textViewPlayInfo.text = nil;
+        [self imageAllPlay];
+        self.textViewPlayInfo.text = @"";
+        [self setupDisable];
     }];
 }
 - (IBAction)clickNext:(id)sender
 {
-    if ([self.imageViewPlay isAnimating]==YES)
-        return;
-    
-    
     [Functions audioPlayerWithRetainObject:self playURL:URL_SOUND_CLICK volume:0.3 numberOfLoops:0];
 
     [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
@@ -269,23 +307,32 @@
     } completion:^(BOOL finished) {
         [(UIButton *)sender setTransform:CGAffineTransformMakeScale(1, 1)];
         
-        if (currentSequence>6)
-            return;
-        
-        [self playImageFrom:[arraySequence objectAtIndex:currentSequence]
-                         to:[arraySequence objectAtIndex:currentSequence+1]];
         currentSequence++;
-        self.textViewPlayInfo.text = [Contents sequenceText:currentSequence];
+        if (currentSequence>MAX_HOW_TO_SEQUENCE) {
+            currentSequence = MAX_HOW_TO_SEQUENCE;
+            
+        }
+        
+        [self imagePlay];
+        [self updatePlayInfoText];
         [Functions audioPlayerWithRetainObject:self
                                        playURL:[Contents sequenceVoiceUrl:currentSequence]
                                         volume:1
                                  numberOfLoops:0];
+        [self setupDisable];
     }];
+}
+
+- (void)completeAnimationImage {
+    [self.imageViewPlay stopAnimating];
+    self.imageViewPlay.image = [self.imageViewPlay.animationImages lastObject];
+    [self setupDisable];
 }
 
 
 - (void)playImageFrom:(NSString *)fromNumber to:(NSString *)toNumber
 {
+    [self setupDisable];
     [self.imageViewPlay stopAnimating];
     NSMutableArray *imageArray = [NSMutableArray array];
     
@@ -324,11 +371,7 @@
     
     [self.imageViewPlay startAnimating];
     
-    id block = [[^{
-        [self.imageViewPlay stopAnimating];
-        self.imageViewPlay.image = [imageArray lastObject];
-    } copy] autorelease];
-    [block performSelector:@selector(invoke) withObject:nil afterDelay:self.imageViewPlay.animationDuration];
+    [self performSelector:@selector(completeAnimationImage) withObject:nil afterDelay:self.imageViewPlay.animationDuration];
 }
 
 

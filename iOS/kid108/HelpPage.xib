@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HelpPage">
@@ -25,8 +24,8 @@
                 <outlet property="pageControlUsage" destination="50" id="52"/>
                 <outlet property="scrollViewUsage" destination="47" id="51"/>
                 <outlet property="textViewAppInfo" destination="WyG-g0-DXc" id="UGs-23-imr"/>
-                <outlet property="textViewHowToPlay" destination="t63-tq-SqU" id="ViD-Cn-5ab"/>
-                <outlet property="textViewPlayInfo" destination="t63-tq-SqU" id="X76-HU-7JQ"/>
+                <outlet property="textViewHowToPlay" destination="ZgU-s6-DYR" id="Aiu-zN-9YN"/>
+                <outlet property="textViewPlayInfo" destination="ZgU-s6-DYR" id="KKl-pD-Zuk"/>
                 <outlet property="view" destination="1" id="3"/>
                 <outlet property="viewAppInfo" destination="9" id="20"/>
                 <outlet property="viewHowToPlay" destination="7" id="21"/>
@@ -51,7 +50,11 @@
                             <rect key="frame" x="0.0" y="46" width="480" height="266"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
-                            <string key="text">하루 하루가 모여 한 달이 되고 일년이 됩니다.날마다 내 마음을 맑고 밝게 가꾸고,온 마음을 모아 소원을 빌면 마침내 꿈은 이루어 질 것입니다.108가지 마음 거울을 읽고 실천하면서 내 마음과 행동을바르고 아름답게 가꾸어보세요.</string>
+                            <string key="text">하루 하루가 모여 한 달이 되고 일년이 됩니다.
+날마다 내 마음을 맑고 밝게 가꾸고,
+온 마음을 모아 소원을 빌면 마침내 꿈은 이루어 질 것입니다.
+108가지 마음 거울을 읽고 실천하면서 내 마음과 행동을
+바르고 아름답게 가꾸어보세요.</string>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                             <color key="textColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -146,14 +149,16 @@
                                 <action selector="clickNext:" destination="-1" eventType="touchUpInside" id="44"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t63-tq-SqU">
-                            <rect key="frame" x="261" y="123" width="170" height="130"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="ZgU-s6-DYR">
+                            <rect key="frame" x="120" y="96" width="240" height="128"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="backgroundColor" red="0.99255222082138062" green="0.99612540006637573" blue="0.99599212408065796" alpha="0.2038376266891892" colorSpace="custom" customColorSpace="sRGB"/>
+                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                             <color key="textColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

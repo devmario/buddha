@@ -9,7 +9,7 @@
 - [x] Android 버튼 연속 누를때 버튼음 안들리기 시작하는 문제(seek 하기전에 pause넣어 해결)
 ### FEATURE
 - [x] Android 절하기
-- [ ] iOS 절하기
+- [x] iOS 절하기
 - [ ] Android 기록보기 UI
 - [ ] iOS 기록보기 UI
 - [ ] Android 이어하기 UI 적용
