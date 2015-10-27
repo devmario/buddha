@@ -30,6 +30,7 @@ public class ActivitySearchMusinInSdcard extends ActivityForBgm {
 		List list = loadlist();
 		adapterMusicList.setListItems(list);
 		adapterMusicList.notifyDataSetChanged();
+		setupFull();
 	}
 	
 	private void init(){

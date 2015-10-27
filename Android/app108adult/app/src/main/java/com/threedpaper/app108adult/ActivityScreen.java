@@ -38,6 +38,7 @@ public class ActivityScreen extends ActivityForBgm {
 		init();
 
 		frameControllerFor108.playAll();
+		setupFull();
 	}
 
 	@Override

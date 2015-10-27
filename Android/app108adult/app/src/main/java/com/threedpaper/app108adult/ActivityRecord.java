@@ -25,6 +25,7 @@ public class ActivityRecord extends ActivityForBgm {
 		initViews();
 
 		loadHistory();
+		setupFull();
 	}
 
 	ListView lvItems;

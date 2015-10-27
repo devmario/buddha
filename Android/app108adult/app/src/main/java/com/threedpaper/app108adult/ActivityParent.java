@@ -12,6 +12,7 @@ public abstract class ActivityParent extends ActivityForBgm{
 		onSettingContentsView();
 		init();
 		initViews();
+		setupFull();
 	}
 	
 	abstract public void onSettingContentsView();

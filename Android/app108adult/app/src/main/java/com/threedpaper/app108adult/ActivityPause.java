@@ -16,6 +16,7 @@ public class ActivityPause extends ActivityForBgm implements android.view.View.O
 	    
 	    pausedScenePos = getIntent().getIntExtra("pausedScenePos", 0);
 	    init();
+		setupFull();
 	}
 	
 	private void init(){

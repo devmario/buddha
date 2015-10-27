@@ -8,7 +8,8 @@ public class ActivityScreenPause extends ActivityForBgm {
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-	    super.onCreate(savedInstanceState);	
+	    super.onCreate(savedInstanceState);
+		setupFull();
 	
 	}
 

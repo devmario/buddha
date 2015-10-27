@@ -29,6 +29,7 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 
 		initViews();
 		setViews();
+		setupFull();
 	}
 
 	protected void onResume() {
