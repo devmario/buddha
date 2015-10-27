@@ -48,15 +48,18 @@ public class ActivityMain extends ActivityForBgm implements OnClickListener{
 			case Variables.BG_TYPE_MUSIC:
 				bgId = 0;
 				String soundPath = ExPreferManager.getItem(this, "soundPath");
+				if(soundPath == "") {
+					bgId = R.raw.birdbgm;
+					ExPreferManager.setItemInteger(this,"bgType",bgId);
+				}
 				try{
 					Variables.BGM_MANAGER.playFromSdcard(soundPath);
-
-				}catch(Exception e){
-					Utility.makeToast(this, soundPath + "\n" + "파일이 존재하지 않습니다. 다른 음악을 선택해주세요");
-					startActivityForResult(new Intent(this, ActivitySearchMusinInSdcard.class), 1000);
-					;
+				}catch (Exception e){
+					bgId = R.raw.birdbgm;
+					ExPreferManager.setItemInteger(this,"bgType",Variables.BG_TYPE_BIRD);
+//					Utility.makeToast(this, soundPath + "\n" + "파일이 존재하지 않습니다. 다른 음악을 선택해주세요");
+//					startActivityForResult(new Intent(this, ActivitySearchMusinInSdcard.class), 1000);
 				}
-
 				return;
 		}
 

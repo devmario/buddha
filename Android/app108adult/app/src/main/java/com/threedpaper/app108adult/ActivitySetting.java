@@ -262,7 +262,6 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 				resId = R.raw.waterbgm;
 			}else{
 				resId = 0;
-				ExPreferManager.setItemInteger(ActivitySetting.this, "bgType", Variables.BG_TYPE_MUSIC);
 				startActivityForResult(new Intent(ActivitySetting.this, ActivitySearchMusinInSdcard.class), 1000);
 				//music
 			}
@@ -328,14 +327,15 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 				try{
 					Variables.BGM_MANAGER.playFromSdcard(path);
 					ExPreferManager.setItem(ActivitySetting.this, "soundPath", path);
+					ExPreferManager.setItemInteger(ActivitySetting.this, "bgType", Variables.BG_TYPE_MUSIC);
 				}catch(Exception e){
-					Utility.makeToast(ActivitySetting.this, path + "\n" + "파일이 존재하지 않습니다");
+					Utility.makeToast(ActivitySetting.this, path + "\n" + "지원하지 않는 파일 입니다.");
 					startActivityForResult(new Intent(ActivitySetting.this, ActivitySearchMusinInSdcard.class), 1000);
-					;
 				}
 			}else{
 				//취소
 			}
 		}
+		setViews();
 	};
 }
