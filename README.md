@@ -8,23 +8,27 @@
 - [x] iOS Music background
 - [x] Android 버튼 연속 누를때 버튼음 안들리기 시작하는 문제(seek 하기전에 pause넣어 해결)
 ### FEATURE
-- [x] Android 절하기
-- [x] iOS 절하기
-- [ ] Android 기록보기 UI
-- [ ] iOS 기록보기 UI
-- [ ] Android 이어하기 UI 적용
-- [ ] iOS 이어하기 UI 적용
-- [ ] Android 설정메뉴 이어하기 삭제
-- [ ] iOS 설정메뉴 이어하기 삭제
-- [ ] Android resource 풀 스크린 이미지 적용
-- [ ] iOS resource 풀 스크린 이미지 적용
-- [ ] Android project generate (리소스 갈아 끼우는 script)
-- [ ] iOS project generate (리소스 갈아 끼우는 script)
+#### Android
+- [x] 절하기
+- [x] 절하기 데이터 변경
+- [x] 기록보기 UI
+- [ ] 이어하기 UI 적용
+- [ ] 설정메뉴 이어하기 삭제(이어하기는 디폴트로 false)
+- [ ] resource 풀 스크린 이미지 적용
+- [ ] project generate (리소스 갈아 끼우는 script)
+#### iOS
+- [x] 절하기
+- [ ] 절하기 데이터 변경
+- [ ] 기록보기 UI
+- [ ] 이어하기 UI 적용
+- [ ] 설정메뉴 이어하기 삭제(이어하기는 디폴트로 false)
+- [ ] resource 풀 스크린 이미지 적용
+- [ ] project generate (리소스 갈아 끼우는 script)
 ## 절하기
 - button disable enable
 - index 처리 제대로
 ## RECORD
-- Android UI 오른쪽 및줄 라인
+- Android UI 오른쪽 및줄 라인(List 문제)
 - 최신 절하기 기록이 최상단
 - 다 하지 못한것은 이어하기 버튼
 ## 시작하기

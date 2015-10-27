@@ -9,12 +9,14 @@ public class ActivityPause extends ActivityForBgm implements android.view.View.O
 
 
 	int pausedScenePos;
+	int record_id;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_pause);
-	    
-	    pausedScenePos = getIntent().getIntExtra("pausedScenePos", 0);
+
+		pausedScenePos = getIntent().getIntExtra("pausedScenePos", 0);
+		record_id = getIntent().getIntExtra("record_id", -1);
 	    init();
 		setupFull();
 	}
@@ -36,7 +38,7 @@ public class ActivityPause extends ActivityForBgm implements android.view.View.O
 			break;
 		case R.id.pause_btnReplay:
 			finish();
-			startActivity(new Intent(this, ActivityScreen.class).putExtra("pausedScenePos", pausedScenePos));
+			startActivity(new Intent(this, ActivityScreen.class).putExtra("pausedScenePos", pausedScenePos).putExtra("record_id", record_id));
 			break;
 		}
 	}

@@ -17,6 +17,8 @@ import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import exight.common.Utility;
 import exight.common.Variables;
 import exight.customviews.EffectButton;
 import exight.lib.ExPreferManager;
@@ -61,6 +63,7 @@ public class ActivityScreen extends ActivityForBgm {
 
 	private FrameControllerFor108 frameControllerFor108;
 	private JingSoundPlayer jingSoundPlayer;
+	public int record_id = -1;
 
 	private void init(){
 		jingSoundPlayer = new JingSoundPlayer(this);
@@ -69,17 +72,13 @@ public class ActivityScreen extends ActivityForBgm {
 
 		if(scenePos > 0){
 			//pause눌러서 된건지 확인
-			;
 		}else{
-			try{
-				if(ExPreferManager.getItemInteger(this, "startType") == Variables.START_TYPE_CONTINUE){
-					scenePos = ExPreferManager.getItemInteger(this, "continuedScenePos");
-				}
-
-//				scenePos = Integer.parseInt(ExPreferManager.getItem(this, "continuedScenePos"));
-			}catch (Exception e) {
-				;
-			}
+			scenePos = getIntent().getIntExtra("pos", 0);
+		}
+		record_id = getIntent().getIntExtra("record_id", -1);
+		if(record_id == -1) {
+			String tDate = Utility.getCurrentDate();
+			record_id = FoldingHistoryManager.newFoldingDate(this, tDate);
 		}
 
 		frameControllerFor108 = new FrameControllerFor108(scenePos){
@@ -125,7 +124,7 @@ public class ActivityScreen extends ActivityForBgm {
 					flag = false;
 
 					finish();
-					startActivity(new Intent(ActivityScreen.this, ActivityPause.class).putExtra("pausedScenePos", frameControllerFor108.getCurrentPos()));
+					startActivity(new Intent(ActivityScreen.this, ActivityPause.class).putExtra("record_id", record_id).putExtra("pausedScenePos", frameControllerFor108.getCurrentPos()));
 					//					frameControllerFor108.pausAe();
 				}else{
 					flag = true;
@@ -178,7 +177,7 @@ public class ActivityScreen extends ActivityForBgm {
 
 				ExPreferManager.setItemInteger(ActivityScreen.this, "continuedScenePos", currentScenePos);
 				//기록횟수 증가
-				FoldingHistoryManager.increaseTodayFoldingCount(ActivityScreen.this);
+				FoldingHistoryManager.increaseTodayFoldingCount(ActivityScreen.this, record_id);
 
 				return true;
 			}else{

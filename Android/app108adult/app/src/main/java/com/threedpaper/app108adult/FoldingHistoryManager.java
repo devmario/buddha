@@ -17,24 +17,20 @@ public class FoldingHistoryManager {
 	private final static String KEY_FOLDING_DATELIST = "foldingdatelist";
 
 	//기록남기기 횟수
-	public static void increaseTodayFoldingCount(Activity activity){
-
-		String tDate = Utility.getCurrentDate();
-
-		newFoldingDate(activity, tDate);
-		int count = ExPreferManager.getItemInteger(activity, KEY_FOLDING_COUNT + tDate);
+	public static void increaseTodayFoldingCount(Activity activity, int record_id){
+		int count = ExPreferManager.getItemInteger(activity, KEY_FOLDING_COUNT + record_id);
 		count++;
-		ExPreferManager.setItemInteger(activity, KEY_FOLDING_COUNT + tDate, count);
-
+		ExPreferManager.setItemInteger(activity, KEY_FOLDING_COUNT + record_id, count);
 	}
 
 	//내역 다 지움.
 	public static void removeAllHistory(Activity activity){
 		String foldingdate = ExPreferManager.getItem(activity, KEY_FOLDING_DATELIST);
 		StringTokenizer st = new StringTokenizer(foldingdate, "*");
+		int i = 0;
 		while(st.hasMoreTokens()){
-			String date = st.nextToken();
-			ExPreferManager.setItemInteger(activity, KEY_FOLDING_COUNT + date, 0);
+			ExPreferManager.setItemInteger(activity, KEY_FOLDING_COUNT + i, 0);
+			i++;
 		}
 
 		ExPreferManager.setItem(activity, KEY_FOLDING_DATELIST, "");
@@ -46,37 +42,27 @@ public class FoldingHistoryManager {
 
 		String foldingdate = ExPreferManager.getItem(activity, KEY_FOLDING_DATELIST);
 		StringTokenizer st = new StringTokenizer(foldingdate, "*");
+		int i = 0;
 		while(st.hasMoreTokens()){
 			String date = st.nextToken();
-			int count = ExPreferManager.getItemInteger(activity, KEY_FOLDING_COUNT + date);
-			listModelFoldingHistory.add(new ModelFoldingHistory(date, count));
-
+			int count = ExPreferManager.getItemInteger(activity, KEY_FOLDING_COUNT + i);
+			listModelFoldingHistory.add(new ModelFoldingHistory(date, count, i));
+			i++;
 		}
 
 		return listModelFoldingHistory;
 	}
 
-	private static void newFoldingDate(Activity activity, String tDate){
-		if(!isWroteFoldingDate(activity, tDate)){
-			String foldingdate = ExPreferManager.getItem(activity, KEY_FOLDING_DATELIST);
-			foldingdate = foldingdate + "*" + tDate;
-			ExPreferManager.setItem(activity, KEY_FOLDING_DATELIST, foldingdate);
-		}
-	}
+	public static int newFoldingDate(Activity activity, String tDate){
+		int length = ExPreferManager.getItemInteger(activity, KEY_FOLDING_COUNT);
+		int id = length;
+		length++;
+		ExPreferManager.setItemInteger(activity, KEY_FOLDING_COUNT, length);
 
-
-	//이미 기록된 일자 데이터인지.
-	private static boolean isWroteFoldingDate(Activity activity, String tDate){
 		String foldingdate = ExPreferManager.getItem(activity, KEY_FOLDING_DATELIST);
-		StringTokenizer st = new StringTokenizer(foldingdate, "*");
-		while(st.hasMoreTokens()){
-			String date = st.nextToken();
-			if(date.equals(tDate)){
-				return true;
-			}
-		}
-
-		return false;
+		foldingdate = foldingdate + "*" + tDate;
+		ExPreferManager.setItem(activity, KEY_FOLDING_DATELIST, foldingdate);
+		return id;
 	}
 
 
