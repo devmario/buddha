@@ -48,7 +48,8 @@ public abstract class ActivityForBgm extends Activity{
 	
 	@Override
 	protected void onResume() {
-		super.onResume(); 
+		super.onResume();
+		setupFull();
 		alivedActivityCount++;
 		try{
 			if(Variables.BGM_MANAGER.mp.isPlaying() == false){

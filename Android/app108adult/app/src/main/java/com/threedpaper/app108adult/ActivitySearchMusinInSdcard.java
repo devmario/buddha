@@ -32,7 +32,12 @@ public class ActivitySearchMusinInSdcard extends ActivityForBgm {
 		adapterMusicList.notifyDataSetChanged();
 		setupFull();
 	}
-	
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+	}
+
 	private void init(){
 		 
 	}
