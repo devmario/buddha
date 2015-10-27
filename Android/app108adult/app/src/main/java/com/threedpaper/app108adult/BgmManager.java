@@ -3,25 +3,26 @@ package com.threedpaper.app108adult;
 import exight.common.Variables;
 import exight.lib.ExPreferManager;
 import android.app.Activity;
+import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 
 public class BgmManager {
 	MediaPlayer mp;
-	private Activity activity;
-	public BgmManager(Activity activity) {
-		this.activity = activity;
+	private Context c;
+	public BgmManager(Context c) {
+		this.c = c;
 	}
 	
 	
 	public void play(int soundId){
 		release();
 		
-		mp = MediaPlayer.create(activity, soundId);
+		mp = MediaPlayer.create(c, soundId);
 		mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
 		mp.setLooping(true);
-		int vol = ExPreferManager.getItemInteger(activity, "bgVolumn");
+		int vol = ExPreferManager.getItemInteger(c, "bgVolumn");
 		float v = ((float)vol) * 0.1f;
 		mp.setVolume(v, v);
 		mp.start();
@@ -30,10 +31,10 @@ public class BgmManager {
 	public void playFromSdcard(String path) throws Exception{
 		release();
 		
-		mp = MediaPlayer.create(activity, Uri.parse(path));
+		mp = MediaPlayer.create(c, Uri.parse(path));
 		mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
 		mp.setLooping(true);
-		int vol = ExPreferManager.getItemInteger(activity, "bgVolumn");
+		int vol = ExPreferManager.getItemInteger(c, "bgVolumn");
 		float v = ((float)vol) * 0.1f;
 		mp.setVolume(v, v);
 		mp.start();

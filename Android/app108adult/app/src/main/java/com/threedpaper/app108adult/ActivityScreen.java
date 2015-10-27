@@ -78,14 +78,14 @@ public class ActivityScreen extends ActivityForBgm {
 		record_id = getIntent().getIntExtra("record_id", -1);
 		if(record_id == -1) {
 			String tDate = Utility.getCurrentDate();
-			record_id = FoldingHistoryManager.newFoldingDate(this, tDate);
+			record_id = FoldingHistoryManager.newFoldingDate(getApplicationContext(), tDate);
 		}
 
 		frameControllerFor108 = new FrameControllerFor108(scenePos){
 			@Override
 			public void onFinish() {
 				finish();
-				ExPreferManager.setItemInteger(ActivityScreen.this, "continuedScenePos", 0);
+				ExPreferManager.setItemInteger(getApplicationContext(), "continuedScenePos", 0);
 				Toast.makeText(ActivityScreen.this, "108배가 완료되었습니다", 1000).show();
 			}
 		};
@@ -145,7 +145,7 @@ public class ActivityScreen extends ActivityForBgm {
 		Handler a, b, c;
 
 		public FrameControllerFor108(int currentScenePos) {
-			delay = ExPreferManager.getItemInteger(ActivityScreen.this, "foldingSpeed") * 1000;
+			delay = ExPreferManager.getItemInteger(getApplicationContext(), "foldingSpeed") * 1000;
 			this.currentScenePos = currentScenePos;
 			animForFadeIn = new AlphaAnimation(0.0f, 1.0f);
 			animForFadeIn.setDuration(2000);
@@ -175,7 +175,7 @@ public class ActivityScreen extends ActivityForBgm {
 			if(Variables.LIST_MODEL_FRAMES.size() > currentScenePos + 1){
 				currentScenePos++;
 
-				ExPreferManager.setItemInteger(ActivityScreen.this, "continuedScenePos", currentScenePos);
+				ExPreferManager.setItemInteger(getApplicationContext(), "continuedScenePos", currentScenePos);
 				//기록횟수 증가
 				FoldingHistoryManager.increaseTodayFoldingCount(ActivityScreen.this, record_id);
 

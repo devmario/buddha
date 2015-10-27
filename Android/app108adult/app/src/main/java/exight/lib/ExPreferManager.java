@@ -83,6 +83,11 @@ public class ExPreferManager {
 		return e.getIntegerItem(tag);
 	}
 
+	public static void removeItem(Context c, String s) {
+		ExPreferManager e = new ExPreferManager(c);
+		e.removeItem(s);
+	}
+
 	public static void setItemInteger(Context context, String tag, int value){
 		ExPreferManager e = new ExPreferManager(context);
 		e.putIntegerItem(tag, value);
@@ -105,8 +110,17 @@ public class ExPreferManager {
 	public void putIntegerItem(String TAG, int value){
 		editor.putInt(TAG, value);
 		editor.commit();
-
 	}
+
+	public void removeItem(String s) {
+		editor.remove(s);
+		editor.commit();
+	}
+
+	public void commit() {
+		editor.commit();
+	}
+
 	public int getIntegerItem(String TAG){
 		return settings.getInt(TAG, 0);
 	}

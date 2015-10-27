@@ -14,16 +14,16 @@ public class ActivityIntro extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
-        int isFirstLoad = ExPreferManager.getItemInteger(this, "isFirstLoad");
+        int isFirstLoad = ExPreferManager.getItemInteger(getApplicationContext(), "isFirstLoad");
         if(isFirstLoad <= 0){
             //처음이다
-            ExPreferManager.setItemInteger(this, "foldingSpeed", 3);
-            ExPreferManager.setItemInteger(this, "startType", Variables.START_TYPE_CONTINUE);
-            ExPreferManager.setItemInteger(this, "voiceType", Variables.VOICE_TYPE_MAN);
-            ExPreferManager.setItemInteger(this, "voiceVolumn", 5);
-            ExPreferManager.setItemInteger(this, "bgType", Variables.BG_TYPE_BIRD);
-            ExPreferManager.setItemInteger(this, "bgVolumn", 5);
-            ExPreferManager.setItemInteger(this, "isFirstLoad", 1);
+            ExPreferManager.setItemInteger(getApplicationContext(), "foldingSpeed", 3);
+            ExPreferManager.setItemInteger(getApplicationContext(), "startType", Variables.START_TYPE_CONTINUE);
+            ExPreferManager.setItemInteger(getApplicationContext(), "voiceType", Variables.VOICE_TYPE_MAN);
+            ExPreferManager.setItemInteger(getApplicationContext(), "voiceVolumn", 5);
+            ExPreferManager.setItemInteger(getApplicationContext(), "bgType", Variables.BG_TYPE_BIRD);
+            ExPreferManager.setItemInteger(getApplicationContext(), "bgVolumn", 5);
+            ExPreferManager.setItemInteger(getApplicationContext(), "isFirstLoad", 1);
         }else{
             ;
         }

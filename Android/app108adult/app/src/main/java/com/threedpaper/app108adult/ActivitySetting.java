@@ -45,7 +45,6 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 	EffectButton btnBgmWater, btnBgmBug, btnBgmMusic, btnBgmBird;
 	EffectButton btnVoiceWoman, btnVoiceWoman2, btnVoiceMan;
 	EffectButton btnFoldingSpeedUp, btnFoldingSpeedDown;
-	EffectButton btnModeContinue, btnModeFirstPage;
 	EffectButton btnVoiceVolumnUp, btnVoiceVolumnDown;
 	EffectButton btnBgVolumnUp, btnBgVolumnDown;
 
@@ -71,10 +70,6 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 		btnVoiceWoman.setOnClickListener(onClickListenerForVoiceType);
 		btnVoiceWoman2.setOnClickListener(onClickListenerForVoiceType);
 
-		btnModeContinue = (EffectButton)findViewById(R.id.setting_btnIsModeOfContinue);
-		btnModeFirstPage = (EffectButton)findViewById(R.id.setting_btnIsModeOfFirstPage);
-		btnModeContinue.setOnClickListener(onClickListenerForStartType);
-		btnModeFirstPage.setOnClickListener(onClickListenerForStartType);
 
 		//브금볼륨
 		btnBgVolumnUp = (EffectButton)findViewById(R.id.setting_btnBgmVolumeDown);
@@ -117,14 +112,6 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 		tvVoiceVolumn.setText(voiceVolumn + "");
 		tvFoldingSpeed.setText(foldingSpeed + "");
 
-		//이어서재생하기?
-		if(startType == Variables.START_TYPE_CONTINUE){
-			btnModeContinue.startAnimation(anim2);
-			btnModeFirstPage.startAnimation(anim1);
-		}else{
-			btnModeContinue.startAnimation(anim1);
-			btnModeFirstPage.startAnimation(anim2);
-		}
 
 
 		//목소리 타입
@@ -172,11 +159,11 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 				break;
 
 			case R.id.setting_btnRemoveHistory:
-				Utility.makeYesNoDialog(ActivitySetting.this, "절한 기록을 지우시겠습니까?", "확인", "취소", new Utility.DialogChoiceYesNo() {
+				Utility.makeYesNoDialog(this, "절한 기록을 지우시겠습니까?", "확인", "취소", new Utility.DialogChoiceYesNo() {
 
 					@Override
 					public boolean choiceYes() {
-						FoldingHistoryManager.removeAllHistory(ActivitySetting.this);
+						FoldingHistoryManager.removeAllHistory(getApplicationContext());
 						Utility.makeToast(ActivitySetting.this, "기록을 모두 지웠습니다.");
 						return false;
 					}
@@ -209,22 +196,7 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 			}
 
 			tvFoldingSpeed.setText(foldingSpeed + "");
-			ExPreferManager.setItemInteger(ActivitySetting.this, "foldingSpeed", foldingSpeed);
-		}
-	};
-
-	//시작위치 버튼
-	OnClickListener onClickListenerForStartType = new OnClickListener() {
-
-		@Override
-		public void onClick(View v) {
-			if(v == btnModeContinue){
-				ExPreferManager.setItemInteger(ActivitySetting.this, "startType", Variables.START_TYPE_CONTINUE);
-			}else{
-				ExPreferManager.setItemInteger(ActivitySetting.this, "startType", Variables.START_TYPE_FIRST);
-			}
-
-			setViews();
+			ExPreferManager.setItemInteger(getApplicationContext(), "foldingSpeed", foldingSpeed);
 		}
 	};
 
@@ -234,11 +206,11 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 		@Override
 		public void onClick(View v) {
 			if(v == btnVoiceMan){
-				ExPreferManager.setItemInteger(ActivitySetting.this, "voiceType", Variables.VOICE_TYPE_MAN);
+				ExPreferManager.setItemInteger(getApplicationContext(), "voiceType", Variables.VOICE_TYPE_MAN);
 			}else if(v == btnVoiceWoman){
-				ExPreferManager.setItemInteger(ActivitySetting.this, "voiceType", Variables.VOICE_TYPE_WOMAN);
+				ExPreferManager.setItemInteger(getApplicationContext(), "voiceType", Variables.VOICE_TYPE_WOMAN);
 			}else{
-				ExPreferManager.setItemInteger(ActivitySetting.this, "voiceType", Variables.VOICE_TYPE_WOMAN2);
+				ExPreferManager.setItemInteger(getApplicationContext(), "voiceType", Variables.VOICE_TYPE_WOMAN2);
 			}
 
 			setViews();
@@ -252,13 +224,13 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 		public void onClick(View v) {
 			int resId = 0;
 			if(v == btnBgmBird){
-				ExPreferManager.setItemInteger(ActivitySetting.this, "bgType", Variables.BG_TYPE_BIRD);
+				ExPreferManager.setItemInteger(getApplicationContext(), "bgType", Variables.BG_TYPE_BIRD);
 				resId = R.raw.birdbgm;
 			}else if(v == btnBgmBug){
-				ExPreferManager.setItemInteger(ActivitySetting.this, "bgType", Variables.BG_TYPE_BUG);
+				ExPreferManager.setItemInteger(getApplicationContext(), "bgType", Variables.BG_TYPE_BUG);
 				resId = R.raw.bugbgm;
 			}else if(v == btnBgmWater){
-				ExPreferManager.setItemInteger(ActivitySetting.this, "bgType", Variables.BG_TYPE_STREAM);
+				ExPreferManager.setItemInteger(getApplicationContext(), "bgType", Variables.BG_TYPE_STREAM);
 				resId = R.raw.waterbgm;
 			}else{
 				resId = 0;
@@ -278,7 +250,7 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 
 		@Override
 		public void onClick(View v) {
-			int voiceVolumn = ExPreferManager.getItemInteger(ActivitySetting.this, "voiceVolumn");
+			int voiceVolumn = ExPreferManager.getItemInteger(getApplicationContext(), "voiceVolumn");
 			int before = voiceVolumn;
 			if(v == btnVoiceVolumnUp){
 				voiceVolumn ++;
@@ -290,7 +262,7 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 				voiceVolumn = before;
 			}
 
-			ExPreferManager.setItemInteger(ActivitySetting.this, "voiceVolumn", voiceVolumn);
+			ExPreferManager.setItemInteger(getApplicationContext(), "voiceVolumn", voiceVolumn);
 			setViews();
 		}
 	};
@@ -300,7 +272,7 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 
 		@Override
 		public void onClick(View v) {
-			int bgVolumn = ExPreferManager.getItemInteger(ActivitySetting.this, "bgVolumn");
+			int bgVolumn = ExPreferManager.getItemInteger(getApplicationContext(), "bgVolumn");
 			int before = bgVolumn;
 			if(v == btnBgVolumnUp){
 				bgVolumn ++;
@@ -312,7 +284,7 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 				bgVolumn = before;
 			}
 
-			ExPreferManager.setItemInteger(ActivitySetting.this, "bgVolumn", bgVolumn);
+			ExPreferManager.setItemInteger(getApplicationContext(), "bgVolumn", bgVolumn);
 			setViews();
 
 			Variables.BGM_MANAGER.setVolumn(bgVolumn);
@@ -326,10 +298,10 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 				String path = data.getStringExtra("soundPath");
 				try{
 					Variables.BGM_MANAGER.playFromSdcard(path);
-					ExPreferManager.setItem(ActivitySetting.this, "soundPath", path);
-					ExPreferManager.setItemInteger(ActivitySetting.this, "bgType", Variables.BG_TYPE_MUSIC);
+					ExPreferManager.setItem(getApplicationContext(), "soundPath", path);
+					ExPreferManager.setItemInteger(getApplicationContext(), "bgType", Variables.BG_TYPE_MUSIC);
 				}catch(Exception e){
-					Utility.makeToast(ActivitySetting.this, path + "\n" + "지원하지 않는 파일 입니다.");
+					Utility.makeToast(getApplicationContext(), path + "\n" + "지원하지 않는 파일 입니다.");
 					startActivityForResult(new Intent(ActivitySetting.this, ActivitySearchMusinInSdcard.class), 1000);
 				}
 			}else{

@@ -32,8 +32,8 @@ public class ActivityMain extends ActivityForBgm implements OnClickListener{
 
 	public void init(){
 
-		Variables.BGM_MANAGER = new BgmManager(this);
-		int bgType = ExPreferManager.getItemInteger(this, "bgType");
+		Variables.BGM_MANAGER = new BgmManager(getApplicationContext());
+		int bgType = ExPreferManager.getItemInteger(getApplicationContext(), "bgType");
 		int bgId = 0;
 		switch(bgType){
 			case Variables.BG_TYPE_BIRD:
@@ -47,16 +47,16 @@ public class ActivityMain extends ActivityForBgm implements OnClickListener{
 				break;
 			case Variables.BG_TYPE_MUSIC:
 				bgId = 0;
-				String soundPath = ExPreferManager.getItem(this, "soundPath");
+				String soundPath = ExPreferManager.getItem(getApplicationContext(), "soundPath");
 				if(soundPath == "") {
 					bgId = R.raw.birdbgm;
-					ExPreferManager.setItemInteger(this,"bgType",bgId);
+					ExPreferManager.setItemInteger(getApplicationContext(),"bgType",bgId);
 				}
 				try{
 					Variables.BGM_MANAGER.playFromSdcard(soundPath);
 				}catch (Exception e){
 					bgId = R.raw.birdbgm;
-					ExPreferManager.setItemInteger(this,"bgType",Variables.BG_TYPE_BIRD);
+					ExPreferManager.setItemInteger(getApplicationContext(),"bgType",Variables.BG_TYPE_BIRD);
 //					Utility.makeToast(this, soundPath + "\n" + "파일이 존재하지 않습니다. 다른 음악을 선택해주세요");
 //					startActivityForResult(new Intent(this, ActivitySearchMusinInSdcard.class), 1000);
 				}
@@ -132,7 +132,7 @@ public class ActivityMain extends ActivityForBgm implements OnClickListener{
 				String path = data.getStringExtra("soundPath");
 				try{
 					Variables.BGM_MANAGER.playFromSdcard(path);
-					ExPreferManager.setItem(this, "soundPath", path);
+					ExPreferManager.setItem(getApplicationContext(), "soundPath", path);
 				}catch(Exception e){
 					Utility.makeToast(this, path + "\n" + "파일이 존재하지 않습니다");
 					startActivityForResult(new Intent(this, ActivitySearchMusinInSdcard.class), 1000);

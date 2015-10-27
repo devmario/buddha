@@ -51,6 +51,7 @@ import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.provider.MediaStore;
 import android.provider.MediaStore.MediaColumns;
 import android.telephony.TelephonyManager;
@@ -59,6 +60,7 @@ import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.view.View.MeasureSpec;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -552,8 +554,8 @@ public class Utility {
 
 	}
 
-	public static void makeYesNoDialog(Context context, String title, String yesString, String noString, final DialogChoiceYesNo dialogChoiceYesNo) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(context);
+	public static void makeYesNoDialog(Activity a, String title, String yesString, String noString, final DialogChoiceYesNo dialogChoiceYesNo) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(a);
 
 		if(title.equals("")){
 
@@ -580,7 +582,12 @@ public class Utility {
 							}
 						});
 		AlertDialog alert = builder.create();
-		alert.show();
+        alert.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
+        alert.show();
+        alert.getWindow().getDecorView().setSystemUiVisibility(a.getWindow().getDecorView().getSystemUiVisibility());
+
+//Clear the not focusable flag from the window
+        alert.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
 	}
 
 	public static void copyStream(InputStream is, OutputStream os)

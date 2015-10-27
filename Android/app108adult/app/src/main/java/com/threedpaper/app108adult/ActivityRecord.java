@@ -53,7 +53,7 @@ public class ActivityRecord extends ActivityForBgm {
 	}
 
 	private void loadHistory(){
-		List<ModelFoldingHistory> list = FoldingHistoryManager.loadHistory(this);
+		List<ModelFoldingHistory> list = FoldingHistoryManager.loadHistory(getApplicationContext());
 		Collections.reverse(list);
 		if(list.size() == 0) {
 			list.add(new ModelFoldingHistory(null, 0, 0));
