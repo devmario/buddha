@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import android.app.Activity;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Message;
@@ -23,7 +24,6 @@ public class TabItemHowto extends ExightTabItem implements OnClickListener{
 		super(activity);
 	}
 
-
 	@Override
 	public View setContentView(Activity activity) {
 		View v = activity.getLayoutInflater().inflate(R.layout.tabitem_howto, null);
@@ -31,6 +31,32 @@ public class TabItemHowto extends ExightTabItem implements OnClickListener{
 		v.findViewById(R.id.tabItemHowtoFold_btnRight).setOnClickListener(this);
 		v.findViewById(R.id.tabItemHowtoFold_btnMid).setOnClickListener(this);
 		return v;
+	}
+
+	public void updateDisable() {
+		View l = findViewById(R.id.tabItemHowtoFold_btnLeft);
+		View m = findViewById(R.id.tabItemHowtoFold_btnMid);
+		View r = findViewById(R.id.tabItemHowtoFold_btnRight);
+		if(foldingPlayer.getIsAllSequenceMode()) {
+			l.setAlpha(1.0f);
+			m.setAlpha(0.5f);
+			r.setAlpha(1.0f);
+		} else {
+			if(foldingPlayer.getCurrentSequence() == 0) {
+				l.setAlpha(0.5f);
+				m.setAlpha(1.0f);
+				r.setAlpha(1.0f);
+			} else if(foldingPlayer.getSequenceLength() - 1 == foldingPlayer.getCurrentSequence()) {
+				l.setAlpha(1.0f);
+				m.setAlpha(1.0f);
+				r.setAlpha(0.5f);
+			} else {
+				l.setAlpha(1.0f);
+				m.setAlpha(1.0f);
+				r.setAlpha(1.0f);
+			}
+		}
+
 	}
 
 	@Override
@@ -46,13 +72,14 @@ public class TabItemHowto extends ExightTabItem implements OnClickListener{
 				foldingPlayer.nextSequencePublic();
 				break;
 		}
+		updateDisable();
 	}
 
 	private FoldingPlayer foldingPlayer;
 	@Override
 	public void onCreate() {
 		foldingPlayer = new FoldingPlayer(getActivity(), R.id.tabItemHowtoFold_ivContent, R.id.tabItemHowtoFold_tvContent);
-
+		updateDisable();
 	}
 
 	@Override
@@ -118,6 +145,10 @@ public class TabItemHowto extends ExightTabItem implements OnClickListener{
 						R.drawable.yong56,R.drawable.yong57,R.drawable.yong58,R.drawable.yong59, R.drawable.yong60,R.drawable.yong61,R.drawable.yong62,R.drawable.yong63,R.drawable.yong64,R.drawable.yong65,R.drawable.yong66,R.drawable.yong67)
 		};
 
+		public int getSequenceLength() {
+			return foldingSequencesForTeen.length;
+		}
+
 		private Activity activity;
 		public FoldingPlayer(Activity activity, int ivContentId, int tvContentId) {
 			this.activity = activity;
@@ -138,11 +169,20 @@ public class TabItemHowto extends ExightTabItem implements OnClickListener{
 			}
 		}
 
+		public int getCurrentSequence() {
+			return currentSequence;
+		}
+
 		public void setFirstFrame(){
 			currentSequence = 0;
 		}
 
 		boolean isAllSequenceMode = false;
+
+		public boolean getIsAllSequenceMode() {
+			return isAllSequenceMode;
+		}
+
 		public void playAllSequece(){
 			setFirstFrame();
 			isAllSequenceMode = true;
@@ -165,6 +205,7 @@ public class TabItemHowto extends ExightTabItem implements OnClickListener{
 
 			if(!isAllSequenceMode){
 				mp = MediaPlayer.create(activity, f.soundId);
+				mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
 				mp.setVolume(1.0f, 1.0f);
 				mp.setLooping(false);
 				mp.start();
@@ -198,6 +239,9 @@ public class TabItemHowto extends ExightTabItem implements OnClickListener{
 
 		//다음 프레임들 재생
 		public boolean nextSequencePublic(){
+			if(isAllSequenceMode) {
+				currentSequence = -1;
+			}
 			isAllSequenceMode = false;
 			return nextSequence();
 
@@ -216,6 +260,9 @@ public class TabItemHowto extends ExightTabItem implements OnClickListener{
 
 		//이전 프레임들 재생
 		public boolean prevSequencePublic(){
+			if(isAllSequenceMode) {
+				currentSequence = 0;
+			}
 			isAllSequenceMode = false;
 			return prevSequence();
 

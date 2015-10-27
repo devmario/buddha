@@ -3,6 +3,7 @@ package com.threedpaper.app108adult;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -352,6 +353,7 @@ public class ActivityScreen extends ActivityForBgm {
 		public JingSoundPlayer(Context context) {
 			this.context = context;
 			mp = MediaPlayer.create(context, R.raw.jong);
+			mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
 			mp.setLooping(false);
 			mp.setVolume(1.0f, 1.0f);
 		}

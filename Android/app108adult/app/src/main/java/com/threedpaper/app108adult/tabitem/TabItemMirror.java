@@ -1,6 +1,7 @@
 package com.threedpaper.app108adult.tabitem;
 
 import android.app.Activity;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.view.View;
 
@@ -36,6 +37,7 @@ public class TabItemMirror extends ExightTabItem{
 	@Override
 	public void onResume() {
 		mp = MediaPlayer.create(getActivity(), R.raw.mindmirror);
+		mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
 		mp.setVolume(1f, 1f);
 		mp.setLooping(false);
 		mp.start();

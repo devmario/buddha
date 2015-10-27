@@ -1,6 +1,7 @@
 package exight.customviews;
 
 import android.content.Context;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -75,11 +76,12 @@ public class EffectButton extends Button{
 
 	private void doEffectOfSound(){
 		if(mp != null){
+			mp.pause();
 			mp.seekTo(0);
 			mp.start();
-
 		}else{
 			mp = MediaPlayer.create(getContext(), R.raw.click);
+			mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
 			mp.setLooping(false);
 			mp.setVolume(1f, 1f);
 			mp.start();

@@ -3,6 +3,7 @@ package com.threedpaper.app108adult;
 import exight.common.Variables;
 import exight.lib.ExPreferManager;
 import android.app.Activity;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 
@@ -18,6 +19,7 @@ public class BgmManager {
 		release();
 		
 		mp = MediaPlayer.create(activity, soundId);
+		mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
 		mp.setLooping(true);
 		int vol = ExPreferManager.getItemInteger(activity, "bgVolumn");
 		float v = ((float)vol) * 0.1f;
@@ -29,6 +31,7 @@ public class BgmManager {
 		release();
 		
 		mp = MediaPlayer.create(activity, Uri.parse(path));
+		mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
 		mp.setLooping(true);
 		int vol = ExPreferManager.getItemInteger(activity, "bgVolumn");
 		float v = ((float)vol) * 0.1f;

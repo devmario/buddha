@@ -6,15 +6,16 @@
 - [x] iOS 엡 백그라운드시 음량 계속 들리는 문제 해결
 - [x] iOS Music 선택시 volume적용 안되는 문제
 - [x] iOS Music background
+- [x] Android 버튼 연속 누를때 버튼음 안들리기 시작하는 문제(seek 하기전에 pause넣어 해결)
 ### FEATURE
-- [ ] Android 설정메뉴 이어하기 삭제
-- [ ] iOS 설정메뉴 이어하기 삭제
-- [ ] Android 절하기
+- [x] Android 절하기
 - [ ] iOS 절하기
 - [ ] Android 기록보기 UI
 - [ ] iOS 기록보기 UI
 - [ ] Android 이어하기 UI 적용
 - [ ] iOS 이어하기 UI 적용
+- [ ] Android 설정메뉴 이어하기 삭제
+- [ ] iOS 설정메뉴 이어하기 삭제
 - [ ] Android resource 풀 스크린 이미지 적용
 - [ ] iOS resource 풀 스크린 이미지 적용
 - [ ] Android project generate (리소스 갈아 끼우는 script)
