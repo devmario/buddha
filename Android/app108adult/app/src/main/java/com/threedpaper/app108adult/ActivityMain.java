@@ -1,38 +1,54 @@
 package com.threedpaper.app108adult;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import exight.common.Utility;
 import exight.common.Variables;
 import exight.lib.ExPreferManager;
-import exight.lib.ExightSoundPool;
 
 public class ActivityMain extends ActivityForBgm implements OnClickListener{
 
+	private void setupFull() {
+		if (Build.VERSION.SDK_INT >= 11) {
+			final View decorView = getWindow().getDecorView();
+			final int flags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+					| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+					| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+					| View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+					| View.SYSTEM_UI_FLAG_FULLSCREEN
+					| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+			decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+				@Override
+				public void onSystemUiVisibilityChange(int i) {
+					if (Build.VERSION.SDK_INT >= 11) {
+						decorView.setSystemUiVisibility(flags);
+					}
+				}
+			});
+			decorView.setSystemUiVisibility(flags);
+		}
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		//컨텐츠 초기화
 		Variables.INIT_LIST_MODEL_FRAMES();
-
-
 		init();
 		initViews();
-
-
-
-
+		setupFull();
 	}
 
 	public void init(){

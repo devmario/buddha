@@ -2621,7 +2621,7 @@
 		668121CB16370270001531C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Choon Won Lee (CEP59HFSB8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -2629,9 +2629,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "kid108/kid108-Prefix.pch";
 				INFOPLIST_FILE = "kid108/kid108-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jangwonhee.kid108;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chiefrise.myletter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "84eccba4-22b6-4199-a65b-370c2ca00b70";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s armv6";
 				WRAPPER_EXTENSION = app;
@@ -2649,8 +2651,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "kid108/kid108-Prefix.pch";
 				INFOPLIST_FILE = "kid108/kid108-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jangwonhee.kid108;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chiefrise.myletter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "84eccba4-22b6-4199-a65b-370c2ca00b70";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s armv6";
 				WRAPPER_EXTENSION = app;

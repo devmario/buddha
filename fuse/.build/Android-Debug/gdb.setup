@@ -1,0 +1,4 @@
+directory jni:include:/usr/local/share/uno/Packages/UnoCore/0.12.0/Targets/CPlusPlus/Prebuilt/Android/Xli/include:/usr/local/share/uno/SDKs/AndroidNDK/platforms/android-19/arch-arm/usr/include:/usr/local/share/uno/SDKs/AndroidNDK/sources/cxx-stl/stlport/stlport:/usr/local/share/uno/SDKs/AndroidNDK/sources/cxx-stl/gabi++/include
+set solib-search-path obj:/usr/local/share/uno/Packages/UnoCore/0.12.0/Targets/CPlusPlus/Prebuilt/Android/Xli/lib/android/armeabi-v7a
+sharedlibrary
+set auto-solib-add on
