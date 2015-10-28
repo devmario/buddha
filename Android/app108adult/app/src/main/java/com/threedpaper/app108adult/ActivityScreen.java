@@ -8,6 +8,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
@@ -80,6 +81,8 @@ public class ActivityScreen extends ActivityForBgm {
 			String tDate = Utility.getCurrentDate();
 			record_id = FoldingHistoryManager.newFoldingDate(getApplicationContext(), tDate);
 		}
+		FoldingHistoryManager.setTodayFoldingCount(getApplicationContext(), record_id, scenePos);
+		Log.d("devmario ", "ActivityScreen init : scenePos=>" + scenePos + ",record_id=>" + record_id);
 
 		frameControllerFor108 = new FrameControllerFor108(scenePos){
 			@Override
@@ -177,7 +180,8 @@ public class ActivityScreen extends ActivityForBgm {
 
 				ExPreferManager.setItemInteger(getApplicationContext(), "continuedScenePos", currentScenePos);
 				//기록횟수 증가
-				FoldingHistoryManager.increaseTodayFoldingCount(ActivityScreen.this, record_id);
+				FoldingHistoryManager.setTodayFoldingCount(getApplicationContext(), record_id, currentScenePos);
+				Log.d("devmario", "ActivityScreen nextScene : currentScenePos=>" + currentScenePos + ",record_id=>" + record_id);
 
 				return true;
 			}else{

@@ -27,9 +27,13 @@ public class Variables {
 	
 	public final static int START_TYPE_CONTINUE = 0;
 	public final static int START_TYPE_FIRST   	= 1;
+
+	public static boolean inited = false;
 	
 	public static final List<ModelFrame> LIST_MODEL_FRAMES = new ArrayList<ModelFrame>();
 	public final static void INIT_LIST_MODEL_FRAMES(){
+		if(Variables.inited)
+			return;
 		LIST_MODEL_FRAMES.add(new ModelFrame("빛나는 존재, 나","나는 이 세상에 하나밖에 없는 \n소중한 사람입니다.",R.drawable.inner_bg_001, R.raw.a001, R.raw.b001, R.raw.g001));
 		LIST_MODEL_FRAMES.add(new ModelFrame("빛나는 존재, 나","세상의 모든 존재처럼 \n나도 가치 있는 사람입니다.",R.drawable.inner_bg_002, R.raw.a002, R.raw.b002, R.raw.g002));
 		LIST_MODEL_FRAMES.add(new ModelFrame("빛나는 존재, 나","나는 나 자신을 존중하고 \n신뢰하겠습니다.",R.drawable.inner_bg_003, R.raw.a003, R.raw.b003, R.raw.g003));
@@ -138,6 +142,7 @@ public class Variables {
 		LIST_MODEL_FRAMES.add(new ModelFrame("세상과 이야기하는 법","나는 이성 친구를 대할 때 \n예의를 갖추겠습니다.",R.drawable.inner_bg_106, R.raw.a106, R.raw.b106, R.raw.g106));
 		LIST_MODEL_FRAMES.add(new ModelFrame("세상과 이야기하는 법","나는 남을 쉽게 동정하거나 \n무시하지 않겠습니다.",R.drawable.inner_bg_107, R.raw.a107, R.raw.b107, R.raw.g107));
 		LIST_MODEL_FRAMES.add(new ModelFrame("세상과 이야기하는 법","내가 가진 것에 집착하거나 \n갖지 않은 것을 탐하지 않고 \n세상의 이로움을 위해 베풀며 살겠습니다.",R.drawable.inner_bg_108, R.raw.a108, R.raw.b108, R.raw.g108));
+		Variables.inited = true;
 
 	}
 	

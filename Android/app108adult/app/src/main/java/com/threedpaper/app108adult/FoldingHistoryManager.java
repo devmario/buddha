@@ -18,9 +18,7 @@ public class FoldingHistoryManager {
 	private final static String KEY_FOLDING_DATELIST = "folding_date_list";
 
 	//기록남기기 횟수
-	public static void increaseTodayFoldingCount(Context c, int record_id){
-		int count = ExPreferManager.getItemInteger(c, KEY_FOLDING_COUNT + record_id);
-		count++;
+	public static void setTodayFoldingCount(Context c, int record_id, int count) {
 		ExPreferManager.setItemInteger(c, KEY_FOLDING_COUNT + record_id, count);
 	}
 
@@ -36,6 +34,7 @@ public class FoldingHistoryManager {
 			i++;
 		}
 		e.setItem(c, KEY_FOLDING_DATELIST, "");
+		e.removeItem(c, KEY_FOLDING_COUNT);
 		e.commit();
 	}
 

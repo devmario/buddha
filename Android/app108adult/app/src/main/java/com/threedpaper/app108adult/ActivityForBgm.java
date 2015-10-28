@@ -3,11 +3,12 @@ package com.threedpaper.app108adult;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
 import exight.common.Variables;
 
-public abstract class ActivityForBgm extends Activity{
+public abstract class ActivityForBgm extends FragmentActivity{
 	
 	private static int alivedActivityCount = 0;
 

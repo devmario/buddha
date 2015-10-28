@@ -1,20 +1,42 @@
 package com.threedpaper.app108adult;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.MediaStore;
+import android.support.v4.app.FragmentManager;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.threedpaper.model.ModelFrame;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import exight.common.Utility;
 import exight.common.Variables;
 import exight.lib.ExPreferManager;
+import exight.lib.TooSimpleArrayAdater;
 
 public class ActivityMain extends ActivityForBgm implements OnClickListener{
 
@@ -101,11 +123,77 @@ public class ActivityMain extends ActivityForBgm implements OnClickListener{
 		findViewById(R.id.main_btnRecord).setOnClickListener(this);
 		findViewById(R.id.main_btnSetting).setOnClickListener(this);
 		findViewById(R.id.main_btnStart).setOnClickListener(this);
-
-
 	}
 
-	@Override
+    AdapterSelect adapterSelect;
+    ListView selectList;
+    AlertDialog selectDialog;
+
+    class AdapterSelect extends TooSimpleArrayAdater implements OnClickListener{
+
+        public AdapterSelect(Context context) {
+            super(context);
+            // TODO Auto-generated constructor stub
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View v = convertView;
+            if(v == null){
+                v = getLayoutInflater().inflate(R.layout.cell_dialog_select, parent, false);
+            }
+            Map<String, Object> map = (Map<String, Object>)getListItems().get(position);
+            int i = Integer.valueOf((String)map.get("pos"));
+            if(map.containsKey("title")) {
+                ((TextView) v.findViewById(R.id.select_text)).setText((String) map.get("title"));
+            } else {
+                ((TextView) v.findViewById(R.id.select_text)).setText(String.valueOf(i + 1) + "배");
+            }
+            v.setOnClickListener(this);
+            v.setTag(map);
+            return v;
+        }
+
+        @Override
+        public void onClick(View v) {
+            if(selectDialog != null) {
+                selectDialog.dismiss();
+                selectDialog = null;
+            }
+            Intent i = new Intent(getContext(), ActivityScreen.class);
+            Map<String, Object> map = (Map<String, Object>)v.getTag();
+            i.putExtra("record_id", -1);
+            i.putExtra("pos", Integer.valueOf((String)map.get("pos")));
+            startActivity(i);
+        }
+
+    }
+
+    private List<Map> loadlist(boolean isNumber){
+        Map<String, Object> map;
+        List<Map> list = new ArrayList<Map>();
+        Variables.INIT_LIST_MODEL_FRAMES();
+        String lastTitle = "";
+        for(int i = 0; i < Variables.LIST_MODEL_FRAMES.size(); i++) {
+            ModelFrame m = Variables.LIST_MODEL_FRAMES.get(i);
+            if(!isNumber) {
+                if (lastTitle == m.title) {
+                    continue;
+                }
+                lastTitle = m.title;
+            }
+            map = new HashMap<String, Object>();
+            if(!isNumber) {
+                map.put("title", m.title);
+            }
+            map.put("pos", String.valueOf(i));
+            list.add(map);
+        }
+        return list;
+    }
+
+
+    @Override
 	public void onClick(View v) {
 		switch(v.getId()){
 
@@ -120,7 +208,51 @@ public class ActivityMain extends ActivityForBgm implements OnClickListener{
 
 				break;
 			case R.id.main_btnStart:
-				startActivity(new Intent(this, ActivityScreen.class));
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				// Get the layout inflater
+				LayoutInflater inflater = getLayoutInflater();
+
+				// Inflate and set the layout for the dialog
+				// Pass null as the parent view because its going in the dialog layout
+                View dialogView = inflater.inflate(R.layout.dialog_select, null);
+                selectList = (ListView)dialogView.findViewById(R.id.select_list);
+                adapterSelect = new AdapterSelect(this);
+                selectList.setAdapter(adapterSelect);
+                adapterSelect.setListItems(loadlist(false));
+                adapterSelect.notifyDataSetChanged();
+                Button b = (Button)dialogView.findViewById(R.id.tab_pos);
+                b.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        adapterSelect.setListItems(loadlist(true));
+                        adapterSelect.notifyDataSetChanged();
+                        selectList.setSelectionAfterHeaderView();
+                    }
+                });
+                b = (Button)dialogView.findViewById(R.id.tab_title);
+                b.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        adapterSelect.setListItems(loadlist(false));
+                        adapterSelect.notifyDataSetChanged();
+                        selectList.setSelectionAfterHeaderView();
+                    }
+                });
+				builder.setView(dialogView)
+						// Add action buttons
+						.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                // sign in the user ...
+                            }
+                        });
+                builder.setInverseBackgroundForced(true);
+                selectDialog = builder.create();
+                selectDialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
+                selectDialog.show();
+                selectDialog.getWindow().getDecorView().setSystemUiVisibility(getWindow().getDecorView().getSystemUiVisibility());
+                selectDialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
+                //startActivity(new Intent(this, ActivityScreen.class));
 				break;
 		}
 	}
