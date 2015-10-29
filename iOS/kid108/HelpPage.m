@@ -137,6 +137,8 @@
                                        playURL:[Contents appInfoVoiceUrl]
                                         volume:1
                                  numberOfLoops:0];
+        
+        self.textViewAppInfo.text = [Contents info];
     }];
 }
 - (IBAction)clickHowToPlay:(id)sender

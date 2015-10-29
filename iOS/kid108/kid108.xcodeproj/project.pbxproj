@@ -577,6 +577,7 @@
 		66C3D1C8163D2C5600234C4E /* helpContent3.png in Resources */ = {isa = PBXBuildFile; fileRef = 66C3D1C6163D2C5600234C4E /* helpContent3.png */; };
 		66C3D1C9163D2C5600234C4E /* helpContent2.png in Resources */ = {isa = PBXBuildFile; fileRef = 66C3D1C7163D2C5600234C4E /* helpContent2.png */; };
 		66E13E2E16382AB80014FA53 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E13E2D16382AB80014FA53 /* CustomButton.m */; };
+		BC538EBE1BE2A6BF00036D05 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = BC538EBD1BE2A6BF00036D05 /* data.json */; };
 		BC57CBC51BE27652007AA326 /* SelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC57CBC31BE27652007AA326 /* SelectViewController.m */; };
 		BC57CBC61BE27652007AA326 /* SelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC57CBC41BE27652007AA326 /* SelectViewController.xib */; };
 /* End PBXBuildFile section */
@@ -1165,6 +1166,7 @@
 		66C3D1C7163D2C5600234C4E /* helpContent2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpContent2.png; sourceTree = "<group>"; };
 		66E13E2C16382AB80014FA53 /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
 		66E13E2D16382AB80014FA53 /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
+		BC538EBD1BE2A6BF00036D05 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		BC57CBC21BE27652007AA326 /* SelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectViewController.h; sourceTree = "<group>"; };
 		BC57CBC31BE27652007AA326 /* SelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectViewController.m; sourceTree = "<group>"; };
 		BC57CBC41BE27652007AA326 /* SelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectViewController.xib; sourceTree = "<group>"; };
@@ -1191,6 +1193,7 @@
 		665A91DC16372872006B1EBD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BC538EBD1BE2A6BF00036D05 /* data.json */,
 				66374DBE163D16A300642A3B /* Icon@2x.png */,
 				66374DBF163D16A300642A3B /* Icon.png */,
 				66C20C261637B93400C11B37 /* NanumPen.otf */,
@@ -2265,6 +2268,7 @@
 				665A951516372873006B1EBD /* b073.mp3 in Resources */,
 				665A951616372873006B1EBD /* b074.mp3 in Resources */,
 				665A951716372873006B1EBD /* b075.mp3 in Resources */,
+				BC538EBE1BE2A6BF00036D05 /* data.json in Resources */,
 				665A951816372873006B1EBD /* b076.mp3 in Resources */,
 				665A951916372873006B1EBD /* b077.mp3 in Resources */,
 				665A951A16372873006B1EBD /* b078.mp3 in Resources */,

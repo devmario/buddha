@@ -62,6 +62,8 @@
 + (NSString *)sequenceText:(int)number;
 + (NSURL *)sequenceVoiceUrl:(int)number;
 
++ (NSString*)info;
+
 + (NSURL *)appInfoVoiceUrl;
 
 + (NSURL *)URLWithBGMType:(NSString *)type;

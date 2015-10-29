@@ -44,6 +44,20 @@ id _main;
         bt2.center = CGPointMake(self.view.frame.size.width * 0.4, self.view.frame.size.height - bt1.frame.size.height * 0.5 - 10);
         bt3.center = CGPointMake(self.view.frame.size.width * 0.6, self.view.frame.size.height - bt1.frame.size.height * 0.5 - 10);
         bt4.center = CGPointMake(self.view.frame.size.width * 0.8, self.view.frame.size.height - bt1.frame.size.height * 0.5 - 10);
+        
+        /*
+        NSMutableArray* arr = [[NSMutableArray alloc] init];
+        for(int i = 1; i <= 108; i++) {
+            NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
+            [dict setObject:[Contents titleWithCount:i] forKey:@"title"];
+            [dict setObject:[Contents subtitleWithCount:i] forKey:@"sub_title"];
+            [arr addObject:dict];
+        }
+        NSError* error = nil;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:arr options:nil error:&error];
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSLog(@"====DATA====\n%@", jsonString);
+         */
     }
     return self;
 }
