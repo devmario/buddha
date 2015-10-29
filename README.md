@@ -16,8 +16,8 @@
 - [x] 기록이 없습니다 cell
 - [x] 기록 지우기 테스트: error = Activity->ApplicationContext
 - [x] 설정메뉴 이어하기 삭제
-- [x] 이어하기 UI 적용
 - [x] 시작하기 선택 UI
+- [x] 이어하기 UI 적용
 - [ ] 시작하기 cell select effect
 - [ ] resource 풀 스크린 이미지 적용
 - [ ] project generate (리소스 갈아 끼우는 script)
@@ -28,8 +28,9 @@
 - [ ] 기록보기 UI
 - [ ] 기록보기 scrollbar
 - [ ] 기록이 없습니다 cell
-- [ ] 설정메뉴 이어하기 삭제(이어하기는 디폴트로 false)
+- [ ] 시작하기 선택 UI
 - [ ] 이어하기 UI 적용
+- [ ] 시작하기 cell select effect
 - [ ] resource 풀 스크린 이미지 적용
 - [ ] project generate (리소스 갈아 끼우는 script)
 ## 절하기

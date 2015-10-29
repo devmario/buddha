@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.net.Uri;
@@ -17,6 +18,7 @@ import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -150,6 +152,17 @@ public class ActivityMain extends ActivityForBgm implements OnClickListener{
                 ((TextView) v.findViewById(R.id.select_text)).setText(String.valueOf(i + 1) + "배");
             }
             v.setOnClickListener(this);
+            v.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    if(event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+                        v.setBackgroundColor(Color.parseColor("#CCCCCC"));
+                    } else if(event.getActionMasked() == MotionEvent.ACTION_UP || event.getActionMasked() == MotionEvent.ACTION_CANCEL) {
+                        v.setBackgroundColor(Color.parseColor("#ffffff"));
+                    }
+                    return false;
+                }
+            });
             v.setTag(map);
             return v;
         }
