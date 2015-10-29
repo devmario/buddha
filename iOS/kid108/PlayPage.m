@@ -108,7 +108,7 @@
     
     introDuration = 3;
     playDuration = 10;
-    delayDuration = [GET(KEY_PLAY_SPEED) intValue];
+    delayDuration = ([GET(KEY_PLAY_SPEED) intValue] - 1) * 1.5;
 }
 
 

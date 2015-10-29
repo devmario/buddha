@@ -33,6 +33,7 @@
         self.bt = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.bt setBackgroundImage:[UIImage imageNamed:@"buttonBg2"] forState:UIControlStateNormal];
         [self.bt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self.bt setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
         [self.bt addTarget:self action:@selector(clickBT) forControlEvents:UIControlEventTouchUpInside];
         [self.bt addTarget:self action:@selector(cancelBT) forControlEvents:UIControlEventTouchUpOutside];
         [self.bt addTarget:self action:@selector(downBT) forControlEvents:UIControlEventTouchDown];
@@ -56,7 +57,19 @@
     if(check_empty != nil && [check_empty isEqualToString:@"true"]) {
         [[(RecordPage*)self.record_page navigationController] pushViewController:[[[PlayPage alloc] initWithNewPosition:0] autorelease] animated:NO];
     } else {
-        [[(RecordPage*)self.record_page navigationController] pushViewController:[[[PlayPage alloc] initWithRecord:self.data] autorelease] animated:NO];
+        int count = -1;
+        id countObject = [self.data objectForKey:@"count"];
+        if(countObject != nil) {
+            count = [countObject intValue];
+        }
+        int count_buddha = count;
+        if(count_buddha > 107)
+            count_buddha = 107;
+        if(count_buddha == 107) {
+            
+        } else {
+            [[(RecordPage*)self.record_page navigationController] pushViewController:[[[PlayPage alloc] initWithRecord:self.data] autorelease] animated:NO];
+        }
     }
 }
 
@@ -75,6 +88,7 @@
         self.textLabel.text = @"기록이 없습니다.";
         self.detailTextLabel.text = @"";
         [self.bt setTitle:@"시작하기" forState:UIControlStateNormal];
+        [self.bt setEnabled:YES];
     } else {
         int count = -1;
         id countObject = [data objectForKey:@"count"];
@@ -92,8 +106,12 @@
         }
         
         self.textLabel.text = dateString;
-        self.detailTextLabel.text = [NSString stringWithFormat:@"%d배", count + 1];
-        [self.bt setTitle:@"이어하기" forState:UIControlStateNormal];
+        int count_buddha = count + 1;
+        if(count_buddha > 108)
+            count_buddha = 108;
+        self.detailTextLabel.text = [NSString stringWithFormat:@"%d배", count_buddha];
+        [self.bt setTitle:count_buddha == 108 ? @"완료" : @"이어하기" forState:UIControlStateNormal];
+        [self.bt setEnabled:count_buddha != 108];
     }
     self.data = data;
 }

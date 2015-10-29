@@ -136,7 +136,7 @@
 
 - (void)displaySettingValue
 {
-    self.labelSpeed.text = GET(KEY_PLAY_SPEED);
+    self.labelSpeed.text = [NSString stringWithFormat:@"%d", 6 - [GET(KEY_PLAY_SPEED) intValue]];
     
     if ([GET(KEY_PLAY_OPTION) isEqualToString:VALUE_PLAY_OPTION_CONTINUE]) {
         [self clickPlayOption:self.buttonPlayContinue];
@@ -177,7 +177,7 @@
     } completion:^(BOOL finished) {
         [(UIButton *)sender setTransform:CGAffineTransformMakeScale(1, 1)];
 
-        int delaySecond = [self.labelSpeed.text intValue];
+        int delaySecond = [GET(KEY_PLAY_SPEED) intValue];
         
         if (sender==self.buttonSpeedUp) {
             delaySecond--;
@@ -192,8 +192,8 @@
             delaySecond = 1;
         }
         
-        self.labelSpeed.text = STRING_INT(delaySecond);
-        SET(self.labelSpeed.text, KEY_PLAY_SPEED);
+        SET(STRING_INT(delaySecond), KEY_PLAY_SPEED);
+        self.labelSpeed.text = [NSString stringWithFormat:@"%d", (6 - delaySecond)];
     }];
 }
 
