@@ -12,6 +12,7 @@
 #import "SettingPage.h"
 #import "RecordPage.h"
 #import "HelpPage.h"
+#import "SelectViewController.h"
 //
 #import "Contents.h"
 
@@ -25,9 +26,15 @@
     [super dealloc];
 }
 
+id _main;
++ (MainPage*)getMain {
+    return _main;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    _main = self;
     if (self) {
         self.view.frame = [[UIScreen mainScreen] bounds];
         img.frame = [[UIScreen mainScreen] bounds];
@@ -94,7 +101,14 @@
     } completion:^(BOOL finished) {
         [(UIButton *)sender setTransform:CGAffineTransformMakeScale(1, 1)];
         
-        [self.navigationController pushViewController:[[[PlayPage alloc] initWithNewPosition:0] autorelease] animated:NO];
+        
+        SelectViewController* vc = [[[SelectViewController alloc] init] autorelease];
+        vc.view.backgroundColor = [UIColor clearColor];
+        vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self presentViewController:vc animated:YES completion:nil];
+        
+        //[self.navigationController pushViewController:[[[PlayPage alloc] initWithNewPosition:0] autorelease] animated:NO];
     }];
 }
 

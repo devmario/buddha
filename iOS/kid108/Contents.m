@@ -47,7 +47,7 @@
         stringForReturn = @"- 학교는 또 다른 집이에요 -";
     } else if (88<=count && count<103) {
         stringForReturn = @"- 우리는 어울려 살아요 -";
-    } else if (103<=count && count<108) {
+    } else if (103<=count && count<=108) {
         stringForReturn = @"- 나는 존중받을 권리가 있어요 -";
     }
     

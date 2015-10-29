@@ -16,6 +16,7 @@
     IBOutlet UIButton *bt4;
 }
 
++ (MainPage*)getMain;
 - (IBAction)clickHelpButton:(id)sender;
 - (IBAction)clickSettingButton:(id)sender;
 - (IBAction)clickRecordButton:(id)sender;
