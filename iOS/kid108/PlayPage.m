@@ -28,7 +28,6 @@
 
 - (void)dealloc
 {
-    [records release];
     self.bgView = nil;
     self.bgViewForAnimation = nil;
     self.viewClosePopUp=nil;
@@ -37,8 +36,31 @@
     self.viewPlaying=nil;
     self.labelTitle=nil;
     self.labelSubtitle = nil;
+    [record_dict release];
     
     [super dealloc];
+}
+
+- (id)initWithRecord:(NSMutableDictionary*)record {
+    self = [super init];
+    if(self) {
+        record_dict = [[NSMutableDictionary alloc] initWithDictionary:record];
+        count = [[record_dict objectForKey:@"count"] intValue];
+    }
+    [self showDelayViewWithCount:[NSNumber numberWithInt:count]];
+    return self;
+}
+
+- (id)initWithNewPosition:(int)position {
+    self = [super init];
+    if(self) {
+        record_dict = [[NSMutableDictionary alloc] initWithDictionary:[Functions recordNew]];
+        [record_dict setObject:[NSNumber numberWithInt:position] forKey:@"count"];
+        count = [[record_dict objectForKey:@"count"] intValue];
+    }
+    
+    [self showDelayViewWithCount:[NSNumber numberWithInt:count]];
+    return self;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -58,6 +80,8 @@
         labelTitle.center = CGPointMake(bgView.frame.size.width * 0.5, bgView.frame.size.height * 0.13);
         popupBt1.center = CGPointMake(self.view.frame.size.width * 0.42, popupBt1.center.y);
         popupBt2.center = CGPointMake(self.view.frame.size.width * 0.58, popupBt2.center.y);
+        
+        count = 0;
     }
     return self;
 }
@@ -85,32 +109,12 @@
     introDuration = 3;
     playDuration = 10;
     delayDuration = [GET(KEY_PLAY_SPEED) intValue];
-
-    count = 0;
-    records = [[Functions loadArrayFromPlistForKey:KEY_RECORD_DATA] retain];
-    if([GET(KEY_PLAY_OPTION) isEqualToString:VALUE_PLAY_OPTION_CONTINUE])
-    {
-        NSString *today = [[NSDate date] stringWithDateFormat:@"yyyy-MM-dd"];
-
-        NSMutableDictionary *lastRecord = [records lastObject];
-        NSString *lastDate = [lastRecord objectForKey:KEY_RECORD_DATA_DATE];
-        if ([lastDate isEqualToString:today]) {
-            count = [[lastRecord objectForKey:KEY_RECORD_DATA_COUNT] intValue];
-        }
-    }
-    
-    countSavedOver108 = 0;
-    if (count>=108) {
-        int quotient = count/108;
-        countSavedOver108 = 108*quotient;
-        count = count-countSavedOver108;
-    }
-    [self showDelayViewWithCount:count];
 }
 
 
 - (void)pauseClick:(id)sender
 {
+    countAtpause = count;
     [Functions audioPlayerWithRetainObject:self playURL:URL_SOUND_CLICK volume:0.3 numberOfLoops:0];
 
     [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
@@ -131,38 +135,13 @@
     [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         [(UIButton *)sender setTransform:CGAffineTransformScale([(UIButton *)sender transform], 1.1, 1.1)];
     } completion:^(BOOL finished) {
-        [(UIButton *)sender setTransform:CGAffineTransformMakeScale(1, 1)];
-
-        NSString *today = [[NSDate date] stringWithDateFormat:@"yyyy-MM-dd"];
-        
-        NSMutableDictionary *lastRecord = [records lastObject];
-        NSString *lastDate = [lastRecord objectForKey:KEY_RECORD_DATA_DATE];
-        if ([lastDate isEqualToString:today])
-        {
-            int totalCount;
-            if([GET(KEY_PLAY_OPTION) isEqualToString:VALUE_PLAY_OPTION_CONTINUE]) {
-                totalCount = count + countSavedOver108;
-            } else if([GET(KEY_PLAY_OPTION) isEqualToString:VALUE_PLAY_OPTION_RESTART]) {
-                totalCount = count + [[lastRecord objectForKey:KEY_RECORD_DATA_COUNT] intValue];
-            }
-            [lastRecord setObject:STRING_INT(totalCount) forKey:KEY_RECORD_DATA_COUNT];
-        }
-        else
-        {
-            NSMutableDictionary *record = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                           STRING_INT(count),                                   KEY_RECORD_DATA_COUNT,
-                                           [[NSDate date] stringWithDateFormat:@"yyyy-MM-dd"],  KEY_RECORD_DATA_DATE,
-                                           nil];
-            [records addObject:record];
-        }
-        [Functions saveArrayToPlist:records forKey:KEY_RECORD_DATA];
-        
-        //
         [self.navigationController popViewControllerAnimated:NO];
     }];
 }
 - (IBAction)clickContinue:(id)sender
 {
+    self.labelSubtitle.alpha = self.labelTitle.alpha = 0.0f;
+    
     [Functions audioPlayerWithRetainObject:self playURL:URL_SOUND_CLICK volume:0.3 numberOfLoops:0];
 
     [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
@@ -172,16 +151,19 @@
     
         [self.viewClosePopUp setHidden:YES];
         
-        [self showDelayViewWithCount:count];
+        [self showDelayViewWithCount:[NSNumber numberWithInt:countAtpause]];
     }];
 }
 
-- (void)showDelayViewWithCount:(int)currentCount
+- (void)showDelayViewWithCount:(NSNumber*)currentCount
 {
-    currentCount = count;
-    if (currentCount==108) {
+    count = [currentCount intValue];
+    [record_dict setObject:[NSNumber numberWithInt:count] forKey:@"count"];
+    [Functions recordUpdate:record_dict];
+    
+    NSLog(@"play count => %d", count);
+    if ([currentCount intValue]==108) {
         [self clickClose:nil];
-        //count = 0;
         return;
     }
     
@@ -194,26 +176,26 @@
         self.viewPlaying.alpha = 0;
         self.bgViewForAnimation.alpha = 0;
     } completion:^(BOOL finished) {
-        self.bgViewForAnimation.image = [Contents playBgWithNumber:currentCount+1];
+        self.bgViewForAnimation.image = [Contents playBgWithNumber:[currentCount intValue]+1];
     }];
  
     [Functions audioPlayerWithRetainObject:self
                                    playURL:URL_SOUND_BELL
                                     volume:1
                              numberOfLoops:0];
-    self.bgView.image = [Contents playBgWithNumber:currentCount+1];
-    self.labelCount.text = [NSString stringWithFormat:@"%d배를 올립니다.", currentCount+1];
+    self.bgView.image = [Contents playBgWithNumber:[currentCount intValue]+1];
+    self.labelCount.text = [NSString stringWithFormat:@"%d배를 올립니다.", [currentCount intValue]+1];
 
-    [self performSelector:@selector(showTitlePageWithCount:) withObject:[NSNumber numberWithInt:currentCount] afterDelay:introDuration];
+    [self performSelector:@selector(showTitlePageWithCount:) withObject:[NSNumber numberWithInt:[currentCount intValue]] afterDelay:introDuration];
 }
 
-- (void)showTitlePageWithCount:(int)currentCount
+- (void)showTitlePageWithCount:(NSNumber*)currentCount
 {
-    currentCount = count;
     
     // animation
     [self.labelSubtitle setTransform:CGAffineTransformScale(self.labelTitle.transform, 1.3, 1.3)];
     self.labelSubtitle.alpha = 0;
+    self.labelTitle.alpha = 0;
     //
     [self.viewPlayDelay setHidden:NO];
     [self.viewPlaying setHidden:NO];
@@ -222,6 +204,7 @@
     [UIView animateWithDuration:3 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         [self.labelSubtitle setTransform:CGAffineTransformMakeScale(1, 1)];
         self.labelSubtitle.alpha = 1;
+        self.labelTitle.alpha = 1;
         //
         self.viewPlayDelay.alpha = 0;
         self.viewPlaying.alpha = 1;
@@ -230,13 +213,12 @@
         [self.viewPlaying setHidden:NO];
     }];
     //
-    [Contents playVoiceWithNumber:currentCount+1];
-    self.labelTitle.text = [Contents titleWithCount:currentCount+1];
-    self.labelSubtitle.text = [Contents subtitleWithCount:currentCount+1];
+    [Contents playVoiceWithNumber:[currentCount intValue]+1];
+    self.labelTitle.text = [Contents titleWithCount:[currentCount intValue]+1];
+    self.labelSubtitle.text = [Contents subtitleWithCount:[currentCount intValue]+1];
 
     
-    count++;
-    [self performSelector:@selector(showDelayViewWithCount:) withObject:[NSNumber numberWithInt:currentCount] afterDelay:playDuration+delayDuration];
+    [self performSelector:@selector(showDelayViewWithCount:) withObject:[NSNumber numberWithInt:[currentCount intValue]+1] afterDelay:playDuration+delayDuration];
 }
 
 

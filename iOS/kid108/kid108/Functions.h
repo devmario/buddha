@@ -72,6 +72,12 @@ typedef void (^MediaPickerBlock)(MPMediaItemCollection *mediaItemCollection);
 + (BOOL)doesAlertViewExist;
 + (BOOL)doesAlertViewExistTitle:(NSString *)title;
 
++ (NSMutableArray*)recordGet;
++ (void)recordUpdate:(NSMutableDictionary*)element;
++ (int)recordCount;
++ (NSMutableDictionary*)recordNew;
++ (void)recordRemoveAll;
+
 // use plist for save
 + (void)saveArrayToPlist:(NSMutableArray *)array forKey:(NSString *)key;
 + (NSMutableArray *)loadArrayFromPlistForKey:(NSString *)key;

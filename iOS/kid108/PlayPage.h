@@ -10,12 +10,12 @@
 
 @interface PlayPage : UIViewController
 {
-    int countSavedOver108;
-    int count;
     int introDuration;
     int delayDuration;
     int playDuration;
-    NSMutableArray *records;
+    int countAtpause;
+    int count;
+    NSMutableDictionary* record_dict;
 }
 
 @property (nonatomic, retain) IBOutlet UIImageView  *bgView;
@@ -35,5 +35,8 @@
 @property (nonatomic, retain) IBOutlet UIView   *viewPlaying;
 @property (nonatomic, retain) IBOutlet UILabel  *labelTitle;
 @property (nonatomic, retain) IBOutlet UILabel  *labelSubtitle;
+
+- (id)initWithRecord:(NSMutableDictionary*)record;
+- (id)initWithNewPosition:(int)position;
 
 @end

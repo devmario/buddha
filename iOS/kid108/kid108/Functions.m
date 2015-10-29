@@ -123,7 +123,67 @@ static char avPlayerKey;
 }
 
 
+//TODO: new data stup begin
++ (NSMutableArray*)recordGet {
+    NSUserDefaults* doc = [NSUserDefaults standardUserDefaults];
+    int record_count = [Functions recordCount];
+    NSMutableArray* array = [[[NSMutableArray alloc] init] autorelease];
+    for(int i = 0; i < record_count; i++) {
+        NSString* record_id = [NSString stringWithFormat:@"record_%d", i];
+        [array addObject:[doc objectForKey:record_id]];
+    }
+    if([array count] == 0) {
+        [array addObject:[NSMutableDictionary dictionaryWithObject:@"true" forKey:@"is_empty"]];
+    }
+    return [[[NSMutableArray alloc] initWithArray:[[array reverseObjectEnumerator] allObjects]] autorelease];
+}
 
++ (void)recordUpdate:(NSMutableDictionary*)element {
+    NSUserDefaults* doc = [NSUserDefaults standardUserDefaults];
+    [doc setObject:element forKey:[element objectForKey:@"id"]];
+    [doc synchronize];
+}
+
++ (int)recordCount {
+    NSUserDefaults* doc = [NSUserDefaults standardUserDefaults];
+    id record_count_number_object = [doc objectForKey:@"record_count"];
+    int record_count = 0;
+    if(record_count_number_object != nil) {
+        record_count = [record_count_number_object intValue];
+    }
+    return record_count;
+}
+
++ (NSMutableDictionary*)recordNew {
+    NSUserDefaults* doc = [NSUserDefaults standardUserDefaults];
+    
+    int record_count = [Functions recordCount];
+    NSString* record_id = [NSString stringWithFormat:@"record_%d", record_count];
+    record_count++;
+    [doc setObject:[NSNumber numberWithInt:record_count] forKey:@"record_count"];
+    
+    NSMutableDictionary* element = [[NSMutableDictionary alloc] init];
+    [element setObject:[NSNumber numberWithInt:0] forKey:@"count"];
+    [element setObject:[NSDate date] forKey:@"date"];
+    [element setObject:record_id forKey:@"id"];
+    [doc setObject:element forKey:record_id];
+    
+    [doc synchronize];
+    
+    return [element autorelease];
+}
+
++ (void)recordRemoveAll {
+    NSUserDefaults* doc = [NSUserDefaults standardUserDefaults];
+    int record_count = [Functions recordCount];
+    for(int i = 0; i < record_count; i++) {
+        NSString* record_id = [NSString stringWithFormat:@"record_%d", i];
+        [doc removeObjectForKey:record_id];
+    }
+    [doc removeObjectForKey:@"record_count"];
+    [doc synchronize];
+}
+//TODO: new data stup end
 
 
 + (void)saveImageToPlist:(UIImage *)image forKey:(NSString *)key
@@ -132,6 +192,7 @@ static char avPlayerKey;
     [[NSUserDefaults standardUserDefaults]setObject:_dataForSave forKey:key];
     [[NSUserDefaults standardUserDefaults]synchronize];
 }
+
 + (UIImage *)loadImageFromPlistForKey:(NSString *)key
 {
     NSData *_savedData = [[NSUserDefaults standardUserDefaults]objectForKey:key];
@@ -146,6 +207,7 @@ static char avPlayerKey;
     [[NSUserDefaults standardUserDefaults]setObject:_dataForSave forKey:key];
     [[NSUserDefaults standardUserDefaults]synchronize];
 }
+
 + (NSMutableArray *)loadArrayFromPlistForKey:(NSString *)key
 {
     NSData *_savedData = [[NSUserDefaults standardUserDefaults]objectForKey:key];
@@ -153,6 +215,7 @@ static char avPlayerKey;
     
     return [NSMutableArray arrayWithArray:array];
 }
+
 + (void)removeAllDataForKey:(NSString *)key
 {
     NSData *_savedData = [[NSUserDefaults standardUserDefaults]objectForKey:key];
@@ -173,10 +236,6 @@ static char avPlayerKey;
     }
     [defaults synchronize];
 }
-
-
-
-
 
 /* 문자열을 날짜로 변환 */
 + (NSDate *)convertStringToDate:(NSString *)dateString
@@ -338,14 +397,22 @@ static char avPlayerKey;
         [audioPlayer stop];
         [audioPlayer release], audioPlayer=nil;
     }
-    NSError *error;
-    audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:&error];
-    [audioPlayer setNumberOfLoops:numberOfLoops];
-    [audioPlayer setVolume:volume];
-    [audioPlayer prepareToPlay];
-    [audioPlayer play];
-    
-    objc_setAssociatedObject(retainObject, &audioPlayerKey, audioPlayer, OBJC_ASSOCIATION_RETAIN);
+    NSError *error = nil;
+    @try {
+        audioPlayer = [AVAudioPlayer alloc];
+        audioPlayer = [audioPlayer initWithContentsOfURL:url error:&error];
+        [audioPlayer setNumberOfLoops:numberOfLoops];
+        [audioPlayer setVolume:volume];
+        [audioPlayer prepareToPlay];
+        [audioPlayer play];
+        
+        objc_setAssociatedObject(retainObject, &audioPlayerKey, audioPlayer, OBJC_ASSOCIATION_RETAIN);
+    }
+    @catch (NSException *exception) {
+        
+    }
+    @finally {
+    }
 }
 
 + (void)playAudioServicesWithUrl:(NSURL *)url

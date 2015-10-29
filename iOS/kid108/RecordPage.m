@@ -9,6 +9,84 @@
 #import "RecordPage.h"
 #import "Contents.h"
 
+@implementation RecordCell
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if(self) {
+        [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+        [self.textLabel setBackgroundColor:[UIColor clearColor]];
+        [self.detailTextLabel setBackgroundColor:[UIColor clearColor]];
+        [self.detailTextLabel setTextColor:[UIColor blackColor]];
+        
+        [self.textLabel setFont:FONT_NanumPen(27)];
+        [self.detailTextLabel setFont:FONT_NanumPen(23)];
+        
+        [self setBackgroundColor:[UIColor clearColor]];
+        
+        bt = [UIButton buttonWithType:UIButtonTypeCustom];
+        [bt setBackgroundImage:[UIImage imageNamed:@"buttonBg2"] forState:UIControlStateNormal];
+        [bt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [bt addTarget:self action:@selector(clickBT) forControlEvents:UIControlEventTouchUpInside];
+        [bt addTarget:self action:@selector(cancelBT) forControlEvents:UIControlEventTouchUpOutside];
+        [bt addTarget:self action:@selector(downBT) forControlEvents:UIControlEventTouchDown];
+        [self addSubview:bt];
+    }
+    return self;
+}
+
+- (void)downBT {
+    [Functions audioPlayerWithRetainObject:self playURL:URL_SOUND_CLICK volume:0.3 numberOfLoops:0];
+    [bt setAlpha:0.5f];
+}
+
+- (void)cancelBT {
+    [bt setAlpha:1.0f];
+}
+
+- (void)clickBT {
+    [self cancelBT];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    bt.frame = CGRectMake(self.frame.size.width - 95.0f, 5.0f, 90.0f, 30.0f);
+    self.detailTextLabel.frame = CGRectMake(self.frame.size.width - 100.0f - self.detailTextLabel.frame.size.width,
+                                            self.detailTextLabel.frame.origin.y,
+                                            self.detailTextLabel.frame.size.width,
+                                            self.detailTextLabel.frame.size.height);
+}
+
+- (void)update:(id)data {
+    id check_empty = [data objectForKey:@"is_empty"];
+    if(check_empty != nil && [check_empty isEqualToString:@"true"]) {
+        self.textLabel.text = @"기록이 없습니다.";
+        self.detailTextLabel.text = @"";
+        [bt setTitle:@"시작하기" forState:UIControlStateNormal];
+    } else {
+        int count = -1;
+        id countObject = [data objectForKey:@"count"];
+        if(countObject != nil) {
+            count = [countObject intValue];
+        }
+        
+        NSString* dateString = @"Date";
+        id dateObject = [data objectForKey:@"date"];
+        if(dateObject != nil) {
+            NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+            dateString = [formatter stringFromDate:dateObject];
+            [formatter release];
+        }
+        
+        self.textLabel.text = dateString;
+        self.detailTextLabel.text = [NSString stringWithFormat:@"%d배", count + 1];
+        [bt setTitle:@"이어하기" forState:UIControlStateNormal];
+    }
+}
+
+@end
+
 @interface RecordPage ()
 @end
 
@@ -64,15 +142,13 @@
 {
     [self customNavigationBarWithTitle:@"기록" backButtonSelector:@selector(backClick:)];
     
-    table = [[TableViewDelegate alloc]initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width * 0.2, [[UIScreen mainScreen] bounds].size.height * 0.2, [[UIScreen mainScreen] bounds].size.width * 0.6, [[UIScreen mainScreen] bounds].size.height * 0.6)
+    table = [[TableViewDelegate alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width * 0.2, [[UIScreen mainScreen] bounds].size.height * 0.2, [[UIScreen mainScreen] bounds].size.width * 0.6, [[UIScreen mainScreen] bounds].size.height * 0.6)
                                      addTableViewTo:self.view
                                    protocolDelegate:self
                                     classNameOfCell:nil
                                          cellHeight:40
                          cellForRowAtIndexPathBlock:^(UITableView *tableView, NSIndexPath *indexPath, UITableViewCell *cell, id dataForRow) {
-                             cell.textLabel.text = [dataForRow objectForKey:KEY_RECORD_DATA_DATE];
-                             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@배",
-                                                          [dataForRow objectForKey:KEY_RECORD_DATA_COUNT] ];
+                             [(RecordCell*)cell update:dataForRow];
                          }];
     
     bt1.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.8 + bt1.frame.size.width * 0.5 + 5, [[UIScreen mainScreen] bounds].size.height * 0.2);
@@ -81,25 +157,17 @@
     scrollBar.frame = scrollBarBg.frame;
     
     [table allocateCellBlock:^id(id allocatedObjectFromClassName) {
-        UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:table.classNameOfCell];
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        [cell.textLabel setBackgroundColor:[UIColor clearColor]];
-        [cell.detailTextLabel setBackgroundColor:[UIColor clearColor]];
-        [cell.detailTextLabel setTextColor:[UIColor blackColor]];
-        
-        [cell.textLabel setFont:FONT_NanumPen(27)];
-        [cell.detailTextLabel setFont:FONT_NanumPen(23)];
-        return [cell autorelease];
+        return [[[RecordCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:table.classNameOfCell] autorelease];
     }];
     [table.tableView.layer setBorderColor:[UIColor colorWithWhite:0 alpha:0.5].CGColor];
     [table.tableView.layer setBorderWidth:1.0];
-    table.tableView.alpha = 0.5;
+    [table.tableView setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5]];
     
 }
 
 - (void)loadRecordData
 {
-    NSMutableArray *recordData = [Functions loadArrayFromPlistForKey:KEY_RECORD_DATA];
+    NSMutableArray *recordData = [Functions recordGet];
     [table reloadWithDataArray:recordData];
     
     [self setScrollBarHeight];

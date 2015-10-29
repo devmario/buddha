@@ -7,6 +7,7 @@
 - [x] iOS Music 선택시 volume적용 안되는 문제
 - [x] iOS Music background
 - [x] Android 버튼 연속 누를때 버튼음 안들리기 시작하는 문제(seek 하기전에 pause넣어 해결)
+- [ ] Android 절하는방법 prev button
 ### FEATURE
 #### Android
 - [x] 절하기
@@ -18,12 +19,12 @@
 - [x] 설정메뉴 이어하기 삭제
 - [x] 시작하기 선택 UI
 - [x] 이어하기 UI 적용
-- [ ] 시작하기 cell select effect
+- [x] 시작하기 cell select effect
 - [ ] resource 풀 스크린 이미지 적용
 - [ ] project generate (리소스 갈아 끼우는 script)
 #### iOS
 - [x] 절하기
-- [ ] 절하기 데이터 변경(key값 필히 변경)
+- [x] 절하기 데이터 변경(key값 필히 변경)
 - [ ] 기록 지우기 테스트
 - [ ] 기록보기 UI
 - [ ] 기록보기 scrollbar

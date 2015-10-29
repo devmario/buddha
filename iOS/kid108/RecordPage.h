@@ -22,3 +22,9 @@
 @property (nonatomic, retain) IBOutlet UIImageView *bg;
 
 @end
+
+@interface RecordCell : UITableViewCell {
+    UIButton* bt;
+}
+
+@end
