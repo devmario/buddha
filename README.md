@@ -21,18 +21,21 @@
 - [x] 시작하기 선택 UI
 - [x] 이어하기 UI 적용
 - [x] 시작하기 cell select effect
+- [ ] data 읽어오게 변경(app마다 다른요소 변수로 불러오게)
 - [ ] resource 풀 스크린 이미지 적용
 - [ ] project generate (리소스 갈아 끼우는 script)
 #### iOS
 - [x] 절하기
 - [x] 절하기 데이터 변경(key값 필히 변경)
 - [x] 기록 지우기 테스트
+- [x] 설정메뉴 이어하기 삭제
 - [x] 기록보기 UI
 - [x] 기록보기 scrollbar
 - [x] 기록이 없습니다 cell
 - [x] 시작하기 선택 UI
 - [x] 이어하기 UI 적용
 - [x] 시작하기 cell select effect
+- [ ] data 읽어오게 변경(app마다 다른요소 변수로 불러오게)
 - [ ] resource 풀 스크린 이미지 적용
 - [ ] project generate (리소스 갈아 끼우는 script)
 ## 절하기
