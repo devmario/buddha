@@ -94,7 +94,7 @@
     } completion:^(BOOL finished) {
         [(UIButton *)sender setTransform:CGAffineTransformMakeScale(1, 1)];
         
-        [self.navigationController pushViewController:[[[PlayPage alloc] initWithNewPosition:20] autorelease] animated:NO];
+        [self.navigationController pushViewController:[[[PlayPage alloc] initWithNewPosition:0] autorelease] animated:NO];
     }];
 }
 

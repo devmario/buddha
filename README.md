@@ -8,6 +8,7 @@
 - [x] iOS Music background
 - [x] Android 버튼 연속 누를때 버튼음 안들리기 시작하는 문제(seek 하기전에 pause넣어 해결)
 - [ ] Android 절하는방법 prev button
+- [ ] iOS 절하는방법 prev button
 ### FEATURE
 #### Android
 - [x] 절하기
@@ -25,10 +26,10 @@
 #### iOS
 - [x] 절하기
 - [x] 절하기 데이터 변경(key값 필히 변경)
-- [ ] 기록 지우기 테스트
-- [ ] 기록보기 UI
-- [ ] 기록보기 scrollbar
-- [ ] 기록이 없습니다 cell
+- [x] 기록 지우기 테스트
+- [x] 기록보기 UI
+- [x] 기록보기 scrollbar
+- [x] 기록이 없습니다 cell
 - [ ] 시작하기 선택 UI
 - [ ] 이어하기 UI 적용
 - [ ] 시작하기 cell select effect

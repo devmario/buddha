@@ -556,7 +556,6 @@
 		668121C716370270001531C4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 668121C616370270001531C4 /* Default-568h@2x.png */; };
 		668121E916371064001531C4 /* Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 668121D31637029F001531C4 /* Functions.m */; };
 		668121EA16371064001531C4 /* TableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 668121D51637029F001531C4 /* TableViewDelegate.m */; };
-		668121EB16371064001531C4 /* CustomTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 668121D71637029F001531C4 /* CustomTableView.m */; };
 		668121EC16371064001531C4 /* Contents.m in Sources */ = {isa = PBXBuildFile; fileRef = 668121D9163702AA001531C4 /* Contents.m */; };
 		668121ED16371064001531C4 /* MainPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 668121DB163702AA001531C4 /* MainPage.m */; };
 		668121EE16371064001531C4 /* PlayPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 668121DE163702AA001531C4 /* PlayPage.m */; };
@@ -1136,8 +1135,6 @@
 		668121D31637029F001531C4 /* Functions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Functions.m; sourceTree = "<group>"; };
 		668121D41637029F001531C4 /* TableViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewDelegate.h; sourceTree = "<group>"; };
 		668121D51637029F001531C4 /* TableViewDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewDelegate.m; sourceTree = "<group>"; };
-		668121D61637029F001531C4 /* CustomTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTableView.h; sourceTree = "<group>"; };
-		668121D71637029F001531C4 /* CustomTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableView.m; sourceTree = "<group>"; };
 		668121D8163702AA001531C4 /* Contents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Contents.h; path = ../Contents.h; sourceTree = "<group>"; };
 		668121D9163702AA001531C4 /* Contents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Contents.m; path = ../Contents.m; sourceTree = "<group>"; };
 		668121DA163702AA001531C4 /* MainPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainPage.h; path = ../MainPage.h; sourceTree = "<group>"; };
@@ -1913,8 +1910,6 @@
 				668121D31637029F001531C4 /* Functions.m */,
 				668121D41637029F001531C4 /* TableViewDelegate.h */,
 				668121D51637029F001531C4 /* TableViewDelegate.m */,
-				668121D61637029F001531C4 /* CustomTableView.h */,
-				668121D71637029F001531C4 /* CustomTableView.m */,
 				66E13E2C16382AB80014FA53 /* CustomButton.h */,
 				66E13E2D16382AB80014FA53 /* CustomButton.m */,
 			);
@@ -2541,7 +2536,6 @@
 			files = (
 				668121E916371064001531C4 /* Functions.m in Sources */,
 				668121EA16371064001531C4 /* TableViewDelegate.m in Sources */,
-				668121EB16371064001531C4 /* CustomTableView.m in Sources */,
 				668121EC16371064001531C4 /* Contents.m in Sources */,
 				668121ED16371064001531C4 /* MainPage.m in Sources */,
 				668121EE16371064001531C4 /* PlayPage.m in Sources */,
@@ -2629,7 +2623,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "kid108/kid108-Prefix.pch";
 				INFOPLIST_FILE = "kid108/kid108-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chiefrise.myletter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2651,7 +2645,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "kid108/kid108-Prefix.pch";
 				INFOPLIST_FILE = "kid108/kid108-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chiefrise.myletter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "34ffd107-f519-4f60-bb6f-0b9d671ea0d8";

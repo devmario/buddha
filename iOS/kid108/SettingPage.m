@@ -411,7 +411,7 @@
         [Functions alertTitle:@"삭제하시겠습니까?" message:nil buttons:@[@"확인",@"취소"] delegate:^(NSInteger buttonIndex) {
             if (buttonIndex==0)
             {
-                REMOVE(KEY_RECORD_DATA);
+                [Functions recordRemoveAll];
             }
         }];
     }];
