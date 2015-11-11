@@ -25,19 +25,24 @@
         [self.detailTextLabel setBackgroundColor:[UIColor clearColor]];
         [self.detailTextLabel setTextColor:[UIColor blackColor]];
         
-        [self.textLabel setFont:FONT_NanumPen(27)];
-        [self.detailTextLabel setFont:FONT_NanumPen(23)];
+        [self.textLabel setFont:FONT_GLOBAL(27)];
+        [self.detailTextLabel setFont:FONT_GLOBAL(23)];
         
         [self setBackgroundColor:[UIColor clearColor]];
         
         self.bt = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.bt setBackgroundImage:[UIImage imageNamed:@"buttonBg2"] forState:UIControlStateNormal];
-        [self.bt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [self.bt setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+        [self.bt.titleLabel setFont:FONT_GLOBAL(22)];
+        [self.bt setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [self.bt setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+        [self addSubview:self.bt];
+        [self.textLabel setTextColor:[UIColor darkGrayColor]];
+        [self.detailTextLabel setTextColor:[UIColor darkGrayColor]];
+        
         [self.bt addTarget:self action:@selector(clickBT) forControlEvents:UIControlEventTouchUpInside];
         [self.bt addTarget:self action:@selector(cancelBT) forControlEvents:UIControlEventTouchUpOutside];
         [self.bt addTarget:self action:@selector(downBT) forControlEvents:UIControlEventTouchDown];
-        [self addSubview:self.bt];
+        
     }
     return self;
 }

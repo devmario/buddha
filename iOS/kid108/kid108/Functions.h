@@ -19,6 +19,8 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
+#import "Contents.h"
+
 
 #define kAlertDelegate 999
 typedef void (^alertBlock_t)(NSInteger buttonIndex);
@@ -44,7 +46,7 @@ typedef void (^MediaPickerBlock)(MPMediaItemCollection *mediaItemCollection);
 #define BOLDFONT(fontSize)          [UIFont boldSystemFontOfSize:fontSize]
 // - - - - - - - - - -
 // custom font
-#define FONT_NanumPen(fontSize)    [UIFont fontWithName:@"Nanum Pen Script OTF" size:fontSize]
+#define FONT_GLOBAL(fontSize)    [UIFont fontWithName:[[Contents jsonData] objectForKey:@"font"] size:fontSize]
 //
 // - - - - - - - - - -
 
@@ -282,7 +284,7 @@ typedef void (^MediaPickerBlock)(MPMediaItemCollection *mediaItemCollection);
     if (title)
     {
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(42, 0, 300 -100, 42)];
-        [titleLabel setFont:BOLDFONT(16)];
+        [titleLabel setFont:FONT_GLOBAL(30)];
         [titleLabel setTextColor:[UIColor colorWithWhite:1 alpha:1]];
         [titleLabel setBackgroundColor:[UIColor clearColor]];
         [titleLabel setShadowColor:[UIColor colorWithWhite:0 alpha:0.8]];

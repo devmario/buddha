@@ -74,7 +74,11 @@
         bgView.frame = [[UIScreen mainScreen] bounds];
         viewClosePopUp.frame = [[UIScreen mainScreen] bounds];
         viewClosePopupImage.frame = [[UIScreen mainScreen] bounds];
-        bgViewForAnimation.contentMode = bgView.contentMode = UIViewContentModeScaleAspectFit;
+        if([[[Contents jsonData] objectForKey:@"play_image_fit"] boolValue]) {
+            bgViewForAnimation.contentMode = bgView.contentMode = UIViewContentModeScaleAspectFit;
+        } else {
+            bgViewForAnimation.contentMode = bgView.contentMode = UIViewContentModeScaleAspectFill;
+        }
         viewClosePopupImage.contentMode = UIViewContentModeScaleAspectFill;
         labelSubtitle.center = CGPointMake(bgView.frame.size.width * 0.5, bgView.frame.size.height * 0.87);
         labelTitle.center = CGPointMake(bgView.frame.size.width * 0.5, bgView.frame.size.height * 0.13);
@@ -91,8 +95,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.labelTitle.font = FONT_NanumPen(26);
-    self.labelSubtitle.font = FONT_NanumPen(30);
+    self.labelTitle.font = FONT_GLOBAL(26);
+    self.labelSubtitle.font = FONT_GLOBAL(30);
     [self.labelTitle.layer setShadowColor:[UIColor blackColor].CGColor];
     [self.labelTitle.layer setShadowOffset:CGSizeMake(0, 1)];
     [self.labelTitle.layer setShadowRadius:2.0];

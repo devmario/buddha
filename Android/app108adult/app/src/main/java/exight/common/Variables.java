@@ -1,13 +1,25 @@
 package exight.common;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
 import android.media.MediaPlayer;
+import android.util.Log;
 
 import com.threedpaper.app108adult.BgmManager;
 import com.threedpaper.app108adult.R;
 import com.threedpaper.model.ModelFrame;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import exight.lib.ExightSoundPool;
 
@@ -29,8 +41,51 @@ public class Variables {
 	public final static int START_TYPE_FIRST   	= 1;
 
 	public static boolean inited = false;
+
+	public static JSONObject json = null;
 	
 	public static final List<ModelFrame> LIST_MODEL_FRAMES = new ArrayList<ModelFrame>();
+
+	public final static boolean LOAD_JSON(Context context) {
+		if(Variables.inited)
+			return true;
+
+		InputStream inputStream = context.getResources().openRawResource(R.raw.data);
+		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+
+		int ctr;
+		try {
+			ctr = inputStream.read();
+			while (ctr != -1) {
+				byteArrayOutputStream.write(ctr);
+				ctr = inputStream.read();
+			}
+			inputStream.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		String jsonString = byteArrayOutputStream.toString();
+
+		try {
+			json = new JSONObject(jsonString);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		Variables.inited = true;
+		return true;
+	}
+
+	public static int getResId(String resName, Class<?> c) {
+		try {
+			Field idField = c.getDeclaredField(resName);
+			return idField.getInt(idField);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}
+	}
+
 	public final static void INIT_LIST_MODEL_FRAMES(){
 		if(Variables.inited)
 			return;
@@ -141,7 +196,19 @@ public class Variables {
 		LIST_MODEL_FRAMES.add(new ModelFrame("세상과 이야기하는 법","나는 우연한 만남도 \n좋은 인연이 되도록 하겠습니다.",R.drawable.inner_bg_105, R.raw.a105, R.raw.b105, R.raw.g105));
 		LIST_MODEL_FRAMES.add(new ModelFrame("세상과 이야기하는 법","나는 이성 친구를 대할 때 \n예의를 갖추겠습니다.",R.drawable.inner_bg_106, R.raw.a106, R.raw.b106, R.raw.g106));
 		LIST_MODEL_FRAMES.add(new ModelFrame("세상과 이야기하는 법","나는 남을 쉽게 동정하거나 \n무시하지 않겠습니다.",R.drawable.inner_bg_107, R.raw.a107, R.raw.b107, R.raw.g107));
-		LIST_MODEL_FRAMES.add(new ModelFrame("세상과 이야기하는 법","내가 가진 것에 집착하거나 \n갖지 않은 것을 탐하지 않고 \n세상의 이로움을 위해 베풀며 살겠습니다.",R.drawable.inner_bg_108, R.raw.a108, R.raw.b108, R.raw.g108));
+		LIST_MODEL_FRAMES.add(new ModelFrame("세상과 이야기하는 법", "내가 가진 것에 집착하거나 \n갖지 않은 것을 탐하지 않고 \n세상의 이로움을 위해 베풀며 살겠습니다.", R.drawable.inner_bg_108, R.raw.a108, R.raw.b108, R.raw.g108));
+        try {
+            JSONObject _json = new JSONObject();
+            JSONArray arr = new JSONArray();
+
+            for(int i = 0; i < LIST_MODEL_FRAMES.size(); i++) {
+                JSONObject obj = new JSONObject();
+                arr.put(obj);
+            }
+            _json.put("scene", (Object)arr);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 		Variables.inited = true;
 
 	}

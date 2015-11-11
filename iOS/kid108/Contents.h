@@ -58,9 +58,11 @@
 + (NSString *)titleWithCount:(int)count;
 + (NSString *)subtitleWithCount:(int)count;
 
++ (NSMutableDictionary*)jsonData;
 
 + (NSString *)sequenceText:(int)number;
 + (NSURL *)sequenceVoiceUrl:(int)number;
++ (NSArray*)sequence;
 
 + (NSString*)info;
 

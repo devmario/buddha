@@ -46,6 +46,8 @@
         UIView *bgColorView = [[UIView alloc] init];
         bgColorView.backgroundColor = [UIColor lightGrayColor];
         [cell setSelectedBackgroundView:bgColorView];
+        [cell.textLabel setFont:FONT_GLOBAL(23)];
+        cell.textLabel.textColor = [UIColor darkGrayColor];
         cell.textLabel.highlightedTextColor = [UIColor whiteColor];
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     }
@@ -55,8 +57,13 @@
         NSNumber* pos = [dict objectForKey:@"pos"];
         if(title)
             cell.textLabel.text = title;
-        else
-            cell.textLabel.text = [NSString stringWithFormat:@"%d배", [pos intValue]];
+        else {
+            if([pos intValue] == 1) {
+                cell.textLabel.text = @"처음부터";
+            } else {
+                cell.textLabel.text = [NSString stringWithFormat:@"%d배", [pos intValue]];
+            }
+        }
     }
     
     return cell;
@@ -87,6 +94,7 @@ const float radius_SELECT = 5;
     [bt addTarget:self action:@selector(down:) forControlEvents:UIControlEventTouchDown];
     [bt addTarget:self action:@selector(up:) forControlEvents:UIControlEventTouchUpInside];
     [bt addTarget:self action:@selector(up:) forControlEvents:UIControlEventTouchUpOutside];
+    [bt.titleLabel setFont:FONT_GLOBAL(22)];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -174,8 +182,8 @@ const float radius_SELECT = 5;
     popup.frame = CGRectMake(r.size.width * ((1.0 - ratio) * 0.5), r.size.height * 0.1, r.size.width * ratio, r.size.height * 0.8);
     float bs = 40.0f;
     float bm = 2.0f;
-    categoryTitleBT.frame = CGRectMake(bm, bm, popup.frame.size.width * 0.5 - bm * 2, bs - bm * 2);
-    categoryPosBT.frame = CGRectMake(popup.frame.size.width * 0.5, bm, popup.frame.size.width * 0.5 - bm * 2, bs - bm * 2);
+    categoryTitleBT.frame = CGRectMake(popup.frame.size.width * 0.5, bm, popup.frame.size.width * 0.5 - bm * 2, bs - bm * 2);
+    categoryPosBT.frame = CGRectMake(bm, bm, popup.frame.size.width * 0.5 - bm * 2, bs - bm * 2);
     table.frame = CGRectMake(bm, bs, popup.frame.size.width - bm * 2, popup.frame.size.height - bs * 2.0f);
     cancelBT.frame = CGRectMake(bm, popup.frame.size.height - bs + bm, popup.frame.size.width - bm * 2, bs - bm * 2);
 }
@@ -190,7 +198,7 @@ const float radius_SELECT = 5;
     table.layer.cornerRadius = radius_SELECT;
     [table setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.8]];
     [popup setBackgroundColor:[UIColor clearColor]];
-    [self reloadData:YES];
+    [self reloadData:NO];
 }
 
 - (void)didReceiveMemoryWarning {

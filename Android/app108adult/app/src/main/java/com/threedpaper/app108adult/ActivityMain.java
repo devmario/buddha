@@ -48,7 +48,7 @@ public class ActivityMain extends ActivityForBgm implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		//컨텐츠 초기화
-		Variables.INIT_LIST_MODEL_FRAMES();
+		Variables.INIT_LIST_MODEL_FRAMES();//getApplicationContext());
 		init();
 		initViews();
 		setupFull();

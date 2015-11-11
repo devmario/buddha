@@ -102,8 +102,8 @@
     [self clickAppInfo:nil];
     [self customNavigationBarWithTitle:@"도움말" backButtonSelector:@selector(backClick:)];
 
-    [self.textViewAppInfo setFont:FONT_NanumPen(26)];
-    [self.textViewHowToPlay setFont:FONT_NanumPen(23)];
+    [self.textViewAppInfo setFont:FONT_GLOBAL(26)];
+    [self.textViewHowToPlay setFont:FONT_GLOBAL(23)];
     
     // scrollview setting
     [self.scrollViewUsage setContentSize:CGSizeMake(480*3, 320)];
@@ -189,8 +189,6 @@
 //
 // sequence 0, 19, 29, 37, 41, 46, 55, 67
 
-#define MAX_HOW_TO_SEQUENCE 7
-
 - (void)setupDisable {
     if([self.textViewPlayInfo.text isEqualToString:@""]) {
         self.buttonPrevImage.alpha = 1.0;
@@ -202,7 +200,7 @@
         self.buttonPlay.alpha = 1.0;
         if(currentSequence == 0)
             self.buttonPrevImage.alpha = 0.5;
-        if(currentSequence == MAX_HOW_TO_SEQUENCE)
+        if(currentSequence == [[Contents sequence] count] - 1)
             self.buttonNextImage.alpha = 0.5;
     }
 }
@@ -217,8 +215,7 @@
 - (void)preparePlay
 {
     currentSequence = 0;
-    arraySequence = @[@"0",@"15",@"27",@"35",@"40",@"44",@"51",@"59"];
-    [arraySequence retain];
+    arraySequence = [Contents sequence];
     /*
     NSMutableArray *imageArray = [NSMutableArray array];
     for (int i=0; i<68; i++) {
@@ -310,8 +307,8 @@
         [(UIButton *)sender setTransform:CGAffineTransformMakeScale(1, 1)];
         
         currentSequence++;
-        if (currentSequence>MAX_HOW_TO_SEQUENCE) {
-            currentSequence = MAX_HOW_TO_SEQUENCE;
+        if (currentSequence > [[Contents sequence] count] - 1) {
+            currentSequence = [[Contents sequence] count] - 1;
             
         }
         

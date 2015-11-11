@@ -24,7 +24,7 @@
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
-    [self.titleLabel setFont: FONT_NanumPen(21) ];
+    [self.titleLabel setFont: FONT_GLOBAL(21) ];
 }
 
 @end

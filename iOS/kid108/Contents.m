@@ -21,9 +21,14 @@ static NSMutableDictionary* _dataContents = nil;
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
         NSData *data = [NSData dataWithContentsOfFile:filePath];
         _dataContents = [[NSMutableDictionary alloc] initWithDictionary:[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil]];
+        _dataContents = [_dataContents objectForKey:[_dataContents objectForKey:@"name"]];
     }
 }
 
++ (NSMutableDictionary*)jsonData {
+    [Contents _initData];
+    return _dataContents;
+}
 
 + (UIImage *)playBgWithNumber:(int)number
 {
@@ -41,33 +46,35 @@ static NSMutableDictionary* _dataContents = nil;
 
 + (NSString *)titleWithCount:(int)count
 {
-    [Contents _initData];
     if(count < 1 || count > 108)
         return @"";
-    return [[[_dataContents objectForKey:@"scene"] objectAtIndex:count - 1] objectForKey:@"title"];
+    return [[[[Contents jsonData] objectForKey:@"scene"] objectAtIndex:count - 1] objectForKey:@"title"];
 }
 
 + (NSString *)subtitleWithCount:(int)count
 {
-    [Contents _initData];
     if(count < 1 || count > 108)
         return @"";
-    return [[[_dataContents objectForKey:@"scene"] objectAtIndex:count - 1] objectForKey:@"sub_title"];
+    return [[[[Contents jsonData] objectForKey:@"scene"] objectAtIndex:count - 1] objectForKey:@"sub_title"];
 }
 
 
 + (NSString*)info {
-    [Contents _initData];
-    return [_dataContents objectForKey:@"info"];
+    return [[Contents jsonData] objectForKey:@"info"];
 }
 
 + (NSString *)sequenceText:(int)number
 {
-    [Contents _initData];
-    if(number < 0 || number > 7)
-        return @"";
-    return [[_dataContents objectForKey:@"how_to"] objectAtIndex:number];
+    NSArray* desc = [[[Contents jsonData] objectForKey:@"how_to"] objectForKey:@"desc"];
+    if(number >= 0 && number < [desc count])
+        return [desc objectAtIndex:number];
+    return @"";
 }
+
++ (NSArray*)sequence {
+    return [[[Contents jsonData] objectForKey:@"how_to"] objectForKey:@"seq"];
+}
+
 + (NSURL *)sequenceVoiceUrl:(int)number
 {
     NSString *fileName = [NSString stringWithFormat:@"how%d",number+1];
