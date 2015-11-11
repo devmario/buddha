@@ -80,8 +80,19 @@
             bgViewForAnimation.contentMode = bgView.contentMode = UIViewContentModeScaleAspectFill;
         }
         viewClosePopupImage.contentMode = UIViewContentModeScaleAspectFill;
-        labelSubtitle.center = CGPointMake(bgView.frame.size.width * 0.5, bgView.frame.size.height * 0.87);
-        labelTitle.center = CGPointMake(bgView.frame.size.width * 0.5, bgView.frame.size.height * 0.13);
+        
+        id rect = [[[Contents jsonData] objectForKey:@"play_subtitle"] objectForKey:@"rect"];
+        labelSubtitle.frame = CGRectMake(0, 0, bgView.frame.size.width * [[rect objectAtIndex:2] floatValue], bgView.frame.size.height * [[rect objectAtIndex:3] floatValue]);
+        labelSubtitle.center = CGPointMake(bgView.frame.size.width * [[rect objectAtIndex:0] floatValue], bgView.frame.size.height * [[rect objectAtIndex:1] floatValue]);
+        
+        labelSubtitle.numberOfLines = -1;
+        labelSubtitle.minimumFontSize = 8;
+        labelSubtitle.adjustsFontSizeToFitWidth = YES;
+        
+        rect = [[[Contents jsonData] objectForKey:@"play_title"] objectForKey:@"rect"];
+        labelTitle.frame = CGRectMake(0, 0, bgView.frame.size.width * [[rect objectAtIndex:2] floatValue], bgView.frame.size.height * [[rect objectAtIndex:3] floatValue]);
+        labelTitle.center = CGPointMake(bgView.frame.size.width * [[rect objectAtIndex:0] floatValue], bgView.frame.size.height * [[rect objectAtIndex:1] floatValue]);
+        
         popupBt1.center = CGPointMake(self.view.frame.size.width * 0.42, popupBt1.center.y);
         popupBt2.center = CGPointMake(self.view.frame.size.width * 0.58, popupBt2.center.y);
         
@@ -95,8 +106,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.labelTitle.font = FONT_GLOBAL(26);
-    self.labelSubtitle.font = FONT_GLOBAL(30);
+    self.labelTitle.font = FONT_GLOBAL([[[[Contents jsonData] objectForKey:@"play_title"] objectForKey:@"size"] intValue]);
+    self.labelSubtitle.font = FONT_GLOBAL([[[[Contents jsonData] objectForKey:@"play_subtitle"] objectForKey:@"size"] intValue]);
     [self.labelTitle.layer setShadowColor:[UIColor blackColor].CGColor];
     [self.labelTitle.layer setShadowOffset:CGSizeMake(0, 1)];
     [self.labelTitle.layer setShadowRadius:2.0];

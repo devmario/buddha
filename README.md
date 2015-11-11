@@ -39,11 +39,14 @@
 - [ ] resource 풀 스크린 이미지 적용
 - [ ] project generate (리소스 갈아 끼우는 script)
 ### data
+- o,x info
+- o,x scene text
+- o,x how_to
 - o,x 성우 추가
-- x,x 실행 텍스트 디자인
+- o,x 실행 텍스트 디자인
 - o,x 실행 bg fit
 - o,x font
-- x,x design variables
+- o,x design variables
 ## 절하기
 - button disable enable
 - index 처리 제대로
@@ -56,3 +59,9 @@
 - 탭 주제별 횟수별
 - 테이블 뷰(Scroll Pane)
 - 시작하기 버튼 하면 테이블뷰에 선택된 것으로 실행
+## load map
+- [ ] data
+- [ ] preview
+- [ ] how to bug fix
+- [ ] 리소스 정리(프로젝트 제너레이터 준비)
+- [ ] 프로젝트 제너레이터
