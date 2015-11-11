@@ -22,6 +22,11 @@ static NSMutableDictionary* _dataContents = nil;
         NSData *data = [NSData dataWithContentsOfFile:filePath];
         _dataContents = [[NSMutableDictionary alloc] initWithDictionary:[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil]];
         _dataContents = [_dataContents objectForKey:[_dataContents objectForKey:@"name"]];
+        
+        //version conflict fix
+        if(![[_dataContents objectForKey:@"voice"] containsObject:GET(KEY_VOICE_TYPE)]) {
+            SET([[_dataContents objectForKey:@"voice"] firstObject], KEY_VOICE_TYPE);
+        }
     }
 }
 
@@ -117,13 +122,7 @@ static NSMutableDictionary* _dataContents = nil;
 
     NSString *fileName = nil;
     NSString *type = GET(KEY_VOICE_TYPE);
-    if ([type isEqualToString:VALUE_VOICE_TYPE_MAN]) {
-        fileName = [NSString stringWithFormat:@"b00%d", number];
-    } else if ([type isEqualToString:VALUE_VOICE_TYPE_GIRL]) {
-        fileName = [NSString stringWithFormat:@"g00%d", number];
-    } else if ([type isEqualToString:VALUE_VOICE_TYPE_DUBBING]) {
-        fileName = [NSString stringWithFormat:@"a00%d", number];
-    }
+    fileName = [NSString stringWithFormat:@"%@00%d", type, number];
 
     int length = [fileName length];
     if (length==5) {

@@ -71,6 +71,8 @@
     
     self.buttonDeleteRecord=nil;
     
+    [voiceButton release];
+    
     [super dealloc];
 }
 
@@ -97,6 +99,63 @@
     }
 }
 
+- (void)initVoiceButton {
+    voiceButton = [[NSMutableDictionary alloc] init];
+    
+    float fw = 210;
+    float w = 80/2;
+    float h = 58/2;
+    float x = 190;
+    float y = 107;
+    id arr = [[Contents jsonData] objectForKey:@"voice"];
+    for(id key in arr) {
+        UIButton* bt = [UIButton buttonWithType:UIButtonTypeCustom];
+        [bt setImage:[UIImage imageNamed:[NSString stringWithFormat:@"voice_%@", key]] forState:UIControlStateNormal];
+        [bt.imageView setContentMode:UIViewContentModeScaleAspectFill];
+        [bt setAdjustsImageWhenHighlighted:NO];
+        bt.frame = CGRectMake(x, y, w, h);
+        x += fw / [arr count];
+        [self.bg3 addSubview:bt];
+        [bt addTarget:self action:@selector(clickBT:) forControlEvents:UIControlEventTouchUpInside];
+        [voiceButton setObject:bt forKey:key];
+    }
+    [self updateVoiceButton];
+    
+    [buttonVoiceMan removeFromSuperview];
+    [buttonVoiceGirl removeFromSuperview];
+    [buttonVoiceDubbing removeFromSuperview];
+}
+
+- (void)updateVoiceButton {
+    for(id key in voiceButton) {
+        id bt = [voiceButton objectForKey:key];
+        if([GET(KEY_VOICE_TYPE) isEqualToString:key]) {
+            [bt setAlpha:1.0];
+        } else {
+            [bt setAlpha:0.5];
+        }
+    }
+}
+
+- (void)clickBT:(UIButton*)bt {
+    id key = [[voiceButton allKeysForObject:bt] firstObject];
+    NSLog(@"click %@", key);
+    
+    //setup
+    SET(key, KEY_VOICE_TYPE);
+    
+    //update
+    [self updateVoiceButton];
+    
+    [Functions audioPlayerWithRetainObject:self playURL:URL_SOUND_CLICK volume:0.3 numberOfLoops:0];
+    [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        [bt setTransform:CGAffineTransformScale([bt transform], 1.1, 1.1)];
+    } completion:^(BOOL finished) {
+        [bt setTransform:CGAffineTransformMakeScale(1, 1)];
+    }];
+    
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -107,6 +166,8 @@
         bg.contentMode = UIViewContentModeScaleAspectFill;
         bg3.center = CGPointMake(self.view.frame.size.width * 0.5, self.view.frame.size.height * 0.5);
         // Custom initialization
+        [self initVoiceButton];
+        
     }
     return self;
 }

@@ -38,6 +38,12 @@
 - [ ] data 읽어오게 변경(app마다 다른요소 변수로 불러오게)
 - [ ] resource 풀 스크린 이미지 적용
 - [ ] project generate (리소스 갈아 끼우는 script)
+### data
+- o,x 성우 추가
+- x,x 실행 텍스트 디자인
+- o,x 실행 bg fit
+- o,x font
+- x,x design variables
 ## 절하기
 - button disable enable
 - index 처리 제대로

@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingPage : UIViewController
+@interface SettingPage : UIViewController {
+    NSMutableDictionary* voiceButton;
+}
 
 
 + (void)setInitialValue;

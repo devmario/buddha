@@ -580,6 +580,9 @@
 		BC538EBE1BE2A6BF00036D05 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = BC538EBD1BE2A6BF00036D05 /* data.json */; };
 		BC57CBC51BE27652007AA326 /* SelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC57CBC31BE27652007AA326 /* SelectViewController.m */; };
 		BC57CBC61BE27652007AA326 /* SelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC57CBC41BE27652007AA326 /* SelectViewController.xib */; };
+		BC5D69331BF37DEA00BA6B29 /* voice_a.png in Resources */ = {isa = PBXBuildFile; fileRef = BC5D69301BF37DEA00BA6B29 /* voice_a.png */; };
+		BC5D69341BF37DEA00BA6B29 /* voice_b.png in Resources */ = {isa = PBXBuildFile; fileRef = BC5D69311BF37DEA00BA6B29 /* voice_b.png */; };
+		BC5D69351BF37DEA00BA6B29 /* voice_g.png in Resources */ = {isa = PBXBuildFile; fileRef = BC5D69321BF37DEA00BA6B29 /* voice_g.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1170,6 +1173,9 @@
 		BC57CBC21BE27652007AA326 /* SelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectViewController.h; sourceTree = "<group>"; };
 		BC57CBC31BE27652007AA326 /* SelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectViewController.m; sourceTree = "<group>"; };
 		BC57CBC41BE27652007AA326 /* SelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectViewController.xib; sourceTree = "<group>"; };
+		BC5D69301BF37DEA00BA6B29 /* voice_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voice_a.png; sourceTree = "<group>"; };
+		BC5D69311BF37DEA00BA6B29 /* voice_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voice_b.png; sourceTree = "<group>"; };
+		BC5D69321BF37DEA00BA6B29 /* voice_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voice_g.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1238,6 +1244,9 @@
 				665A91F816372872006B1EBD /* voiceDubbing.png */,
 				665A91F916372872006B1EBD /* voiceGirl.png */,
 				665A91FA16372872006B1EBD /* voiceMan.png */,
+				BC5D69301BF37DEA00BA6B29 /* voice_a.png */,
+				BC5D69311BF37DEA00BA6B29 /* voice_b.png */,
+				BC5D69321BF37DEA00BA6B29 /* voice_g.png */,
 				665A91FB16372872006B1EBD /* waterButton.png */,
 			);
 			path = design;
@@ -2338,6 +2347,7 @@
 				665A955A16372873006B1EBD /* a034.mp3 in Resources */,
 				665A955B16372873006B1EBD /* a035.mp3 in Resources */,
 				665A955C16372873006B1EBD /* a036.mp3 in Resources */,
+				BC5D69331BF37DEA00BA6B29 /* voice_a.png in Resources */,
 				665A955D16372873006B1EBD /* a037.mp3 in Resources */,
 				665A955E16372873006B1EBD /* a038.mp3 in Resources */,
 				665A955F16372873006B1EBD /* a039.mp3 in Resources */,
@@ -2391,6 +2401,7 @@
 				665A958F16372873006B1EBD /* a087.mp3 in Resources */,
 				665A959016372873006B1EBD /* a088.mp3 in Resources */,
 				665A959116372873006B1EBD /* a089.mp3 in Resources */,
+				BC5D69341BF37DEA00BA6B29 /* voice_b.png in Resources */,
 				665A959216372873006B1EBD /* a090.mp3 in Resources */,
 				665A959316372873006B1EBD /* a091.mp3 in Resources */,
 				665A959416372873006B1EBD /* a092.mp3 in Resources */,
@@ -2405,6 +2416,7 @@
 				665A959D16372873006B1EBD /* a101.mp3 in Resources */,
 				665A959E16372873006B1EBD /* a102.mp3 in Resources */,
 				665A959F16372873006B1EBD /* a103.mp3 in Resources */,
+				BC5D69351BF37DEA00BA6B29 /* voice_g.png in Resources */,
 				665A95A016372873006B1EBD /* a104.mp3 in Resources */,
 				665A95A116372873006B1EBD /* a105.mp3 in Resources */,
 				665A95A216372873006B1EBD /* a106.mp3 in Resources */,
