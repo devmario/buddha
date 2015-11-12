@@ -64,8 +64,8 @@
       <file leaf-file-name="SystemUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/buddha/SystemUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.60757315">
-              <caret line="126" column="68" selection-start-line="126" selection-start-column="56" selection-end-line="126" selection-end-column="68" />
+            <state vertical-scroll-proportion="0.6184739">
+              <caret line="127" column="25" selection-start-line="127" selection-start-column="25" selection-end-line="127" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1484,8 +1484,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1256" />
-    <option name="y" value="200" />
+    <option name="x" value="171" />
+    <option name="y" value="93" />
     <option name="width" value="3097" />
     <option name="height" value="1887" />
   </component>
@@ -1752,7 +1752,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1256" y="200" width="3097" height="1887" extended-state="0" />
+    <frame x="171" y="93" width="3097" height="1887" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1966,8 +1966,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/buddha/SystemUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60757315">
-          <caret line="126" column="68" selection-start-line="126" selection-start-column="56" selection-end-line="126" selection-end-column="68" />
+        <state vertical-scroll-proportion="0.6184739">
+          <caret line="127" column="25" selection-start-line="127" selection-start-column="25" selection-end-line="127" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

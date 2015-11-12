@@ -1,2 +1,7 @@
 *.class
 Android/app108adult/app/build
+Android/app108adult/.gradle/**
+Android/app108adult/.gradle/*
+Android/app108adult/.idea/**
+Android/app108adult/.idea/*
+.DS_Store
