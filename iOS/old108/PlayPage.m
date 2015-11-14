@@ -124,10 +124,16 @@
     [self.labelTitle.layer setShadowRadius:2.0];
     [self.labelTitle.layer setShadowOpacity:0.85];
     
+    self.labelSubtitle.textColor = [UIColor whiteColor];
+    [self.labelSubtitle.layer setShadowColor:[UIColor blackColor].CGColor];
+    [self.labelSubtitle.layer setShadowOffset:CGSizeMake(0, 0)];
+    [self.labelSubtitle.layer setShadowRadius:2.0];
+    [self.labelSubtitle.layer setShadowOpacity:0.85];
+    
     if([[[Contents jsonData] objectForKey:@"play_subtitle_round_bg"] boolValue]) {
-        self.labelSubtitle.layer.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.6].CGColor;
-        self.labelSubtitle.layer.cornerRadius = 5;
-        self.labelSubtitle.layer.borderWidth = 0.0;
+//        self.labelSubtitle.layer.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.6].CGColor;
+//        self.labelSubtitle.layer.cornerRadius = 5;
+//        self.labelSubtitle.layer.borderWidth = 0.0;
     }
 
     //[self customNavigationBarWithTitle:@"절하기" backButtonSelector:@selector(backClick)];
@@ -138,7 +144,7 @@
     pauseButton.layer.cornerRadius = 5;
     [pauseButton setTitleColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1.0] forState:UIControlStateNormal];
     [pauseButton addTarget:self action:@selector(pauseClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:pauseButton];
+    [self.view insertSubview:pauseButton belowSubview:viewClosePopUp];
     [pauseButton release];
     
     introDuration = 3;

@@ -78,10 +78,12 @@
         pageControlUsage.pageIndicatorTintColor = [UIColor whiteColor];
         pageControlUsage.currentPageIndicatorTintColor = [UIColor blackColor];
         pageControlUsage.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.5, viewHowToPlay.frame.size.height * 0.9);
-        textViewAppInfo.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width * 0.9, ([[UIScreen mainScreen] bounds].size.height - menu.frame.size.height) * 0.9);
-        textViewAppInfo.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.5, [[UIScreen mainScreen] bounds].size.height * 0.5 + menu.frame.size.height * 0.5);
+        
         menu.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width - menu.frame.size.width, 0, menu.frame.size.width, menu.frame.size.height);
         [menu setBackgroundColor:[UIColor clearColor]];
+        [self.textViewHowToPlay setFont:FONT_GLOBAL(23)];
+        
+        [self clickAppInfo:nil];
     }
     return self;
 }
@@ -108,15 +110,12 @@
     
     // Do any additional setup after loading the view from its nib.
     
-    [self clickAppInfo:nil];
     [self customNavigationBarWithTitle:@"도움말" backButtonSelector:@selector(backClick:)];
 
     
     
-    [self.textViewAppInfo setFont:FONT_GLOBAL(18)];
-    self.textViewAppInfo.layer.backgroundColor = [UIColor colorWithWhite:0.9 alpha:0.7].CGColor;
-    self.textViewAppInfo.layer.cornerRadius = 5;
-    [self.textViewHowToPlay setFont:FONT_GLOBAL(23)];
+    
+    
     
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -144,12 +143,26 @@
         [self.viewHowToPlay setHidden:YES];
         [self.viewUsage setHidden:YES];
         
+        textViewAppInfo.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width - 40, ([[UIScreen mainScreen] bounds].size.height - menu.frame.size.height) - 40);
+        textViewAppInfo.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.5, [[UIScreen mainScreen] bounds].size.height * 0.5 + menu.frame.size.height * 0.5);
+        
         [Functions audioPlayerWithRetainObject:self
                                        playURL:[Contents appInfoVoiceUrl]
                                         volume:1
                                  numberOfLoops:0];
         
-        self.textViewAppInfo.text = [Contents info];
+        self.textViewAppInfo.layer.backgroundColor = [UIColor colorWithWhite:0.9 alpha:0.7].CGColor;
+        self.textViewAppInfo.layer.cornerRadius = 5;
+        
+        [self.textViewAppInfo setFont:FONT_GLOBAL(16)];
+        
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:[Contents info]];
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineSpacing = 20.0f;
+        paragraphStyle.alignment = NSTextAlignmentCenter;
+        [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, textViewAppInfo.text.length)];
+        
+        textViewAppInfo.attributedText = attributedString;
     }];
 }
 - (IBAction)clickHowToPlay:(id)sender

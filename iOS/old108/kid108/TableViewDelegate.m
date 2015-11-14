@@ -30,7 +30,7 @@
         
         [self setBackgroundColor:[UIColor clearColor]];
         
-        self.bt = [UIButton buttonWithType:UIButtonTypeSystem];
+        self.bt = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.bt.titleLabel setFont:FONT_GLOBAL(18)];
         [self.bt setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         [self.bt setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
@@ -90,6 +90,7 @@
 }
 
 - (void)update:(id)data {
+    [UIView setAnimationsEnabled:NO];
     id check_empty = [data objectForKey:@"is_empty"];
     if(check_empty != nil && [check_empty isEqualToString:@"true"]) {
         self.textLabel.text = @"기록이 없습니다.";
@@ -121,6 +122,7 @@
         [self.bt setEnabled:count_buddha != 108];
     }
     self.data = data;
+    [UIView setAnimationsEnabled:YES];
 }
 
 @end

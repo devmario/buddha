@@ -328,10 +328,13 @@ typedef void (^MediaPickerBlock)(MPMediaItemCollection *mediaItemCollection);
 @implementation UIButton (UIButtonCategory)
 - (void)setSelected:(BOOL)isSelected
 {
+    self.layer.cornerRadius = 5;
+    self.titleLabel.textColor = [UIColor whiteColor];
     if (isSelected==YES) {
-        self.alpha = 1;
+        self.layer.backgroundColor = [UIColor colorWithRed:0.36 green:0.44 blue:0.85 alpha:1.0].CGColor;
     } else {
-        self.alpha = 0.5;
+        self.layer.backgroundColor = [UIColor colorWithRed:0.6 green:0.6 blue:0.6
+                                                     alpha:1.0].CGColor;
     }
 }
 @end

@@ -72,13 +72,10 @@
 
 - (void)down:(id)sender {
     UIButton* bt = sender;
-    bt.layer.backgroundColor = [UIColor whiteColor].CGColor;
 }
 
 - (void)up:(id)sender {
     [Functions audioPlayerWithRetainObject:self playURL:URL_SOUND_CLICK volume:0.3 numberOfLoops:0];
-    UIButton* bt = sender;
-    bt.layer.backgroundColor = [UIColor colorWithRed:0.20 green:0.20 blue:0.20 alpha:1.0].CGColor;
 }
 
 const float radius_SELECT = 5;
@@ -96,6 +93,7 @@ const float radius_SELECT = 5;
     [bt addTarget:self action:@selector(up:) forControlEvents:UIControlEventTouchUpInside];
     [bt addTarget:self action:@selector(up:) forControlEvents:UIControlEventTouchUpOutside];
     [bt.titleLabel setFont:FONT_GLOBAL(22)];
+    [bt setSelected:NO];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -114,10 +112,14 @@ const float radius_SELECT = 5;
 }
 
 - (IBAction)clickTitle:(id)sender {
+    [categoryPosBT setSelected:NO];
+    [categoryTitleBT setSelected:YES];
     [self reloadData:YES];
 }
 
 - (IBAction)clickPos:(id)sender {
+    [categoryPosBT setSelected:YES];
+    [categoryTitleBT setSelected:NO];
     [self reloadData:NO];
 }
 
@@ -194,6 +196,7 @@ const float radius_SELECT = 5;
     [self setupButton:categoryTitleBT];
     [self setupButton:categoryPosBT];
     [self setupButton:cancelBT];
+    [categoryPosBT setSelected:YES];
     table.layer.cornerRadius = radius_SELECT;
     [table setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.8]];
     [popup setBackgroundColor:[UIColor clearColor]];

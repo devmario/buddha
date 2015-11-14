@@ -128,12 +128,6 @@
 
 - (void)updateVoiceButton {
     for(id key in voiceButton) {
-        id bt = [voiceButton objectForKey:key];
-        if([GET(KEY_VOICE_TYPE) isEqualToString:key]) {
-            [bt setAlpha:1.0];
-        } else {
-            [bt setAlpha:0.5];
-        }
     }
 }
 
