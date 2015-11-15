@@ -105,7 +105,7 @@
         popupBt1.layer.cornerRadius = 5;
         popupBt2.layer.cornerRadius = 5;
         popupBt1.layer.backgroundColor = [UIColor colorWithRed:0.36 green:0.44 blue:0.85 alpha:1.0].CGColor;
-        popupBt2.layer.backgroundColor = [UIColor colorWithRed:0.20 green:0.20 blue:0.20 alpha:1.0].CGColor;
+        popupBt2.layer.backgroundColor = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1.0].CGColor;
         
         count = 0;
     }
@@ -123,12 +123,14 @@
     [self.labelTitle.layer setShadowOffset:CGSizeMake(0, 0)];
     [self.labelTitle.layer setShadowRadius:2.0];
     [self.labelTitle.layer setShadowOpacity:0.85];
+    [self.labelTitle setClipsToBounds:NO];
     
     self.labelSubtitle.textColor = [UIColor whiteColor];
     [self.labelSubtitle.layer setShadowColor:[UIColor blackColor].CGColor];
     [self.labelSubtitle.layer setShadowOffset:CGSizeMake(0, 0)];
     [self.labelSubtitle.layer setShadowRadius:2.0];
     [self.labelSubtitle.layer setShadowOpacity:0.85];
+    [self.labelSubtitle setClipsToBounds:NO];
     
     if([[[Contents jsonData] objectForKey:@"play_subtitle_round_bg"] boolValue]) {
 //        self.labelSubtitle.layer.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.6].CGColor;
@@ -267,7 +269,14 @@
     //
     [Contents playVoiceWithNumber:[currentCount intValue]+1];
     self.labelTitle.text = [Contents titleWithCount:[currentCount intValue]+1];
-    self.labelSubtitle.text = [Contents subtitleWithCount:[currentCount intValue]+1];
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:[Contents subtitleWithCount:[currentCount intValue]+1]];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 20.0f;
+    paragraphStyle.alignment = NSTextAlignmentCenter;
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [Contents subtitleWithCount:[currentCount intValue]+1].length)];
+    
+    self.labelSubtitle.attributedText = attributedString;
 
     
     [self performSelector:@selector(showDelayViewWithCount:) withObject:[NSNumber numberWithInt:[currentCount intValue]+1] afterDelay:playDuration+delayDuration];

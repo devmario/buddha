@@ -119,10 +119,8 @@ id _main;
         
         
         SelectViewController* vc = [[[SelectViewController alloc] init] autorelease];
-        vc.view.backgroundColor = [UIColor clearColor];
-        vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self presentViewController:vc animated:YES completion:nil];
+        vc.view.backgroundColor = [UIColor whiteColor];
+        [self.navigationController pushViewController:vc animated:YES];
         
         //[self.navigationController pushViewController:[[[PlayPage alloc] initWithNewPosition:0] autorelease] animated:NO];
     }];

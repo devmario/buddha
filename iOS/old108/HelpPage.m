@@ -160,7 +160,7 @@
         NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
         paragraphStyle.lineSpacing = 20.0f;
         paragraphStyle.alignment = NSTextAlignmentCenter;
-        [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, textViewAppInfo.text.length)];
+        [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [Contents info].length)];
         
         textViewAppInfo.attributedText = attributedString;
     }];

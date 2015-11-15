@@ -16,6 +16,10 @@
             <string>BMJUAOTF</string>
             <string>BMJUAOTF</string>
             <string>BMJUAOTF</string>
+            <string>BMJUAOTF</string>
+            <string>BMJUAOTF</string>
+            <string>BMJUAOTF</string>
+            <string>BMJUAOTF</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -27,13 +31,14 @@
                 <outlet property="buttonBGMVolumeUp" destination="apB-Xc-EhD" id="hRj-6k-L59"/>
                 <outlet property="buttonBirdBGM" destination="Yno-Jo-BdQ" id="Xey-jL-fB7"/>
                 <outlet property="buttonBugBGM" destination="r01-mW-PzK" id="XOl-Mq-rJF"/>
-                <outlet property="buttonDeleteRecord" destination="S0L-JR-SuK" id="lI4-TF-rX3"/>
+                <outlet property="buttonDeleteRecord" destination="nsS-V7-m2a" id="wQk-9E-eIf"/>
                 <outlet property="buttonMusicBGM" destination="e0X-tv-FWV" id="LTa-u5-6wj"/>
                 <outlet property="buttonSpeedDown" destination="lzy-Ww-UUq" id="Pg7-FF-KtE"/>
                 <outlet property="buttonSpeedUp" destination="BJE-eq-GLl" id="HkK-Wb-upc"/>
-                <outlet property="buttonVoiceDubbing" destination="OYj-kS-spt" id="qJP-V4-n5n"/>
-                <outlet property="buttonVoiceGirl" destination="jJo-Ua-ehg" id="tcX-uH-Uiq"/>
-                <outlet property="buttonVoiceMan" destination="b8Z-b7-dt0" id="LUL-9q-9yx"/>
+                <outlet property="buttonVoiceGirl1" destination="OYj-kS-spt" id="K5d-NB-Ndl"/>
+                <outlet property="buttonVoiceGirl2" destination="7uO-FJ-QQ4" id="Gd6-Vs-zpJ"/>
+                <outlet property="buttonVoiceMan1" destination="b8Z-b7-dt0" id="tDa-x4-Y8s"/>
+                <outlet property="buttonVoiceMan2" destination="jJo-Ua-ehg" id="hE2-Hc-yIu"/>
                 <outlet property="buttonVoiceVolumeDown" destination="z0t-cC-DZQ" id="4Ie-Ip-4fD"/>
                 <outlet property="buttonVoiceVolumeUp" destination="Stb-OC-1JJ" id="F1j-DP-yv7"/>
                 <outlet property="buttonWaterBGM" destination="x8l-f6-REu" id="Jzw-4W-imM"/>
@@ -76,15 +81,15 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NVf-X1-1dY">
-                                    <rect key="frame" x="270" y="3" width="42" height="21"/>
+                                    <rect key="frame" x="245" y="4" width="42" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <animations/>
-                                    <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="17"/>
+                                    <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="14"/>
                                     <color key="textColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="BJE-eq-GLl" customClass="CustomButton">
-                                    <rect key="frame" x="326" y="-5" width="75" height="40"/>
+                                    <rect key="frame" x="301" y="-5" width="75" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
@@ -97,7 +102,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="lzy-Ww-UUq" customClass="CustomButton">
-                                    <rect key="frame" x="191" y="-5" width="75" height="40"/>
+                                    <rect key="frame" x="166" y="-5" width="75" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
@@ -126,12 +131,11 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="jJo-Ua-ehg">
-                                    <rect key="frame" x="252" y="1" width="65" height="29"/>
+                                    <rect key="frame" x="200" y="4" width="65" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <animations/>
-                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
-                                    <state key="normal" backgroundImage="voiceGirl.png">
-                                        <color key="titleColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="14"/>
+                                    <state key="normal" title="남성2">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -139,12 +143,12 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="OYj-kS-spt">
-                                    <rect key="frame" x="324" y="1" width="65" height="29"/>
+                                    <rect key="frame" x="272" y="4" width="65" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <animations/>
-                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
-                                    <state key="normal" backgroundImage="voiceDubbing.png">
-                                        <color key="titleColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="14"/>
+                                    <state key="normal" title="여성1">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -152,16 +156,29 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="b8Z-b7-dt0">
-                                    <rect key="frame" x="179" y="1" width="65" height="29"/>
+                                    <rect key="frame" x="127" y="4" width="65" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <animations/>
-                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
-                                    <state key="normal" backgroundImage="voiceMan.png">
-                                        <color key="titleColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="14"/>
+                                    <state key="normal" title="남성1">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
                                         <action selector="clickVoiceType:" destination="-1" eventType="touchUpInside" id="EQH-j1-ZkX"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="7uO-FJ-QQ4">
+                                    <rect key="frame" x="345" y="4" width="65" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <animations/>
+                                    <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="14"/>
+                                    <state key="normal" title="여성2">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="clickVoiceType:" destination="-1" eventType="touchUpInside" id="15f-zN-4VW"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -181,15 +198,15 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9pL-pl-t3L">
-                                    <rect key="frame" x="275" y="5" width="42" height="21"/>
+                                    <rect key="frame" x="245" y="5" width="42" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <animations/>
-                                    <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="17"/>
+                                    <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="14"/>
                                     <color key="textColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="z0t-cC-DZQ" customClass="CustomButton">
-                                    <rect key="frame" x="191" y="-5" width="75" height="40"/>
+                                    <rect key="frame" x="161" y="-5" width="75" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
@@ -202,7 +219,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="Stb-OC-1JJ" customClass="CustomButton">
-                                    <rect key="frame" x="326" y="-6" width="75" height="40"/>
+                                    <rect key="frame" x="296" y="-6" width="75" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
@@ -230,12 +247,12 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="Yno-Jo-BdQ">
-                                    <rect key="frame" x="203" y="4" width="29" height="29"/>
+                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="Yno-Jo-BdQ">
+                                    <rect key="frame" x="127" y="4" width="65" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
-                                    <state key="normal" backgroundImage="birdButton.png">
+                                    <state key="normal" backgroundImage="bird.png">
                                         <color key="titleColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -244,11 +261,11 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="r01-mW-PzK">
-                                    <rect key="frame" x="250" y="4" width="29" height="29"/>
+                                    <rect key="frame" x="200" y="4" width="65" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
-                                    <state key="normal" backgroundImage="bugButton.png">
+                                    <state key="normal" backgroundImage="bug.png">
                                         <color key="titleColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -257,11 +274,11 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="x8l-f6-REu">
-                                    <rect key="frame" x="298" y="4" width="29" height="29"/>
+                                    <rect key="frame" x="274" y="4" width="65" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
-                                    <state key="normal" backgroundImage="waterButton.png">
+                                    <state key="normal" backgroundImage="water.png">
                                         <color key="titleColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -270,11 +287,11 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="e0X-tv-FWV">
-                                    <rect key="frame" x="348" y="4" width="29" height="29"/>
+                                    <rect key="frame" x="345" y="4" width="65" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
-                                    <state key="normal" backgroundImage="musicButton.png">
+                                    <state key="normal" backgroundImage="note.png">
                                         <color key="titleColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -299,7 +316,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="I6W-OU-N9F" customClass="CustomButton">
-                                    <rect key="frame" x="191" y="-5" width="75" height="40"/>
+                                    <rect key="frame" x="166" y="-5" width="75" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
@@ -312,7 +329,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="apB-Xc-EhD" customClass="CustomButton">
-                                    <rect key="frame" x="326" y="-6" width="75" height="40"/>
+                                    <rect key="frame" x="301" y="-5" width="75" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
@@ -325,10 +342,10 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sp8-Mc-nOd">
-                                    <rect key="frame" x="275" y="5" width="42" height="21"/>
+                                    <rect key="frame" x="250" y="4" width="42" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <animations/>
-                                    <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="17"/>
+                                    <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="14"/>
                                     <color key="textColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -348,16 +365,17 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="S0L-JR-SuK" customClass="CustomButton">
-                                    <rect key="frame" x="275" y="2" width="65" height="26"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="nsS-V7-m2a">
+                                    <rect key="frame" x="241" y="4" width="65" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <animations/>
-                                    <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="15"/>
+                                    <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="14"/>
                                     <state key="normal" title="지우기">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <action selector="clickDeleteRecord:" destination="-1" eventType="touchUpInside" id="BOo-9d-sIG"/>
+                                        <action selector="clickVoiceType:" destination="-1" eventType="touchUpInside" id="TYL-W2-gcM"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -379,13 +397,10 @@
     <resources>
         <image name="arrow_l.png" width="300" height="160"/>
         <image name="arrow_r.png" width="300" height="160"/>
-        <image name="birdButton.png" width="66" height="60"/>
-        <image name="bugButton.png" width="66" height="60"/>
-        <image name="musicButton.png" width="66" height="60"/>
+        <image name="bird.png" width="900" height="300"/>
+        <image name="bug.png" width="900" height="300"/>
+        <image name="note.png" width="900" height="300"/>
         <image name="settingPageBg.png" width="960" height="640"/>
-        <image name="voiceDubbing.png" width="158" height="58"/>
-        <image name="voiceGirl.png" width="158" height="58"/>
-        <image name="voiceMan.png" width="158" height="58"/>
-        <image name="waterButton.png" width="66" height="60"/>
+        <image name="water.png" width="900" height="300"/>
     </resources>
 </document>

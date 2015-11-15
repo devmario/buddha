@@ -19,7 +19,7 @@
 
 @implementation SelectViewController
 
-@synthesize bg, popup, categoryTitleBT, categoryPosBT, table, cancelBT, data;
+@synthesize bg, popup, categoryTitleBT, categoryPosBT, table, data;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(self.data == nil)
@@ -31,9 +31,8 @@
 {
     [Functions audioPlayerWithRetainObject:self playURL:URL_SOUND_CLICK volume:0.3 numberOfLoops:0];
     NSMutableDictionary* dict = [self.data objectAtIndex:indexPath.row];
-    [self dismissViewControllerAnimated:YES completion:^{
-        [[MainPage getMain].navigationController pushViewController:[[[PlayPage alloc] initWithNewPosition:[[dict objectForKey:@"pos"] intValue] - 1] autorelease] animated:YES];
-    }];
+    [[MainPage getMain].navigationController pushViewController:[[[PlayPage alloc] initWithNewPosition:[[dict objectForKey:@"pos"] intValue] - 1] autorelease] animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
 
@@ -42,12 +41,13 @@
     
     if (cell==nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"select_cell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"select_cell"];
         cell.backgroundColor = [UIColor clearColor];
         UIView *bgColorView = [[UIView alloc] init];
         bgColorView.backgroundColor = [UIColor lightGrayColor];
         [cell setSelectedBackgroundView:bgColorView];
         [cell.textLabel setFont:FONT_GLOBAL(16)];
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
         cell.textLabel.textColor = [UIColor darkGrayColor];
         cell.textLabel.highlightedTextColor = [UIColor whiteColor];
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
@@ -124,7 +124,7 @@ const float radius_SELECT = 5;
 }
 
 - (IBAction)clickCancel:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)reloadData:(BOOL)isTitle {
@@ -181,24 +181,27 @@ const float radius_SELECT = 5;
     self.view.frame = [[UIScreen mainScreen] bounds];
     CGRect r = [[UIScreen mainScreen] bounds];
     bg.frame = r;
-    float ratio = 0.6;
+    float ratio = 0.5;
     popup.frame = CGRectMake(r.size.width * ((1.0 - ratio) * 0.5), r.size.height * 0.1, r.size.width * ratio, r.size.height * 0.8);
     float bs = 40.0f;
     float bm = 2.0f;
     categoryTitleBT.frame = CGRectMake(popup.frame.size.width * 0.5, bm, popup.frame.size.width * 0.5 - bm * 2, bs - bm * 2);
     categoryPosBT.frame = CGRectMake(bm, bm, popup.frame.size.width * 0.5 - bm * 2, bs - bm * 2);
-    table.frame = CGRectMake(bm, bs, popup.frame.size.width - bm * 3, popup.frame.size.height - bs * 2.0f);
-    cancelBT.frame = CGRectMake(bm, popup.frame.size.height - bs + bm, popup.frame.size.width - bm * 2, bs - bm * 2);
+    table.frame = CGRectMake(bm, bs, popup.frame.size.width - bm * 3, popup.frame.size.height - bs * 1.0f);
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self customNavigationBarWithTitle:@"기록" backButtonSelector:@selector(clickCancel:)];
+    self.img.frame = [[UIScreen mainScreen] bounds];
+    self.img.contentMode = UIViewContentModeScaleAspectFill;
     [self setupButton:categoryTitleBT];
     [self setupButton:categoryPosBT];
-    [self setupButton:cancelBT];
     [categoryPosBT setSelected:YES];
-    table.layer.cornerRadius = radius_SELECT;
-    [table setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.8]];
+    [table.layer setBorderColor:[UIColor colorWithWhite:0.8 alpha:1.0].CGColor];
+    [table.layer setBorderWidth:1.0];
+    [table.layer setCornerRadius:5.0];
+    [table setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5]];
     [popup setBackgroundColor:[UIColor clearColor]];
     [self reloadData:NO];
 }

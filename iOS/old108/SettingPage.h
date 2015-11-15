@@ -25,9 +25,10 @@
 @property (nonatomic, retain) IBOutlet UIButton     *buttonPlayRestart;
 - (IBAction)clickPlayOption:(id)sender;
 
-@property (nonatomic, retain) IBOutlet UIButton     *buttonVoiceMan;
-@property (nonatomic, retain) IBOutlet UIButton     *buttonVoiceGirl;
-@property (nonatomic, retain) IBOutlet UIButton     *buttonVoiceDubbing;
+@property (nonatomic, retain) IBOutlet UIButton     *buttonVoiceMan1;
+@property (nonatomic, retain) IBOutlet UIButton     *buttonVoiceMan2;
+@property (nonatomic, retain) IBOutlet UIButton     *buttonVoiceGirl1;
+@property (nonatomic, retain) IBOutlet UIButton     *buttonVoiceGirl2;
 - (IBAction)clickVoiceType:(id)sender;
 
 @property (nonatomic, retain) IBOutlet UIButton     *buttonVoiceVolumeUp;

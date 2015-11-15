@@ -8,9 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectViewController">
             <connections>
                 <outlet property="bg" destination="3is-KE-LjA" id="sCl-IX-c2Y"/>
-                <outlet property="cancelBT" destination="KaE-D3-zOZ" id="iIb-2f-gUW"/>
                 <outlet property="categoryPosBT" destination="JDW-fy-hTa" id="Ha5-Nr-09C"/>
                 <outlet property="categoryTitleBT" destination="sSG-HG-b8f" id="SCY-0W-HOs"/>
+                <outlet property="img" destination="WCk-ru-a9m" id="93H-Yd-zho"/>
                 <outlet property="popup" destination="kaz-bB-gel" id="QCo-K2-9BO"/>
                 <outlet property="table" destination="UoY-X3-Q8d" id="UlV-Sx-8Pj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -21,12 +21,17 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.25" contentMode="scaleToFill" id="3is-KE-LjA">
+                <view contentMode="scaleToFill" id="3is-KE-LjA">
                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="helpPageBg.png" id="WCk-ru-a9m">
+                    <rect key="frame" x="-9" y="-8" width="407" height="585"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                </imageView>
                 <view contentMode="scaleToFill" id="kaz-bB-gel">
                     <rect key="frame" x="38" y="32" width="243" height="424"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -54,19 +59,6 @@
                                 <action selector="clickPos:" destination="-1" eventType="touchUpInside" id="bCK-JS-u7s"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KaE-D3-zOZ">
-                            <rect key="frame" x="-155" y="321" width="517" height="50"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <animations/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="취소">
-                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="clickCancel:" destination="-1" eventType="touchUpInside" id="YzM-0o-bZk"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sSG-HG-b8f">
                             <rect key="frame" x="76" y="8" width="248" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -90,4 +82,7 @@
             <point key="canvasLocation" x="634" y="760"/>
         </view>
     </objects>
+    <resources>
+        <image name="helpPageBg.png" width="960" height="640"/>
+    </resources>
 </document>

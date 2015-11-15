@@ -29,9 +29,10 @@
 #define VALUE_PLAY_OPTION_RESTART   @"playOptionRestart"
 
 #define KEY_VOICE_TYPE              @"voiceType"
-#define VALUE_VOICE_TYPE_MAN        @"b"
-#define VALUE_VOICE_TYPE_GIRL       @"g"
-#define VALUE_VOICE_TYPE_DUBBING    @"a"
+#define VALUE_VOICE_TYPE_MAN1        @"b"
+#define VALUE_VOICE_TYPE_GIRL1       @"g"
+#define VALUE_VOICE_TYPE_MAN2        @"c"
+#define VALUE_VOICE_TYPE_GIRL2       @"a"
 
 #define KEY_VOICE_VOLUME            @"voiceVolume"
 #define VALUE_VOICE_VOLUME_MAX      10.0

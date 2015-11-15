@@ -21,9 +21,10 @@
 @synthesize buttonPlayContinue;
 @synthesize buttonPlayRestart;
 
-@synthesize buttonVoiceMan;
-@synthesize buttonVoiceGirl;
-@synthesize buttonVoiceDubbing;
+@synthesize buttonVoiceMan1;
+@synthesize buttonVoiceGirl1;
+@synthesize buttonVoiceMan2;
+@synthesize buttonVoiceGirl2;
 
 @synthesize buttonVoiceVolumeUp;
 @synthesize buttonVoiceVolumeDown;
@@ -52,9 +53,10 @@
     self.buttonPlayContinue=nil;
     self.buttonPlayRestart=nil;
     
-    self.buttonVoiceMan=nil;
-    self.buttonVoiceGirl=nil;
-    self.buttonVoiceDubbing=nil;
+    self.buttonVoiceMan1=nil;
+    self.buttonVoiceGirl1=nil;
+    self.buttonVoiceMan2=nil;
+    self.buttonVoiceGirl2=nil;
     
     self.buttonVoiceVolumeUp=nil;
     self.buttonVoiceVolumeDown=nil;
@@ -86,7 +88,7 @@
         SET(VALUE_PLAY_OPTION_CONTINUE, KEY_PLAY_OPTION);
     }
     if (GET(KEY_VOICE_TYPE)==nil) {
-        SET(VALUE_VOICE_TYPE_MAN, KEY_VOICE_TYPE);
+        SET(VALUE_VOICE_TYPE_MAN1, KEY_VOICE_TYPE);
     }
     if (GET(KEY_VOICE_VOLUME)==nil) {
         SET(@"5", KEY_VOICE_VOLUME);
@@ -99,38 +101,6 @@
     }
 }
 
-- (void)initVoiceButton {
-    voiceButton = [[NSMutableDictionary alloc] init];
-    
-    float fw = 210;
-    float w = 80/2;
-    float h = 58/2;
-    float x = 190;
-    float y = 107;
-    id arr = [[Contents jsonData] objectForKey:@"voice"];
-    for(id key in arr) {
-        UIButton* bt = [UIButton buttonWithType:UIButtonTypeCustom];
-        [bt setImage:[UIImage imageNamed:[NSString stringWithFormat:@"voice_%@", key]] forState:UIControlStateNormal];
-        [bt.imageView setContentMode:UIViewContentModeScaleAspectFill];
-        [bt setAdjustsImageWhenHighlighted:NO];
-        bt.frame = CGRectMake(x, y, w, h);
-        x += fw / [arr count];
-        [self.bg3 addSubview:bt];
-        [bt addTarget:self action:@selector(clickBT:) forControlEvents:UIControlEventTouchUpInside];
-        [voiceButton setObject:bt forKey:key];
-    }
-    [self updateVoiceButton];
-    
-    [buttonVoiceMan removeFromSuperview];
-    [buttonVoiceGirl removeFromSuperview];
-    [buttonVoiceDubbing removeFromSuperview];
-}
-
-- (void)updateVoiceButton {
-    for(id key in voiceButton) {
-    }
-}
-
 - (void)clickBT:(UIButton*)bt {
     id key = [[voiceButton allKeysForObject:bt] firstObject];
     NSLog(@"click %@", key);
@@ -139,7 +109,6 @@
     SET(key, KEY_VOICE_TYPE);
     
     //update
-    [self updateVoiceButton];
     
     [Functions audioPlayerWithRetainObject:self playURL:URL_SOUND_CLICK volume:0.3 numberOfLoops:0];
     [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
@@ -167,8 +136,6 @@
         self.cell4.layer.cornerRadius = 5;
         self.cell5.layer.cornerRadius = 5;
         self.cell6.layer.cornerRadius = 5;
-        buttonDeleteRecord.layer.backgroundColor = [UIColor colorWithWhite:0.2 alpha:1.0].CGColor;
-        buttonDeleteRecord.layer.cornerRadius = 5;
         // Custom initialization
         
     }
@@ -196,6 +163,12 @@
     
     [self customNavigationBarWithTitle:@"설정" backButtonSelector:@selector(backClick:)];
     [self displaySettingValue];
+    
+    buttonDeleteRecord.layer.backgroundColor = [UIColor colorWithWhite:0.6 alpha:1.0].CGColor;
+    buttonDeleteRecord.layer.cornerRadius = 5;
+    
+    buttonBirdBGM.contentMode = UIViewContentModeScaleAspectFit;
+    buttonBirdBGM.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
 }
 
 - (void)displaySettingValue
@@ -208,12 +181,14 @@
         [self clickPlayOption:self.buttonPlayRestart];
     }
     
-    if ([GET(KEY_VOICE_TYPE) isEqualToString:VALUE_VOICE_TYPE_MAN]) {
-        [self clickVoiceType:self.buttonVoiceMan];
-    } else if ([GET(KEY_VOICE_TYPE) isEqualToString:VALUE_VOICE_TYPE_GIRL]) {
-        [self clickVoiceType:self.buttonVoiceGirl];
-    } else if ([GET(KEY_VOICE_TYPE) isEqualToString:VALUE_VOICE_TYPE_DUBBING]){
-        [self clickVoiceType:self.buttonVoiceDubbing];
+    if ([GET(KEY_VOICE_TYPE) isEqualToString:VALUE_VOICE_TYPE_MAN1]) {
+        [self clickVoiceType:self.buttonVoiceMan1];
+    } else if ([GET(KEY_VOICE_TYPE) isEqualToString:VALUE_VOICE_TYPE_GIRL1]) {
+        [self clickVoiceType:self.buttonVoiceGirl1];
+    } if ([GET(KEY_VOICE_TYPE) isEqualToString:VALUE_VOICE_TYPE_MAN2]) {
+        [self clickVoiceType:self.buttonVoiceMan2];
+    } else if ([GET(KEY_VOICE_TYPE) isEqualToString:VALUE_VOICE_TYPE_GIRL2]) {
+        [self clickVoiceType:self.buttonVoiceGirl2];
     }
     
     self.labelVoiceVolume.text = GET(KEY_VOICE_VOLUME);
@@ -294,26 +269,35 @@
     } completion:^(BOOL finished) {
         [(UIButton *)sender setTransform:CGAffineTransformMakeScale(1, 1)];
 
-        if (sender==self.buttonVoiceMan)
+        if (sender==self.buttonVoiceMan1)
         {
-            [self.buttonVoiceMan setSelected:YES];
-            [self.buttonVoiceGirl setSelected:NO];
-            [self.buttonVoiceDubbing setSelected:NO];
-            SET(VALUE_VOICE_TYPE_MAN, KEY_VOICE_TYPE);
+            [self.buttonVoiceMan1 setSelected:YES];
+            [self.buttonVoiceGirl1 setSelected:NO];
+            [self.buttonVoiceMan2 setSelected:NO];
+            [self.buttonVoiceGirl2 setSelected:NO];
+            SET(VALUE_VOICE_TYPE_MAN1, KEY_VOICE_TYPE);
         }
-        else if (sender==self.buttonVoiceGirl)
+        else if (sender==self.buttonVoiceMan2)
         {
-            [self.buttonVoiceMan setSelected:NO];
-            [self.buttonVoiceGirl setSelected:YES];
-            [self.buttonVoiceDubbing setSelected:NO];
-            SET(VALUE_VOICE_TYPE_GIRL, KEY_VOICE_TYPE);
-        }
-        else if (sender==self.buttonVoiceDubbing)
+            [self.buttonVoiceMan1 setSelected:NO];
+            [self.buttonVoiceGirl1 setSelected:NO];
+            [self.buttonVoiceMan2 setSelected:YES];
+            [self.buttonVoiceGirl2 setSelected:NO];
+            SET(VALUE_VOICE_TYPE_MAN2, KEY_VOICE_TYPE);
+        }else if (sender==self.buttonVoiceGirl1)
         {
-            [self.buttonVoiceMan setSelected:NO];
-            [self.buttonVoiceGirl setSelected:NO];
-            [self.buttonVoiceDubbing setSelected:YES];
-            SET(VALUE_VOICE_TYPE_DUBBING, KEY_VOICE_TYPE);
+            [self.buttonVoiceMan1 setSelected:NO];
+            [self.buttonVoiceGirl1 setSelected:YES];
+            [self.buttonVoiceMan2 setSelected:NO];
+            [self.buttonVoiceGirl2 setSelected:NO];
+            SET(VALUE_VOICE_TYPE_GIRL1, KEY_VOICE_TYPE);
+        }else if (sender==self.buttonVoiceGirl2)
+        {
+            [self.buttonVoiceMan1 setSelected:NO];
+            [self.buttonVoiceGirl1 setSelected:NO];
+            [self.buttonVoiceMan2 setSelected:NO];
+            [self.buttonVoiceGirl2 setSelected:YES];
+            SET(VALUE_VOICE_TYPE_GIRL2, KEY_VOICE_TYPE);
         }
     }];
 }

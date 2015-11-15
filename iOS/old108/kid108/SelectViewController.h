@@ -15,8 +15,8 @@
 @property (nonatomic, retain) IBOutlet UIView *popup;
 @property (nonatomic, retain) IBOutlet UIButton *categoryTitleBT;
 @property (nonatomic, retain) IBOutlet UIButton *categoryPosBT;
-@property (nonatomic, retain) IBOutlet UIButton *cancelBT;
 @property (nonatomic, retain) IBOutlet UITableView* table;
+@property (nonatomic, retain) IBOutlet UIImageView* img;
 
 - (IBAction)clickTitle:(id)sender;
 - (IBAction)clickPos:(id)sender;

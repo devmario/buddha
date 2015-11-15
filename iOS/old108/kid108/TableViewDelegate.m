@@ -62,7 +62,7 @@
     [self cancelBT];
     id check_empty = [self.data objectForKey:@"is_empty"];
     if(check_empty != nil && [check_empty isEqualToString:@"true"]) {
-        [[(RecordPage*)self.record_page navigationController] pushViewController:[[[PlayPage alloc] initWithNewPosition:0] autorelease] animated:NO];
+        [[(RecordPage*)self.record_page navigationController] pushViewController:[[[PlayPage alloc] initWithNewPosition:0] autorelease] animated:YES];
     } else {
         int count = -1;
         id countObject = [self.data objectForKey:@"count"];
@@ -75,7 +75,7 @@
         if(count_buddha == 107) {
             
         } else {
-            [[(RecordPage*)self.record_page navigationController] pushViewController:[[[PlayPage alloc] initWithRecord:self.data] autorelease] animated:NO];
+            [[(RecordPage*)self.record_page navigationController] pushViewController:[[[PlayPage alloc] initWithRecord:self.data] autorelease] animated:YES];
         }
     }
 }
