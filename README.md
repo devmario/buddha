@@ -65,3 +65,9 @@
 - [ ] how to bug fix
 - [ ] 리소스 정리(프로젝트 제너레이터 준비)
 - [ ] 프로젝트 제너레이터
+## old buddha
+- 절하는 방법
+- 사용법
+- 스크롤러(절하는 방법, 기록보기, 시작)
+- 메인 아이콘
+- flight app(http://blog.saltfactory.net/ios/distribute-ios-app-using-with-dropbox-without-server.html)

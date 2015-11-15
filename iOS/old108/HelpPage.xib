@@ -4,16 +4,23 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="BMJUA_otf.otf">
+            <string>BMJUAOTF</string>
+            <string>BMJUAOTF</string>
+            <string>BMJUAOTF</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HelpPage">
             <connections>
                 <outlet property="bg" destination="4" id="REk-o4-O0B"/>
-                <outlet property="buttonAppInfo" destination="12" id="23"/>
-                <outlet property="buttonHowToPlay" destination="13" id="24"/>
+                <outlet property="buttonAppInfo" destination="0BB-O8-6vj" id="naj-1k-2H1"/>
+                <outlet property="buttonHowToPlay" destination="pYU-Ws-hO4" id="qIC-hu-q8p"/>
                 <outlet property="buttonNextImage" destination="37" id="41"/>
                 <outlet property="buttonPlay" destination="33" id="40"/>
                 <outlet property="buttonPrevImage" destination="35" id="39"/>
-                <outlet property="buttonUsage" destination="15" id="25"/>
+                <outlet property="buttonUsage" destination="PcR-La-fmj" id="Hie-MA-brm"/>
                 <outlet property="help1" destination="5" id="u7m-pg-5wp"/>
                 <outlet property="help2" destination="48" id="u6y-N3-rjh"/>
                 <outlet property="help3" destination="49" id="5VY-Hl-jTd"/>
@@ -662,31 +669,43 @@ Cg
                     <rect key="frame" x="110" y="0.0" width="370" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="12" customClass="CustomButton">
-                            <rect key="frame" x="37" y="8" width="79" height="29"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="pYU-Ws-hO4">
+                            <rect key="frame" x="196" y="8" width="79" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
-                            <state key="normal" title="마음 거울"/>
+                            <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="14"/>
+                            <state key="normal" title="절하는 방법">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
                             <connections>
-                                <action selector="clickAppInfo:" destination="-1" eventType="touchUpInside" id="16"/>
+                                <action selector="clickHowToPlay:" destination="-1" eventType="touchUpInside" id="Jvj-0y-uie"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="15" customClass="CustomButton">
-                            <rect key="frame" x="234" y="8" width="79" height="29"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="PcR-La-fmj">
+                            <rect key="frame" x="283" y="8" width="79" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
-                            <state key="normal" title="사용법"/>
+                            <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="14"/>
+                            <state key="normal" title="사용법">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
                             <connections>
-                                <action selector="clickUsage:" destination="-1" eventType="touchUpInside" id="18"/>
+                                <action selector="clickUsage:" destination="-1" eventType="touchUpInside" id="QlQ-1G-aDq"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="13" customClass="CustomButton">
-                            <rect key="frame" x="136" y="8" width="79" height="29"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="0BB-O8-6vj">
+                            <rect key="frame" x="109" y="8" width="79" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
-                            <state key="normal" title="절하는 방법"/>
+                            <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="14"/>
+                            <state key="normal" title="마음거울">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
                             <connections>
-                                <action selector="clickHowToPlay:" destination="-1" eventType="touchUpInside" id="19"/>
+                                <action selector="clickAppInfo:" destination="-1" eventType="touchUpInside" id="HpN-gg-hLs"/>
                             </connections>
                         </button>
                     </subviews>
