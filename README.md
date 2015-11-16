@@ -71,3 +71,9 @@
 - 스크롤러(절하는 방법, 기록보기, 시작)
 - 메인 아이콘
 - flight app(http://blog.saltfactory.net/ios/distribute-ios-app-using-with-dropbox-without-server.html)
+
+-> old android
+-> adult ios
+-> adult android
+-> kid ios
+-> kid android
