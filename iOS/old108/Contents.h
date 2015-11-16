@@ -48,7 +48,7 @@
 #define VALUE_BGM_VOLUME_MAX        10.0
 //
 // - - - - - - - - - - - - - - - - - - - -
-#define URL_SOUND_BELL      [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"bell0" ofType:@"mp3"]]
+#define URL_SOUND_BELL      [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"bell" ofType:@"mp3"]]
 #define URL_SOUND_CLICK     [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"click" ofType:@"mp3"]]
 
 

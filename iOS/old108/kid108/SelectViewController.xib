@@ -27,7 +27,7 @@
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="helpPageBg.png" id="WCk-ru-a9m">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recordPageBg.png" id="WCk-ru-a9m">
                     <rect key="frame" x="-9" y="-8" width="407" height="585"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
@@ -83,6 +83,6 @@
         </view>
     </objects>
     <resources>
-        <image name="helpPageBg.png" width="960" height="640"/>
+        <image name="recordPageBg.png" width="960" height="640"/>
     </resources>
 </document>
