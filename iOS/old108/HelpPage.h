@@ -13,6 +13,7 @@
     // how to play
     int currentSequence;
     NSArray *arraySequence;
+    int usageIndex;
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *buttonAppInfo;
@@ -31,6 +32,8 @@
 @property (nonatomic, retain) IBOutlet UIImageView     *help1;
 @property (nonatomic, retain) IBOutlet UIImageView     *help2;
 @property (nonatomic, retain) IBOutlet UIImageView     *help3;
+@property (nonatomic, retain) IBOutlet UIImageView     *help4;
+@property (nonatomic, retain) IBOutlet UIImageView     *help5;
 @property (nonatomic, retain) IBOutlet UIPageControl    *pageControlUsage;
 //
 @property (nonatomic, retain) IBOutlet UIView       *viewHowToPlay;
@@ -46,10 +49,15 @@
 @property (nonatomic, retain) IBOutlet UIButton  *howbt1;
 @property (nonatomic, retain) IBOutlet UIButton  *howbt2;
 @property (nonatomic, retain) IBOutlet UIButton  *howbt3;
+@property (nonatomic, retain) IBOutlet UIButton  *usagePrevButton;
+@property (nonatomic, retain) IBOutlet UIButton  *usageNextButton;
 
 - (IBAction)clickPrev:(id)sender;
 - (IBAction)clickPlay:(id)sender;
 - (IBAction)clickNext:(id)sender;
+- (IBAction)clickUsagePrev:(id)sender;
+- (IBAction)clickUsageNext:(id)sender;
+- (void)updateUsageButtonStatus;
 //
 @property (nonatomic, retain) IBOutlet UIView *viewUsage;
 

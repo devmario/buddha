@@ -167,7 +167,6 @@
 - (void)reloadData {
     self.data = [Functions recordGet];
     [super reloadData];
-    [self performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:0];
     
 }
 

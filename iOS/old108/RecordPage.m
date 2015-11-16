@@ -61,6 +61,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [table reloadData];
+    [table performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:0];
 }
 
 - (void)setUserInterface

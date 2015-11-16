@@ -15,7 +15,7 @@
 @implementation HelpPage
 
 @synthesize viewAppInfo, viewHowToPlay, viewUsage, buttonAppInfo, buttonHowToPlay, buttonUsage, scrollViewUsage, pageControlUsage,bg,menu,howbt1,howbt2,howbt3,imageViewPlay;
-@synthesize textViewAppInfo, textViewHowToPlay,help1,help2,help3;
+@synthesize textViewAppInfo, textViewHowToPlay,help1,help2,help3,help4,help5;
 
 - (void)dealloc
 {
@@ -35,6 +35,14 @@
     [super dealloc];
 }
 
+- (void)helpIMGshadowSetup:(UIImageView*)imageView {
+    imageView.layer.shadowColor = [UIColor darkGrayColor].CGColor;
+    imageView.layer.shadowOffset = CGSizeMake(0, 0);
+    imageView.layer.shadowOpacity = 1;
+    imageView.layer.shadowRadius = 10.0;
+    imageView.clipsToBounds = NO;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -51,38 +59,65 @@
         viewHowToPlay.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.5, [[UIScreen mainScreen] bounds].size.height * 0.5 + menu.frame.size.height * 0.5);
         viewUsage.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width - 40, ([[UIScreen mainScreen] bounds].size.height - menu.frame.size.height) - 40);
         viewUsage.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.5, [[UIScreen mainScreen] bounds].size.height * 0.5 + menu.frame.size.height * 0.5);
+        self.usageNextButton.center = CGPointMake(viewUsage.frame.size.width - 10 - self.usageNextButton.frame.size.width * 0.5, viewUsage.frame.size.height * 0.5);
+        self.usagePrevButton.center = CGPointMake(10 + self.usagePrevButton.frame.size.width * 0.5, viewUsage.frame.size.height * 0.5);
+        self.usageNextButton.layer.cornerRadius = 5;
+        self.usageNextButton.layer.backgroundColor = [UIColor colorWithWhite:0.5 alpha:1.0].CGColor;
+        self.usagePrevButton.layer.cornerRadius = 5;
+        self.usagePrevButton.layer.backgroundColor = [UIColor colorWithWhite:0.5 alpha:1.0].CGColor;
         
         viewUsage.layer.backgroundColor = [UIColor colorWithWhite:0.9 alpha:0.7].CGColor;
         viewUsage.layer.cornerRadius = 5;
         viewHowToPlay.layer.backgroundColor = [UIColor colorWithWhite:0.9 alpha:0.7].CGColor;
         viewHowToPlay.layer.cornerRadius = 5;
         
-        imageViewPlay.frame = CGRectMake(0, 0, viewHowToPlay.frame.size.height - 60, viewHowToPlay.frame.size.height - 60);
-        imageViewPlay.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.5 - imageViewPlay.frame.size.width * 0.5 - 10, viewHowToPlay.frame.size.height - imageViewPlay.frame.size.height * 0.5 - 45);
-        imageViewPlay.contentMode = UIViewContentModeScaleAspectFit;
-        textViewHowToPlay.frame = imageViewPlay.frame;
-        textViewHowToPlay.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.5 + textViewHowToPlay.frame.size.width * 0.5 + 10, viewHowToPlay.frame.size.height - textViewHowToPlay.frame.size.height * 0.5 - 45);
+        float s = viewHowToPlay.frame.size.height - 20 - 20 - howbt1.frame.size.height;
+        imageViewPlay.frame = CGRectMake(0, 0, s, s);
+        imageViewPlay.center = CGPointMake(imageViewPlay.frame.size.width * 0.5 + 20, imageViewPlay.frame.size.height * 0.5 + 20);
+        imageViewPlay.contentMode = UIViewContentModeScaleAspectFill;
+        imageViewPlay.clipsToBounds = YES;
+        imageViewPlay.layer.cornerRadius = 5;
         
-        howbt1.center = CGPointMake(imageViewPlay.frame.origin.x + howbt1.frame.size.width * 0.5, viewHowToPlay.frame.size.height - howbt1.frame.size.height * 0.5 - 8);
-        howbt3.center = CGPointMake(imageViewPlay.frame.origin.x + imageViewPlay.frame.size.width - howbt3.frame.size.width * 0.5, viewHowToPlay.frame.size.height - howbt3.frame.size.height * 0.5 - 8);
-        howbt2.center = CGPointMake(howbt1.center.x + (howbt3.center.x - howbt1.center.x) * 0.5,howbt3.center.y);
+        textViewHowToPlay.frame = CGRectMake(0, 0, viewHowToPlay.frame.size.width - imageViewPlay.frame.size.width - 60, viewHowToPlay.frame.size.height - 40);
+        textViewHowToPlay.center = CGPointMake(imageViewPlay.frame.size.width + 40 + textViewHowToPlay.frame.size.width * 0.5, viewHowToPlay.frame.size.height * 0.5);
         
-        help1.frame = CGRectMake(0, 0, viewUsage.frame.size.width, viewUsage.frame.size.height);
-        help2.frame = CGRectMake(help1.frame.size.width, 0, help1.frame.size.width, help1.frame.size.height);
-        help3.frame = CGRectMake(help1.frame.size.width + help2.frame.size.width, 0, help1.frame.size.width, help1.frame.size.height);
-        help1.contentMode = help2.contentMode = help3.contentMode = UIViewContentModeScaleAspectFit;
+        howbt1.layer.cornerRadius = howbt1.frame.size.height / 2.0;
+        howbt2.layer.cornerRadius = howbt2.frame.size.height / 2.0;
+        howbt3.layer.cornerRadius = howbt3.frame.size.height / 2.0;
+        howbt1.layer.backgroundColor = [UIColor colorWithWhite:0.4 alpha:1.0].CGColor;
+        howbt2.layer.backgroundColor = [UIColor colorWithWhite:0.4 alpha:1.0].CGColor;
+        howbt3.layer.backgroundColor = [UIColor colorWithWhite:0.4 alpha:1.0].CGColor;
+        howbt1.clipsToBounds = YES;
+        howbt2.clipsToBounds = YES;
+        howbt3.clipsToBounds = YES;
+        howbt1.center = CGPointMake(imageViewPlay.frame.origin.x + howbt1.frame.size.width * 0.5, viewHowToPlay.frame.size.height - 10 - howbt1.frame.size.height * 0.5);
+        howbt3.center = CGPointMake(imageViewPlay.frame.origin.x + imageViewPlay.frame.size.width - howbt3.frame.size.width * 0.5, howbt1.center.y);
+        howbt2.center = CGPointMake(howbt1.center.x + (howbt3.center.x - howbt1.center.x) * 0.5, howbt1.center.y);
+        
+        help1.frame = CGRectMake(viewUsage.frame.size.width * 0, 10, viewUsage.frame.size.width, viewUsage.frame.size.height - pageControlUsage.frame.size.height - 10);
+        help2.frame = CGRectMake(viewUsage.frame.size.width * 1, 10, viewUsage.frame.size.width, viewUsage.frame.size.height - pageControlUsage.frame.size.height - 10);
+        help3.frame = CGRectMake(viewUsage.frame.size.width * 2, 10, viewUsage.frame.size.width, viewUsage.frame.size.height - pageControlUsage.frame.size.height - 10);
+        help4.frame = CGRectMake(viewUsage.frame.size.width * 3, 10, viewUsage.frame.size.width, viewUsage.frame.size.height - pageControlUsage.frame.size.height - 10);
+        help5.frame = CGRectMake(viewUsage.frame.size.width * 4, 10, viewUsage.frame.size.width, viewUsage.frame.size.height - pageControlUsage.frame.size.height - 10);
+        help1.contentMode = help2.contentMode = help3.contentMode = help4.contentMode = help5.contentMode = UIViewContentModeScaleAspectFit;
+        
+        [self helpIMGshadowSetup:help1];
+        [self helpIMGshadowSetup:help2];
+        [self helpIMGshadowSetup:help3];
+        [self helpIMGshadowSetup:help4];
+        [self helpIMGshadowSetup:help5];
+        
         scrollViewUsage.frame = viewUsage.frame;
         scrollViewUsage.center = CGPointMake(viewUsage.frame.size.width * 0.5, viewUsage.frame.size.height * 0.5);
-        scrollViewUsage.contentSize = CGSizeMake(viewUsage.frame.size.width * 3, viewUsage.frame.size.height);
+        scrollViewUsage.contentSize = CGSizeMake(viewUsage.frame.size.width * 5, viewUsage.frame.size.height);
         
         bg.contentMode = UIViewContentModeScaleAspectFill;
         pageControlUsage.pageIndicatorTintColor = [UIColor whiteColor];
         pageControlUsage.currentPageIndicatorTintColor = [UIColor blackColor];
-        pageControlUsage.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.5, viewHowToPlay.frame.size.height * 0.9);
+        pageControlUsage.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.5, scrollViewUsage.frame.size.height - pageControlUsage.frame.size.height * 0.5);
         
         menu.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width - menu.frame.size.width, 0, menu.frame.size.width, menu.frame.size.height);
         [menu setBackgroundColor:[UIColor clearColor]];
-        [self.textViewHowToPlay setFont:FONT_GLOBAL(23)];
         
         [self clickAppInfo:nil];
     }
@@ -103,6 +138,42 @@
     }];
 }
 
+- (IBAction)clickUsagePrev:(id)sender {
+    [Functions audioPlayerWithRetainObject:self playURL:URL_SOUND_CLICK volume:0.3 numberOfLoops:0];
+    
+    [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        [(UIButton *)sender setTransform:CGAffineTransformScale([(UIButton *)sender transform], 1.1, 1.1)];
+    } completion:^(BOOL finished) {
+        [(UIButton *)sender setTransform:CGAffineTransformMakeScale(1, 1)];
+        
+        //
+        if(pageControlUsage.currentPage > 0) {
+            [scrollViewUsage scrollRectToVisible:CGRectMake(scrollViewUsage.frame.size.width * (pageControlUsage.currentPage - 1), 0, scrollViewUsage.frame.size.width, scrollViewUsage.frame.size.height) animated:YES];
+        }
+    }];
+}
+
+- (void)updateUsageButtonStatus  {
+    [self.usagePrevButton setEnabled:pageControlUsage.currentPage > 0];
+    [self.usageNextButton setEnabled:pageControlUsage.currentPage < pageControlUsage.numberOfPages - 1];
+    [self.usagePrevButton setAlpha:pageControlUsage.currentPage > 0 ? 1.0 : 0.5];
+    [self.usageNextButton setAlpha:pageControlUsage.currentPage < pageControlUsage.numberOfPages - 1 ? 1.0 : 0.5];
+}
+
+- (IBAction)clickUsageNext:(id)sender; {
+    [Functions audioPlayerWithRetainObject:self playURL:URL_SOUND_CLICK volume:0.3 numberOfLoops:0];
+    
+    [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        [(UIButton *)sender setTransform:CGAffineTransformScale([(UIButton *)sender transform], 1.1, 1.1)];
+    } completion:^(BOOL finished) {
+        [(UIButton *)sender setTransform:CGAffineTransformMakeScale(1, 1)];
+        
+        //
+        if(pageControlUsage.currentPage < pageControlUsage.numberOfPages - 1) {
+            [scrollViewUsage scrollRectToVisible:CGRectMake(scrollViewUsage.frame.size.width * (pageControlUsage.currentPage + 1), 0, scrollViewUsage.frame.size.width, scrollViewUsage.frame.size.height) animated:YES];
+        }
+    }];
+}
 
 - (void)viewDidLoad
 {
@@ -123,6 +194,7 @@
 {
     CGFloat pageWidth = scrollView.frame.size.width;
     self.pageControlUsage.currentPage = floor((scrollView.contentOffset.x - pageWidth/3) / pageWidth) + 1;
+    [self updateUsageButtonStatus];
 }
 
 
@@ -155,12 +227,13 @@
         self.textViewAppInfo.layer.backgroundColor = [UIColor colorWithWhite:0.9 alpha:0.7].CGColor;
         self.textViewAppInfo.layer.cornerRadius = 5;
         
-        [self.textViewAppInfo setFont:FONT_GLOBAL(16)];
-        
-        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:[Contents info]];
+        UIFont *font = FONT_GLOBAL(16);
+        NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:[Contents info] attributes:attrsDictionary];
         NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
         paragraphStyle.lineSpacing = 20.0f;
         paragraphStyle.alignment = NSTextAlignmentCenter;
+        paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
         [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [Contents info].length)];
         
         textViewAppInfo.attributedText = attributedString;
@@ -194,6 +267,9 @@
         [(UIButton *)sender setTransform:CGAffineTransformScale([(UIButton *)sender transform], 1.1, 1.1)];
     } completion:^(BOOL finished) {
         [(UIButton *)sender setTransform:CGAffineTransformMakeScale(1, 1)];
+        pageControlUsage.currentPage = 0;
+        [scrollViewUsage scrollRectToVisible:CGRectMake(0, 0, scrollViewUsage.frame.size.width, scrollViewUsage.frame.size.height) animated:NO];
+        [scrollViewUsage setShowsHorizontalScrollIndicator:NO];
         
         [self.buttonAppInfo setSelected:NO];
         [self.buttonHowToPlay setSelected:NO];
@@ -202,6 +278,8 @@
         [self.viewAppInfo setHidden:YES];
         [self.viewHowToPlay setHidden:YES];
         [self.viewUsage setHidden:NO];
+        
+        [self updateUsageButtonStatus];
     }];
 }
 
@@ -231,10 +309,20 @@
 }
 
 - (void)updatePlayInfoText {
-    self.textViewPlayInfo.text = [Contents sequenceText:currentSequence];
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:[Contents sequenceText:currentSequence]];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 20.0f;
+    paragraphStyle.alignment = NSTextAlignmentLeft;
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    [attributedString addAttribute:NSFontAttributeName value:FONT_GLOBAL(14) range:NSMakeRange(0, [Contents sequenceText:currentSequence].length)];
+    [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithWhite:0.4 alpha:1.0] range:NSMakeRange(0, [Contents sequenceText:currentSequence].length)];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [Contents sequenceText:currentSequence].length)];
     
-    [textViewHowToPlay flashScrollIndicators];
-    [self.textViewPlayInfo flashScrollIndicators];
+    self.textViewPlayInfo.attributedText = attributedString;
+    
+    self.textViewPlayInfo.layer.cornerRadius = 5;
+    
+    [textViewHowToPlay performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:0];
 }
 
 - (void)preparePlay
@@ -326,10 +414,13 @@
     } completion:^(BOOL finished) {
         [(UIButton *)sender setTransform:CGAffineTransformMakeScale(1, 1)];
         
-        currentSequence++;
-        if (currentSequence > [[Contents sequence] count] - 2) {
-            currentSequence = [[Contents sequence] count] - 2;
-            
+        if([self.textViewPlayInfo.text isEqualToString:@""]) {
+            currentSequence = 0;
+        } else {
+            currentSequence++;
+            if (currentSequence > [[Contents sequence] count] - 2) {
+                currentSequence = [[Contents sequence] count] - 2;
+            }
         }
         
         [self imagePlay];
