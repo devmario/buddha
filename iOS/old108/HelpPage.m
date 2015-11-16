@@ -47,10 +47,11 @@
         help2.frame = [[UIScreen mainScreen] bounds];
         help3.frame = [[UIScreen mainScreen] bounds];
         
-        viewHowToPlay.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width * 0.9, ([[UIScreen mainScreen] bounds].size.height - menu.frame.size.height) * 0.9);
+        viewHowToPlay.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width - 40, ([[UIScreen mainScreen] bounds].size.height - menu.frame.size.height) - 40);
         viewHowToPlay.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.5, [[UIScreen mainScreen] bounds].size.height * 0.5 + menu.frame.size.height * 0.5);
-        viewUsage.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width * 0.9, ([[UIScreen mainScreen] bounds].size.height - menu.frame.size.height) * 0.9);
+        viewUsage.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width - 40, ([[UIScreen mainScreen] bounds].size.height - menu.frame.size.height) - 40);
         viewUsage.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.5, [[UIScreen mainScreen] bounds].size.height * 0.5 + menu.frame.size.height * 0.5);
+        
         viewUsage.layer.backgroundColor = [UIColor colorWithWhite:0.9 alpha:0.7].CGColor;
         viewUsage.layer.cornerRadius = 5;
         viewHowToPlay.layer.backgroundColor = [UIColor colorWithWhite:0.9 alpha:0.7].CGColor;
