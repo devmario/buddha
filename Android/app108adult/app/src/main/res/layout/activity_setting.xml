@@ -33,11 +33,11 @@
 
                     <LinearLayout style="@style/match_width" android:gravity="center" android:layout_width="270dp">
                         <exight.customviews.EffectButton style="@style/wrap_content" android:background="@drawable/setting_button_voice_man"  android:layout_marginRight="62dp"
-                            android:id="@+id/setting_btnVoiceMan"/>
+                            android:id="@+id/setting_btnVoice_a"/>
                         <exight.customviews.EffectButton style="@style/wrap_content" android:background="@drawable/setting_button_voice_woman"  android:layout_marginRight="62dp"
-                            android:id="@+id/setting_btnVoiceWoman"/>
+                            android:id="@+id/setting_btnVoice_b"/>
                         <exight.customviews.EffectButton style="@style/wrap_content" android:background="@drawable/setting_button_voice_woman2"
-                            android:id="@+id/setting_btnVoiceWoman2"/>
+                            android:id="@+id/setting_btnVoice_g"/>
                     </LinearLayout>
 
 

@@ -18,11 +18,13 @@ import android.util.Log;
 
 import com.threedpaper.app108adult.BgmManager;
 import com.threedpaper.app108adult.R;
+import com.threedpaper.model.ModelFoldingSequence;
 import com.threedpaper.model.ModelFrame;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import exight.lib.ExPreferManager;
 import exight.lib.ExightSoundPool;
 
 
@@ -47,6 +49,12 @@ public class Variables {
 	public static JSONObject json = null;
 	
 	public static final List<ModelFrame> LIST_MODEL_FRAMES = new ArrayList<ModelFrame>();
+	public static final List<ModelFoldingSequence> LIST_MODEL_SEQUENCE = new ArrayList<ModelFoldingSequence>();
+
+	public final static JSONObject getData(Context context) {
+		LOAD_JSON(context);
+		return json;
+	}
 
 	private final static boolean LOAD_JSON(Context context) {
 		if(Variables.inited)
@@ -73,19 +81,30 @@ public class Variables {
 			json = json.getJSONObject(json.getString("name"));
 
 			JSONArray voice = json.getJSONArray("voice");
+			String voiceType = ExPreferManager.getItem(context, "voice");
+			boolean finded = false;
+			for(int i = 0; i < voice.length(); i++) {
+				if(voice.getString(i).equals(voiceType)) {
+					finded = true;
+					break;
+				}
+			}
+			if(!finded) {
+				voiceType = voice.getString(0);
+				ExPreferManager.setItem(context, "voice", voiceType);
+			}
 
 			JSONArray scene = json.getJSONArray("scene");
 			for(int i = 0; i < scene.length(); i++) {
 				JSONObject it = scene.getJSONObject(i);
 				NumberFormat nf = new DecimalFormat("000");
-				LIST_MODEL_FRAMES.add(
-						new ModelFrame(
-								it.getString("title"),
-								it.getString("sub_title"),
-								context.getResources().getIdentifier("inner_bg_" + nf.format(i + 1), "drawable", context.getPackageName()),
-								context.getResources().getIdentifier(voice.getString(0) + nf.format(i + 1), "raw", context.getPackageName()),
-								context.getResources().getIdentifier(voice.getString(1) + nf.format(i + 1), "raw", context.getPackageName()),
-								context.getResources().getIdentifier(voice.getString(2) + nf.format(i + 1), "raw", context.getPackageName())));
+				LIST_MODEL_FRAMES.add(new ModelFrame(context, it, i, voice));
+			}
+
+			JSONObject how_to = json.getJSONObject("how_to");
+			JSONArray desc = how_to.getJSONArray("desc");
+			for(int i = 0; i < desc.length(); i++) {
+				LIST_MODEL_SEQUENCE.add(new ModelFoldingSequence(context, how_to, i));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

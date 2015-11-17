@@ -117,8 +117,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.labelTitle.font = FONT_GLOBAL([[[[Contents jsonData] objectForKey:@"play_title"] objectForKey:@"size"] intValue]);
+    self.labelTitle.font = [UIFont boldSystemFontOfSize:[[[[Contents jsonData] objectForKey:@"play_title"] objectForKey:@"size"] intValue]];//FONT_GLOBAL([[[[Contents jsonData] objectForKey:@"play_title"] objectForKey:@"size"] intValue]);
     self.labelSubtitle.font = FONT_GLOBAL([[[[Contents jsonData] objectForKey:@"play_subtitle"] objectForKey:@"size"] intValue]);
+    //[self.labelTitle setTextColor:[UIColor colorWithWhite:0.2 alpha:1.0]];
     [self.labelTitle.layer setShadowColor:[UIColor blackColor].CGColor];
     [self.labelTitle.layer setShadowOffset:CGSizeMake(0, 0)];
     [self.labelTitle.layer setShadowRadius:2.0];
@@ -140,7 +141,7 @@
 
     //[self customNavigationBarWithTitle:@"절하기" backButtonSelector:@selector(backClick)];
     UIButton *pauseButton = [[UIButton alloc] initWithFrame:CGRectMake(12/2, 14/2, 60/2, 58/2)];
-    [pauseButton setTitle:@"X" forState:UIControlStateNormal];
+    [pauseButton setTitle:@"||" forState:UIControlStateNormal];
     [pauseButton.titleLabel setFont:FONT_GLOBAL(20)];
     pauseButton.layer.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0].CGColor;
     pauseButton.layer.cornerRadius = 5;

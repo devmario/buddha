@@ -6,6 +6,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.AlphaAnimation;
 import android.widget.TextView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import exight.common.Utility;
 import exight.common.Variables;
 import exight.customviews.EffectButton;
@@ -43,7 +50,8 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 	AlphaAnimation anim1, anim2;
 
 	EffectButton btnBgmWater, btnBgmBug, btnBgmMusic, btnBgmBird;
-	EffectButton btnVoiceWoman, btnVoiceWoman2, btnVoiceMan;
+
+	Map<String, EffectButton> mapVoiceButton = new HashMap<String, EffectButton>();
 	EffectButton btnFoldingSpeedUp, btnFoldingSpeedDown;
 	EffectButton btnVoiceVolumnUp, btnVoiceVolumnDown;
 	EffectButton btnBgVolumnUp, btnBgVolumnDown;
@@ -63,12 +71,16 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 		btnBgmWater.setOnClickListener(onClickListenerForBgType);
 
 		//목소리타입
-		btnVoiceMan = (EffectButton)findViewById(R.id.setting_btnVoiceMan);
-		btnVoiceWoman = (EffectButton)findViewById(R.id.setting_btnVoiceWoman);
-		btnVoiceWoman2 = (EffectButton)findViewById(R.id.setting_btnVoiceWoman2);
-		btnVoiceMan.setOnClickListener(onClickListenerForVoiceType);
-		btnVoiceWoman.setOnClickListener(onClickListenerForVoiceType);
-		btnVoiceWoman2.setOnClickListener(onClickListenerForVoiceType);
+		try {
+			JSONArray voice = Variables.getData(getApplicationContext()).getJSONArray("voice");
+			for (int i = 0; i < voice.length(); i++) {
+				EffectButton bt = (EffectButton) findViewById(getApplicationContext().getResources().getIdentifier("setting_btnVoice_" + voice.getString(i), "id", getApplicationContext().getPackageName()));
+				bt.setOnClickListener(onClickListenerForVoiceType);
+				mapVoiceButton.put(voice.getString(i), bt);
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 
 
 		//브금볼륨
@@ -102,7 +114,7 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 	private void setViews(){
 		int foldingSpeed = ExPreferManager.getItemInteger(this, "foldingSpeed");
 		int startType = ExPreferManager.getItemInteger(this, "startType");
-		int voiceType = ExPreferManager.getItemInteger(this, "voiceType");
+		String voiceType = ExPreferManager.getItem(this, "voice");
 		int voiceVolumn = ExPreferManager.getItemInteger(this, "voiceVolumn");
 		int bgType = ExPreferManager.getItemInteger(this, "bgType");
 		int bgVolumn = ExPreferManager.getItemInteger(this, "bgVolumn");
@@ -112,23 +124,12 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 		tvVoiceVolumn.setText(voiceVolumn + "");
 		tvFoldingSpeed.setText(foldingSpeed + "");
 
-
-
 		//목소리 타입
-		btnVoiceMan.startAnimation(anim1);
-		btnVoiceWoman.startAnimation(anim1);
-		btnVoiceWoman2.startAnimation(anim1);
-		switch(voiceType){
-			case Variables.VOICE_TYPE_MAN:
-				btnVoiceMan.startAnimation(anim2);
-				break;
-			case Variables.VOICE_TYPE_WOMAN:
-				btnVoiceWoman.startAnimation(anim2);
-				break;
-			case Variables.VOICE_TYPE_WOMAN2:
-				btnVoiceWoman2.startAnimation(anim2);
-				break;
+		for( String key : mapVoiceButton.keySet() ){
+			EffectButton bt = mapVoiceButton.get(key);
+			bt.startAnimation(anim1);
 		}
+		mapVoiceButton.get(voiceType).startAnimation(anim2);
 
 		//배경ㄴ
 		btnBgmBird.startAnimation(anim1);
@@ -205,12 +206,12 @@ public class ActivitySetting extends ActivityForBgm implements OnClickListener{
 
 		@Override
 		public void onClick(View v) {
-			if(v == btnVoiceMan){
-				ExPreferManager.setItemInteger(getApplicationContext(), "voiceType", Variables.VOICE_TYPE_MAN);
-			}else if(v == btnVoiceWoman){
-				ExPreferManager.setItemInteger(getApplicationContext(), "voiceType", Variables.VOICE_TYPE_WOMAN);
-			}else{
-				ExPreferManager.setItemInteger(getApplicationContext(), "voiceType", Variables.VOICE_TYPE_WOMAN2);
+			for( String key : mapVoiceButton.keySet() ) {
+				EffectButton bt = mapVoiceButton.get(key);
+				if(bt == v) {
+					ExPreferManager.setItem(getApplicationContext(), "voice", key);
+					break;
+				}
 			}
 
 			setViews();
