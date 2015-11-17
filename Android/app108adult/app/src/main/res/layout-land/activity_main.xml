@@ -1,0 +1,47 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/main_common_bg"
+        android:scaleType="centerCrop"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            style="@style/wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" >
+
+            <exight.customviews.EffectButton
+                style="@style/main_common_btn"
+                android:layout_margin="12dp"
+
+                android:id="@+id/main_btnHelp"
+                android:text="도움말" />
+
+            <exight.customviews.EffectButton
+                style="@style/main_common_btn"
+                android:layout_margin="12dp"
+                android:id="@+id/main_btnSetting"
+                android:text="설정" />
+
+            <exight.customviews.EffectButton
+                style="@style/main_common_btn"
+                android:layout_margin="12dp"
+                android:id="@+id/main_btnRecord"
+                android:text="기록보기" />
+
+            <exight.customviews.EffectButton
+                style="@style/main_common_btn"
+                android:id="@+id/main_btnStart"
+                android:layout_margin="12dp"
+                android:text="시작" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</FrameLayout>

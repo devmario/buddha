@@ -2,6 +2,7 @@ package com.threedpaper.app108adult;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
+import android.app.Application;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
@@ -48,7 +49,7 @@ public class ActivityMain extends ActivityForBgm implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		//컨텐츠 초기화
-		Variables.INIT_LIST_MODEL_FRAMES();//getApplicationContext());
+		Variables.INIT_LIST_MODEL_FRAMES(getApplicationContext());//getApplicationContext());
 		init();
 		initViews();
 		setupFull();
@@ -182,15 +183,15 @@ public class ActivityMain extends ActivityForBgm implements OnClickListener{
 
     }
 
-    private List<Map> loadlist(boolean isNumber){
+    private List<Map> loadlist(boolean isNumber) {
         Map<String, Object> map;
         List<Map> list = new ArrayList<Map>();
-        Variables.INIT_LIST_MODEL_FRAMES();
+        Variables.INIT_LIST_MODEL_FRAMES(getApplicationContext());
         String lastTitle = "";
         for(int i = 0; i < Variables.LIST_MODEL_FRAMES.size(); i++) {
             ModelFrame m = Variables.LIST_MODEL_FRAMES.get(i);
             if(!isNumber) {
-                if (lastTitle == m.title) {
+                if (lastTitle.equals(m.title)) {
                     continue;
                 }
                 lastTitle = m.title;
@@ -208,7 +209,7 @@ public class ActivityMain extends ActivityForBgm implements OnClickListener{
 
     @Override
 	public void onClick(View v) {
-		switch(v.getId()){
+		switch(v.getId()) {
 
 			case R.id.main_btnHelp:
 				startActivity(new Intent(this, ActivityHelp.class));
@@ -240,6 +241,8 @@ public class ActivityMain extends ActivityForBgm implements OnClickListener{
                         adapterSelect.setListItems(loadlist(true));
                         adapterSelect.notifyDataSetChanged();
                         selectList.setSelectionAfterHeaderView();
+                        selectList.scrollBy(0, 1);
+                        selectList.scrollBy(0, -1);
                     }
                 });
                 b = (Button)dialogView.findViewById(R.id.tab_title);
@@ -249,6 +252,8 @@ public class ActivityMain extends ActivityForBgm implements OnClickListener{
                         adapterSelect.setListItems(loadlist(false));
                         adapterSelect.notifyDataSetChanged();
                         selectList.setSelectionAfterHeaderView();
+                        selectList.scrollBy(0, 1);
+                        selectList.scrollBy(0, -1);
                     }
                 });
 				builder.setView(dialogView)
