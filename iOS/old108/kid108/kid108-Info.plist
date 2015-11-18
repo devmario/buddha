@@ -30,7 +30,6 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>NanumPen.otf</string>
 		<string>BMJUA_otf.otf</string>
 	</array>
 	<key>UIPrerenderedIcon</key>

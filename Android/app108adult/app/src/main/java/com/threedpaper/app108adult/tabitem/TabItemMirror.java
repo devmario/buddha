@@ -4,9 +4,13 @@ import android.app.Activity;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.view.View;
+import android.widget.TextView;
 
 import com.threedpaper.app108adult.R;
 
+import org.json.JSONException;
+
+import exight.common.Variables;
 import exight.lib.ExightTabItem;
 
 public class TabItemMirror extends ExightTabItem{
@@ -18,6 +22,11 @@ public class TabItemMirror extends ExightTabItem{
 	@Override
 	public View setContentView(Activity activity) {
 		View v = activity.getLayoutInflater().inflate(R.layout.tabitem_mirror, null);
+		try {
+			((TextView) v.findViewById(R.id.tabItemMirror_text)).setText(Variables.getData(getActivity().getApplicationContext()).getString("info"));
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 		return v;
 	}
 

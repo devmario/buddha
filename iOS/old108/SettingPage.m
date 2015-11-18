@@ -143,6 +143,11 @@
 }
 
 
+-(BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
 - (void)backClick:(id)sender
 {
     [Functions audioPlayerWithRetainObject:self playURL:URL_SOUND_CLICK volume:0.3 numberOfLoops:0];

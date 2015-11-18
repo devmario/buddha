@@ -157,6 +157,11 @@ const float radius_SELECT = 5;
 }
 
 
+-(BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 40.0f;
