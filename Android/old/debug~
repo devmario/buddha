@@ -1,0 +1,5 @@
+#!/bin/bash
+adb -s emulator-5554 shell "pm uninstall com.threedpaper.app108adult"
+adb -s emulator-5554 shell "rm -rf /data/app/com.threedpaper.app108adult-*"
+./gradlew assembleDebug
+adb -s emulator-5554 install -r app/build/outputs/apk/app-debug.apk

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@drawable/hist_bg" android:padding="15dp" >
+
+    <exight.customviews.EffectButton style="@style/wrap_content" android:background="@drawable/hist_x" android:id="@+id/hist_btnX" />
+
+
+    <LinearLayout style="@style/match_parent" android:orientation="vertical" android:gravity="center">
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_weight="0.15"
+            android:layout_height="0dp">
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_weight="0.7"
+            android:layout_height="0dp">
+
+            <LinearLayout style="@style/match_parent" android:orientation="horizontal" android:gravity="center">
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="0.15"
+                    android:layout_height="fill_parent">
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:layout_height="fill_parent"
+                    android:paddingRight="20dp">
+                    <ListView android:layout_width="fill_parent" android:layout_height="fill_parent" android:background="@drawable/border"
+                        android:scrollbarAlwaysDrawVerticalTrack="true"
+                        android:id="@+id/hist_lvItems"
+                        android:fadeScrollbars="false"
+                        android:scrollbarStyle="outsideInset"
+                        android:scrollbarDefaultDelayBeforeFade="50000"
+                        android:scrollbarThumbVertical="@drawable/scrollbar"
+                        android:scrollbarTrackVertical="@drawable/border"
+                        android:cacheColorHint="#00000000"
+                        android:dividerHeight="1dp"
+                        android:listSelector="#00000000"
+                        android:padding="1dp"
+                        ></ListView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="0.15"
+                    android:layout_height="fill_parent">
+                </RelativeLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_weight="0.15"
+            android:layout_height="0dp">
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout><!-- From: file:/Users/jangwonhee/Documents/Buddha_2/Android/old/app/src/main/res/layout/activity_record.xml -->

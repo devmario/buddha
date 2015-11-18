@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical" >
+    
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="12dp" >
+        <TextView android:layout_width="300dp" android:layout_height="wrap_content" android:id="@+id/cellFoldingCount_tvDate" android:text="2012-02-11"
+            android:textSize="23sp" android:textColor="#aa000000" android:textStyle="bold" android:layout_alignParentLeft="true" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:orientation="horizontal" android:layout_alignParentRight="true">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/cellFoldingCount_tvCount" android:text="3"
+                android:textSize="23sp" android:textColor="#aa000000"  />
+            <exight.customviews.EffectButton
+                android:id="@+id/record_bt_cell"
+                style="@style/help_common_btn"
+                android:text="이어하기" android:layout_marginLeft="12dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout><!-- From: file:/Users/jangwonhee/Documents/Buddha_2/Android/old/app/src/main/res/layout/cell_folding_history.xml -->

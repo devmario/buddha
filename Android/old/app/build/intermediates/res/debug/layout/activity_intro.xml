@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+
+    <TextView style="@style/wrap_content" android:text="우히히" android:layout_gravity="center" android:textSize="20pt" android:gravity="center"/>
+    
+</LinearLayout><!-- From: file:/Users/jangwonhee/Documents/Buddha_2/Android/old/app/src/main/res/layout/activity_intro.xml -->

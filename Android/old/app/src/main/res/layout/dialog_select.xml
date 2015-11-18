@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:weightSum="1.0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/tab_title"
+            android:layout_weight="0.5"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:text="주제별"/>
+        <Button
+            android:id="@+id/tab_pos"
+            android:layout_weight="0.5"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:text="횟수별"/>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/select_list"
+        android:layout_height="180dp"
+        android:divider="#CCCCCC"
+        android:dividerHeight="1dp"
+        android:layout_width="match_parent">
+    </ListView>
+</LinearLayout>
