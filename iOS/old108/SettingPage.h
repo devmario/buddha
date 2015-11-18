@@ -47,8 +47,6 @@
 @property (nonatomic, retain) IBOutlet UILabel      *labelBGMVolume;
 - (IBAction)clickBGMVolume:(id)sender;
 
-@property (nonatomic, retain) IBOutlet UIButton     *buttonDeleteRecord;
-- (IBAction)clickDeleteRecord:(id)sender;
 
 @property (nonatomic, retain) IBOutlet UIImageView     *bg;
 @property (nonatomic, retain) IBOutlet UIImageView     *bg2;
@@ -59,7 +57,6 @@
 @property (nonatomic, retain) IBOutlet UIView     *cell3;
 @property (nonatomic, retain) IBOutlet UIView     *cell4;
 @property (nonatomic, retain) IBOutlet UIView     *cell5;
-@property (nonatomic, retain) IBOutlet UIView     *cell6;
 
 
 @end

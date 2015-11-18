@@ -66,19 +66,47 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [table reloadData];
-    [table performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:0];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [table performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:0];
+    });
 }
 
 - (void)setUserInterface
 {
     [self customNavigationBarWithTitle:@"기록" backButtonSelector:@selector(backClick:)];
     
-    table = [[TableViewDelegate alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width * 0.1, [[UIScreen mainScreen] bounds].size.height * 0.1, [[UIScreen mainScreen] bounds].size.width * 0.8, [[UIScreen mainScreen] bounds].size.height * 0.8) withRecordPage:self];
+    table = [[TableViewDelegate alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width * 0.1, [[UIScreen mainScreen] bounds].size.height * 0.1, [[UIScreen mainScreen] bounds].size.width * 0.8, [[UIScreen mainScreen] bounds].size.height * 0.8 - self.deleteButton.frame.size.height - 20) withRecordPage:self];
     [table.layer setBorderColor:[UIColor colorWithWhite:0.8 alpha:1.0].CGColor];
     [table.layer setBorderWidth:1.0];
     [table.layer setCornerRadius:5.0];
     [table setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5]];
     [self.view addSubview:table];
+    
+    self.deleteButton.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.5, table.frame.size.height + table.frame.origin.y + 20 + self.deleteButton.frame.size.height * 0.5);
+    self.deleteButton.layer.cornerRadius = 5;
+    self.deleteButton.layer.backgroundColor = [UIColor colorWithWhite:0.6 alpha:1.0].CGColor;
+}
+
+- (IBAction)clickDeleteRecord:(id)sender
+{
+    [Functions audioPlayerWithRetainObject:self playURL:URL_SOUND_CLICK volume:0.3 numberOfLoops:0];
+    
+    [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        [(UIButton *)sender setTransform:CGAffineTransformScale([(UIButton *)sender transform], 1.1, 1.1)];
+    } completion:^(BOOL finished) {
+        [(UIButton *)sender setTransform:CGAffineTransformMakeScale(1, 1)];
+        
+        [Functions alertTitle:@"삭제하시겠습니까?" message:nil buttons:@[@"확인",@"취소"] delegate:^(NSInteger buttonIndex) {
+            if (buttonIndex==0)
+            {
+                [Functions recordRemoveAll];
+                [table reloadData];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [table performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:0];
+                });
+            }
+        }];
+    }];
 }
 
 

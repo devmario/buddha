@@ -18,8 +18,6 @@
             <string>BMJUAOTF</string>
             <string>BMJUAOTF</string>
             <string>BMJUAOTF</string>
-            <string>BMJUAOTF</string>
-            <string>BMJUAOTF</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -31,7 +29,6 @@
                 <outlet property="buttonBGMVolumeUp" destination="apB-Xc-EhD" id="hRj-6k-L59"/>
                 <outlet property="buttonBirdBGM" destination="Yno-Jo-BdQ" id="Xey-jL-fB7"/>
                 <outlet property="buttonBugBGM" destination="r01-mW-PzK" id="XOl-Mq-rJF"/>
-                <outlet property="buttonDeleteRecord" destination="nsS-V7-m2a" id="wQk-9E-eIf"/>
                 <outlet property="buttonMusicBGM" destination="e0X-tv-FWV" id="LTa-u5-6wj"/>
                 <outlet property="buttonSpeedDown" destination="lzy-Ww-UUq" id="Pg7-FF-KtE"/>
                 <outlet property="buttonSpeedUp" destination="BJE-eq-GLl" id="HkK-Wb-upc"/>
@@ -47,7 +44,6 @@
                 <outlet property="cell3" destination="WgZ-6i-BL2" id="zRL-SK-p9w"/>
                 <outlet property="cell4" destination="ZHv-zz-GE2" id="imF-mC-VhP"/>
                 <outlet property="cell5" destination="d8V-fV-WB3" id="f7W-5w-7wo"/>
-                <outlet property="cell6" destination="hq6-RG-BXt" id="xc0-Z5-NZG"/>
                 <outlet property="labelBGMVolume" destination="Sp8-Mc-nOd" id="Lle-Eq-wau"/>
                 <outlet property="labelSpeed" destination="NVf-X1-1dY" id="wXt-qj-oxb"/>
                 <outlet property="labelVoiceVolume" destination="9pL-pl-t3L" id="WQ6-Ms-0NB"/>
@@ -65,7 +61,7 @@
                     <animations/>
                 </imageView>
                 <view contentMode="scaleToFill" id="CHb-vx-1te">
-                    <rect key="frame" x="19" y="22" width="422" height="220"/>
+                    <rect key="frame" x="19" y="22" width="422" height="182"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" id="Kvg-BJ-fNU">
@@ -352,36 +348,6 @@
                             </subviews>
                             <animations/>
                             <color key="backgroundColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.83137254900000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                        </view>
-                        <view contentMode="scaleToFill" id="hq6-RG-BXt">
-                            <rect key="frame" x="0.0" y="190" width="422" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기록 지우기" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZKS-TI-m6Z">
-                                    <rect key="frame" x="8" y="4" width="73" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <animations/>
-                                    <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="15"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="nsS-V7-m2a">
-                                    <rect key="frame" x="241" y="4" width="65" height="22"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <animations/>
-                                    <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="14"/>
-                                    <state key="normal" title="지우기">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="clickDeleteRecord:" destination="-1" eventType="touchUpInside" id="pnX-Wm-EQ3"/>
-                                        <action selector="clickVoiceType:" destination="-1" eventType="touchUpInside" id="TYL-W2-gcM"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <animations/>
-                            <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                         </view>
                     </subviews>
                     <animations/>

@@ -43,8 +43,6 @@
         [self.bt addTarget:self action:@selector(clickBT) forControlEvents:UIControlEventTouchUpInside];
         [self.bt addTarget:self action:@selector(cancelBT) forControlEvents:UIControlEventTouchUpOutside];
         [self.bt addTarget:self action:@selector(downBT) forControlEvents:UIControlEventTouchDown];
-        
-        
     }
     return self;
 }
@@ -87,6 +85,7 @@
                                             self.detailTextLabel.frame.origin.y,
                                             self.detailTextLabel.frame.size.width,
                                             self.detailTextLabel.frame.size.height);
+    self.textLabel.frame = CGRectMake(5.0, self.textLabel.frame.origin.y, self.textLabel.frame.size.width, self.textLabel.frame.size.height);
 }
 
 - (void)update:(id)data {
@@ -145,9 +144,11 @@
         self.record_page = p;
         self.delegate = self;
         self.dataSource = self;
+        [self setSeparatorInset:UIEdgeInsetsZero];
 	}
     return self;    
 }
+
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([tableView respondsToSelector:@selector(setSeparatorInset:)]) {
@@ -161,8 +162,23 @@
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
+    
+    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
+        [cell setPreservesSuperviewLayoutMargins:NO];
+    }
+    
+    
+    /***/
+    if([tableView respondsToSelector:@selector(setCellLayoutMarginsFollowReadableWidth:)])
+    {
+        tableView.cellLayoutMarginsFollowReadableWidth = NO;
+    }
 }
 
+- (UIEdgeInsets)layoutMargins
+{
+    return UIEdgeInsetsZero;
+}
 
 - (void)reloadData {
     self.data = [Functions recordGet];
@@ -193,6 +209,9 @@
     ((RecordCell*)cell).record_page = self.record_page;
     
     [(RecordCell*)cell update:[self.data objectAtIndex:indexPath.row]];
+    cell.layoutMargins = UIEdgeInsetsZero;
+    cell.separatorInset = UIEdgeInsetsZero;
+    cell.preservesSuperviewLayoutMargins = NO;
     return cell;
 }
 

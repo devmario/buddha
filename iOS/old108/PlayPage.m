@@ -245,8 +245,10 @@
                              numberOfLoops:0];
     self.bgView.image = [Contents playBgWithNumber:[currentCount intValue]+1];
     self.labelCount.text = [NSString stringWithFormat:@"%d배를 올립니다.", [currentCount intValue]+1];
-
-    [self performSelector:@selector(showTitlePageWithCount:) withObject:[NSNumber numberWithInt:[currentCount intValue]] afterDelay:introDuration];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self performSelector:@selector(showTitlePageWithCount) withObject:[NSNumber numberWithInt:[currentCount intValue]] afterDelay:introDuration];
+    });
 }
 
 - (void)showTitlePageWithCount:(NSNumber*)currentCount
@@ -285,7 +287,9 @@
     self.labelSubtitle.attributedText = attributedString;
 
     
-    [self performSelector:@selector(showDelayViewWithCount:) withObject:[NSNumber numberWithInt:[currentCount intValue]+1] afterDelay:playDuration+delayDuration];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self performSelector:@selector(showDelayViewWithCount:) withObject:[NSNumber numberWithInt:[currentCount intValue]+1] afterDelay:playDuration+delayDuration];
+    });
 }
 
 

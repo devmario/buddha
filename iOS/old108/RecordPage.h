@@ -15,6 +15,9 @@
     TableViewDelegate *table;
 }
 
-@property (nonatomic, retain) IBOutlet UIImageView *bg;
+@property (nonatomic, retain) IBOutlet UIImageView  *bg;
+@property (nonatomic, retain) IBOutlet UIButton     *deleteButton;
+
+- (IBAction)clickDeleteRecord:(id)sender;
 
 @end

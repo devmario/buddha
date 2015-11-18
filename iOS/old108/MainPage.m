@@ -42,6 +42,21 @@ id _main;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     _main = self;
     if (self) {
+        // iOS 7:
+        [[UITableView appearance] setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+        [[UITableView appearance] setSeparatorInset:UIEdgeInsetsZero];
+        
+        [[UITableViewCell appearance] setSeparatorInset:UIEdgeInsetsZero];
+        
+        // iOS 8:
+        if ([UITableView instancesRespondToSelector:@selector(setLayoutMargins:)]) {
+            
+            [[UITableView appearance] setLayoutMargins:UIEdgeInsetsZero];
+            [[UITableViewCell appearance] setLayoutMargins:UIEdgeInsetsZero];
+            [[UITableViewCell appearance] setPreservesSuperviewLayoutMargins:NO];
+            
+        }
+        
         self.view.frame = [[UIScreen mainScreen] bounds];
         img.frame = [[UIScreen mainScreen] bounds];
         img.contentMode = UIViewContentModeScaleAspectFill;

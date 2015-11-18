@@ -39,7 +39,6 @@
 @synthesize buttonBGMVolumeDown;
 @synthesize labelBGMVolume;
 
-@synthesize buttonDeleteRecord;
 @synthesize bg;
 @synthesize bg2;
 @synthesize bg3;
@@ -71,7 +70,6 @@
     self.buttonBGMVolumeDown=nil;
     self.labelBGMVolume=nil;
     
-    self.buttonDeleteRecord=nil;
     
     [voiceButton release];
     
@@ -135,7 +133,6 @@
         self.cell3.layer.cornerRadius = 5;
         self.cell4.layer.cornerRadius = 5;
         self.cell5.layer.cornerRadius = 5;
-        self.cell6.layer.cornerRadius = 5;
         // Custom initialization
         
     }
@@ -169,8 +166,6 @@
     [self customNavigationBarWithTitle:@"설정" backButtonSelector:@selector(backClick:)];
     [self displaySettingValue];
     
-    buttonDeleteRecord.layer.backgroundColor = [UIColor colorWithWhite:0.6 alpha:1.0].CGColor;
-    buttonDeleteRecord.layer.cornerRadius = 5;
     
     buttonBirdBGM.contentMode = UIViewContentModeScaleAspectFit;
     buttonBirdBGM.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);

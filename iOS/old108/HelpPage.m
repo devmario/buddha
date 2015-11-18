@@ -76,9 +76,11 @@
         viewHowToPlay.layer.backgroundColor = [UIColor colorWithWhite:0.9 alpha:0.7].CGColor;
         viewHowToPlay.layer.cornerRadius = 5;
         
-        float s = viewHowToPlay.frame.size.height - 20 - 20 - howbt1.frame.size.height;
+        float s = viewHowToPlay.frame.size.height - 50 - howbt1.frame.size.height;
+        if(s > 225)
+            s = 225;
         imageViewPlay.frame = CGRectMake(0, 0, s, s);
-        imageViewPlay.center = CGPointMake(imageViewPlay.frame.size.width * 0.5 + 20, imageViewPlay.frame.size.height * 0.5 + 20);
+        imageViewPlay.center = CGPointMake(imageViewPlay.frame.size.width * 0.5 + 20, (viewHowToPlay.frame.size.height - 50 - howbt1.frame.size.height) * 0.5 + 20);
         imageViewPlay.contentMode = UIViewContentModeScaleAspectFill;
         imageViewPlay.clipsToBounds = YES;
         imageViewPlay.layer.cornerRadius = 5;
@@ -95,15 +97,15 @@
         howbt1.clipsToBounds = YES;
         howbt2.clipsToBounds = YES;
         howbt3.clipsToBounds = YES;
-        howbt1.center = CGPointMake(imageViewPlay.frame.origin.x + howbt1.frame.size.width * 0.5, viewHowToPlay.frame.size.height - 10 - howbt1.frame.size.height * 0.5);
+        howbt1.center = CGPointMake(imageViewPlay.frame.origin.x + howbt1.frame.size.width * 0.5, imageViewPlay.frame.origin.y + imageViewPlay.frame.size.height + 10 + howbt1.frame.size.height * 0.5);
         howbt3.center = CGPointMake(imageViewPlay.frame.origin.x + imageViewPlay.frame.size.width - howbt3.frame.size.width * 0.5, howbt1.center.y);
         howbt2.center = CGPointMake(howbt1.center.x + (howbt3.center.x - howbt1.center.x) * 0.5, howbt1.center.y);
         
-        help1.frame = CGRectMake(viewUsage.frame.size.width * 0, 10, viewUsage.frame.size.width, viewUsage.frame.size.height - pageControlUsage.frame.size.height - 10);
-        help2.frame = CGRectMake(viewUsage.frame.size.width * 1, 10, viewUsage.frame.size.width, viewUsage.frame.size.height - pageControlUsage.frame.size.height - 10);
-        help3.frame = CGRectMake(viewUsage.frame.size.width * 2, 10, viewUsage.frame.size.width, viewUsage.frame.size.height - pageControlUsage.frame.size.height - 10);
-        help4.frame = CGRectMake(viewUsage.frame.size.width * 3, 10, viewUsage.frame.size.width, viewUsage.frame.size.height - pageControlUsage.frame.size.height - 10);
-        help5.frame = CGRectMake(viewUsage.frame.size.width * 4, 10, viewUsage.frame.size.width, viewUsage.frame.size.height - pageControlUsage.frame.size.height - 10);
+        help1.frame = CGRectMake(viewUsage.frame.size.width * 0 + 60, 20, viewUsage.frame.size.width - 120, viewUsage.frame.size.height - pageControlUsage.frame.size.height - 20);
+        help2.frame = CGRectMake(viewUsage.frame.size.width * 1 + 60, 20, viewUsage.frame.size.width - 120, viewUsage.frame.size.height - pageControlUsage.frame.size.height - 20);
+        help3.frame = CGRectMake(viewUsage.frame.size.width * 2 + 60, 20, viewUsage.frame.size.width - 120, viewUsage.frame.size.height - pageControlUsage.frame.size.height - 20);
+        help4.frame = CGRectMake(viewUsage.frame.size.width * 3 + 60, 20, viewUsage.frame.size.width - 120, viewUsage.frame.size.height - pageControlUsage.frame.size.height - 20);
+        help5.frame = CGRectMake(viewUsage.frame.size.width * 4 + 60, 20, viewUsage.frame.size.width - 120, viewUsage.frame.size.height - pageControlUsage.frame.size.height - 20);
         help1.contentMode = help2.contentMode = help3.contentMode = help4.contentMode = help5.contentMode = UIViewContentModeScaleAspectFit;
         
         [self helpIMGshadowSetup:help1];
@@ -327,7 +329,9 @@
     
     self.textViewPlayInfo.layer.cornerRadius = 5;
     
-    [textViewHowToPlay performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:0];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [textViewHowToPlay performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:0];
+    });
 }
 
 - (void)preparePlay
@@ -486,7 +490,9 @@
     
     [self.imageViewPlay startAnimating];
     
-    [self performSelector:@selector(completeAnimationImage) withObject:nil afterDelay:self.imageViewPlay.animationDuration];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self performSelector:@selector(completeAnimationImage) withObject:nil afterDelay:self.imageViewPlay.animationDuration];
+    });
 }
 
 

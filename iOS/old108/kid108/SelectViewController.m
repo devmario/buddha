@@ -153,7 +153,9 @@ const float radius_SELECT = 5;
     }
     [table reloadData];
     [table setContentOffset:CGPointZero animated:YES];
-    [table performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:0];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [table performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:0];
+    });
 }
 
 
@@ -178,6 +180,11 @@ const float radius_SELECT = 5;
     
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
         [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+    /***/
+    if([tableView respondsToSelector:@selector(setCellLayoutMarginsFollowReadableWidth:)])
+    {
+        tableView.cellLayoutMarginsFollowReadableWidth = NO;
     }
 }
 
