@@ -486,12 +486,13 @@
     
     self.imageViewPlay.animationImages = imageArray;
     self.imageViewPlay.animationRepeatCount = 1;
+    float frameSecond = 0.2;
     self.imageViewPlay.animationDuration = [imageArray count]*0.2;
     
     [self.imageViewPlay startAnimating];
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self performSelector:@selector(completeAnimationImage) withObject:nil afterDelay:self.imageViewPlay.animationDuration];
+        [self performSelector:@selector(completeAnimationImage) withObject:nil afterDelay:self.imageViewPlay.animationDuration - frameSecond];
     });
 }
 

@@ -278,11 +278,11 @@
     
     self.bgViewForAnimation.image = [Contents playBgWithNumber:[currentCount intValue]+1];
     self.bgViewForAnimation.alpha = 0;
-    [self.bgViewForAnimation setTransform:CGAffineTransformScale(self.labelSubtitle.transform, 1.3, 1.3)];
+    [self.bgViewForAnimation setTransform:CGAffineTransformScale(CGAffineTransformIdentity, 1.3, 1.3)];
     [UIView animateWithDuration:3 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         self.bgViewForAnimation.alpha = 1;
         [self.bgViewForAnimation setTransform:CGAffineTransformIdentity];
-        [self.labelSubtitle setTransform:CGAffineTransformScale(self.labelSubtitle.transform, 1.3, 1.3)];
+        [self.labelSubtitle setTransform:CGAffineTransformScale(CGAffineTransformIdentity, 1.3, 1.3)];
         self.labelSubtitle.alpha = 0;
     } completion:^(BOOL finished) {
     }];
@@ -301,7 +301,7 @@
 {
     NSLog(@"showTitlePageWithCount %@", [currentCount description]);
     
-    [self.labelSubtitle setTransform:CGAffineTransformScale(self.labelSubtitle.transform, 1.3, 1.3)];
+    [self.labelSubtitle setTransform:CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0)];
     self.labelSubtitle.alpha = 0;
     
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:[Contents subtitleWithCount:[currentCount intValue]+1]];
@@ -316,6 +316,7 @@
     
     labelSubtitle.center = CGPointMake(bgView.frame.size.width * 0.5, bgView.frame.size.height - 20 - self.labelSubtitle.frame.size.height * 0.5);
     
+    [self.labelSubtitle setTransform:CGAffineTransformScale(CGAffineTransformIdentity, 1.3, 1.3)];
     
     [UIView animateWithDuration:3 delay:2 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         [self.labelSubtitle setTransform:CGAffineTransformIdentity];
