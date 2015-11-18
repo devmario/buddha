@@ -56,6 +56,24 @@
         self.view.frame = [[UIScreen mainScreen] bounds];
         bg.frame = [[UIScreen mainScreen] bounds];
         
+        float bw = 79 * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1);
+        float bh = 29 * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1);
+        float margin = 10 * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1);
+        
+        menu.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, margin + bh);
+        
+        float _x =  menu.frame.size.width;
+        _x -= margin + bw;
+        float _y = margin;
+        buttonUsage.bounds = buttonUsage.frame = CGRectMake(_x, _y, bw, bh);
+        buttonUsage.titleLabel.font = FONT_GLOBAL(14 * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1));
+        _x -= buttonUsage.frame.size.width + margin;
+        buttonHowToPlay.bounds = buttonHowToPlay.frame = CGRectMake(_x, _y, bw, bh);
+        buttonHowToPlay.titleLabel.font = FONT_GLOBAL(14 * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1));
+        _x -= buttonHowToPlay.frame.size.width + margin;
+        buttonAppInfo.bounds = buttonAppInfo.frame = CGRectMake(_x, _y, bw, bh);
+        buttonAppInfo.titleLabel.font = FONT_GLOBAL(14 * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1));
+        
         help1.frame = [[UIScreen mainScreen] bounds];
         help2.frame = [[UIScreen mainScreen] bounds];
         help3.frame = [[UIScreen mainScreen] bounds];
@@ -123,7 +141,6 @@
         pageControlUsage.currentPageIndicatorTintColor = [UIColor blackColor];
         pageControlUsage.center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.5, scrollViewUsage.frame.size.height - pageControlUsage.frame.size.height * 0.5);
         
-        menu.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width - menu.frame.size.width, 0, menu.frame.size.width, menu.frame.size.height);
         [menu setBackgroundColor:[UIColor clearColor]];
         
         [self clickAppInfo:nil];

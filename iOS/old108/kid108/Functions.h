@@ -274,13 +274,10 @@ typedef void (^MediaPickerBlock)(MPMediaItemCollection *mediaItemCollection);
 }
 - (void)customNavigationBarWithTitle:(NSString *)title backButtonSelector:(SEL)selector;
 {
-    UIImageView *navigationBar = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 480 -350, 42)];
+    float margin = 10 * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1);
+    UIImageView *navigationBar = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, margin + 30 * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1), 50 * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1))];
     [navigationBar setUserInteractionEnabled:YES];
     
-    UIImageView *navigationBarBg = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 480 -350, 42)];
-    [navigationBarBg setImage:IMAGE(@"navigationBarBg")];
-    [navigationBar addSubview:navigationBarBg];
-    [navigationBarBg release];
     
     if (title && false)
     {
@@ -295,9 +292,9 @@ typedef void (^MediaPickerBlock)(MPMediaItemCollection *mediaItemCollection);
         [titleLabel release];
     }
     
-    UIButton *backButton = [[UIButton alloc]initWithFrame:CGRectMake(12/2, 14/2, 60/2, 58/2)];
+    UIButton *backButton = [[UIButton alloc]initWithFrame:CGRectMake(margin, margin, 30 * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1), 30 * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1))];
     [backButton setTitle:@"X" forState:UIControlStateNormal];
-    [backButton.titleLabel setFont:FONT_GLOBAL(20)];
+    [backButton.titleLabel setFont:FONT_GLOBAL(20 * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1))];
     backButton.layer.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0].CGColor;
     backButton.layer.cornerRadius = 5;
     [backButton setTitleColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1.0] forState:UIControlStateNormal];

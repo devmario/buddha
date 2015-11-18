@@ -171,9 +171,9 @@
     }
 
     //[self customNavigationBarWithTitle:@"절하기" backButtonSelector:@selector(backClick)];
-    UIButton *pauseButton = [[UIButton alloc] initWithFrame:CGRectMake(12/2, 14/2, 60/2, 58/2)];
+    UIButton *pauseButton = [[UIButton alloc] initWithFrame:CGRectMake(10 * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1), 10 * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1), 30 * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1), 30 * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1))];
     [pauseButton setTitle:@"||" forState:UIControlStateNormal];
-    [pauseButton.titleLabel setFont:FONT_GLOBAL(20)];
+    [pauseButton.titleLabel setFont:FONT_GLOBAL(20 * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1))];
     pauseButton.layer.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0].CGColor;
     pauseButton.layer.cornerRadius = 5;
     [pauseButton setTitleColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1.0] forState:UIControlStateNormal];
