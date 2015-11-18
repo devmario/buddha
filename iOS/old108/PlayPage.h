@@ -28,9 +28,6 @@
 @property (nonatomic, retain) IBOutlet UIView   *viewClosePopUp;
 - (IBAction)clickClose:(id)sender;
 - (IBAction)clickContinue:(id)sender;
-//
-@property (nonatomic, retain) IBOutlet UIView   *viewPlayDelay;
-@property (nonatomic, retain) IBOutlet UILabel  *labelCount;
 
 //
 @property (nonatomic, retain) IBOutlet UIView   *viewPlaying;

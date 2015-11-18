@@ -34,6 +34,7 @@
 		66C20C1116372A3100C11B37 /* RecordPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 668121E5163702AA001531C4 /* RecordPage.xib */; };
 		66C20C1216372A3100C11B37 /* HelpPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 668121E8163702AA001531C4 /* HelpPage.xib */; };
 		66E13E2E16382AB80014FA53 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E13E2D16382AB80014FA53 /* CustomButton.m */; };
+		BC27FF5E1BFC473C00D647EC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC27FF5D1BFC473C00D647EC /* QuartzCore.framework */; };
 		BC57CBC51BE27652007AA326 /* SelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC57CBC31BE27652007AA326 /* SelectViewController.m */; };
 		BC57CBC61BE27652007AA326 /* SelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC57CBC41BE27652007AA326 /* SelectViewController.xib */; };
 		BC919B7D1BF4F191007884E3 /* 001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BC9198E31BF4F18F007884E3 /* 001.jpg */; };
@@ -732,6 +733,7 @@
 		6681220016371C7F001531C4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		66E13E2C16382AB80014FA53 /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
 		66E13E2D16382AB80014FA53 /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
+		BC27FF5D1BFC473C00D647EC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BC57CBC21BE27652007AA326 /* SelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectViewController.h; sourceTree = "<group>"; };
 		BC57CBC31BE27652007AA326 /* SelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectViewController.m; sourceTree = "<group>"; };
 		BC57CBC41BE27652007AA326 /* SelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectViewController.xib; sourceTree = "<group>"; };
@@ -1395,6 +1397,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC27FF5E1BFC473C00D647EC /* QuartzCore.framework in Frameworks */,
 				6681220116371C7F001531C4 /* AVFoundation.framework in Frameworks */,
 				668121FF16371C7A001531C4 /* AudioToolbox.framework in Frameworks */,
 				668121FD16371C71001531C4 /* MediaPlayer.framework in Frameworks */,
@@ -1429,6 +1432,7 @@
 		668121AF1637026F001531C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BC27FF5D1BFC473C00D647EC /* QuartzCore.framework */,
 				6681220016371C7F001531C4 /* AVFoundation.framework */,
 				668121FE16371C7A001531C4 /* AudioToolbox.framework */,
 				668121FC16371C71001531C4 /* MediaPlayer.framework */,
