@@ -234,7 +234,7 @@
         self.textViewAppInfo.layer.backgroundColor = [UIColor colorWithWhite:0.9 alpha:0.7].CGColor;
         self.textViewAppInfo.layer.cornerRadius = 5;
         
-        UIFont *font = FONT_GLOBAL(16);
+        UIFont *font = FONT_GLOBAL(16 * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1));
         NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
         NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:[Contents info] attributes:attrsDictionary];
         NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -321,7 +321,7 @@
     paragraphStyle.lineSpacing = 20.0f;
     paragraphStyle.alignment = NSTextAlignmentLeft;
     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
-    [attributedString addAttribute:NSFontAttributeName value:FONT_GLOBAL(14) range:NSMakeRange(0, [Contents sequenceText:currentSequence].length)];
+    [attributedString addAttribute:NSFontAttributeName value:FONT_GLOBAL(14 * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1)) range:NSMakeRange(0, [Contents sequenceText:currentSequence].length)];
     [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithWhite:0.4 alpha:1.0] range:NSMakeRange(0, [Contents sequenceText:currentSequence].length)];
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [Contents sequenceText:currentSequence].length)];
     

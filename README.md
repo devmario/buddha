@@ -81,6 +81,10 @@
 
 
 ### 1차 수정사항
+ipad icon
+subtitle delay
+how to page
+
 play title 바뀔때만 animation
 play subtitle sync
 유니버설

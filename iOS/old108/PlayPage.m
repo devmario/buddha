@@ -147,8 +147,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.labelTitle.font = FONT_GLOBAL([[[[Contents jsonData] objectForKey:@"play_title"] objectForKey:@"size"] intValue]);
-    self.labelSubtitle.font = FONT_GLOBAL([[[[Contents jsonData] objectForKey:@"play_subtitle"] objectForKey:@"size"] intValue]);
+    
+    self.labelTitle.font = FONT_GLOBAL([[[[Contents jsonData] objectForKey:@"play_title"] objectForKey:@"size"] intValue] * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1));
+    self.labelSubtitle.font = FONT_GLOBAL([[[[Contents jsonData] objectForKey:@"play_subtitle"] objectForKey:@"size"] intValue] * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 2 : 1));
     //[self.labelTitle setTextColor:[UIColor colorWithWhite:0.2 alpha:1.0]];
     [self.labelTitle.layer setShadowColor:[UIColor whiteColor].CGColor];
     [self.labelTitle.layer setShadowOffset:CGSizeMake(0, 0)];
